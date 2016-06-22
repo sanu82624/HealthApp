@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" ng-app="cmaManagementApp" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Cognitive Medical Assistant - Management App</title>
+
+   <script src="bower_components/angular/angular.min.js"></script>
+   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+   <script src="bower_components/angular-route/angular-route.min.js"></script>
+   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+   <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+   
+   <script src="app.js"></script>
+   <!--<script src="appjs/services/config/nativeutil.js"></script>-->
+   <script src="appjs/controllers/monitoringGroupModule/monitoringGroupController.js"></script>
+   <script src="appjs/controllers/monitoringGroupModule/monitorAllVendorController.js"></script>
+   <script src="appjs/controllers/monitoringGroupModule/monitorVendorDetailsController.js"></script>
+   <script src="appjs/controllers/groundVendorModule/vendorRequestController.js"></script>
+   <script src="appjs/controllers/groundVendorModule/groundVendorLoginController.js"></script>
+   <script src="appjs/controllers/groundVendorModule/vendorRegistrationController.js"></script>
+   <script src="appjs/controllers/groundVendorModule/vendorProfileController.js"></script>
+   <script src="appjs/controllers/serviceManagementModule/serviceManagementController.js"></script>
+   <script src="appjs/controllers/userModule/userHomeController.js"></script>
+   <script src="appjs/controllers/userModule/userLoginController.js"></script>
+   <script src="appjs/controllers/appHomeController.js"></script>
+   <script src="appjs/services/config/routeconfig.js"></script>
+   <script src="appjs/services/utility/commonUtility.js"></script>
+   <script src="appjs/controllers/userModule/userRequestController.js"></script>
+   <script src="appjs/controllers/userModule/userRegistrationController.js"></script>
+   <script src="appjs/controllers/userModule/userProfileController.js"></script>
+   <script src="appjs/services/config/dataLayer.js"></script>
+   <script src="appjs/services/config/appconfig.js"></script>
+   <script src="appjs/services/config/apprun.js"></script>
+   <script src="appjs/services/config/routeconfig.js"></script>
+   <script src="appjs/services/constant/defaultValues.js"></script>
+   <script src="appjs/services/constant/relativeUrls.js"></script>
+   <script src="appjs/services/constant/messages.js"></script>
+   <script src="appjs/services/constant/validationPattern.js"></script>
+   <script src="appjs/services/utility/commonUtility.js"></script>
+   <script src="appjs/services/data/userData.js"></script>
+   <script src="appjs/services/data/vendorData.js"></script>
+   <script src="appjs/services/data/monitorData.js"></script>
+   <script src="appjs/services/business/userBusiness.js"></script>
+   <script src="appjs/services/business/vendorBusiness.js"></script>
+   <script src="appjs/services/business/monitorBusiness.js"></script>
+   
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link href="css/app.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="well well-header">
+        <div class="row">
+            <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2">
+                <button class="btn btn-sq-sm btn-primary" >
+                    <span class="glyphicon glyphicon-list" style="font-size: 20px"></span>
+                </button>
+            </div>
+            <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
+                <span>&nbsp;</span>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 well-header">
+                <h5>Cognitive Medical Assistant</h5>
+            </div>
+            <div style="float:right;">Welcome <span>Guest</span><span></span></div>
+        </div>
+    </div>
+ 
+    <div style="padding-top:1px;" ng-view></div>
+</body>
+</html>

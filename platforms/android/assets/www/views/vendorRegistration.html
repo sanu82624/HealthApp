@@ -1,0 +1,75 @@
+<form name="vendorRegForm" novalidate="novalidate" id="vendorRegForm">
+<div class="container">
+	<div class="page-title">Vendor Registration</div>
+    <p class="form-group">
+		<label>Email/Login Id*</label>
+		<span class="error-msg-span" 
+			ng-show="vendorRegForm.$submitted && (vendorRegForm.txtEmail.$error.pattern || 
+					vendorRegForm.txtEmail.$error.required)">{{vm.emailMsg}}</span>
+		<input type="text" id="txtEmail" name="txtEmail" ng-pattern="vm.validEmail" 
+			 ng-model="vm.email" class="form-control" required>
+	</p>
+	<p class="form-group">
+		<label>Password*</label>
+		<span class="error-msg-span" 
+			ng-show="vendorRegForm.$submitted && 
+					vendorRegForm.txtPass.$error.required">{{vm.passMsg}}</span>
+		<input type="password" id="txtPass" name="txtPass" 
+			ng-model="vm.pass" class="form-control" required>
+	</p>
+	<p class="form-group">
+		<label>Name*</label>
+		<span class="error-msg-span" 
+			ng-show="vendorRegForm.$submitted && (vendorRegForm.txtName.$error.pattern || 
+					vendorRegForm.txtName.$error.required)">Enter valid name!</span>
+		<input type="text" id="txtName" name="txtName" ng-pattern="vm.validName" 
+			ng-model="vm.name" class="form-control" required>
+	</p>
+	<p class="form-group">
+		<label>Service Type*</label>
+		<span class="error-msg-span" 
+			ng-show="vendorRegForm.$submitted &&  
+					userRegForm.txtType.$error.required">Select service type!</span>
+		<select ng-model="vm.type" id="txtType" name="txtType" class="form-control" required>
+			<option ng-repeat="type in serviceTypes" value="{{type.code}}">{{type.desc}}</option>
+		</select>
+	</p>
+	<p class="form-group">
+		<label>Address</label>
+		<input type="text" ng-model="vm.address" class="form-control">
+	</p>
+	<p class="form-group">
+		<label>Pin Code</label>
+		<input type="text" ng-model="vm.pin" class="form-control">
+	</p>
+	<p class="form-group">
+		<label>Phone*</label>
+		<span class="error-msg-span" 
+			ng-show="vendorRegForm.$submitted && (vendorRegForm.txtPhone.$error.pattern || 
+					vendorRegForm.txtPhone.$error.required)">Enter valid phone!</span>
+		<input type="text" id="txtPhone" name="txtPhone" ng-pattern="vm.validPhone" 
+			class="form-control" ng-model="vm.phone" required>
+	</p>
+	<p class="form-group">
+		<label>Description</label>
+		<input type="text" id="txtDesc" name="txtDesc"
+			class="form-control" ng-model="vm.desc">
+	</p>
+	<div class="row" style="text-align: center;">
+		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+			<p >
+				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onSaveClick();" type="submit">
+					<h5>Submit</h5>
+				</button>
+			</p>
+		</div>
+		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+			<p >
+				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onCancelClick();" type="button">
+					<h5>Cancel</h5>
+				</button>
+			</p>
+		</div>
+	</div>
+</div><!-- Container -->
+</form>

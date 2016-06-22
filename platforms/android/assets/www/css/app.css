@@ -1,0 +1,101 @@
+.btn-sq-lg {
+  width: 150px !important;
+  height: 150px !important;
+  word-wrap: break-word; 
+}
+
+.btn-sq {
+  width: 125px !important;
+  height: 125px !important;
+  font-size: 10px;
+  word-wrap: break-word;
+}
+
+.btn-sq-sm {
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 10px;
+  word-wrap: break-word;
+}
+
+.btn-rec-sm {
+  width: 100px !important;
+  height: 50px !important;
+  font-size: 10px;
+  word-wrap: break-word;
+}
+
+.btn-sq-xs {
+  width: 25px !important;
+  height: 25px !important;
+  padding:2px;
+  word-wrap: break-word;
+}
+
+.btn{
+	background: rgb(59,103,158); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(59,103,158,1) 0%, rgba(32,124,202,1) 49%, rgba(32,124,202,1) 49%, rgba(43,136,217,1) 50%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(59,103,158,1) 0%,rgba(32,124,202,1) 49%,rgba(32,124,202,1) 49%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(59,103,158,1) 0%,rgba(32,124,202,1) 49%,rgba(32,124,202,1) 49%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+.info-box{
+	background: rgb(212,228,239); /* Old browsers */
+	background: -moz-linear-gradient(left,  rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  rgba(212,228,239,1) 0%,rgba(134,174,204,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  rgba(212,228,239,1) 0%,rgba(134,174,204,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc',GradientType=1 ); /* IE6-9 */
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.list-box{
+	width: 98%;
+}
+
+.page-title{
+	margin: -1em 0 0.5em 0;
+	font-weight: 500;
+	font-family: sans-serif;
+	position: relative;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+	font-size: 14px;
+	line-height: 30px;
+	color: #355681;
+	text-transform: uppercase;
+	border-bottom: 1px solid rgba(53,86,129, 0.3);
+}
+
+.glyphicon {
+    font-size: 30px   ;
+}
+.well-header{
+  text-align: center !important;
+  background-color: #00004d ;
+  color: white;
+}
+.badge-danger{
+  background-color: #FF0000  !important;
+  color: white !important;
+  font-weight: 2.0em !important; 
+}
+
+.error-msg-span{
+	float: right; 
+	color: red; 
+	font-size: 8pt;
+}
+
+.btn-delete-row{
+	display:inline; 
+	cursor:pointer; 
+	padding-right:5px; 
+	color:red;
+}
+
+body{
+  background-color:  #FFFFFF;
+}
