@@ -15,11 +15,11 @@ angular.module('routerConfigModule', ['ngRoute'])
             }).
             when('/groundVendorHome',{
                 templateUrl: 'views/groundVendorLanding.html',
-                controller: 'vendorRequestController as vm'
+                controller: 'vendorLandingController as vm'
             }).
 			when('/vendorRaisedReq',{
 					templateUrl: 'views/vendorRaisedRequest.html',
-					controller: 'groundVendorController as vm'
+					controller: 'vendorRequestController as vm'
 			}).
 			when('/monitoringGroupHome',{
 					templateUrl: 'views/monitoringGroupLanding.html',

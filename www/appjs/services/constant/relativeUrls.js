@@ -12,6 +12,7 @@ angular.module('cmaManagementApp')
         VENDOR_LOGIN_VALIDATE: "vendor/service/vendor/validate",
         VENDOR_ASSIGNED_REQUEST: "vendor/service/requests/byvendor/",
         VENDOR_DETAILS: "vendor/service/vendor/",
+        VENDOR_TICKET_STATUS_CHANGED: "/vendor/service/requests/changestatus",
 
         MONITOR_ALL_VENDORS: "vendor/service/vendors/"
   });

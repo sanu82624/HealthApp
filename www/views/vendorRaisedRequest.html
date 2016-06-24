@@ -1,20 +1,27 @@
-<div class="container" ng-init="vm.onloadMyRequests();">
-	<div>
-		<div class="info-box" ng-repeat="request in vm.requests | orderBy: '-createTs'">
-			<p>
-				<span>Id: {{request.assignmentId.replace('TICKET-','')}}</span></br>
-				<span>Created On: {{request.createTs}}</span></br>
-				<span>Status: {{request.status}}</span></br>
-			</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBacktoUserHome();">
-					<h5>Back</h5>
-				</button>
-			</p>
-		</div>
-	</div>
+<div class="container">
+    <div class="page-title">Vendor - Assigned Tickets</div>
+    <div>
+        <div class="info-box" ng-repeat="request in vm.requests | orderBy: '-createTs'">
+            <p>
+                <span>Id: {{request.assignmentId.replace('TICKET-','')}}</span></br>
+                <span>Created On: {{request.createTs | date:'yyyy-MM-dd HH:mm:ss Z'}}</span></br>
+                <span>Status: {{request.status}}</span></br>
+            </p>
+            <div class="ticket-action">
+                <div class="accept-vend" 
+                    ng-click="vm.onTicketStatusClick(1, request.assignmentId, request.vendorId);">Accept</div>
+                <div class="decline-vend" 
+                    ng-click="vm.onTicketStatusClick(0, request.assignmentId, request.vendorId);">Decline</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+            <p>
+                <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();">
+                    <h5>Back</h5>
+                </button>
+            </p>
+        </div>
+    </div>
 </div>

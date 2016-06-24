@@ -1,6 +1,6 @@
 
 angular.module('cmaManagementApp')
-  .service('dataLayer', function ($http, defaultValues) {
+  .service('dataLayer', function ($http, defaultValues, headerTypes) {
     
     this.getAsync = function(relativeUrl){
         
@@ -9,37 +9,34 @@ angular.module('cmaManagementApp')
         return $http({
                         method: 'GET', 
                         url: urlString,
-                        headers: generateConfig()
+                        headers: generateConfig(headerTypes.GENERAL)
                     });
     };
     
-    this.postAsync = function(relativeUrl, postData){
+    this.postAsync = function(relativeUrl, postData, headType){
         
         var urlString = buildUrl(relativeUrl);
-        
+        var header = generateConfig(headerTypes.GENERAL);
+        if(angular.isDefined(headType) && headType !== null){
+            header = generateConfig(headType);
+        }
         var httpPromise = null;
         var requestObj = {};
-        requestObj = {
-                        method: 'POST', 
-                        url: urlString,
-                        data: postData,
-                        headers: generateConfig()
-                    };
-        httpPromise = $http(requestObj);
-        return httpPromise;
-    };
-	
-	this.postWithUrlAsync = function(relativeUrl){
+        if(postData === null){
+            requestObj = {
+                method: 'POST', 
+                url: urlString,
+                headers: header
+            };
+        } else{
+            requestObj = {
+                method: 'POST', 
+                url: urlString,
+                data: postData,
+                headers: header
+            };
+        }
         
-        var urlString = buildUrl(relativeUrl);
-        
-        var httpPromise = null;
-        var requestObj = {};
-        requestObj = {
-                        method: 'POST', 
-                        url: urlString,
-						headers: {"content-type": "application/json"}
-                    };
         httpPromise = $http(requestObj);
         return httpPromise;
     };
@@ -53,7 +50,7 @@ angular.module('cmaManagementApp')
                         method: 'PUT', 
                         url: urlString,
                         data: angular.toJson(putData),
-                        headers: generateConfig()
+                        headers: generateConfig(headerTypes.GENERAL)
                     };
         httpPromise = $http(requestObj);
         return httpPromise;
@@ -62,7 +59,7 @@ angular.module('cmaManagementApp')
     this.deleteAsync = function(relativeUrl){
         
         var url = buildUrl(relativeUrl);
-        return $http.delete(url, generateConfig());
+        return $http.delete(url, generateConfig(headerTypes.GENERAL));
     };
     
     function buildUrl(relativeUrl){
@@ -70,7 +67,16 @@ angular.module('cmaManagementApp')
         return defaultValues.SERVICE_URL + relativeUrl;
     }
     
-    function generateConfig() {
+    function generateConfig(type) {
+        if(type === headerTypes.CONTENT_ONLY){
+            return {
+                "content-type": "application/json"
+            };
+        }else if(type === headerTypes.ENCODED_CONTENT){
+            return {
+                "Content-Type": "application/x-www-form-urlencoded"
+            };
+        }
         
         return {
             "authorization": "Basic testAuth",

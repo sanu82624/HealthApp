@@ -74,8 +74,26 @@
 }
 .well-header{
     text-align: center !important;
-    background-color: #00004d ;
+    background-image: url("/images/4.jpg");
     color: white;
+    height: 98px;
+    width: 100%;
+}
+.header-guest-info{
+    float:right; 
+    font-size: 0.7em; 
+    padding-top: 12px;
+    font-style: italic;
+}
+.header-text-main{
+    font-weight: bold; 
+    font-family: verdana; 
+    font-size: 1.1em; 
+    width: 80%; 
+    margin-top: -15px; 
+    padding-left: 105px;
+    text-transform: capitalize; 
+    text-shadow: 2px 2px 2px #CCCCCC;
 }
 .fixed-header{
     position: fixed; 
@@ -98,6 +116,28 @@
 	cursor:pointer; 
 	padding-right:5px; 
 	color:red;
+}
+
+.accept-vend{
+    color: green; 
+    margin-left: 20%;
+    display:inline; 
+    width:50%;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.decline-vend{
+    color: red; 
+    float: right; 
+    text-align: center;
+    display:inline; 
+    width:50%;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.ticket-action{
+    display:block; 
+    width:100%;
 }
 
 body{

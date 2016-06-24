@@ -22,6 +22,7 @@
    <script src="appjs/controllers/groundVendorModule/groundVendorLoginController.js"></script>
    <script src="appjs/controllers/groundVendorModule/vendorRegistrationController.js"></script>
    <script src="appjs/controllers/groundVendorModule/vendorProfileController.js"></script>
+   <script src="appjs/controllers/groundVendorModule/vendorLandingController.js"></script>
    <script src="appjs/controllers/serviceManagementModule/serviceManagementController.js"></script>
    <script src="appjs/controllers/userModule/userHomeController.js"></script>
    <script src="appjs/controllers/userModule/userLoginController.js"></script>
@@ -39,6 +40,7 @@
    <script src="appjs/services/constant/relativeUrls.js"></script>
    <script src="appjs/services/constant/messages.js"></script>
    <script src="appjs/services/constant/validationPattern.js"></script>
+   <script src="appjs/services/constant/headerTypes.js"></script>
    <script src="appjs/services/utility/commonUtility.js"></script>
    <script src="appjs/services/data/userData.js"></script>
    <script src="appjs/services/data/vendorData.js"></script>
@@ -63,12 +65,13 @@
                 <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
                     <span>&nbsp;</span>
                 </div>
-                <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 well-header">
-                    <h5>Cognitive Medical Assistant</h5>
+                <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 header-text-main">
+                    Cognitive Medical Assistant
                 </div>
-                <div style="float:right;">Welcome 
+                <div class="header-guest-info">Hi 
                     <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
-                    <span ng-hide="IS_SIGN_IN">Guest</span></div>
+                    <span ng-hide="IS_SIGN_IN">Guest</span>
+                </div>
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 
 angular.module('cmaManagementApp')
-  .factory('userData', function (dataLayer, relativeUrls) {
+  .factory('userData', function (dataLayer, relativeUrls, headerTypes) {
     
     var userData = {};
     
@@ -16,7 +16,8 @@ angular.module('cmaManagementApp')
 	
 	userData.validateUser = function(email, pass) {
         
-        return dataLayer.postWithUrlAsync(relativeUrls.USER_LOGIN_VALIDATE + "?email="+email+"&password="+pass);
+        return dataLayer.postAsync(relativeUrls.USER_LOGIN_VALIDATE + 
+            "?email="+email+"&password="+pass, null, headerTypes.CONTENT_ONLY);
     };
 	
 	userData.registerUser = function(request) {

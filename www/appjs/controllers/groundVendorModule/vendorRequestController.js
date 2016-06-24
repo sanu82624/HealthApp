@@ -15,30 +15,30 @@ angular.module('cmaManagementApp').controller('vendorRequestController',[
         function loadAssignedRequests(){
             vendorBusiness.getAssignedRequests($rootScope.ID).then(function(response){
                 vm.requests = response.data.result;
-                console.info(vm.requests);
+                for(var index = 0; index < vm.requests.length; index++){
+                    vm.requests[index].createTs = new Date(vm.requests[index].createTs);
+                }
             }, function(error){
 
             });
         }
+        
+        vm.onTicketStatusClick = function(state, assignmentId, vendId){
+            var status = ((state > 0) ? "ACCEPTED" : "DECLINED");
+            vendorBusiness.updateTicketStatusByVendor(status, 
+                assignmentId, vendId).then(function(response){
+                if(response.data.success){
+                    window.alert(response.data.statusText);
+                } else{
+                    window.alert(response.data.statusText);
+                }
+            }, function(error){
+                window.alert("Try again after some time!");
+            });
+        };
 
-        vm.onBacktoVendorHome = function(){
+        vm.onBackClick = function(){
             commonUtility.redirectTo("groundVendorHome");
-        };
-
-        vm.onCurrentReqClick = function(){
-            commonUtility.redirectTo("vendorAllReq");
-        };
-		
-        vm.onLogoutClick = function(){
-            $rootScope.IS_SIGN_IN = false;
-            $rootScope.NAME = "";
-            $rootScope.ID = "";
-            $rootScope.vendorType = "";
-            commonUtility.redirectTo("appHome");
-        };
-
-        vm.onProfileClick = function(){
-            commonUtility.redirectTo("vendorProfile");
         };
 
         initialized();
