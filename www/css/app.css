@@ -73,9 +73,13 @@
     font-size: 30px   ;
 }
 .well-header{
-  text-align: center !important;
-  background-color: #00004d ;
-  color: white;
+    text-align: center !important;
+    background-color: #00004d ;
+    color: white;
+}
+.fixed-header{
+    position: fixed; 
+    z-index: 99;
 }
 .badge-danger{
   background-color: #FF0000  !important;

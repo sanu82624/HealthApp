@@ -4,9 +4,9 @@ angular.module('cmaManagementApp')
     
     var vendorData = {};
     
-    vendorData.getRaisedRequests = function(requestType) {
+    vendorData.getAssignedRequests = function(vendId) {
         
-        return dataLayer.getAsync(relativeUrls.VENDOR_RAISED_REQUEST + requestType);
+        return dataLayer.getAsync(relativeUrls.VENDOR_ASSIGNED_REQUEST + vendId);
     };
 	
 	vendorData.registerVendor = function(request) {

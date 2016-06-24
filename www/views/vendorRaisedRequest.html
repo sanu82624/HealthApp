@@ -1,9 +1,9 @@
 <div class="container" ng-init="vm.onloadMyRequests();">
 	<div>
-		<div class="info-box" ng-repeat="request in vm.requests | orderBy: '-createDate'">
+		<div class="info-box" ng-repeat="request in vm.requests | orderBy: '-createTs'">
 			<p>
-				<span>Id: {{request.requestId.replace('SRV-REQ-ID-','')}}</span></br>
-				<span>Requested for: {{request.type}}</span></br>
+				<span>Id: {{request.assignmentId.replace('TICKET-','')}}</span></br>
+				<span>Created On: {{request.createTs}}</span></br>
 				<span>Status: {{request.status}}</span></br>
 			</p>
 		</div>

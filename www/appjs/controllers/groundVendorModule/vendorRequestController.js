@@ -9,11 +9,11 @@ angular.module('cmaManagementApp').controller('vendorRequestController',[
         vm.requests = [];
 
         function initialized(){
-            loadRaisedRequests();
+            loadAssignedRequests();
         }
 
-        function loadRaisedRequests(){
-            vendorBusiness.getRaisedRequests($rootScope.vendorType).then(function(response){
+        function loadAssignedRequests(){
+            vendorBusiness.getAssignedRequests($rootScope.ID).then(function(response){
                 vm.requests = response.data.result;
                 console.info(vm.requests);
             }, function(error){

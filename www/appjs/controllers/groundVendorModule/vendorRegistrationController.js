@@ -45,7 +45,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
                     $rootScope.NAME = response.data.result.name;
                     $rootScope.ID = response.data.result.vendId;
                     $rootScope.vendorType = response.data.result.vendType;
-                    commonUtility.redirectTo("userLanding");
+                    commonUtility.redirectTo("groundVendorHome");
                 } else{
                     window.alert(messages.USER_REG_FAIL);
                 }

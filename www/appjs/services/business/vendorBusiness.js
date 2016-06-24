@@ -4,9 +4,9 @@ angular.module('cmaManagementApp')
     
     var vendorBusiness = {};
     
-    vendorBusiness.getRaisedRequests = function(requestType) {
+    vendorBusiness.getAssignedRequests = function(vendId) {
         
-        return vendorData.getRaisedRequests(requestType);
+        return vendorData.getAssignedRequests(vendId);
     };
 	
 	vendorBusiness.registerVendor = function(request) {
