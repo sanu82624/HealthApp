@@ -52,23 +52,27 @@
     
 </head>
 <body>
-    <div class="well well-header">
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2">
-                <button class="btn btn-sq-sm btn-primary" >
-                    <span class="glyphicon glyphicon-list" style="font-size: 20px"></span>
-                </button>
+    <div>
+        <div class="well well-header" ng-controller="userLoginController">
+            <div class="row">
+                <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2">
+                    <button class="btn btn-sq-sm btn-primary" >
+                        <span class="glyphicon glyphicon-list" style="font-size: 20px"></span>
+                    </button>
+                </div>
+                <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
+                    <span>&nbsp;</span>
+                </div>
+                <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 well-header">
+                    <h5>Cognitive Medical Assistant</h5>
+                </div>
+                <div style="float:right;">Welcome 
+                    <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
+                    <span ng-hide="IS_SIGN_IN">Guest</span></div>
             </div>
-            <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
-                <span>&nbsp;</span>
-            </div>
-            <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 well-header">
-                <h5>Cognitive Medical Assistant</h5>
-            </div>
-            <div style="float:right;">Welcome <span>Guest</span><span></span></div>
         </div>
+
+        <div style="padding-top:1px;" ng-view></div>
     </div>
- 
-    <div style="padding-top:1px;" ng-view></div>
 </body>
 </html>
