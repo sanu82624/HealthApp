@@ -1,34 +1,36 @@
-angular.module('cmaManagementApp').controller('monitorVendorDetailsController',[
-	'commonUtility', 'vendorBusiness', '$rootScope',
-	function(commonUtility, vendorBusiness, $rootScope){
+'use strict';
 
-		var vm = this;
+angular.module('cmaManagementApp').controller('monitorVendorDetailsController',[
+    'commonUtility', 'vendorBusiness', '$rootScope',
+    function(commonUtility, vendorBusiness, $rootScope){
+
+        var vm = this;
+
+        vm.vendor = {};
+
+        function initialize(){
+            loadVendor();
+        }
 		
-		vm.vendor = {};
+        function loadVendor(){
+            if(angular.isDefined($rootScope.vendId) && $rootScope.vendId !== null 
+                && $rootScope.vendId !== ""){
+                vendorBusiness.getVendorDetails($rootScope.vendId).then(function(response){
+                    if(response.data.success){
+                        vm.vendor = response.data.result;
+                    }
+                }, function(error){
+                    commonUtility.redirectTo("monitorAllVendor");
+                });
+            } else{
+                
+            }
+        }
 		
-		function initialize(){
-			loadVendor();
-		}
+        vm.onDetailsBackClick = function(){
+            commonUtility.redirectTo("monitorAllVendor");
+        };
 		
-		function loadVendor(){
-			if(angular.isDefined($rootScope.vendId) && $rootScope.vendId !== null && $rootScope.vendId !== ""){
-				vendorBusiness.getVendorDetails($rootScope.vendId).then(function(response){
-					if(response.data.success){
-						vm.vendor = response.data.result;
-					}
-				}, function(error){
-					commonUtility.redirectTo("monitorAllVendor");
-				});
-			} else{
-				
-			}
-			
-		}
-		
-		vm.onDetailsBackClick = function(){
-			commonUtility.redirectTo("monitorAllVendor");
-		};
-		
-		initialize();
-	}
+        initialize();
+    }
 ]);

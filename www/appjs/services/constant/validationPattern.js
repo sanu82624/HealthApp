@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('cmaManagementApp')
-  .constant('validationPattern', {
+    .constant('validationPattern', {
       
-      EMAIL: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-	  NAME: /^[A-Za-z-'.\s]+$/,
-	  PHONE: /^[- +()]*[0-9][- +()0-9]*$/
+        EMAIL: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        NAME: /^[A-Za-z-'.\s]+$/,
+        PHONE: /^[- +()]*[0-9][- +()0-9]*$/
   });

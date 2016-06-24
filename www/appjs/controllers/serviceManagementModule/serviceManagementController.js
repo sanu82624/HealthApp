@@ -1,11 +1,13 @@
+'use strict';
 
-angular.module('cmaManagementApp').controller('serviceManagementController',['commonUtility',
-	function(commonUtility){
-		
-		var vm = this;
-		
-		vm.onHomeClick = function(){
-			commonUtility.redirectTo("appHome");
-		};
-	}
+angular.module('cmaManagementApp').controller('serviceManagementController',[
+    'commonUtility',
+    function(commonUtility){
+
+        var vm = this;
+
+        vm.onHomeClick = function(){
+            commonUtility.redirectTo("appHome");
+        };
+    }
 ]);
