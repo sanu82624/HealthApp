@@ -45,5 +45,13 @@ angular.module('cmaManagementApp').controller('userProfileController',[
                 }
             }
         };
+        
+        vm.onPasswordClick = function(){
+            commonUtility.redirectTo("userPass");
+        };
+        
+        vm.onEditInfoClick = function(){
+            commonUtility.redirectTo("userInfo");
+        };
     }
 ]);

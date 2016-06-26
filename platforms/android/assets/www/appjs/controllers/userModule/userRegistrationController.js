@@ -39,7 +39,8 @@ angular.module('cmaManagementApp').controller('userRegistrationController',[
                     $rootScope.IS_SIGN_IN = response.data.success;
                     $rootScope.NAME = response.data.result.name;
                     $rootScope.ID = response.data.result.clientId;
-                    commonUtility.redirectTo("groundVendorHome");
+                    $rootScope.EMAIL = userInfo.emailId;
+                    commonUtility.redirectTo("userLanding");
                 } else{
                     window.alert(messages.USER_REG_FAIL);
                 }

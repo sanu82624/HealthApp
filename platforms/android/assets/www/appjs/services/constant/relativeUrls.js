@@ -7,6 +7,9 @@ angular.module('cmaManagementApp')
         MY_REQUEST: "customer/service/serviceRequest/",
         USER_LOGIN_VALIDATE: "customer/service/validate",
         USER_REG: "customer/service/register",
+        USER_PASS_CHANGE: "customer/service/updateClientPassword",
+        USER_INFO: "customer/service/client/",
+        USER_INFO_UPDATE: "customer/service/client",
 
         VENDOR_REG: "vendor/service/vendor/register",
         VENDOR_LOGIN_VALIDATE: "vendor/service/vendor/validate",
@@ -14,5 +17,7 @@ angular.module('cmaManagementApp')
         VENDOR_DETAILS: "vendor/service/vendor/",
         VENDOR_TICKET_STATUS_CHANGED: "/vendor/service/requests/changestatus",
 
-        MONITOR_ALL_VENDORS: "vendor/service/vendors/"
+        MONITOR_ALL_VENDORS: "vendor/service/vendors/",
+        
+        SERVICE_TYPE: "refdata/service/serviceTypes"
   });

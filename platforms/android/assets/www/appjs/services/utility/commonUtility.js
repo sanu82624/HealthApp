@@ -1,12 +1,12 @@
+'use strict';
 
 angular.module('cmaManagementApp')
-  .factory('commonUtility', function ($location) {
+    .factory('commonUtility', function ($location) {
 	
 	var commonUtility = {};
 	
 	commonUtility.redirectTo = function(route){
-		
-		$location.url("/" + route);
+            $location.url("/" + route);
 	};
 	
 	return commonUtility;

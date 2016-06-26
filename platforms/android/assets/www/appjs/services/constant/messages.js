@@ -16,5 +16,6 @@ angular.module('cmaManagementApp')
     REQ_GENDER: "Select gender!",
     REQ_PIN: "Enter pin code!",
     VALID_PHONE: "Enter valid phone!",
-    REQ_SERVICE_TYPE: "Select service type!"
+    REQ_SERVICE_TYPE: "Select service type!",
+    PASS_MISMATCH: "New password and confirm password are mismatch!"
   });

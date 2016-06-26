@@ -10,11 +10,12 @@ angular.module('cmaManagementApp').controller('userLoginController',[
         vm.passMsg = messages.VALID_PASS;
 		
         vm.onLoginClick = function(){
-            userBusiness.validateUser(vm.email,vm.pass).then(function(response){
+            userBusiness.validateUser(vm.email, vm.pass).then(function(response){
                 if(response.data.success){
-                    $rootScope.ClientId = response.data.result.clientId;
+                    $rootScope.ID = response.data.result.clientId;
                     $rootScope.IS_SIGN_IN = response.data.success;
                     $rootScope.NAME = response.data.result.name;
+                    $rootScope.EMAIL = vm.email;
                     commonUtility.redirectTo("userLanding");
                 } else{
                     window.alert(messages.USER_LOGIN_WRONG);

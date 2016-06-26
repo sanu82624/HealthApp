@@ -2,12 +2,37 @@
 
 angular.module('cmaManagementApp').controller('userRequestController',[
     'commonUtility', 'defaultValues', 'userBusiness', 'messages', '$rootScope',
-    function(commonUtility, defaultValues, userBusiness, messages, $rootScope){
+    'generalUtility',
+    function(commonUtility, defaultValues, userBusiness, messages, $rootScope,
+    generalUtility){
 		
         var vm = this;
         vm.myRequests = [];
 
-        vm.serviceTypes = $rootScope.serviceTypes;
+        vm.serviceTypes = [];
+        
+        function initialized(){
+            loadServiceTypes();
+        }
+        
+        function loadServiceTypes(){
+            generalUtility.loadServiceType().then(function(response){
+                if(response.data.success){
+                    if(response.data.result !== null){
+                        angular.forEach(response.data.result, function(value, key) {
+                            vm.serviceTypes.push({
+                                code: key,
+                                name: value
+                            });
+                        });
+                    }
+                } else{
+                    window.alert(response.data.statusText);
+                }
+            }, function(error){
+                
+            });
+        }
 
         vm.onBacktoUserHome = function(){
             commonUtility.redirectTo("userLanding");
@@ -34,12 +59,14 @@ angular.module('cmaManagementApp').controller('userRequestController',[
         };
 		
         vm.onLoadMyRequests = function(){
-            userBusiness.loadMyRequests($rootScope.ClientId).then(function(response){
+            userBusiness.loadMyRequests($rootScope.ID).then(function(response){
                 vm.myRequests = response.data.result;
                 console.info(vm.myRequests);
             }, function(error){
                 console.info(error);
             });
         };
+        
+        initialized();
     }
 ]);
