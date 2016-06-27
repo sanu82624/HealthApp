@@ -1,22 +1,22 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userMedHisController',[
+angular.module('cmaManagementApp').controller('userAllergicController',[
     'commonUtility', '$rootScope', 'userBusiness',
     function(commonUtility, $rootScope, userBusiness){
 
         var vm = this;
-        vm.medHisRecords = [];
+        vm.allergicRecords = [];
         
         function initialization(){
-            loadMedicalHistory();
+            loadAllergic();
         }
         
-        function loadMedicalHistory(){
+        function loadAllergic(){
             userBusiness.loadUserInfo($rootScope.ID).then(function(response){
                 if(response.data.success){
-                    if(angular.isDefined(response.data.result.medicalHistory) &&
-                        response.data.result.medicalHistory !== null){
-                        vm.medHisRecords = response.data.result.medicalHistory;
+                    if(angular.isDefined(response.data.result.alergicTo) &&
+                        response.data.result.alergicTo !== null){
+                        vm.allergicRecords = response.data.result.alergicTo;
                     }
                 }else{
                     window.alert(response.data.statusText);
@@ -32,22 +32,22 @@ angular.module('cmaManagementApp').controller('userMedHisController',[
             commonUtility.redirectTo("userProfile");
         };
 
-        vm.onAddMedHisClick = function(){
-            for(var index=0; index<=vm.medHisRecords.length - 1; index++){
-                if(vm.medHisRecords[index] === vm.medHis){
-                    vm.medHis = "";
+        vm.onAddAllergyClick = function(){
+            for(var index=0; index<=vm.allergicRecords.length - 1; index++){
+                if(vm.allergicRecords[index] === vm.allergy){
+                    vm.allergy = "";
                     window.alert("You have already added!");
                     return false;
                 }
             }
-            vm.medHisRecords.push(vm.medHis);
-            vm.medHis = "";
+            vm.allergicRecords.push(vm.allergy);
+            vm.allergy = "";
         };
 
-        vm.onMedHisDeleteClick = function(record){
-            for(var index=0; index<=vm.medHisRecords.length - 1; index++){
-                if(vm.medHisRecords[index] === record){
-                    vm.medHisRecords.splice(index, 1);
+        vm.onAllergicDeleteClick = function(record){
+            for(var index=0; index<=vm.allergicRecords.length - 1; index++){
+                if(vm.allergicRecords[index] === record){
+                    vm.allergicRecords.splice(index, 1);
                     return;
                 }
             }
@@ -56,7 +56,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',[
         vm.onSaveClick = function(){
             var userInfo = {};
             userInfo.clientId = $rootScope.ID;
-            userInfo.medicalHistory = vm.medHisRecords;
+            userInfo.alergicTo = vm.allergicRecords;
             userBusiness.updateUserInfo(userInfo).then(function(response){
                 window.alert(response.data.statusText);
                 if(response.data.success){

@@ -13,6 +13,10 @@ angular.module('cmaManagementApp').controller('userProfileController',[
         vm.onMedHisClick = function(){
             commonUtility.redirectTo("userMH");
         };
+        
+        vm.onAllergicClick = function(){
+            commonUtility.redirectTo("userAllergic");
+        };
 
         vm.onPasswordClick = function(){
             commonUtility.redirectTo("userPass");

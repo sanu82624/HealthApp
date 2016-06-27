@@ -36,6 +36,10 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/userMedicalHistory.html',
                 controller: 'userMedHisController as vm'
             }).
+            when('/userAllergic',{
+                templateUrl: 'views/userAllergic.html',
+                controller: 'userAllergicController as vm'
+            }).
             when('/userPass',{
                 templateUrl: 'views/userChangePass.html',
                 controller: 'userChangePassController as vm'
