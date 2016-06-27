@@ -40,6 +40,10 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/userAllergic.html',
                 controller: 'userAllergicController as vm'
             }).
+            when('/userEmail',{
+                templateUrl: 'views/userEmails.html',
+                controller: 'userEmailsController as vm'
+            }).
             when('/userPass',{
                 templateUrl: 'views/userChangePass.html',
                 controller: 'userChangePassController as vm'

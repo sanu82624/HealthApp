@@ -17,6 +17,10 @@ angular.module('cmaManagementApp').controller('userProfileController',[
         vm.onAllergicClick = function(){
             commonUtility.redirectTo("userAllergic");
         };
+        
+        vm.onEmailsClick = function(){
+            commonUtility.redirectTo("userEmail");
+        };
 
         vm.onPasswordClick = function(){
             commonUtility.redirectTo("userPass");
