@@ -22,9 +22,9 @@ angular.module('cmaManagementApp')
     };
     
     vendorData.updateTicketStatusByVendor = function(status, assignementId, vendId) {
-        return dataLayer.postAsync(relativeUrls.VENDOR_TICKET_STATUS_CHANGED + 
-            "?assignmentId=" + assignementId + "&status=" + status + 
-            "&updatedBy=" + vendId, null, headerTypes.ENCODED_CONTENT);
+        return dataLayer.postAsync(relativeUrls.VENDOR_TICKET_STATUS_CHANGED, 
+            "assignmentId=" + assignementId + "&status=" + status + 
+            "&updatedBy=" + vendId, headerTypes.ENCODED_CONTENT);
     };
 	
     return vendorData;

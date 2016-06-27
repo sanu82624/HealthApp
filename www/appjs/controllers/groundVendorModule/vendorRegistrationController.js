@@ -2,9 +2,9 @@
 
 angular.module('cmaManagementApp').controller('vendorRegistrationController',[
     'validationPattern', 'messages', 'vendorBusiness', 'commonUtility',
-    '$rootScope',
+    '$rootScope', 'generalUtility',
     function(validationPattern, messages, vendorBusiness, commonUtility,
-    $rootScope){
+    $rootScope, generalUtility){
 		
         var vm = this;
 
@@ -17,9 +17,30 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
         vm.pinMsg = messages.REQ_PIN;
         vm.phoneMsg = messages.VALID_PHONE;
         vm.serviceTypeMsg = messages.REQ_SERVICE_TYPE;
+        
+        vm.serviceTypes = [];
 
         function initialized(){
-
+            loadServiceTypes();
+        }
+        
+        function loadServiceTypes(){
+            generalUtility.loadServiceType().then(function(response){
+                if(response.data.success){
+                    if(response.data.result !== null){
+                        angular.forEach(response.data.result, function(value, key) {
+                            vm.serviceTypes.push({
+                                code: key,
+                                name: value
+                            });
+                        });
+                    }
+                } else{
+                    window.alert(response.data.statusText);
+                }
+            }, function(error){
+                window.alert(error.data);
+            });
         }
 		
         vm.onSaveClick = function(frmData){
