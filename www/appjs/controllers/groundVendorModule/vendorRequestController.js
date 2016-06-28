@@ -15,9 +15,6 @@ angular.module('cmaManagementApp').controller('vendorRequestController',[
         function loadAssignedRequests(){
             vendorBusiness.getAssignedRequests($rootScope.ID).then(function(response){
                 vm.requests = response.data.result;
-                for(var index = 0; index < vm.requests.length; index++){
-                    vm.requests[index].createTs = new Date(vm.requests[index].createTs);
-                }
             }, function(error){
 
             });

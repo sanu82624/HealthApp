@@ -17,6 +17,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
         vm.pinMsg = messages.REQ_PIN;
         vm.phoneMsg = messages.VALID_PHONE;
         vm.serviceTypeMsg = messages.REQ_SERVICE_TYPE;
+        vm.addressMsg = messages.REQ_ADDRESS;
         
         vm.serviceTypes = [];
 

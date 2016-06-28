@@ -6,7 +6,7 @@
         <span class="error-msg-span" 
             ng-show="userRegForm.$submitted && (userRegForm.txtEmail.$error.pattern || 
             userRegForm.txtEmail.$error.required)">{{vm.emailMsg}}</span>
-        <input type="text" id="txtEmail" name="txtEmail" ng-pattern="vm.validEmail" 
+        <input type="email" id="txtEmail" name="txtEmail" ng-pattern="vm.validEmail" 
             ng-model="vm.email" class="form-control" required>
     </p>
     <p class="form-group">
@@ -31,8 +31,9 @@
                     ng-show="userRegForm.$submitted &&  
                                     userRegForm.txtGender.$error.required">{{vm.genderMsg}}</span>
             <select ng-model="vm.gender" id="txtGender" name="txtGender" class="form-control" required>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
+                <option value="">Please select</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
             </select>
     </p>
     <p class="form-group">
@@ -41,8 +42,12 @@
                     ng-model="vm.age" class="form-control">
     </p>
     <p class="form-group">
-            <label>Address</label>
-            <input type="text" ng-model="vm.address" class="form-control">
+            <label>Address*</label>
+            <span class="error-msg-span" 
+                ng-show="userRegForm.$submitted && 
+                userRegForm.txtAddress.$error.required">{{vm.addressMsg}}</span>
+            <input type="text" ng-model="vm.address" id="txtAddress" name="txtAddress" 
+                class="form-control" required>
     </p>
     <p class="form-group">
         <label>Pin Code*</label>
