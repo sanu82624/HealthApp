@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userMedHisController',[
-    'commonUtility', '$rootScope', 'userBusiness',
-    function(commonUtility, $rootScope, userBusiness){
+    'commonUtility', '$rootScope', 'userBusiness', 'messages',
+    function(commonUtility, $rootScope, userBusiness, messages){
 
         var vm = this;
         vm.medHisRecords = [];
@@ -36,7 +36,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',[
             for(var index=0; index<=vm.medHisRecords.length - 1; index++){
                 if(vm.medHisRecords[index] === vm.medHis){
                     vm.medHis = "";
-                    window.alert("You have already added!");
+                    window.alert(messages.ALREADY_ADDED);
                     return false;
                 }
             }

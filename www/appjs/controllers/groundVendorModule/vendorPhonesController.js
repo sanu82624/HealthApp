@@ -41,7 +41,7 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',[
             for(var index=0; index<=vm.phones.length - 1; index++){
                 if(vm.phones[index] === vm.phone){
                     vm.phone = "";
-                    window.alert("You have already added!");
+                    window.alert(messages.ALREADY_ADDED);
                     return false;
                 }
             }

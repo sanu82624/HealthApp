@@ -36,7 +36,7 @@ angular.module('cmaManagementApp').controller('userAllergicController',[
             for(var index=0; index<=vm.allergicRecords.length - 1; index++){
                 if(vm.allergicRecords[index] === vm.allergy){
                     vm.allergy = "";
-                    window.alert("You have already added!");
+                    window.alert(messages.ALREADY_ADDED);
                     return false;
                 }
             }

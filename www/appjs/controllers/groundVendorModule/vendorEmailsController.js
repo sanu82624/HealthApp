@@ -41,7 +41,7 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',[
             for(var index=0; index<=vm.emails.length - 1; index++){
                 if(vm.emails[index] === vm.email){
                     vm.email = "";
-                    window.alert("You have already added!");
+                    window.alert(messages.ALREADY_ADDED);
                     return false;
                 }
             }
