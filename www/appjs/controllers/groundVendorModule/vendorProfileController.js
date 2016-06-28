@@ -19,7 +19,7 @@ angular.module('cmaManagementApp').controller('vendorProfileController',[
         };
 
         vm.onPhoneClick = function(){
-            commonUtility.redirectTo("");
+            commonUtility.redirectTo("vendorPhones");
         };
 
         vm.onBackClick = function(){

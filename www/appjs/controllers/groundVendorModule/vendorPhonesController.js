@@ -1,23 +1,23 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorEmailsController',[
+angular.module('cmaManagementApp').controller('vendorPhonesController',[
     'commonUtility', '$rootScope', 'vendorBusiness', 'validationPattern', 'messages',
     function(commonUtility, $rootScope, vendorBusiness, validationPattern, messages){
 
         var vm = this;
-        vm.emails = [];
-        vm.validEmail = validationPattern.EMAIL;
+        vm.phones = [];
+        vm.validPhone = validationPattern.PHONE;
         
         function initialization(){
-            loadEmails();
+            loadPhones();
         }
         
-        function loadEmails(){
+        function loadPhones(){
             vendorBusiness.loadVendorInfo($rootScope.ID).then(function(response){
                 if(response.data.success){
-                    if(angular.isDefined(response.data.result.email) &&
-                        response.data.result.email !== null){
-                        vm.emails = response.data.result.email;
+                    if(angular.isDefined(response.data.result.contacts) &&
+                        response.data.result.contacts !== null){
+                        vm.phones = response.data.result.contacts;
                     }
                 }else{
                     window.alert(response.data.statusText);
@@ -33,26 +33,26 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',[
             commonUtility.redirectTo("vendorProfile");
         };
 
-        vm.onAddEmailClick = function(isNotValidEmail){
-            if(isNotValidEmail){
-                window.alert(messages.VALID_EMAIL);
+        vm.onAddPhoneClick = function(isNotValidPhone){
+            if(isNotValidPhone){
+                window.alert(messages.VALID_PHONE);
                 return false;
             }
-            for(var index=0; index<=vm.emails.length - 1; index++){
-                if(vm.emails[index] === vm.email){
-                    vm.email = "";
+            for(var index=0; index<=vm.phones.length - 1; index++){
+                if(vm.phones[index] === vm.phone){
+                    vm.phone = "";
                     window.alert("You have already added!");
                     return false;
                 }
             }
-            vm.emails.push(vm.email);
-            vm.email = "";
+            vm.phones.push(vm.phone);
+            vm.phone = "";
         };
 
-        vm.onEmailDeleteClick = function(record){
-            for(var index=0; index<=vm.emails.length - 1; index++){
-                if(vm.emails[index] === record){
-                    vm.emails.splice(index, 1);
+        vm.onPhoneDeleteClick = function(record){
+            for(var index=0; index<=vm.phones.length - 1; index++){
+                if(vm.phones[index] === record){
+                    vm.phones.splice(index, 1);
                     return;
                 }
             }
@@ -61,7 +61,7 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',[
         vm.onSaveClick = function(){
             var vendor = {};
             vendor.vendId = $rootScope.ID;
-            vendor.email = vm.emails;
+            vendor.contacts = vm.phones;
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
                 window.alert(response.data.statusText);
                 if(response.data.success){
