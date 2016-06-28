@@ -18,10 +18,10 @@ angular.module('cmaManagementApp').controller('userLoginController',[
                     $rootScope.EMAIL = vm.email;
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    window.alert(messages.USER_LOGIN_WRONG);
+                    commonUtility.showAlert(messages.USER_LOGIN_WRONG);
                 }
             }, function(error){
-                window.alert(messages.USER_LOGIN_FAIL);
+                commonUtility.showAlert(messages.USER_LOGIN_FAIL);
             });
         };
 		

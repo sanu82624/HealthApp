@@ -27,7 +27,7 @@ angular.module('cmaManagementApp').controller('userRequestController',[
                         });
                     }
                 } else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
                 
@@ -48,22 +48,22 @@ angular.module('cmaManagementApp').controller('userRequestController',[
 
             userBusiness.createNewRequest(request).then(function(response){
                 if(response.data.success){
-                    window.alert(messages.CREATE_REQUEST_SUCCESS);
+                    commonUtility.showAlert(messages.CREATE_REQUEST_SUCCESS);
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    window.alert(messages.CREATE_REQUEST_ERROR);
+                    commonUtility.showAlert(messages.CREATE_REQUEST_ERROR);
                 }
             }, function(error){
-                window.alert(messages.CREATE_REQUEST_ERROR);
+                commonUtility.showAlert(messages.CREATE_REQUEST_ERROR);
             });
         };
 		
         vm.onLoadMyRequests = function(){
             userBusiness.loadMyRequests($rootScope.ID).then(function(response){
+                console.log(response.data);
                 vm.myRequests = response.data.result;
-                console.info(vm.myRequests);
             }, function(error){
-                console.info(error);
+                
             });
         };
         

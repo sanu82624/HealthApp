@@ -29,7 +29,7 @@ angular.module('cmaManagementApp').controller('userInfoController',[
                     }
                     console.log(vm.userInfo);
                 }else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
@@ -50,7 +50,7 @@ angular.module('cmaManagementApp').controller('userInfoController',[
             user.pinCode = vm.userInfo.pinCode;
             user.gender = vm.userInfo.gender;
             userBusiness.updateUserInfo(user).then(function(response){
-                window.alert(response.data.statusText);
+                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
                     $rootScope.NAME = user.name;
                     commonUtility.redirectTo("userProfile");

@@ -20,11 +20,11 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',[
                         vm.phones = response.data.result.contacts;
                     }
                 }else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
                 commonUtility.redirectTo("vendorProfile");
             });
         };
@@ -34,14 +34,15 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',[
         };
 
         vm.onAddPhoneClick = function(isNotValidPhone){
-            if(isNotValidPhone){
-                window.alert(messages.VALID_PHONE);
+            if(isNotValidPhone || vm.phone === "" || 
+                vm.phone === null || angular.isUndefined(vm.phone)){
+                commonUtility.showAlert(messages.VALID_PHONE);
                 return false;
             }
             for(var index=0; index<=vm.phones.length - 1; index++){
                 if(vm.phones[index] === vm.phone){
                     vm.phone = "";
-                    window.alert(messages.ALREADY_ADDED);
+                    commonUtility.showAlert(messages.ALREADY_ADDED);
                     return false;
                 }
             }
@@ -63,12 +64,12 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',[
             vendor.vendId = $rootScope.ID;
             vendor.contacts = vm.phones;
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
-                window.alert(response.data.statusText);
+                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
             });
         };
         

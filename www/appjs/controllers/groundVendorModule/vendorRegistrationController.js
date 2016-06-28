@@ -36,10 +36,10 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
                         });
                     }
                 } else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
             });
         }
 		
@@ -61,17 +61,17 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
 			
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
                 if(response.data.success){
-                    window.alert(messages.USER_REG_SUCCESS);
+                    commonUtility.showAlert(messages.USER_REG_SUCCESS);
                     $rootScope.IS_SIGN_IN = response.data.success;
                     $rootScope.NAME = response.data.result.name;
                     $rootScope.ID = response.data.result.vendId;
                     $rootScope.vendorType = response.data.result.vendType;
                     commonUtility.redirectTo("groundVendorHome");
                 } else{
-                    window.alert(messages.USER_REG_FAIL);
+                    commonUtility.showAlert(messages.USER_REG_FAIL);
                 }
             }, function(error){
-                window.alert(messages.USER_REG_FAIL);
+                commonUtility.showAlert(messages.USER_REG_FAIL);
             });
         };
 		

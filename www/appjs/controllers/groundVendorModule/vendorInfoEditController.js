@@ -22,11 +22,11 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',[
                 if(response.data.success){
                     vm.vendorInfo = response.data.result;
                 }else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
                 commonUtility.redirectTo("vendorProfile");
             });
         }
@@ -45,13 +45,13 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',[
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
                 if(response.data.success){
                     $rootScope.NAME = vendor.name;
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("vendorProfile");
                 } else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
             });
         };
 		

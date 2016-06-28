@@ -18,10 +18,10 @@ angular.module('cmaManagementApp').controller('groundVendorLoginController',[
                     $rootScope.vendorType = response.data.result.vendType;
                     commonUtility.redirectTo("groundVendorHome");
                 } else{
-                    window.alert(messages.USER_LOGIN_WRONG);
+                    commonUtility.showAlert(messages.USER_LOGIN_WRONG);
                 }
             }, function(error){
-                window.alert(messages.USER_LOGIN_FAIL);
+                commonUtility.showAlert(messages.USER_LOGIN_FAIL);
             });
         };
 		

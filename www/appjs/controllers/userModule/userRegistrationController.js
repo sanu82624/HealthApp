@@ -34,18 +34,17 @@ angular.module('cmaManagementApp').controller('userRegistrationController',[
 			
             userBusiness.registerUser(userInfo).then(function(response){
                 if(response.data.success){
-                    window.alert(messages.USER_REG_SUCCESS);
-                    console.info(response);
+                    commonUtility.showAlert(messages.USER_REG_SUCCESS);
                     $rootScope.IS_SIGN_IN = response.data.success;
                     $rootScope.NAME = response.data.result.name;
                     $rootScope.ID = response.data.result.clientId;
                     $rootScope.EMAIL = userInfo.emailId;
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    window.alert(messages.USER_REG_FAIL);
+                    commonUtility.showAlert(messages.USER_REG_FAIL);
                 }
             }, function(error){
-                window.alert(messages.USER_REG_FAIL);
+                commonUtility.showAlert(messages.USER_REG_FAIL);
             });
         };
 		

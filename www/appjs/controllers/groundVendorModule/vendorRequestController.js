@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorRequestController',[
-    'commonUtility', 'vendorBusiness', '$rootScope',
-    function(commonUtility, vendorBusiness, $rootScope){
+    'commonUtility', 'vendorBusiness', '$rootScope', 'messages',
+    function(commonUtility, vendorBusiness, $rootScope, messages){
 		
         var vm = this;
 
@@ -28,12 +28,12 @@ angular.module('cmaManagementApp').controller('vendorRequestController',[
             vendorBusiness.updateTicketStatusByVendor(status, 
                 assignmentId, vendId).then(function(response){
                 if(response.data.success){
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                 } else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                window.alert("Try again after some time!");
+                commonUtility.showAlert(messages.TRY_AGAIN);
             });
         };
 

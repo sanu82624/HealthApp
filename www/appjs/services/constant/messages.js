@@ -18,5 +18,7 @@ angular.module('cmaManagementApp')
     VALID_PHONE: "Enter valid phone!",
     REQ_SERVICE_TYPE: "Select service type!",
     PASS_MISMATCH: "New password and confirm password are mismatch!",
-    ALREADY_ADDED: "You have already added!"
+    ALREADY_ADDED: "You have already added!",
+    TRY_AGAIN: "Try again after some time!",
+    BLANK_VALUE: "Blank will not going to be added!"
   });

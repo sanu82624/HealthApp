@@ -8,6 +8,10 @@ angular.module('cmaManagementApp')
 	commonUtility.redirectTo = function(route){
             $location.url("/" + route);
 	};
+        
+        commonUtility.showAlert = function(message){
+            window.alert(message);
+	};
 	
 	return commonUtility;
   });

@@ -20,11 +20,11 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',[
                         vm.emails = response.data.result.email;
                     }
                 }else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
                 commonUtility.redirectTo("vendorProfile");
             });
         };
@@ -34,14 +34,15 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',[
         };
 
         vm.onAddEmailClick = function(isNotValidEmail){
-            if(isNotValidEmail){
-                window.alert(messages.VALID_EMAIL);
+            if(isNotValidEmail || vm.email === "" || 
+                vm.email === null || angular.isUndefined(vm.email)){
+                commonUtility.showAlert(messages.VALID_EMAIL);
                 return false;
             }
             for(var index=0; index<=vm.emails.length - 1; index++){
                 if(vm.emails[index] === vm.email){
                     vm.email = "";
-                    window.alert(messages.ALREADY_ADDED);
+                    commonUtility.showAlert(messages.ALREADY_ADDED);
                     return false;
                 }
             }
@@ -63,12 +64,12 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',[
             vendor.vendId = $rootScope.ID;
             vendor.email = vm.emails;
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
-                window.alert(response.data.statusText);
+                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
             });
         };
         
