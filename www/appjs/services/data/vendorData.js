@@ -34,6 +34,12 @@ angular.module('cmaManagementApp')
     vendorData.loadVendorInfo = function(vendId) {
         return dataLayer.getAsync(relativeUrls.VENDOR_DETAILS_BY_ID + vendId);
     };
+    
+    vendorData.changeVendorPassword = function(email, currentPass, newPass) {
+        return dataLayer.postAsync(relativeUrls.VENDOR_PASS_CHANGE, 
+            "email=" + email + "&oldPassword=" + currentPass +
+            "&newPassword=" + newPass, headerTypes.ENCODED_CONTENT);
+    };
 	
     return vendorData;
   });

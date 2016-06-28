@@ -18,6 +18,7 @@ angular.module('cmaManagementApp')
         VENDOR_TICKET_STATUS_CHANGED: "vendor/service/requests/changestatus",
         VENDOR_DETAILS_BY_ID: "vendor/service/vendor/",
         VENDOR_UPDATE: "vendor/service/vendor",
+        VENDOR_PASS_CHANGE: "vendor/service/updatePassword",
 
         MONITOR_ALL_VENDORS: "vendor/service/vendors/",
         

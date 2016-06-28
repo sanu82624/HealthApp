@@ -84,7 +84,11 @@ angular.module('routerConfigModule', ['ngRoute'])
             when('/vendorInfo',{
                 templateUrl: 'views/vendorInfoEdit.html',
                 controller: 'vendorInfoEditController as vm'
-            }).        
+            }).
+            when('/vendorPass',{
+                templateUrl: 'views/vendorPass.html',
+                controller: 'vendorPassController as vm'
+            }).  
             when('/monitoringGroupHome',{
                 templateUrl: 'views/monitoringGroupLanding.html',
                 controller: 'monitoringGroupController as vm'

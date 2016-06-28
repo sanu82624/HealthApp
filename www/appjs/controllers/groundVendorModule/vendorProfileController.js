@@ -11,7 +11,7 @@ angular.module('cmaManagementApp').controller('vendorProfileController',[
         };
 
         vm.onPassClick = function(){
-            commonUtility.redirectTo("");
+            commonUtility.redirectTo("vendorPass");
         };
 
         vm.onEmailsClick = function(){

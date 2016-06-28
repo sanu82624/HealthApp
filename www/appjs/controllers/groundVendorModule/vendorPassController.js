@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userChangePassController',[
-    'messages', 'userBusiness', 'commonUtility', '$rootScope',
-    function(messages, userBusiness, commonUtility, $rootScope){
+angular.module('cmaManagementApp').controller('vendorPassController',[
+    'messages', 'vendorBusiness', 'commonUtility', '$rootScope',
+    function(messages, vendorBusiness, commonUtility, $rootScope){
 		
         var vm = this;
 
         vm.passMsg = messages.VALID_PASS;
         
         vm.onSavePassClick = function(frmData){
-            if(!frmData.userPassForm.$valid){
+            if(!frmData.vendorPassForm.$valid){
                 return false;
             }
             
@@ -18,7 +18,7 @@ angular.module('cmaManagementApp').controller('userChangePassController',[
                 return false;
             }
             
-            userBusiness.changeUserPAssword($rootScope.EMAIL, vm.pass, vm.newPass).then(function(response){
+            vendorBusiness.changeVendorPassword($rootScope.EMAIL, vm.pass, vm.newPass).then(function(response){
                 if(response.data.success){
                     window.alert(response.data.statusText + "\nRelogin again.");
                     $rootScope.ID = "";
@@ -35,7 +35,7 @@ angular.module('cmaManagementApp').controller('userChangePassController',[
         };
 		
         vm.onCancelClick = function(){
-            commonUtility.redirectTo("userProfile");
+            commonUtility.redirectTo("vendorProfile");
         };
     }
 ]);

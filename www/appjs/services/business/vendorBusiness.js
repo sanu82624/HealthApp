@@ -31,6 +31,10 @@ angular.module('cmaManagementApp')
     vendorBusiness.loadVendorInfo = function(vendId) {
         return vendorData.loadVendorInfo(vendId);
     };
+    
+    vendorBusiness.changeVendorPassword = function(email, currentPass, newPass) {
+        return vendorData.changeVendorPassword(email, currentPass, newPass);
+    };
 	
     return vendorBusiness;
   });
