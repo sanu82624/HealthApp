@@ -74,6 +74,7 @@ angular.module('cmaManagementApp')
             };
         }else if(type === headerTypes.ENCODED_CONTENT){
             return {
+                "authorization": "Basic testAuth",
                 "Content-Type": "application/x-www-form-urlencoded"
             };
         }

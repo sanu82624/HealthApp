@@ -1,68 +1,92 @@
 <!doctype html>
 <html lang="en" ng-app="cmaManagementApp" >
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Cognitive Medical Assistant - Management App</title>
+    <title>Cognitive Medical Assistant - Management App</title>
 
-   <script src="bower_components/angular/angular.min.js"></script>
-   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-   <script src="bower_components/angular-route/angular-route.min.js"></script>
-   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-   <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="appjs/controllers/monitoringGroupModule/monitoringGroupController.js"></script>
+    <script src="appjs/controllers/monitoringGroupModule/monitorAllVendorController.js"></script>
+    <script src="appjs/controllers/monitoringGroupModule/monitorVendorDetailsController.js"></script>
+    <script src="appjs/controllers/groundVendorModule/vendorRequestController.js"></script>
+    <script src="appjs/controllers/groundVendorModule/groundVendorLoginController.js"></script>
+    <script src="appjs/controllers/groundVendorModule/vendorRegistrationController.js"></script>
+    <script src="appjs/controllers/groundVendorModule/vendorProfileController.js"></script>
+    <script src="appjs/controllers/groundVendorModule/vendorLandingController.js"></script>
+    <script src="appjs/controllers/groundVendorModule/vendorInfoEditController.js"></script>
+    <script src="appjs/controllers/serviceManagementModule/serviceManagementController.js"></script>
+    <script src="appjs/controllers/userModule/userHomeController.js"></script>
+    <script src="appjs/controllers/userModule/userLoginController.js"></script>
+    <script src="appjs/controllers/userModule/userChangePassController.js"></script>
+    <script src="appjs/controllers/userModule/userInfoController.js"></script>
+    <script src="appjs/controllers/userModule/userMedHisController.js"></script>
+    <script src="appjs/controllers/userModule/userAllergicController.js"></script>
+    <script src="appjs/controllers/userModule/userEmailsController.js"></script>
+    <script src="appjs/controllers/appHomeController.js"></script>
+    <script src="appjs/services/config/routeconfig.js"></script>
+    <script src="appjs/services/utility/commonUtility.js"></script>
+    <script src="appjs/controllers/userModule/userRequestController.js"></script>
+    <script src="appjs/controllers/userModule/userRegistrationController.js"></script>
+    <script src="appjs/controllers/userModule/userProfileController.js"></script>
+    <script src="appjs/services/config/dataLayer.js"></script>
+    <script src="appjs/services/config/appconfig.js"></script>
+    <script src="appjs/services/config/apprun.js"></script>
+    <script src="appjs/services/config/routeconfig.js"></script>
+    <script src="appjs/services/constant/defaultValues.js"></script>
+    <script src="appjs/services/constant/relativeUrls.js"></script>
+    <script src="appjs/services/constant/messages.js"></script>
+    <script src="appjs/services/constant/validationPattern.js"></script>
+    <script src="appjs/services/constant/headerTypes.js"></script>
+    <script src="appjs/services/utility/commonUtility.js"></script>
+    <script src="appjs/services/utility/generalUtility.js"></script>
+    <script src="appjs/services/data/userData.js"></script>
+    <script src="appjs/services/data/vendorData.js"></script>
+    <script src="appjs/services/data/monitorData.js"></script>
+    <script src="appjs/services/business/userBusiness.js"></script>
+    <script src="appjs/services/business/vendorBusiness.js"></script>
+    <script src="appjs/services/business/monitorBusiness.js"></script>
    
-   <script src="app.js"></script>
-   <script src="appjs/controllers/monitoringGroupModule/monitoringGroupController.js"></script>
-   <script src="appjs/controllers/monitoringGroupModule/monitorAllVendorController.js"></script>
-   <script src="appjs/controllers/monitoringGroupModule/monitorVendorDetailsController.js"></script>
-   <script src="appjs/controllers/groundVendorModule/vendorRequestController.js"></script>
-   <script src="appjs/controllers/groundVendorModule/groundVendorLoginController.js"></script>
-   <script src="appjs/controllers/groundVendorModule/vendorRegistrationController.js"></script>
-   <script src="appjs/controllers/groundVendorModule/vendorProfileController.js"></script>
-   <script src="appjs/controllers/groundVendorModule/vendorLandingController.js"></script>
-   <script src="appjs/controllers/serviceManagementModule/serviceManagementController.js"></script>
-   <script src="appjs/controllers/userModule/userHomeController.js"></script>
-   <script src="appjs/controllers/userModule/userLoginController.js"></script>
-   <script src="appjs/controllers/userModule/userChangePassController.js"></script>
-   <script src="appjs/controllers/userModule/userInfoController.js"></script>
-   <script src="appjs/controllers/userModule/userMedHisController.js"></script>
-   <script src="appjs/controllers/userModule/userAllergicController.js"></script>
-   <script src="appjs/controllers/userModule/userEmailsController.js"></script>
-   <script src="appjs/controllers/appHomeController.js"></script>
-   <script src="appjs/services/config/routeconfig.js"></script>
-   <script src="appjs/services/utility/commonUtility.js"></script>
-   <script src="appjs/controllers/userModule/userRequestController.js"></script>
-   <script src="appjs/controllers/userModule/userRegistrationController.js"></script>
-   <script src="appjs/controllers/userModule/userProfileController.js"></script>
-   <script src="appjs/services/config/dataLayer.js"></script>
-   <script src="appjs/services/config/appconfig.js"></script>
-   <script src="appjs/services/config/apprun.js"></script>
-   <script src="appjs/services/config/routeconfig.js"></script>
-   <script src="appjs/services/constant/defaultValues.js"></script>
-   <script src="appjs/services/constant/relativeUrls.js"></script>
-   <script src="appjs/services/constant/messages.js"></script>
-   <script src="appjs/services/constant/validationPattern.js"></script>
-   <script src="appjs/services/constant/headerTypes.js"></script>
-   <script src="appjs/services/utility/commonUtility.js"></script>
-   <script src="appjs/services/utility/generalUtility.js"></script>
-   <script src="appjs/services/data/userData.js"></script>
-   <script src="appjs/services/data/vendorData.js"></script>
-   <script src="appjs/services/data/monitorData.js"></script>
-   <script src="appjs/services/business/userBusiness.js"></script>
-   <script src="appjs/services/business/vendorBusiness.js"></script>
-   <script src="appjs/services/business/monitorBusiness.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
    
-   <link href="css/bootstrap.min.css" rel="stylesheet">
-   <link href="css/app.css" rel="stylesheet">
-    
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    Hi, 
+                    <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
+                    <span ng-hide="IS_SIGN_IN">Guest</span>
+                </li>
+                <li>
+                    <span>Contact us</span>
+                </li>
+                <li>
+                    <span>About us</span>
+                </li>
+                <li>
+                    <span>Exit App</span>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
         <div class="well well-header fixed-header" ng-controller="userLoginController">
             <div class="row">
-                <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >
+                <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >
                     
                 </div>
                 <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
@@ -80,5 +104,14 @@
 
         <div style="padding-top:1px; padding-top: 110px;" ng-view></div>
     </div>
+    
+    
+    <script>
+    $("#toggleMenu").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $("#toggleMenu").toggleClass("arrow-side-opp");
+    });
+    </script>
 </body>
 </html>

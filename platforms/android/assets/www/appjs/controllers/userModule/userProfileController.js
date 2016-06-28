@@ -5,7 +5,6 @@ angular.module('cmaManagementApp').controller('userProfileController',[
     function(commonUtility){
 
         var vm = this;
-        vm.medHisRecords = [];
 
         vm.onCancelClick = function(){
             commonUtility.redirectTo("userLanding");
@@ -14,38 +13,15 @@ angular.module('cmaManagementApp').controller('userProfileController',[
         vm.onMedHisClick = function(){
             commonUtility.redirectTo("userMH");
         };
-
-        vm.onBackToProfile = function(){
-            commonUtility.redirectTo("userProfile");
-        };
-
-        vm.onAddMedHisClick = function(){
-            for(var index=0; index<=vm.medHisRecords.length - 1; index++){
-                if(vm.medHisRecords[index] === vm.medHis){
-                    vm.medHis = "";
-                    window.alert("You have already added!");
-                    return false;
-                }
-            }
-            vm.medHisRecords.push(vm.medHis);
-            vm.medHis = "";
-        };
-
-        vm.onLoadUserMedicalHistory = function(){
-            vm.medHisRecords = [];
-        };
-
-        vm.onMedHisDeleteClick = function(record){
-            console.info(record);
-            for(var index=0; index<=vm.medHisRecords.length - 1; index++){
-                if(vm.medHisRecords[index] === record){
-                    vm.medHisRecords.splice(index, 1);
-                    console.info(vm.medHisRecords);
-                    return;
-                }
-            }
+        
+        vm.onAllergicClick = function(){
+            commonUtility.redirectTo("userAllergic");
         };
         
+        vm.onEmailsClick = function(){
+            commonUtility.redirectTo("userEmail");
+        };
+
         vm.onPasswordClick = function(){
             commonUtility.redirectTo("userPass");
         };

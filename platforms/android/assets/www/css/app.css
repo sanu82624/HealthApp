@@ -57,13 +57,13 @@
 }
 
 .page-title{
-	margin: -1em 0 0.5em 0;
+	margin: -0.2em 0 0.5em 0;
 	font-weight: 500;
 	font-family: sans-serif;
 	position: relative;
 	text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
 	font-size: 14px;
-	line-height: 30px;
+	line-height: 20px;
 	color: #355681;
 	text-transform: uppercase;
 	border-bottom: 1px solid rgba(53,86,129, 0.3);
@@ -74,7 +74,7 @@
 }
 .well-header{
     text-align: center !important;
-    background-image: url("../images/4.jpg");
+    background: url("../images/4.jpg") no-repeat;
     color: white;
     height: 98px;
     width: 100%;
@@ -83,6 +83,11 @@
     width:20px; 
     height:40px;
     background: url("../images/arrow.png") no-repeat;
+}
+.arrow-side-opp{
+    width:20px; 
+    height:40px;
+    background: url("../images/arrow_opp.png") no-repeat;
 }
 .header-guest-info{
     float:right; 

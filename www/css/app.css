@@ -74,7 +74,7 @@
 }
 .well-header{
     text-align: center !important;
-    background-image: url("../images/4.jpg");
+    background: url("../images/4.jpg") no-repeat;
     color: white;
     height: 98px;
     width: 100%;
@@ -83,6 +83,11 @@
     width:20px; 
     height:40px;
     background: url("../images/arrow.png") no-repeat;
+}
+.arrow-side-opp{
+    width:20px; 
+    height:40px;
+    background: url("../images/arrow_opp.png") no-repeat;
 }
 .header-guest-info{
     float:right; 

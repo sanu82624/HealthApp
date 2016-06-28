@@ -26,6 +26,14 @@ angular.module('cmaManagementApp')
             "assignmentId=" + assignementId + "&status=" + status + 
             "&updatedBy=" + vendId, headerTypes.ENCODED_CONTENT);
     };
+    
+    vendorData.updateVendorDetails = function(vendor) {
+        return dataLayer.postAsync(relativeUrls.VENDOR_UPDATE, vendor);
+    };
+    
+    vendorData.loadVendorInfo = function(vendId) {
+        return dataLayer.getAsync(relativeUrls.VENDOR_DETAILS_BY_ID + vendId);
+    };
 	
     return vendorData;
   });
