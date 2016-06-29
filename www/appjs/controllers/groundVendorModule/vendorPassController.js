@@ -19,6 +19,7 @@ angular.module('cmaManagementApp').controller('vendorPassController',[
             }
             
             vendorBusiness.changeVendorPassword($rootScope.EMAIL, vm.pass, vm.newPass).then(function(response){
+                console.log(response.data);
                 if(response.data.success){
                     commonUtility.showAlert(response.data.statusText + "\nRelogin again.");
                     $rootScope.ID = "";

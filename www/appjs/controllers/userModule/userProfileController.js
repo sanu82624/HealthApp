@@ -21,6 +21,10 @@ angular.module('cmaManagementApp').controller('userProfileController',[
         vm.onEmailsClick = function(){
             commonUtility.redirectTo("userEmail");
         };
+        
+        vm.onEPhoneClick = function(){
+            commonUtility.redirectTo("userEPhone");
+        };
 
         vm.onPasswordClick = function(){
             commonUtility.redirectTo("userPass");

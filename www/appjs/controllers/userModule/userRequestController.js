@@ -62,7 +62,6 @@ angular.module('cmaManagementApp').controller('userRequestController',[
             userBusiness.loadMyRequests($rootScope.ID).then(function(response){
                 vm.myRequests = response.data.result;
             }, function(error){
-                
             });
         };
         

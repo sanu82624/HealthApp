@@ -52,6 +52,10 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/userInfoEdit.html',
                 controller: 'userInfoController as vm'
             }).
+            when('/userEPhone',{
+                templateUrl: 'views/userEPhone.html',
+                controller: 'userEPhoneController as vm'
+            }).
             when('/serviceManagementHome',
             {
                 templateUrl: 'views/serviceManagementLanding.html',
