@@ -1,40 +1,18 @@
 <div class="container">
-	<div class="row" style="text-align: center;">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-			<p>
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onUserManagementClick();">
-					<span class="glyphicon glyphicon glyphicon-user"></span><br/>
-						<h5>Client</h5>
-				</button>
-			</p>
-		</div>
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-			<p>
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onMonitoringGrpClick();">
-					<span class="glyphicon glyphicon glyphicon-sunglasses"></span><br/>
-						<h5>Monitoring <br/> Group</h5>
-				</button>
-			</p>
-		</div>
-	</div> <!-- End of Row 1 -->
-	<div class="row" style="text-align: center;">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onServiceManagementClick();">
-					<span class="glyphicon glyphicon glyphicon-signal"></span><br/>
-						<h5>Service <br/> Management <br/> Group</h5>
-				</button>
-			</p>
-		</div>
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p>
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onOnGroundVendorClick();">
-					<span class="glyphicon glyphicon-tags"></span><br/>
-						<h5>On Ground <br/>Vendor</h5>
-				</button>
-			</p>
-		</div>
-	</div> <!-- End of Row 2 -->
+    <button class="btn btn-default btn-lg btn-block" ng-click="vm.onUserManagementClick();">
+        <span class="glyphicon glyphicon glyphicon-user" style="float:left;"></span>
+        <span style="text-align: center; line-height: 15px;">Client</span>
+    </button>
+    <button class="btn btn-secondary btn-lg btn-block" ng-click="vm.onMonitoringGrpClick();">
+        Monitoring Group
+    </button>
+    <button class="btn btn-warning btn-lg btn-block" ng-click="vm.onServiceManagementClick();">
+	Service Management Group
+    </button>
+    <button class="btn btn-info btn-lg btn-block" ng-click="vm.onOnGroundVendorClick();">
+	On Ground Vendor
+    </button>
+	
 	<div style="width:200px; height:100px; z-index:999; position:fixed; top:50%; left:50%; transform: translate(-50%, -50%); background-color:red;" ng-if="false">
 		<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onUserRegistrationClick();">
 			<span class="glyphicon glyphicon glyphicon-user"></span><br/>
