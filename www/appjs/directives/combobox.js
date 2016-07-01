@@ -23,7 +23,7 @@ angular.module('cmaManagementApp')
             var required = attrs.hasOwnProperty('required') ? "required='required'" : 
                 constantLoader.defaultValues.BLANK_STRING;
             var isSelect = attrs.hasOwnProperty('sel');
-            var html =  '<p class="form-group">' +
+            var html =  '<div class="form-group">' +
                             '<label>{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
                                 '*' : '') + '</label>' +
@@ -39,7 +39,7 @@ angular.module('cmaManagementApp')
                                 '<option data-ng-repeat="item in items" ' +
                                     'value={{item.' + attrs.modelBinding + '}} >{{item.' + attrs.labelBinding + '}}</option>' +							
                             '</select>' +
-                        '</p>';
+                        '</div>';
         
             return html;
         },

@@ -1,0 +1,17 @@
+{
+    "elements": {
+        "email-textbox": {
+            "attributes": {
+                "show-validation": {},
+                "ngModel": {},
+                "ng-model": {},
+                "for": {},
+                "showValidation": {},
+                "required": {}
+            }
+        }
+    },
+    "attributes": {
+        "label": {}
+    }
+}
