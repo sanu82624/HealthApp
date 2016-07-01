@@ -5,7 +5,7 @@
 			<p>
 				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onAssignedReqClick();">
 					<span class="glyphicon glyphicon glyphicon-tasks"></span><br/>
-						<h5>Assigned<br/>Request <br/><span class="badge badge-danger">{{vm.requests.length}}</span></h5>
+						<h5>Assigned<br/>Request <br/><span class="badge badge-danger">{{vm.assignedRequestCount}}</span></h5>
 
 				</button>
 			</p>
@@ -14,7 +14,7 @@
 			<p>
 				<button class="btn btn-sq-lg btn-sq btn-primary">
 					<span class="glyphicon glyphicon glyphicon-tasks"></span><br/>
-						<h5>All<br/>Request <br/><span class="badge badge-danger"></span></h5>
+						<h5>Responded<br/>Request <br/><span class="badge badge-danger">{{vm.respondedRequestCount}}</span></h5>
 
 				</button>
 			</p>

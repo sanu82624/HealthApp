@@ -1,23 +1,21 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userRegistrationController',[
-    'validationPattern', 'messages', 'userBusiness', 'commonUtility',
-    '$rootScope',
-    function(validationPattern, messages, userBusiness, commonUtility,
+angular.module('cmaManagementApp').controller('userRegistrationController',
+    function(constantLoader, userBusiness, commonUtility,
     $rootScope){
 		
         var vm = this;
 
-        vm.validName = validationPattern.NAME;
-        vm.validEmail = validationPattern.EMAIL;
-        vm.validPhone = validationPattern.PHONE;
-        vm.emailMsg = messages.VALID_EMAIL;
-        vm.passMsg = messages.VALID_PASS;
-        vm.nameMsg = messages.VALID_NAME;
-        vm.genderMsg = messages.REQ_GENDER;
-        vm.pinMsg = messages.REQ_PIN;
-        vm.phoneMsg = messages.VALID_PHONE;
-        vm.addressMsg = messages.REQ_ADDRESS;
+        vm.validName = constantLoader.validationPattern.NAME;
+        vm.validEmail = constantLoader.validationPattern.EMAIL;
+        vm.validPhone = constantLoader.validationPattern.PHONE;
+        vm.emailMsg = constantLoader.messages.VALID_EMAIL;
+        vm.passMsg = constantLoader.messages.VALID_PASS;
+        vm.nameMsg = constantLoader.messages.VALID_NAME;
+        vm.genderMsg = constantLoader.messages.REQ_GENDER;
+        vm.pinMsg = constantLoader.messages.REQ_PIN;
+        vm.phoneMsg = constantLoader.messages.VALID_PHONE;
+        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
 
         vm.onSaveClick = function(frmData){
             if(!frmData.userRegForm.$valid){
@@ -35,17 +33,17 @@ angular.module('cmaManagementApp').controller('userRegistrationController',[
 			
             userBusiness.registerUser(userInfo).then(function(response){
                 if(response.data.success){
-                    commonUtility.showAlert(messages.USER_REG_SUCCESS);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
                     $rootScope.IS_SIGN_IN = response.data.success;
                     $rootScope.NAME = response.data.result.name;
                     $rootScope.ID = response.data.result.clientId;
                     $rootScope.EMAIL = userInfo.emailId;
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    commonUtility.showAlert(messages.USER_REG_FAIL);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
                 }
             }, function(error){
-                commonUtility.showAlert(messages.USER_REG_FAIL);
+                commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
             });
         };
 		
@@ -53,4 +51,4 @@ angular.module('cmaManagementApp').controller('userRegistrationController',[
             commonUtility.redirectTo("login");
         };
     }
-]);
+);

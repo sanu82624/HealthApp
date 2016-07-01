@@ -1,17 +1,15 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorInfoEditController',[
-    'validationPattern', 'messages', 'vendorBusiness', 'commonUtility',
-    '$rootScope',
-    function(validationPattern, messages, vendorBusiness, commonUtility,
+angular.module('cmaManagementApp').controller('vendorInfoEditController',
+    function(constantLoader, vendorBusiness, commonUtility,
     $rootScope){
 		
         var vm = this;
         vm.vendorInfo = {};
 
-        vm.validName = validationPattern.NAME;
-        vm.nameMsg = messages.VALID_NAME;
-        vm.pinMsg = messages.REQ_PIN;
+        vm.validName = constantLoader.validationPattern.NAME;
+        vm.nameMsg = constantLoader.messages.VALID_NAME;
+        vm.pinMsg = constantLoader.messages.REQ_PIN;
         
         function initialized(){
             loadVendorDetails();
@@ -61,4 +59,4 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',[
 
         initialized();
     }
-]);
+);

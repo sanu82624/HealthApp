@@ -1,23 +1,26 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorLandingController',[
-    'commonUtility', 'vendorBusiness', '$rootScope',
-    function(commonUtility, vendorBusiness, $rootScope){
+angular.module('cmaManagementApp').controller('vendorLandingController',
+    function(commonUtility, vendorBusiness, $rootScope, serviceLoader,
+        constantLoader){
 		
         var vm = this;
 
-        vm.requests = [];
+        vm.assignedRequestCount = 0;
+        vm.respondedRequestCount = 0;
 
         function initialized(){
-            loadAssignedRequests();
+            loadRequests();
         }
 
-        function loadAssignedRequests(){
+        function loadRequests(){
             vendorBusiness.getAssignedRequests($rootScope.ID).then(function(response){
-                vm.requests = response.data.result;
-                console.info(vm.requests);
+                vm.assignedRequestCount = (serviceLoader.filter('filter')(response.data.result, 
+                    {status: constantLoader.ticketStatusTypes.ASSIGNED})).length;
+                vm.respondedRequestCount = (serviceLoader.filter('filter')(response.data.result, 
+                    {status: "!" + constantLoader.ticketStatusTypes.ASSIGNED})).length;
             }, function(error){
-
+                console.log(error.data);
             });
         }
 
@@ -43,4 +46,4 @@ angular.module('cmaManagementApp').controller('vendorLandingController',[
 
         initialized();
     }
-]);
+);

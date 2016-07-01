@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorRequestController',[
-    'commonUtility', 'vendorBusiness', '$rootScope', 'messages',
-    function(commonUtility, vendorBusiness, $rootScope, messages){
+angular.module('cmaManagementApp').controller('vendorRequestController',
+    function(commonUtility, vendorBusiness, $rootScope, constantLoader,
+        serviceLoader){
 		
         var vm = this;
 
@@ -14,14 +14,17 @@ angular.module('cmaManagementApp').controller('vendorRequestController',[
 
         function loadAssignedRequests(){
             vendorBusiness.getAssignedRequests($rootScope.ID).then(function(response){
-                vm.requests = response.data.result;
+                vm.requests = serviceLoader.filter('filter')(response.data.result, 
+                    {status: constantLoader.ticketStatusTypes.ASSIGNED});
             }, function(error){
 
             });
         }
         
         vm.onTicketStatusClick = function(state, assignmentId, vendId){
-            var status = ((state > 0) ? "ACCEPTED" : "DECLINED");
+            var status = ((state > 0) ? 
+                constantLoader.ticketStatusTypes.ACCEPTED : 
+                constantLoader.ticketStatusTypes.DECLINED);
             vendorBusiness.updateTicketStatusByVendor(status, 
                 assignmentId, vendId).then(function(response){
                 if(response.data.success){
@@ -30,7 +33,7 @@ angular.module('cmaManagementApp').controller('vendorRequestController',[
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(messages.TRY_AGAIN);
+                commonUtility.showAlert(constantLoader.messages.TRY_AGAIN);
             });
         };
 
@@ -40,4 +43,4 @@ angular.module('cmaManagementApp').controller('vendorRequestController',[
 
         initialized();
     }
-]);
+);

@@ -1,13 +1,12 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userLoginController',[
-    'messages', 'userBusiness', 'commonUtility', '$rootScope',
-    function(messages, userBusiness, commonUtility, $rootScope){
+angular.module('cmaManagementApp').controller('userLoginController',
+    function(constantLoader, userBusiness, commonUtility, $rootScope){
 		
         var vm = this;
 
-        vm.emailMsg = messages.VALID_EMAIL;
-        vm.passMsg = messages.VALID_PASS;
+        vm.emailMsg = constantLoader.messages.VALID_EMAIL;
+        vm.passMsg = constantLoader.messages.VALID_PASS;
 		
         vm.onLoginClick = function(){
             userBusiness.validateUser(vm.email, vm.pass).then(function(response){
@@ -18,10 +17,10 @@ angular.module('cmaManagementApp').controller('userLoginController',[
                     $rootScope.EMAIL = vm.email;
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    commonUtility.showAlert(messages.USER_LOGIN_WRONG);
+                    commonUtility.showAlert(constantLoader.messages.USER_LOGIN_WRONG);
                 }
             }, function(error){
-                commonUtility.showAlert(messages.USER_LOGIN_FAIL);
+                commonUtility.showAlert(constantLoader.messages.USER_LOGIN_FAIL);
             });
         };
 		
@@ -29,4 +28,4 @@ angular.module('cmaManagementApp').controller('userLoginController',[
             commonUtility.redirectTo("reg");
         };
     }
-]);
+);

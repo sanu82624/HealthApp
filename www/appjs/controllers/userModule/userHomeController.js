@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userHomeController',[
-    'commonUtility', '$rootScope',
+angular.module('cmaManagementApp').controller('userHomeController',
     function(commonUtility, $rootScope){
 
         var vm = this;
@@ -26,4 +25,4 @@ angular.module('cmaManagementApp').controller('userHomeController',[
             commonUtility.redirectTo("appHome");
         };
     }
-]);
+);

@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorProfileController',[
-    'commonUtility',
+angular.module('cmaManagementApp').controller('vendorProfileController',
     function(commonUtility){
 		
         var vm = this;
@@ -26,4 +25,4 @@ angular.module('cmaManagementApp').controller('vendorProfileController',[
             commonUtility.redirectTo("groundVendorHome");
         };
     }
-]);
+);

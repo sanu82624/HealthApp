@@ -1,17 +1,15 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userInfoController',[
-    'validationPattern', 'messages', 'userBusiness', 'commonUtility',
-    '$rootScope',
-    function(validationPattern, messages, userBusiness, commonUtility,
+angular.module('cmaManagementApp').controller('userInfoController',
+    function(constantLoader, userBusiness, commonUtility,
     $rootScope){
 		
         var vm = this;
 
-        vm.validName = validationPattern.NAME;
-        vm.nameMsg = messages.VALID_NAME;
-        vm.genderMsg = messages.REQ_GENDER;
-        vm.pinMsg = messages.REQ_PIN;
+        vm.validName = constantLoader.validationPattern.NAME;
+        vm.nameMsg = constantLoader.messages.VALID_NAME;
+        vm.genderMsg = constantLoader.messages.REQ_GENDER;
+        vm.pinMsg = constantLoader.messages.REQ_PIN;
         vm.userInfo = {};
         
         function initialized(){
@@ -66,4 +64,4 @@ angular.module('cmaManagementApp').controller('userInfoController',[
         
         initialized();
     }
-]);
+);

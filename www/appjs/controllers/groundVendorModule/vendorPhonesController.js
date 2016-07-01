@@ -1,12 +1,11 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorPhonesController',[
-    'commonUtility', '$rootScope', 'vendorBusiness', 'validationPattern', 'messages',
-    function(commonUtility, $rootScope, vendorBusiness, validationPattern, messages){
+angular.module('cmaManagementApp').controller('vendorPhonesController',
+    function(commonUtility, $rootScope, vendorBusiness, constantLoader){
 
         var vm = this;
         vm.phones = [];
-        vm.validPhone = validationPattern.PHONE;
+        vm.validPhone = constantLoader.validationPattern.PHONE;
         
         function initialization(){
             loadPhones();
@@ -36,13 +35,13 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',[
         vm.onAddPhoneClick = function(isNotValidPhone){
             if(isNotValidPhone || vm.phone === "" || 
                 vm.phone === null || angular.isUndefined(vm.phone)){
-                commonUtility.showAlert(messages.VALID_PHONE);
+                commonUtility.showAlert(constantLoader.messages.VALID_PHONE);
                 return false;
             }
             for(var index=0; index<=vm.phones.length - 1; index++){
                 if(vm.phones[index] === vm.phone){
                     vm.phone = "";
-                    commonUtility.showAlert(messages.ALREADY_ADDED);
+                    commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
@@ -75,4 +74,4 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',[
         
         initialization();
     }
-]);
+);

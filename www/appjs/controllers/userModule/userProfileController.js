@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userProfileController',[
-    'commonUtility',
+angular.module('cmaManagementApp').controller('userProfileController',
     function(commonUtility){
 
         var vm = this;
@@ -34,4 +33,4 @@ angular.module('cmaManagementApp').controller('userProfileController',[
             commonUtility.redirectTo("userInfo");
         };
     }
-]);
+);

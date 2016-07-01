@@ -1,23 +1,21 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorRegistrationController',[
-    'validationPattern', 'messages', 'vendorBusiness', 'commonUtility',
-    '$rootScope', 'generalUtility',
-    function(validationPattern, messages, vendorBusiness, commonUtility,
+angular.module('cmaManagementApp').controller('vendorRegistrationController',
+    function(constantLoader, vendorBusiness, commonUtility,
     $rootScope, generalUtility){
 		
         var vm = this;
 
-        vm.validName = validationPattern.NAME;
-        vm.validEmail = validationPattern.EMAIL;
-        vm.validPhone = validationPattern.PHONE;
-        vm.emailMsg = messages.VALID_EMAIL;
-        vm.passMsg = messages.VALID_PASS;
-        vm.nameMsg = messages.VALID_NAME;
-        vm.pinMsg = messages.REQ_PIN;
-        vm.phoneMsg = messages.VALID_PHONE;
-        vm.serviceTypeMsg = messages.REQ_SERVICE_TYPE;
-        vm.addressMsg = messages.REQ_ADDRESS;
+        vm.validName = constantLoader.validationPattern.NAME;
+        vm.validEmail = constantLoader.validationPattern.EMAIL;
+        vm.validPhone = constantLoader.validationPattern.PHONE;
+        vm.emailMsg = constantLoader.messages.VALID_EMAIL;
+        vm.passMsg = constantLoader.messages.VALID_PASS;
+        vm.nameMsg = constantLoader.messages.VALID_NAME;
+        vm.pinMsg = constantLoader.messages.REQ_PIN;
+        vm.phoneMsg = constantLoader.messages.VALID_PHONE;
+        vm.serviceTypeMsg = constantLoader.messages.REQ_SERVICE_TYPE;
+        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
         
         vm.serviceTypes = [];
 
@@ -62,17 +60,17 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
 			
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
                 if(response.data.success){
-                    commonUtility.showAlert(messages.USER_REG_SUCCESS);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
                     $rootScope.IS_SIGN_IN = response.data.success;
                     $rootScope.NAME = response.data.result.name;
                     $rootScope.ID = response.data.result.vendId;
                     $rootScope.vendorType = response.data.result.vendType;
                     commonUtility.redirectTo("groundVendorHome");
                 } else{
-                    commonUtility.showAlert(messages.USER_REG_FAIL);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
                 }
             }, function(error){
-                commonUtility.showAlert(messages.USER_REG_FAIL);
+                commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
             });
         };
 		
@@ -82,4 +80,4 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
 
         initialized();
     }
-]);
+);

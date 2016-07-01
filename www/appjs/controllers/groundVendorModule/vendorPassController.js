@@ -1,12 +1,11 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorPassController',[
-    'messages', 'vendorBusiness', 'commonUtility', '$rootScope',
-    function(messages, vendorBusiness, commonUtility, $rootScope){
+angular.module('cmaManagementApp').controller('vendorPassController',
+    function(constantLoader, vendorBusiness, commonUtility, $rootScope){
 		
         var vm = this;
 
-        vm.passMsg = messages.VALID_PASS;
+        vm.passMsg = constantLoader.messages.VALID_PASS;
         
         vm.onSavePassClick = function(frmData){
             if(!frmData.vendorPassForm.$valid){
@@ -14,7 +13,7 @@ angular.module('cmaManagementApp').controller('vendorPassController',[
             }
             
             if(vm.newPass !== vm.conPass){
-                commonUtility.showAlert(messages.PASS_MISMATCH);
+                commonUtility.showAlert(constantLoader.messages.PASS_MISMATCH);
                 return false;
             }
             
@@ -39,4 +38,4 @@ angular.module('cmaManagementApp').controller('vendorPassController',[
             commonUtility.redirectTo("vendorProfile");
         };
     }
-]);
+);

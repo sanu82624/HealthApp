@@ -1,8 +1,7 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userMedHisController',[
-    'commonUtility', '$rootScope', 'userBusiness', 'messages',
-    function(commonUtility, $rootScope, userBusiness, messages){
+angular.module('cmaManagementApp').controller('userMedHisController',
+    function(commonUtility, $rootScope, userBusiness, constantLoader){
 
         var vm = this;
         vm.medHisRecords = [];
@@ -35,13 +34,13 @@ angular.module('cmaManagementApp').controller('userMedHisController',[
         vm.onAddMedHisClick = function(){
             if(vm.medHis === "" || 
                 vm.medHis === null || angular.isUndefined(vm.medHis)){
-                commonUtility.showAlert(messages.BLANK_VALUE);
+                commonUtility.showAlert(constantLoader.messages.BLANK_VALUE);
                 return false;
             }
             for(var index=0; index<=vm.medHisRecords.length - 1; index++){
                 if(vm.medHisRecords[index] === vm.medHis){
                     vm.medHis = "";
-                    commonUtility.showAlert(messages.ALREADY_ADDED);
+                    commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
@@ -74,4 +73,4 @@ angular.module('cmaManagementApp').controller('userMedHisController',[
         
         initialization();
     }
-]);
+);

@@ -1,12 +1,11 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorEmailsController',[
-    'commonUtility', '$rootScope', 'vendorBusiness', 'validationPattern', 'messages',
-    function(commonUtility, $rootScope, vendorBusiness, validationPattern, messages){
+angular.module('cmaManagementApp').controller('vendorEmailsController',
+    function(commonUtility, $rootScope, vendorBusiness, constantLoader){
 
         var vm = this;
         vm.emails = [];
-        vm.validEmail = validationPattern.EMAIL;
+        vm.validEmail = constantLoader.validationPattern.EMAIL;
         
         function initialization(){
             loadEmails();
@@ -36,13 +35,13 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',[
         vm.onAddEmailClick = function(isNotValidEmail){
             if(isNotValidEmail || vm.email === "" || 
                 vm.email === null || angular.isUndefined(vm.email)){
-                commonUtility.showAlert(messages.VALID_EMAIL);
+                commonUtility.showAlert(constantLoader.messages.VALID_EMAIL);
                 return false;
             }
             for(var index=0; index<=vm.emails.length - 1; index++){
                 if(vm.emails[index] === vm.email){
                     vm.email = "";
-                    commonUtility.showAlert(messages.ALREADY_ADDED);
+                    commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
@@ -75,4 +74,4 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',[
         
         initialization();
     }
-]);
+);
