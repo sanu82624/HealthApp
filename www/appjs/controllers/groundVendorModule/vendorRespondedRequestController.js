@@ -17,9 +17,9 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
         
         function loadTicketTypes(){
             vm.ticketTypes = [
-                constantLoader.ticketStatusTypes.ACCEPTED,
-                constantLoader.ticketStatusTypes.DECLINED,
-                constantLoader.ticketStatusTypes.CLOSED
+                {code: constantLoader.ticketStatusTypes.ACCEPTED},
+                {code: constantLoader.ticketStatusTypes.DECLINED},
+                {code: constantLoader.ticketStatusTypes.CLOSED}
             ];
             vm.tckType = constantLoader.ticketStatusTypes.ACCEPTED;
         }
@@ -29,9 +29,13 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
                 vm.requests = serviceLoader.filter('filter')(response.data.result, 
                     {status: vm.tckType});
             }, function(error){
-                
+                commonUtility.showAlert(error.data);
             });
         }
+        
+        vm.onTckTypeChange = function(){
+            loadRespondedRequests();
+        };
         
         vm.onTicketStatusClick = function(assignmentId, vendId){
             vendorBusiness.updateTicketStatusByVendor(constantLoader.ticketStatusTypes.CLOSED, 
