@@ -5,5 +5,6 @@ angular.module('cmaManagementApp')
       
     ASSIGNED: "ASSIGNED",
     ACCEPTED: "ACCEPTED",
-    DECLINED: "DECLINED"
+    DECLINED: "DECLINED",
+    CLOSED: "CLOSED"
   });

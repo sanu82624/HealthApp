@@ -81,6 +81,10 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/vendorRaisedRequest.html',
                 controller: 'vendorRequestController as vm'
             }).
+            when('/vendorRespondedReq',{
+                templateUrl: 'views/vendorRespondedRequest.html',
+                controller: 'vendorRespondedRequestController as vm'
+            }).
             when('/vendorProfile',{
                 templateUrl: 'views/vendorProfile.html',
                 controller: 'vendorProfileController as vm'

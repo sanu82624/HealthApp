@@ -31,6 +31,10 @@ angular.module('cmaManagementApp').controller('vendorLandingController',
         vm.onAssignedReqClick = function(){
             commonUtility.redirectTo("vendorRaisedReq");
         };
+        
+        vm.onRespondedReqClick = function(){
+            commonUtility.redirectTo("vendorRespondedReq");
+        };
 		
         vm.onLogoutClick = function(){
             $rootScope.IS_SIGN_IN = false;
