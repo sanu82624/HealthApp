@@ -5,5 +5,6 @@ angular.module('cmaManagementApp')
       
         SERVICE_URL: "http://healthappwsv0.mybluemix.net/",
         REQUEST_CHANNEL: "MOBILE",
-        BLANK_STRING: ""
+        BLANK_STRING: "",
+        COMBO_SELECT_MSG: "Please select"
   });

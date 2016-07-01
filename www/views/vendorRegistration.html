@@ -25,18 +25,13 @@
 		<input type="text" id="txtName" name="txtName" ng-pattern="vm.validName" 
 			ng-model="vm.name" class="form-control" required>
 	</p>
+        <combobox label="Service Type*" for="txtType" is-select="true"
+            label-binding="name" model-binding="code" ng-model="vm.type"
+            items="vm.serviceTypes" msg="vm.nameMsg" required
+            show-validation="vendorRegForm.$submitted && 
+                vendorRegForm.txtType.$error.required" readOnly="false"></combobox>
+
         <p class="form-group">
-            <label>Service Type*</label>
-            <span class="error-msg-span" 
-                ng-show="vendorRegForm.$submitted && 
-                vendorRegForm.txtType.$error.required">{{vm.nameMsg}}</span>
-            <select type="text" id="txtType" name="txtType" 
-                ng-model="vm.type" class="form-control" required>
-                <option value="">Please select</option>
-                <option ng-repeat="type in vm.serviceTypes" value="{{type.code}}">{{type.name}}</option>
-            </select>
-	</p>
-	<p class="form-group">
 		<label>Address*</label>
                 <span class="error-msg-span" 
                 ng-show="vendorRegForm.$submitted && 
