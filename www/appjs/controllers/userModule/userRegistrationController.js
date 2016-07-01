@@ -16,6 +16,17 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
         vm.pinMsg = constantLoader.messages.REQ_PIN;
         vm.phoneMsg = constantLoader.messages.VALID_PHONE;
         vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
+        
+        vm.genderList = [
+            {
+                code: "M",
+                name: "Male"
+            },
+            {
+                code: "F",
+                name: "Female"
+            }
+        ];
 
         vm.onSaveClick = function(frmData){
             if(!frmData.userRegForm.$valid){

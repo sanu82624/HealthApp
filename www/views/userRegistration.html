@@ -25,17 +25,12 @@
             <input type="text" id="txtName" name="txtName" ng-pattern="vm.validName" 
                     ng-model="vm.name" class="form-control" required>
     </p>
-    <p class="form-group">
-            <label>Gender*</label>
-            <span class="error-msg-span" 
-                    ng-show="userRegForm.$submitted &&  
-                                    userRegForm.txtGender.$error.required">{{vm.genderMsg}}</span>
-            <select ng-model="vm.gender" id="txtGender" name="txtGender" class="form-control" required>
-                <option value="">Please select</option>
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-            </select>
-    </p>
+    <combobox label="Gender" for="txtGender" sel
+        label-binding="name" model-binding="code" ng-model="vm.gender"
+        items="vm.genderList" msg="vm.genderMsg" required
+        show-validation="userRegForm.$submitted && 
+            userRegForm.txtGender.$error.required" readOnly="false"></combobox>
+    
     <p class="form-group">
             <label>Age</label>
             <input type="number" id="txtAge" name="txtAge" 

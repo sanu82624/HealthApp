@@ -41,7 +41,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
                 commonUtility.showAlert(error.data);
             });
         }
-		
+        	
         vm.onSaveClick = function(frmData){
             if(!frmData.vendorRegForm.$valid){
                 return false;

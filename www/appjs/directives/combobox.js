@@ -8,7 +8,6 @@ angular.module('cmaManagementApp')
         scope: {
             label: "@",
             for: "@",
-            isSelect: "@",
             labelBinding: "@",
             modelBinding: "@",
             ngModel: '=',
@@ -23,8 +22,11 @@ angular.module('cmaManagementApp')
             var isReadOnly = angular.isDefined(attrs.readOnly)? "readOnly" : "false";
             var required = attrs.hasOwnProperty('required') ? "required='required'" : 
                 constantLoader.defaultValues.BLANK_STRING;
+            var isSelect = attrs.hasOwnProperty('sel');
             var html =  '<p class="form-group">' +
-                            '<label>{{label}}</label>' +
+                            '<label>{{label}} ' + 
+                                ((required !== constantLoader.defaultValues.BLANK_STRING)?
+                                '*' : '') + '</label>' +
                             '<span class="error-msg-span" ' +
                                 'data-ng-show="showValidation"> ' +
                                 '{{msg}}'+
@@ -32,7 +34,7 @@ angular.module('cmaManagementApp')
                             '<select ng-model="ngModel" ng-disabled="' + isReadOnly + '" ' +
                                 'id="{{for}}" name="{{for}}" ' +
                                 'class="form-control" ' + required + ' >' +
-                                (attrs.isSelect ?
+                                (isSelect ?
                                 ('<option value="">' + constantLoader.defaultValues.COMBO_SELECT_MSG + '</option>') : '') +
                                 '<option data-ng-repeat="item in items" ' +
                                     'value={{item.' + attrs.modelBinding + '}} >{{item.' + attrs.labelBinding + '}}</option>' +							
