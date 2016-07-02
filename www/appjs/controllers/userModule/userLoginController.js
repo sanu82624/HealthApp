@@ -8,7 +8,10 @@ angular.module('cmaManagementApp').controller('userLoginController',
         vm.emailMsg = constantLoader.messages.VALID_EMAIL;
         vm.passMsg = constantLoader.messages.VALID_PASS;
 		
-        vm.onLoginClick = function(){
+        vm.onLoginClick = function(frmData){
+            if(!frmData.userLoginForm.$valid){
+                return false;
+            }
             userBusiness.validateUser(vm.email, vm.pass).then(function(response){
                 if(response.data.success){
                     $rootScope.ID = response.data.result.clientId;

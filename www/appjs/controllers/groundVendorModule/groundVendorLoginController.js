@@ -8,7 +8,10 @@ angular.module('cmaManagementApp').controller('groundVendorLoginController',
         vm.emailMsg = constantLoader.messages.VALID_EMAIL;
         vm.passMsg = constantLoader.messages.VALID_PASS;
 
-        vm.onLoginClick = function(){
+        vm.onLoginClick = function(frmData){
+            if(!frmData.vendorLoginForm.$valid){
+                return false;
+            }
             vendorBusiness.validateVendor(vm.email, vm.pass).then(function(response){
                 if(response.data.success){
                     $rootScope.IS_SIGN_IN = response.data.success;

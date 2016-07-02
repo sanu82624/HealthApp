@@ -1,14 +1,13 @@
 <form name="userLoginForm" novalidate="novalidate" id="userLoginForm">
 <div class="container">
-	<div class="container">
-		<div class="page-title">Login into you account</div>
-		<p class="form-group">
-			<label>Email</label>
-			<span class="error-msg-span" 
-				ng-show="userLoginForm.$submitted && userLoginForm.txtEmail.$error.required">{{vm.emailMsg}}</span>
-			<input type="text" id="txtEmail" name="txtEmail" 
-				 ng-model="vm.email" class="form-control" required>
-		</p>
+    <div class="container">
+        <div class="page-title">Login into you account</div>
+        
+        <email-textbox label="Email" for="txtEmail" ng-model="vm.email"
+            show-validation="userLoginForm.$submitted && (userLoginForm.txtEmail.$error.pattern || 
+                            userLoginForm.txtEmail.$error.required)" required>
+        </email-textbox>
+    
 		<p class="form-group">
 			<label>Password*</label>
 			<span class="error-msg-span" 
@@ -22,7 +21,7 @@
 			<span style="color:blue; cursor:pointer; padding-left:5px;" ng-click="vm.onCreateAccountClick();">Create account</span>
 		</p>
 		<p >
-			<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onLoginClick();" type="submit">
+			<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onLoginClick(this);" type="submit">
 				<h5>Login</h5>
 			</button>
 		</p>
