@@ -98,12 +98,11 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-        <div style="position: absolute; top:98px; width:120px; left: 50%;" 
+        <div class="cg-bg-loading"
             cg-busy="{  promise: dalPromise,
                         message: 'Loading',
                         backdrop: true,
-                        minDuration: 700,
-                        wrapperClass: 'cg-busy cg-busy-animation'}"></div>
+                        minDuration: 700}"></div>
         <div class="well well-header fixed-header" ng-controller="userLoginController">
             <div class="row">
                 <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >

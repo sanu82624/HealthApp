@@ -109,6 +109,12 @@
     position: fixed; 
     z-index: 99;
 }
+.cg-bg-loading{
+    position: fixed !important; 
+    top:98px; 
+    width:120px; 
+    left: 50%;
+}
 .badge-danger{
   background-color: #FF0000  !important;
   color: white !important;
