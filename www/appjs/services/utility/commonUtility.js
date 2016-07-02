@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp')
-    .factory('commonUtility', function ($location, $window, defaultValues) {
+    .factory('commonUtility', function ($location, defaultValues) {
 	
 	var commonUtility = {};
 	
@@ -20,7 +20,6 @@ angular.module('cmaManagementApp')
         
         commonUtility.getRelativeUrl = function(relativeUrl, isTimeStamp){
             if(commonUtility.is3DValidKey(isTimeStamp) && isTimeStamp){
-                var moment = $window.moment;
                 var now = moment();
                 relativeUrl = relativeUrl + 
                     ((relativeUrl.indexOf('?') > -1) ? "&" : "?") + "tm=" + now;

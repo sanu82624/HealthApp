@@ -6,6 +6,8 @@
                 "ngModel": {},
                 "ng-model": {},
                 "for": {},
+                "add-button-click": {},
+                "addbox": {},
                 "showValidation": {},
                 "required": {}
             }

@@ -41,7 +41,7 @@ angular.module('cmaManagementApp')
     
     userData.updateUserInfo = function(userInfo) {
         return dataLayer.postAsync(commonUtility.getRelativeUrl(
-            constantLoader.relativeUrls.USER_INFO_UPDATE, userInfo));
+            constantLoader.relativeUrls.USER_INFO_UPDATE), userInfo);
     };
 	
     return userData;
