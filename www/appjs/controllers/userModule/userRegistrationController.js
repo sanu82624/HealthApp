@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userRegistrationController',
-    function(constantLoader, userBusiness, commonUtility,
+    function(constantLoader, userBusiness, commonUtility, generalUtility,
     $rootScope){
 		
         var vm = this;
@@ -16,7 +16,9 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
         vm.pinMsg = constantLoader.messages.REQ_PIN;
         vm.phoneMsg = constantLoader.messages.VALID_PHONE;
         vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
+        vm.countryMsg = constantLoader.messages.REQ_COUNTRY;
         
+        vm.countryList = [];
         vm.genderList = [
             {
                 code: "M",
@@ -27,6 +29,22 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
                 name: "Female"
             }
         ];
+        
+        function initialized(){
+            loadCountries();
+        }
+        
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = response.data.result;
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
+        }
 
         vm.onSaveClick = function(frmData){
             if(!frmData.userRegForm.$valid){
@@ -61,5 +79,7 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
         vm.onCancelClick = function(){
             commonUtility.redirectTo("login");
         };
+        
+        initialized();
     }
 );

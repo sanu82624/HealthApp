@@ -7,7 +7,7 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
         vm.ePhones = [];
         vm.validPhone = constantLoader.validationPattern.PHONE;
         
-        function initialization(){
+        function initialized(){
             loadEPhones();
         }
         
@@ -72,6 +72,6 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
             });
         };
         
-        initialization();
+        initialized();
     }
 );

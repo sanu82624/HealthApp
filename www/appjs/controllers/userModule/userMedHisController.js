@@ -6,7 +6,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',
         var vm = this;
         vm.medHisRecords = [];
         
-        function initialization(){
+        function initialized(){
             loadMedicalHistory();
         }
         
@@ -71,6 +71,6 @@ angular.module('cmaManagementApp').controller('userMedHisController',
             });
         };
         
-        initialization();
+        initialized();
     }
 );

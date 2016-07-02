@@ -15,6 +15,7 @@ angular.module('cmaManagementApp')
     VALID_NAME: "Enter valid name!",
     REQ_GENDER: "Select gender!",
     REQ_PIN: "Enter pin code!",
+    REQ_COUNTRY: "Select country!",
     REQ_ADDRESS: "Enter address!",
     VALID_PHONE: "Enter valid phone!",
     REQ_SERVICE_TYPE: "Select service type!",

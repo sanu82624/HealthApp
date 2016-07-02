@@ -34,6 +34,13 @@
             <input type="number" id="txtAge" name="txtAge" 
                     ng-model="vm.age" class="form-control">
     </p>
+    
+    <combobox label="Country" for="txtCountry" sel
+        label-binding="name" model-binding="isoCode" ng-model="vm.country"
+        items="vm.countryList" msg="vm.countryMsg" required
+        show-validation="userRegForm.$submitted && 
+            userRegForm.txtCountry.$error.required" readOnly="false"></combobox>
+    
     <p class="form-group">
             <label>Address*</label>
             <span class="error-msg-span" 

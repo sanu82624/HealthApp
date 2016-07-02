@@ -6,7 +6,7 @@ angular.module('cmaManagementApp').controller('userAllergicController',
         var vm = this;
         vm.allergicRecords = [];
         
-        function initialization(){
+        function initialized(){
             loadAllergic();
         }
         
@@ -71,6 +71,6 @@ angular.module('cmaManagementApp').controller('userAllergicController',
             });
         };
         
-        initialization();
+        initialized();
     }
 );
