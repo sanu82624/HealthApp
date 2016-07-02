@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('cmaManagementApp')
-    .service('serviceLoader', function ($filter) {
+    .service('serviceLoader', function ($location, $filter) {
         
         var serviceLoader = {};
         
-//        var _location = null;
+        var _location = null;
 //        var _translate = null;
 //        var _window = null;
         var _filter = null;
@@ -24,11 +24,11 @@ angular.module('cmaManagementApp')
             return instance;
         }
         
-//        Object.defineProperty(serviceLoader, "location", {
-//            get: function() {
-//                return setProperty(_location, $location);
-//            }
-//        });
+        Object.defineProperty(serviceLoader, "location", {
+            get: function() {
+                return setProperty(_location, $location);
+            }
+        });
 //        
 //        Object.defineProperty(serviceLoader, "translate", {
 //            get: function() {

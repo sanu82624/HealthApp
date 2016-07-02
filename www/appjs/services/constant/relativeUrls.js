@@ -22,5 +22,6 @@ angular.module('cmaManagementApp')
 
         MONITOR_ALL_VENDORS: "vendor/service/vendors/",
         
-        SERVICE_TYPE: "refdata/service/serviceTypes"
+        SERVICE_TYPE: "refdata/service/serviceTypes",
+        COUNTRY: "refdata/service/countryList"
   });

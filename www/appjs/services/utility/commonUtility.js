@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('cmaManagementApp')
-    .factory('commonUtility', function ($location, defaultValues) {
+    .factory('commonUtility', function (serviceLoader, constantLoader) {
 	
 	var commonUtility = {};
 	
 	commonUtility.redirectTo = function(route){
-            $location.url("/" + route);
+            serviceLoader.location.url("/" + route);
 	};
         
         commonUtility.showAlert = function(message){
@@ -15,7 +15,7 @@ angular.module('cmaManagementApp')
         
         commonUtility.is3DValidKey = function(value){
             return (angular.isDefined(value) && value !== 
-                defaultValues.BLANK_STRING && value !== null);
+                constantLoader.defaultValues.BLANK_STRING && value !== null);
         };
         
         commonUtility.getRelativeUrl = function(relativeUrl, isTimeStamp){
