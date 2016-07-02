@@ -67,11 +67,13 @@
     <script src="appjs/directives/emailTextbox.js"></script>
    
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/angular-busy/dist/angular-busy.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
    
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-busy/dist/angular-busy.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -95,6 +97,12 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
+        <div style="position: absolute; top:98px; width:120px; left: 50%;" 
+            cg-busy="{  promise: dalPromise,
+                        message: 'Loading',
+                        backdrop: true,
+                        minDuration: 700,
+                        wrapperClass: 'cg-busy cg-busy-animation'}"></div>
         <div class="well well-header fixed-header" ng-controller="userLoginController">
             <div class="row">
                 <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >

@@ -41,7 +41,7 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
             userInfo.phone = [vm.phone];
             userInfo.emailId = [vm.email];
             userInfo.password = vm.pass;
-			
+	
             userBusiness.registerUser(userInfo).then(function(response){
                 if(response.data.success){
                     commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
