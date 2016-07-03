@@ -115,6 +115,16 @@
     width:120px; 
     left: 50%;
 }
+.phone-field{
+    width:85%; 
+    float:right; 
+    display: inline;
+}
+.phone-code-field{
+    float:left; 
+    display: inline; 
+    margin-top: 5px;
+}
 .badge-danger{
   background-color: #FF0000  !important;
   color: white !important;

@@ -14,9 +14,9 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
         vm.nameMsg = constantLoader.messages.VALID_NAME;
         vm.genderMsg = constantLoader.messages.REQ_GENDER;
         vm.pinMsg = constantLoader.messages.REQ_PIN;
-        vm.phoneMsg = constantLoader.messages.VALID_PHONE;
         vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
         vm.countryMsg = constantLoader.messages.REQ_COUNTRY;
+        vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
         
         vm.countryList = [];
         vm.genderList = [
@@ -78,6 +78,17 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
 		
         vm.onCancelClick = function(){
             commonUtility.redirectTo("login");
+        };
+        
+        vm.onCountryChange = function(){
+            if(commonUtility.is3DValidKey(vm.country)){
+                var countries = commonUtility.getFilterArray(vm.countryList, {isoCode: vm.country});
+                if(commonUtility.is3DValidKey(countries) && countries.length > 0){
+                    vm.countryPhoneCode = countries[0].isdCode;
+                }
+            }else{
+                vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
+            }
         };
         
         initialized();

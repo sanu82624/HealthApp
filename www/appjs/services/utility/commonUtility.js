@@ -39,6 +39,10 @@ angular.module('cmaManagementApp')
             }
             return dateValue;
         };
+        
+        commonUtility.getFilterArray = function(array, filterJson){
+            return serviceLoader.filter("filter")(array, filterJson);
+        };
 	
 	return commonUtility;
   });

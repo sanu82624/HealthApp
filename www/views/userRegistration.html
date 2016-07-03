@@ -39,7 +39,8 @@
         label-binding="name" model-binding="isoCode" ng-model="vm.country"
         items="vm.countryList" msg="vm.countryMsg" required
         show-validation="userRegForm.$submitted && 
-            userRegForm.txtCountry.$error.required" readOnly="false"></combobox>
+            userRegForm.txtCountry.$error.required" readOnly="false"
+        selection-changed="vm.onCountryChange();"></combobox>
     
     <p class="form-group">
             <label>Address*</label>
@@ -57,14 +58,14 @@
         <input type="text" id="txtPinCode" name="txtPinCode"
             class="form-control" ng-model="vm.pinCode" required>
     </p>
-    <p class="form-group">
-        <label>Phone*</label>
-        <span class="error-msg-span" 
-            ng-show="userRegForm.$submitted && (userRegForm.txtPhone.$error.pattern || 
-            userRegForm.txtPhone.$error.required)">{{vm.phoneMsg}}</span>
-        <input type="text" id="txtPhone" name="txtPhone" ng-pattern="vm.validPhone" 
-            class="form-control" ng-model="vm.phone" maxlength="12" required>
-    </p>
+    
+    <phone-textbox label="Phone" for="txtPhone" ng-model="vm.phone"
+        show-validation="userRegForm.$submitted && (userRegForm.txtPhone.$error.pattern || 
+            userRegForm.txtPhone.$error.required)" required
+        country-phone-code="vm.countryPhoneCode">
+    </phone-textbox>
+
+    <div style="min-height: 15px; padding:15px;"></div>
 	<div class="row" style="text-align: center;">
 		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
 			<p>

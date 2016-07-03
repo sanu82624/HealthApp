@@ -48,7 +48,7 @@ angular.module('cmaManagementApp')
             var previouslySelectedItem = constantLoader.defaultValues.BLANK_STRING;
             scope.$watch("ngModel", function (newValue) {
 
-                if (newValue !== previouslySelectedItem && angular.isDefined(newValue)) {
+                if (newValue !== previouslySelectedItem) {
 
                     scope.selectionChanged();
                     previouslySelectedItem = newValue;

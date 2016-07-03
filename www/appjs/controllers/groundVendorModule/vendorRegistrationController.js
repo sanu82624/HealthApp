@@ -13,14 +13,16 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
         vm.passMsg = constantLoader.messages.VALID_PASS;
         vm.nameMsg = constantLoader.messages.VALID_NAME;
         vm.pinMsg = constantLoader.messages.REQ_PIN;
-        vm.phoneMsg = constantLoader.messages.VALID_PHONE;
         vm.serviceTypeMsg = constantLoader.messages.REQ_SERVICE_TYPE;
         vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
+        vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
         
         vm.serviceTypes = [];
-
+        vm.countryList = [];
+        
         function initialized(){
             loadServiceTypes();
+            loadCountries();
         }
         
         function loadServiceTypes(){
@@ -34,6 +36,18 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
                             });
                         });
                     }
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
+        }
+        
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = response.data.result;
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }
@@ -76,6 +90,17 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
 		
         vm.onCancelClick = function(){
             commonUtility.redirectTo("vendorLogin");
+        };
+        
+        vm.onCountryChange = function(){
+            if(commonUtility.is3DValidKey(vm.country)){
+                var countries = commonUtility.getFilterArray(vm.countryList, {isoCode: vm.country});
+                if(commonUtility.is3DValidKey(countries) && countries.length > 0){
+                    vm.countryPhoneCode = countries[0].isdCode;
+                }
+            }else{
+                vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
+            }
         };
 
         initialized();
