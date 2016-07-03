@@ -70,10 +70,10 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
                     $rootScope.EMAIL = userInfo.emailId;
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
 		

@@ -25,7 +25,7 @@
 	</p>
         <combobox label="Service Type" for="txtType" sel
             label-binding="name" model-binding="code" ng-model="vm.type"
-            items="vm.serviceTypes" msg="vm.nameMsg" required
+            items="vm.serviceTypes" msg="vm.serviceTypeMsg" required
             show-validation="vendorRegForm.$submitted && 
                 vendorRegForm.txtType.$error.required" readOnly="false"></combobox>
         
