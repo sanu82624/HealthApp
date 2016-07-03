@@ -5,7 +5,7 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
 
         var vm = this;
         vm.phones = [];
-        vm.validPhone = constantLoader.validationPattern.PHONE;
+        vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
         
         function initialization(){
             loadPhones();
@@ -17,6 +17,10 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
                     if(angular.isDefined(response.data.result.contacts) &&
                         response.data.result.contacts !== null){
                         vm.phones = response.data.result.contacts;
+                        if(vm.phones.length > 0){
+                            vm.countryPhoneCode = vm.phones[0].substr(0, 
+                                vm.phones[0].indexOf(constantLoader.defaultValues.ISD_SEPARATOR));
+                        }
                     }
                 }else{
                     commonUtility.showAlert(response.data.statusText);
@@ -45,7 +49,8 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
                     return false;
                 }
             }
-            vm.phones.push(vm.phone);
+            vm.phones.push(vm.countryPhoneCode + 
+                constantLoader.defaultValues.ISD_SEPARATOR + vm.phone);
             vm.phone = "";
         };
 

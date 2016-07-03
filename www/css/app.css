@@ -120,6 +120,11 @@
     float:right; 
     display: inline;
 }
+.phone-field-add{
+    width:65%; 
+    margin-left: 5px;
+    display: inline;
+}
 .phone-code-field{
     float:left; 
     display: inline; 

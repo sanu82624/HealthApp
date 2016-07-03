@@ -56,7 +56,8 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
             userInfo.address = vm.address;
             userInfo.pinCode = vm.pinCode;
             userInfo.gender = vm.gender;
-            userInfo.phone = [vm.phone];
+            userInfo.phone = [vm.countryPhoneCode + 
+                constantLoader.defaultValues.ISD_SEPARATOR + vm.phone];
             userInfo.emailId = [vm.email];
             userInfo.password = vm.pass;
 	

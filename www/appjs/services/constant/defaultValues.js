@@ -7,5 +7,6 @@ angular.module('cmaManagementApp')
         REQUEST_CHANNEL: "MOBILE",
         BLANK_STRING: "",
         COMBO_SELECT_MSG: "Please select",
-        BLANK_ISD_CODE: "+00"
+        BLANK_ISD_CODE: "+00",
+        ISD_SEPARATOR: "-|"
   });

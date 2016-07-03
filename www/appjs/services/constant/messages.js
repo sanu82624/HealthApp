@@ -22,5 +22,6 @@ angular.module('cmaManagementApp')
     PASS_MISMATCH: "New password and confirm password are mismatch!",
     ALREADY_ADDED: "You have already added!",
     TRY_AGAIN: "Try again after some time!",
-    BLANK_VALUE: "Blank will not going to be added!"
+    BLANK_VALUE: "Blank will not going to be added!",
+    COUNTRY_CODE: "Please select country code!"
   });

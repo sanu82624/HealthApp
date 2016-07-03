@@ -1,14 +1,29 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userEPhoneController',
-    function(commonUtility, $rootScope, userBusiness, constantLoader){
+    function(commonUtility, $rootScope, userBusiness, constantLoader,
+    generalUtility){
 
         var vm = this;
         vm.ePhones = [];
-        vm.validPhone = constantLoader.validationPattern.PHONE;
+        vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
+        vm.countryList = [];
         
         function initialized(){
+            loadCountries();
             loadEPhones();
+        }
+        
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = response.data.result;
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
         }
         
         function loadEPhones(){
@@ -17,6 +32,10 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
                     if(angular.isDefined(response.data.result.emergencyPhone) &&
                         response.data.result.emergencyPhone !== null){
                         vm.ePhones = response.data.result.emergencyPhone;
+                        if(vm.ePhones.length > 0){
+                            vm.countryPhoneCode = vm.ePhones[0].substr(0, 
+                                vm.ePhones[0].indexOf(constantLoader.defaultValues.ISD_SEPARATOR));
+                        }
                     }
                 }else{
                     commonUtility.showAlert(response.data.statusText);
@@ -33,6 +52,10 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
         };
 
         vm.onAddEPhoneClick = function(isNotValidPhone){
+            if(vm.countryPhoneCode === constantLoader.defaultValues.BLANK_ISD_CODE){
+                commonUtility.showAlert(constantLoader.messages.COUNTRY_CODE);
+                return;
+            }
             if(isNotValidPhone || vm.phone === "" || 
                 vm.phone === null || angular.isUndefined(vm.phone)){
                 commonUtility.showAlert(constantLoader.messages.VALID_PHONE);
@@ -45,7 +68,8 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
                     return false;
                 }
             }
-            vm.ePhones.push(vm.phone);
+            vm.ePhones.push(vm.countryPhoneCode + 
+                constantLoader.defaultValues.ISD_SEPARATOR + vm.phone);
             vm.phone = "";
         };
 

@@ -69,7 +69,8 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
             vendorInfo.vendorDetails.address = vm.address;
             vendorInfo.vendorDetails.description = vm.desc;
             vendorInfo.vendorDetails.pin = vm.pinCode;
-            vendorInfo.vendorDetails.contacts = [vm.phone];
+            vendorInfo.vendorDetails.contacts = [vm.countryPhoneCode + 
+                constantLoader.defaultValues.ISD_SEPARATOR + vm.phone];
             vendorInfo.vendorDetails.active = true;
 			
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
