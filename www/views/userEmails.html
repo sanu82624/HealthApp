@@ -1,7 +1,12 @@
 <form name="userEmailsForm" novalidate="novalidate" id="userEmailsForm">
 <div class="container">
 	<div class="page-title">Other Emails</div>
-	<div class="list-box">
+	<email-textbox for="txtEmail" ng-model="vm.email" addbox
+            add-button-click="vm.onAddEmailClick(isValid);"
+            show-validation="(userEmailsForm.txtEmail.$error.pattern || 
+                            userEmailsForm.txtEmail.$error.required)" required>
+        </email-textbox>
+        <div class="list-box">
 		<div class="info-box" ng-repeat="email in vm.emails">
 			<p>
 				<div class="btn-delete-row" ng-click="vm.onEmailDeleteClick(email);">x</div>
@@ -9,11 +14,7 @@
 			</p>
 		</div>
 	</div>
-	<email-textbox for="txtEmail" ng-model="vm.email" addbox
-            add-button-click="vm.onAddEmailClick(isValid);"
-            show-validation="(userEmailsForm.txtEmail.$error.pattern || 
-                            userEmailsForm.txtEmail.$error.required)" required>
-        </email-textbox>
+	
 	<div class="row">
             <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
 			<p >
