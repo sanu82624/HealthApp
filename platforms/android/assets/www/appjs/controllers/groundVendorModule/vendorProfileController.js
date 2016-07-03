@@ -1,29 +1,28 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorProfileController',[
-    'commonUtility',
+angular.module('cmaManagementApp').controller('vendorProfileController',
     function(commonUtility){
 		
         var vm = this;
 
         vm.onAboutClick = function(){
-            commonUtility.redirectTo("");
+            commonUtility.redirectTo("vendorInfo");
         };
 
         vm.onPassClick = function(){
-            commonUtility.redirectTo("");
+            commonUtility.redirectTo("vendorPass");
         };
 
         vm.onEmailsClick = function(){
-            commonUtility.redirectTo("");
+            commonUtility.redirectTo("vendorEmails");
         };
 
         vm.onPhoneClick = function(){
-            commonUtility.redirectTo("");
+            commonUtility.redirectTo("vendorPhones");
         };
 
         vm.onBackClick = function(){
             commonUtility.redirectTo("groundVendorHome");
         };
     }
-]);
+);

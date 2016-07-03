@@ -1,16 +1,37 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('monitorAllVendorController',[
-    'commonUtility', 'monitorBusiness', '$rootScope', '$scope', '$filter',
-    function(commonUtility, monitorBusiness, $rootScope, $scope, $filter){
+angular.module('cmaManagementApp').controller('monitorAllVendorController',
+    function(commonUtility, monitorBusiness, $rootScope, $scope, generalUtility){
 
         var vm = this;
 
-        vm.type = $rootScope.serviceTypes[0].code;
+        vm.serviceTypes = [];
         vm.vendors = {};
+        vm.type = "";
 
         function initialize(){
-            loadVendors();
+            loadServiceTypes();
+        }
+        
+        function loadServiceTypes(){
+            generalUtility.loadServiceType().then(function(response){
+                if(response.data.success){
+                    if(response.data.result !== null){
+                        angular.forEach(response.data.result, function(value, key) {
+                            vm.serviceTypes.push({
+                                code: key,
+                                name: value
+                            });
+                        });
+                        vm.type = vm.serviceTypes[0].code;
+                        loadVendors();
+                    }
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
         }
 
         function loadVendors(){
@@ -19,15 +40,13 @@ angular.module('cmaManagementApp').controller('monitorAllVendorController',[
                     vm.vendors = response.data.result;
                 }
             }, function(error){
-
+                commonUtility.showAlert(error.data);
             });
         }
-		
-        $scope.$watch("vm.type", function onChangeServiceType(newValue, oldValue) {
-            if(newValue !== oldValue){
-                loadVendors();
-            }
-        });
+        
+        vm.onServiceTypeChange = function(){
+            loadVendors();
+        };
 		
         vm.onBackClick = function(){
             commonUtility.redirectTo("monitoringGroupHome");
@@ -40,4 +59,4 @@ angular.module('cmaManagementApp').controller('monitorAllVendorController',[
 
         initialize();
     }
-]);
+);

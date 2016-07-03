@@ -1,22 +1,24 @@
 
 angular.module('cmaManagementApp')
-  .service('dataLayer', function ($http, defaultValues, headerTypes) {
+  .service('dataLayer', function ($http, constantLoader, $rootScope) {
     
     this.getAsync = function(relativeUrl){
         
         var urlString = "";
         urlString = buildUrl(relativeUrl);
-        return $http({
-                        method: 'GET', 
-                        url: urlString,
-                        headers: generateConfig(headerTypes.GENERAL)
-                    });
+        var httpPromise = $http({
+                            method: 'GET', 
+                            url: urlString,
+                            headers: generateConfig(constantLoader.headerTypes.GENERAL)
+                        });
+        $rootScope.dalPromise = httpPromise;
+        return httpPromise;
     };
     
     this.postAsync = function(relativeUrl, postData, headType){
         
         var urlString = buildUrl(relativeUrl);
-        var header = generateConfig(headerTypes.GENERAL);
+        var header = generateConfig(constantLoader.headerTypes.GENERAL);
         if(angular.isDefined(headType) && headType !== null){
             header = generateConfig(headType);
         }
@@ -38,6 +40,7 @@ angular.module('cmaManagementApp')
         }
         
         httpPromise = $http(requestObj);
+        $rootScope.dalPromise = httpPromise;
         return httpPromise;
     };
     
@@ -50,30 +53,32 @@ angular.module('cmaManagementApp')
                         method: 'PUT', 
                         url: urlString,
                         data: angular.toJson(putData),
-                        headers: generateConfig(headerTypes.GENERAL)
+                        headers: generateConfig(constantLoader.headerTypes.GENERAL)
                     };
         httpPromise = $http(requestObj);
+        $rootScope.dalPromise = httpPromise;
         return httpPromise;
     };
     
     this.deleteAsync = function(relativeUrl){
         
         var url = buildUrl(relativeUrl);
-        return $http.delete(url, generateConfig(headerTypes.GENERAL));
+        return $http.delete(url, generateConfig(constantLoader.headerTypes.GENERAL));
     };
     
     function buildUrl(relativeUrl){
         
-        return defaultValues.SERVICE_URL + relativeUrl;
+        return constantLoader.defaultValues.SERVICE_URL + relativeUrl;
     }
     
     function generateConfig(type) {
-        if(type === headerTypes.CONTENT_ONLY){
+        if(type === constantLoader.headerTypes.CONTENT_ONLY){
             return {
                 "content-type": "application/json"
             };
-        }else if(type === headerTypes.ENCODED_CONTENT){
+        }else if(type === constantLoader.headerTypes.ENCODED_CONTENT){
             return {
+                "authorization": "Basic testAuth",
                 "Content-Type": "application/x-www-form-urlencoded"
             };
         }

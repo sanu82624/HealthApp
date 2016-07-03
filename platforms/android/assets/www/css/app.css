@@ -33,11 +33,11 @@
 }
 
 .btn{
-	background: rgb(59,103,158); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(59,103,158,1) 0%, rgba(32,124,202,1) 49%, rgba(32,124,202,1) 49%, rgba(43,136,217,1) 50%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(59,103,158,1) 0%,rgba(32,124,202,1) 49%,rgba(32,124,202,1) 49%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(59,103,158,1) 0%,rgba(32,124,202,1) 49%,rgba(32,124,202,1) 49%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+	background: rgb(59,103,158);  /*Old browsers */
+	background: -moz-linear-gradient(top,  rgba(59,103,158,1) 0%, rgba(32,124,202,1) 49%, rgba(32,124,202,1) 49%, rgba(43,136,217,1) 50%, rgba(125,185,232,1) 100%);  /*FF3.6-15*/ 
+	background: -webkit-linear-gradient(top,  rgba(59,103,158,1) 0%,rgba(32,124,202,1) 49%,rgba(32,124,202,1) 49%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%);  /*Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(59,103,158,1) 0%,rgba(32,124,202,1) 49%,rgba(32,124,202,1) 49%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%);  /*W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 );  /*IE6-9 */
 }
 
 .info-box{
@@ -70,7 +70,7 @@
 }
 
 .glyphicon {
-    font-size: 30px   ;
+    font-size: 20px   ;
 }
 .well-header{
     text-align: center !important;
@@ -108,6 +108,27 @@
 .fixed-header{
     position: fixed; 
     z-index: 99;
+}
+.cg-bg-loading{
+    position: fixed !important; 
+    top:98px; 
+    width:120px; 
+    left: 50%;
+}
+.phone-field{
+    width:85%; 
+    float:right; 
+    display: inline;
+}
+.phone-field-add{
+    width:65%; 
+    margin-left: 5px;
+    display: inline;
+}
+.phone-code-field{
+    float:left; 
+    display: inline; 
+    margin-top: 5px;
 }
 .badge-danger{
   background-color: #FF0000  !important;
@@ -148,6 +169,22 @@
 .ticket-action{
     display:block; 
     width:100%;
+}
+
+.info-msg{
+    color: cornflowerblue; 
+    font-size: 0.8em; 
+    font-style: italic;
+}
+
+.add-box{
+    width:80%; 
+    display:inline;
+}
+.add-btn{
+    float:right; 
+    display:inline;
+    margin-top: 5px;
 }
 
 body{

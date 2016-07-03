@@ -1,9 +1,7 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userRequestController',[
-    'commonUtility', 'defaultValues', 'userBusiness', 'messages', '$rootScope',
-    'generalUtility',
-    function(commonUtility, defaultValues, userBusiness, messages, $rootScope,
+angular.module('cmaManagementApp').controller('userRequestController',
+    function(commonUtility, userBusiness, constantLoader, $rootScope,
     generalUtility){
 		
         var vm = this;
@@ -27,7 +25,7 @@ angular.module('cmaManagementApp').controller('userRequestController',[
                         });
                     }
                 } else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
                 
@@ -41,32 +39,29 @@ angular.module('cmaManagementApp').controller('userRequestController',[
         vm.createNewRequest = function(serviceType){
             var request = {};
             request.requestType = serviceType;
-            request.latitude = 0;
-            request.longitude = 0;
-            request.clientId = $rootScope.ClientId;
-            request.channel = defaultValues.REQUEST_CHANNEL;
+            request.clientId = $rootScope.ID;
+            request.channel = constantLoader.defaultValues.REQUEST_CHANNEL;
 
             userBusiness.createNewRequest(request).then(function(response){
                 if(response.data.success){
-                    window.alert(messages.CREATE_REQUEST_SUCCESS);
+                    commonUtility.showAlert(constantLoader.messages.CREATE_REQUEST_SUCCESS);
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    window.alert(messages.CREATE_REQUEST_ERROR);
+                    commonUtility.showAlert(constantLoader.messages.CREATE_REQUEST_ERROR);
                 }
             }, function(error){
-                window.alert(messages.CREATE_REQUEST_ERROR);
+                commonUtility.showAlert(constantLoader.messages.CREATE_REQUEST_ERROR);
             });
         };
 		
         vm.onLoadMyRequests = function(){
             userBusiness.loadMyRequests($rootScope.ID).then(function(response){
                 vm.myRequests = response.data.result;
-                console.info(vm.myRequests);
             }, function(error){
-                console.info(error);
+                console.log(error.data);
             });
         };
         
         initialized();
     }
-]);
+);

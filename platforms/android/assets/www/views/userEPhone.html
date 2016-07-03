@@ -1,0 +1,39 @@
+<form name="userEPhoneForm" novalidate="novalidate" id="userEPhoneForm">
+<div class="container">
+	<div class="page-title">Emergency Phones</div>
+	
+        <phone-textbox for="txtPhone" ng-model="vm.phone" addbox
+            show-validation="userEPhoneForm.$submitted && (userEPhoneForm.txtPhone.$error.pattern || 
+                userEPhoneForm.txtPhone.$error.required)" required emergency
+            country-phone-code="vm.countryPhoneCode" 
+            add-button-click="vm.onAddEPhoneClick(isValid);"
+            countries="vm.countryList">
+        </phone-textbox>
+        
+        <div class="list-box">
+		<div class="info-box" ng-repeat="record in vm.ePhones">
+			<p>
+				<div class="btn-delete-row" ng-click="vm.onEPhoneDeleteClick(record);">x</div>
+				<div style="display:inline;">{{record | hideChar}}</div>
+			</p>
+		</div>
+	</div>
+	
+	<div class="row">
+            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+			<p >
+				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onSaveClick();">
+					<h5>Submit</h5>
+				</button>
+			</p>
+		</div>
+		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+			<p >
+				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();">
+					<h5>Back</h5>
+				</button>
+			</p>
+		</div>
+	</div>
+</div>
+</form>

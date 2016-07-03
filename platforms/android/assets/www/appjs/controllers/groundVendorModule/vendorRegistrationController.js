@@ -1,27 +1,28 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('vendorRegistrationController',[
-    'validationPattern', 'messages', 'vendorBusiness', 'commonUtility',
-    '$rootScope', 'generalUtility',
-    function(validationPattern, messages, vendorBusiness, commonUtility,
+angular.module('cmaManagementApp').controller('vendorRegistrationController',
+    function(constantLoader, vendorBusiness, commonUtility,
     $rootScope, generalUtility){
 		
         var vm = this;
 
-        vm.validName = validationPattern.NAME;
-        vm.validEmail = validationPattern.EMAIL;
-        vm.validPhone = validationPattern.PHONE;
-        vm.emailMsg = messages.VALID_EMAIL;
-        vm.passMsg = messages.VALID_PASS;
-        vm.nameMsg = messages.VALID_NAME;
-        vm.pinMsg = messages.REQ_PIN;
-        vm.phoneMsg = messages.VALID_PHONE;
-        vm.serviceTypeMsg = messages.REQ_SERVICE_TYPE;
+        vm.validName = constantLoader.validationPattern.NAME;
+        vm.validEmail = constantLoader.validationPattern.EMAIL;
+        vm.validPhone = constantLoader.validationPattern.PHONE;
+        vm.emailMsg = constantLoader.messages.VALID_EMAIL;
+        vm.passMsg = constantLoader.messages.VALID_PASS;
+        vm.nameMsg = constantLoader.messages.VALID_NAME;
+        vm.pinMsg = constantLoader.messages.REQ_PIN;
+        vm.serviceTypeMsg = constantLoader.messages.REQ_SERVICE_TYPE;
+        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
+        vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
         
         vm.serviceTypes = [];
-
+        vm.countryList = [];
+        
         function initialized(){
             loadServiceTypes();
+            loadCountries();
         }
         
         function loadServiceTypes(){
@@ -36,13 +37,25 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
                         });
                     }
                 } else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
             });
         }
-		
+        
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = response.data.result;
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
+        }
+        	
         vm.onSaveClick = function(frmData){
             if(!frmData.vendorRegForm.$valid){
                 return false;
@@ -56,29 +69,41 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',[
             vendorInfo.vendorDetails.address = vm.address;
             vendorInfo.vendorDetails.description = vm.desc;
             vendorInfo.vendorDetails.pin = vm.pinCode;
-            vendorInfo.vendorDetails.contacts = [vm.phone];
+            vendorInfo.vendorDetails.contacts = [vm.countryPhoneCode + 
+                constantLoader.defaultValues.ISD_SEPARATOR + vm.phone];
             vendorInfo.vendorDetails.active = true;
 			
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
                 if(response.data.success){
-                    window.alert(messages.USER_REG_SUCCESS);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
                     $rootScope.IS_SIGN_IN = response.data.success;
                     $rootScope.NAME = response.data.result.name;
                     $rootScope.ID = response.data.result.vendId;
                     $rootScope.vendorType = response.data.result.vendType;
                     commonUtility.redirectTo("groundVendorHome");
                 } else{
-                    window.alert(messages.USER_REG_FAIL);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
                 }
             }, function(error){
-                window.alert(messages.USER_REG_FAIL);
+                commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
             });
         };
 		
         vm.onCancelClick = function(){
             commonUtility.redirectTo("vendorLogin");
         };
+        
+        vm.onCountryChange = function(){
+            if(commonUtility.is3DValidKey(vm.country)){
+                var countries = commonUtility.getFilterArray(vm.countryList, {isoCode: vm.country});
+                if(commonUtility.is3DValidKey(countries) && countries.length > 0){
+                    vm.countryPhoneCode = countries[0].isdCode;
+                }
+            }else{
+                vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
+            }
+        };
 
         initialized();
     }
-]);
+);

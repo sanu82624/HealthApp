@@ -1,22 +1,50 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userRegistrationController',[
-    'validationPattern', 'messages', 'userBusiness', 'commonUtility',
-    '$rootScope',
-    function(validationPattern, messages, userBusiness, commonUtility,
+angular.module('cmaManagementApp').controller('userRegistrationController',
+    function(constantLoader, userBusiness, commonUtility, generalUtility,
     $rootScope){
 		
         var vm = this;
 
-        vm.validName = validationPattern.NAME;
-        vm.validEmail = validationPattern.EMAIL;
-        vm.validPhone = validationPattern.PHONE;
-        vm.emailMsg = messages.VALID_EMAIL;
-        vm.passMsg = messages.VALID_PASS;
-        vm.nameMsg = messages.VALID_NAME;
-        vm.genderMsg = messages.REQ_GENDER;
-        vm.pinMsg = messages.REQ_PIN;
-        vm.phoneMsg = messages.VALID_PHONE;
+        vm.validName = constantLoader.validationPattern.NAME;
+        vm.validEmail = constantLoader.validationPattern.EMAIL;
+        vm.validPhone = constantLoader.validationPattern.PHONE;
+        vm.emailMsg = constantLoader.messages.VALID_EMAIL;
+        vm.passMsg = constantLoader.messages.VALID_PASS;
+        vm.nameMsg = constantLoader.messages.VALID_NAME;
+        vm.genderMsg = constantLoader.messages.REQ_GENDER;
+        vm.pinMsg = constantLoader.messages.REQ_PIN;
+        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
+        vm.countryMsg = constantLoader.messages.REQ_COUNTRY;
+        vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
+        
+        vm.countryList = [];
+        vm.genderList = [
+            {
+                code: "M",
+                name: "Male"
+            },
+            {
+                code: "F",
+                name: "Female"
+            }
+        ];
+        
+        function initialized(){
+            loadCountries();
+        }
+        
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = response.data.result;
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
+        }
 
         vm.onSaveClick = function(frmData){
             if(!frmData.userRegForm.$valid){
@@ -28,29 +56,42 @@ angular.module('cmaManagementApp').controller('userRegistrationController',[
             userInfo.address = vm.address;
             userInfo.pinCode = vm.pinCode;
             userInfo.gender = vm.gender;
-            userInfo.phone = [vm.phone];
+            userInfo.phone = [vm.countryPhoneCode + 
+                constantLoader.defaultValues.ISD_SEPARATOR + vm.phone];
             userInfo.emailId = [vm.email];
             userInfo.password = vm.pass;
-			
+	
             userBusiness.registerUser(userInfo).then(function(response){
                 if(response.data.success){
-                    window.alert(messages.USER_REG_SUCCESS);
-                    console.info(response);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
                     $rootScope.IS_SIGN_IN = response.data.success;
                     $rootScope.NAME = response.data.result.name;
                     $rootScope.ID = response.data.result.clientId;
                     $rootScope.EMAIL = userInfo.emailId;
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    window.alert(messages.USER_REG_FAIL);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
                 }
             }, function(error){
-                window.alert(messages.USER_REG_FAIL);
+                commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
             });
         };
 		
         vm.onCancelClick = function(){
             commonUtility.redirectTo("login");
         };
+        
+        vm.onCountryChange = function(){
+            if(commonUtility.is3DValidKey(vm.country)){
+                var countries = commonUtility.getFilterArray(vm.countryList, {isoCode: vm.country});
+                if(commonUtility.is3DValidKey(countries) && countries.length > 0){
+                    vm.countryPhoneCode = countries[0].isdCode;
+                }
+            }else{
+                vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
+            }
+        };
+        
+        initialized();
     }
-]);
+);

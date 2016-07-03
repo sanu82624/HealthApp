@@ -52,6 +52,10 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/userInfoEdit.html',
                 controller: 'userInfoController as vm'
             }).
+            when('/userEPhone',{
+                templateUrl: 'views/userEPhone.html',
+                controller: 'userEPhoneController as vm'
+            }).
             when('/serviceManagementHome',
             {
                 templateUrl: 'views/serviceManagementLanding.html',
@@ -77,9 +81,29 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/vendorRaisedRequest.html',
                 controller: 'vendorRequestController as vm'
             }).
+            when('/vendorRespondedReq',{
+                templateUrl: 'views/vendorRespondedRequest.html',
+                controller: 'vendorRespondedRequestController as vm'
+            }).
             when('/vendorProfile',{
                 templateUrl: 'views/vendorProfile.html',
                 controller: 'vendorProfileController as vm'
+            }).
+            when('/vendorInfo',{
+                templateUrl: 'views/vendorInfoEdit.html',
+                controller: 'vendorInfoEditController as vm'
+            }).
+            when('/vendorPass',{
+                templateUrl: 'views/vendorPass.html',
+                controller: 'vendorPassController as vm'
+            }).
+            when('/vendorEmails',{
+                templateUrl: 'views/vendorEmails.html',
+                controller: 'vendorEmailsController as vm'
+            }).
+            when('/vendorPhones',{
+                templateUrl: 'views/vendorPhones.html',
+                controller: 'vendorPhonesController as vm'
             }).
             when('/monitoringGroupHome',{
                 templateUrl: 'views/monitoringGroupLanding.html',

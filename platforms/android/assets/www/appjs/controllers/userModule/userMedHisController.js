@@ -1,13 +1,12 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userMedHisController',[
-    'commonUtility', '$rootScope', 'userBusiness',
-    function(commonUtility, $rootScope, userBusiness){
+angular.module('cmaManagementApp').controller('userMedHisController',
+    function(commonUtility, $rootScope, userBusiness, constantLoader){
 
         var vm = this;
         vm.medHisRecords = [];
         
-        function initialization(){
+        function initialized(){
             loadMedicalHistory();
         }
         
@@ -19,11 +18,11 @@ angular.module('cmaManagementApp').controller('userMedHisController',[
                         vm.medHisRecords = response.data.result.medicalHistory;
                     }
                 }else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
                 commonUtility.redirectTo("userProfile");
             });
         };
@@ -33,10 +32,15 @@ angular.module('cmaManagementApp').controller('userMedHisController',[
         };
 
         vm.onAddMedHisClick = function(){
+            if(vm.medHis === "" || 
+                vm.medHis === null || angular.isUndefined(vm.medHis)){
+                commonUtility.showAlert(constantLoader.messages.BLANK_VALUE);
+                return false;
+            }
             for(var index=0; index<=vm.medHisRecords.length - 1; index++){
                 if(vm.medHisRecords[index] === vm.medHis){
                     vm.medHis = "";
-                    window.alert("You have already added!");
+                    commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
@@ -58,15 +62,15 @@ angular.module('cmaManagementApp').controller('userMedHisController',[
             userInfo.clientId = $rootScope.ID;
             userInfo.medicalHistory = vm.medHisRecords;
             userBusiness.updateUserInfo(userInfo).then(function(response){
-                window.alert(response.data.statusText);
+                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
             });
         };
         
-        initialization();
+        initialized();
     }
-]);
+);

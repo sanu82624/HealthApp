@@ -1,15 +1,17 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userLoginController',[
-    'messages', 'userBusiness', 'commonUtility', '$rootScope',
-    function(messages, userBusiness, commonUtility, $rootScope){
+angular.module('cmaManagementApp').controller('userLoginController',
+    function(constantLoader, userBusiness, commonUtility, $rootScope){
 		
         var vm = this;
 
-        vm.emailMsg = messages.VALID_EMAIL;
-        vm.passMsg = messages.VALID_PASS;
+        vm.emailMsg = constantLoader.messages.VALID_EMAIL;
+        vm.passMsg = constantLoader.messages.VALID_PASS;
 		
-        vm.onLoginClick = function(){
+        vm.onLoginClick = function(frmData){
+            if(!frmData.userLoginForm.$valid){
+                return false;
+            }
             userBusiness.validateUser(vm.email, vm.pass).then(function(response){
                 if(response.data.success){
                     $rootScope.ID = response.data.result.clientId;
@@ -18,10 +20,10 @@ angular.module('cmaManagementApp').controller('userLoginController',[
                     $rootScope.EMAIL = vm.email;
                     commonUtility.redirectTo("userLanding");
                 } else{
-                    window.alert(messages.USER_LOGIN_WRONG);
+                    commonUtility.showAlert(constantLoader.messages.USER_LOGIN_WRONG);
                 }
             }, function(error){
-                window.alert(messages.USER_LOGIN_FAIL);
+                commonUtility.showAlert(constantLoader.messages.USER_LOGIN_FAIL);
             });
         };
 		
@@ -29,4 +31,4 @@ angular.module('cmaManagementApp').controller('userLoginController',[
             commonUtility.redirectTo("reg");
         };
     }
-]);
+);

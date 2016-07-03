@@ -23,6 +23,18 @@ angular.module('cmaManagementApp')
     vendorBusiness.updateTicketStatusByVendor = function(status, assignementId, vendId) {
         return vendorData.updateTicketStatusByVendor(status, assignementId, vendId);
     };
+    
+    vendorBusiness.updateVendorDetails = function(vendor) {
+        return vendorData.updateVendorDetails(vendor);
+    };
+    
+    vendorBusiness.loadVendorInfo = function(vendId) {
+        return vendorData.loadVendorInfo(vendId);
+    };
+    
+    vendorBusiness.changeVendorPassword = function(email, currentPass, newPass) {
+        return vendorData.changeVendorPassword(email, currentPass, newPass);
+    };
 	
     return vendorBusiness;
   });

@@ -29,6 +29,7 @@ angular.module('cmaManagementApp').controller('vendorRequestController',
                 assignmentId, vendId).then(function(response){
                 if(response.data.success){
                     commonUtility.showAlert(response.data.statusText);
+                    loadAssignedRequests();
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }

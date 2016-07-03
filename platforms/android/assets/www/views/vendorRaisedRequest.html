@@ -3,9 +3,9 @@
     <div>
         <div class="info-box" ng-repeat="request in vm.requests | orderBy: '-createTs'">
             <p>
-                <span>Id: {{request.assignmentId.replace('TICKET-','')}}</span></br>
-                <span>Created On: {{request.createTs | date:'yyyy-MM-dd HH:mm:ss Z'}}</span></br>
-                <span>Status: {{request.status}}</span></br>
+                <span>Id: {{request.assignmentId.replace('TICKET-','')}}</span><br/>
+                <span>Created On: {{request.createTs | dateFormatter}}</span><br/>
+                <span>Status: {{request.status}}</span><br/>
             </p>
             <div class="ticket-action">
                 <div class="accept-vend" 

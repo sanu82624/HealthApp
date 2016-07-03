@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="page-title">Vendor - Responded Tickets</div>
+    <div>
+        <combobox label="Ticket Status" for="txtType" 
+            label-binding="code" model-binding="code" ng-model="vm.tckType"
+            items="vm.ticketTypes" readOnly="false" 
+            selection-changed="vm.onTckTypeChange();"></combobox>
+        
+        <div class="info-box" ng-repeat="request in vm.requests | orderBy: '-createTs'">
+            <p>
+                <span>Id: {{request.assignmentId.replace('TICKET-','')}}</span><br/>
+                <span>Created On: {{request.createTs | dateFormatter}}</span><br/>
+                <span>Status: {{request.status}}</span><br/>
+            </p>
+            <div class="ticket-action" ng-if="request.status === vm.ticketTypes[0].code">
+                <div class="accept-vend" 
+                    ng-click="vm.onTicketStatusClick(request.assignmentId, request.vendorId);">Close</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+            <p>
+                <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();">
+                    <h5>Back</h5>
+                </button>
+            </p>
+        </div>
+    </div>
+</div>

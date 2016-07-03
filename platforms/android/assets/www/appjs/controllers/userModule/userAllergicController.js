@@ -1,13 +1,12 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('userAllergicController',[
-    'commonUtility', '$rootScope', 'userBusiness',
-    function(commonUtility, $rootScope, userBusiness){
+angular.module('cmaManagementApp').controller('userAllergicController',
+    function(commonUtility, $rootScope, userBusiness, constantLoader){
 
         var vm = this;
         vm.allergicRecords = [];
         
-        function initialization(){
+        function initialized(){
             loadAllergic();
         }
         
@@ -19,11 +18,11 @@ angular.module('cmaManagementApp').controller('userAllergicController',[
                         vm.allergicRecords = response.data.result.alergicTo;
                     }
                 }else{
-                    window.alert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
                 commonUtility.redirectTo("userProfile");
             });
         };
@@ -33,10 +32,15 @@ angular.module('cmaManagementApp').controller('userAllergicController',[
         };
 
         vm.onAddAllergyClick = function(){
+            if(vm.allergy === "" || 
+                vm.allergy === null || angular.isUndefined(vm.allergy)){
+                commonUtility.showAlert(constantLoader.messages.BLANK_VALUE);
+                return false;
+            }
             for(var index=0; index<=vm.allergicRecords.length - 1; index++){
                 if(vm.allergicRecords[index] === vm.allergy){
                     vm.allergy = "";
-                    window.alert("You have already added!");
+                    commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
@@ -58,15 +62,15 @@ angular.module('cmaManagementApp').controller('userAllergicController',[
             userInfo.clientId = $rootScope.ID;
             userInfo.alergicTo = vm.allergicRecords;
             userBusiness.updateUserInfo(userInfo).then(function(response){
-                window.alert(response.data.statusText);
+                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                window.alert(error.data);
+                commonUtility.showAlert(error.data);
             });
         };
         
-        initialization();
+        initialized();
     }
-]);
+);
