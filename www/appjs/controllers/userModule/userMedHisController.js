@@ -32,8 +32,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',
         };
 
         vm.onAddMedHisClick = function(){
-            if(vm.medHis === "" || 
-                vm.medHis === null || angular.isUndefined(vm.medHis)){
+            if(!commonUtility.is3DValidKey(vm.medHis)){
                 commonUtility.showAlert(constantLoader.messages.BLANK_VALUE);
                 return false;
             }

@@ -31,9 +31,8 @@ angular.module('cmaManagementApp').controller('userAllergicController',
             commonUtility.redirectTo("userProfile");
         };
 
-        vm.onAddAllergyClick = function(){
-            if(vm.allergy === "" || 
-                vm.allergy === null || angular.isUndefined(vm.allergy)){
+        vm.onAddAllergyClick = function(isValid){
+            if(!commonUtility.is3DValidKey(vm.allergy)){
                 commonUtility.showAlert(constantLoader.messages.BLANK_VALUE);
                 return false;
             }

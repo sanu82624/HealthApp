@@ -1,19 +1,19 @@
+<form name="userMedHisForm" novalidate="novalidate" id="userMedHisForm">
 <div class="container">
-	<div class="page-title">Medical History</div>
-	<div class="list-box">
-		<div class="info-box" ng-repeat="record in vm.medHisRecords">
-			<p>
-				<div class="btn-delete-row" ng-click="vm.onMedHisDeleteClick(record);">x</div>
-				<div style="display:inline;">{{record}}</div>
-			</p>
-		</div>
-	</div>
-	<div class="form-group">
-		<input type="text" id="txtMH" name="txtMH" ng-model="vm.medHis" class="form-control" style="width:230px; display:inline;">
-		<button class="btn btn-sq-lg btn-sq-sm btn-primary" style="float:right; display:inline;" ng-click="vm.onAddMedHisClick();">
-			<h5>Add</h5>
-		</button>
-	</div>
+    <div class="page-title">Medical History</div>
+    
+    <add-textbox for="txtMH" ng-model="vm.medHis"
+        add-button-click="vm.onAddMedHisClick();"></add-textbox>
+    
+    <div class="list-box">
+            <div class="info-box" ng-repeat="record in vm.medHisRecords">
+                    <p>
+                            <div class="btn-delete-row" ng-click="vm.onMedHisDeleteClick(record);">x</div>
+                            <div style="display:inline;">{{record}}</div>
+                    </p>
+            </div>
+    </div>
+    
 	<div class="row">
             <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
 			<p >
@@ -31,3 +31,4 @@
 		</div>
 	</div>
 </div>
+</form>

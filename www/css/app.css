@@ -180,6 +180,10 @@
     width:80%; 
     display:inline;
 }
+.add-textbox-wid{
+    width:89%; 
+    display:inline;
+}
 .add-btn{
     float:right; 
     display:inline;
