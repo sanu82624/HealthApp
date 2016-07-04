@@ -13,14 +13,16 @@ angular.module('cmaManagementApp')
             showValidation: "=",
             countryPhoneCode: "=",
             addButtonClick: "&",
-            countries: "="
+            countries: "=",
+            labelBinding: "@",
+            modelBinding: "@",
+            countryFor: "@"
         },
         template: function(element, attrs){
             
             var required = attrs.hasOwnProperty('required') ? "required='required'" : 
                 constantLoader.defaultValues.BLANK_STRING;
             var isAddbox = attrs.hasOwnProperty('addbox');
-            var isEmergency = attrs.hasOwnProperty('emergency');
             
             var html =  '<div class="form-group">' +
                             ((!isAddbox)? ('<label>{{label}} ' + 
@@ -30,14 +32,16 @@ angular.module('cmaManagementApp')
                                 'data-ng-show="showValidation"> ' +
                                 constantLoader.messages.VALID_PHONE +
                             '</span><br/>') : '') +
-                            ((isEmergency) ? 
-                            ('<select ng-model="countryPhoneCode" ' +
-                                'id="comboEPhoneIsd" name="comboEPhoneIsd" ' +
-                                'class="form-control" required style="width: 80px; display: inline;"' +
-                                '<option data-ng-repeat="item in countries" ' +
-                                    'value={{item.isdCode}} >{{item.isdCode}}</option>' +							
-                            '</select>'):
-                            '<span class="phone-code-field">{{countryPhoneCode}}</span>') +
+                            '<select ng-model="countryPhoneCode" ' +
+                                'id="{{countryFor}}" name="{{countryFor}}" ' +
+                                'class="form-control phone-field-country" ' + required + ' >' +
+                                '<option value="' + constantLoader.defaultValues.BLANK_ISD_CODE + 
+                                    '">' + constantLoader.defaultValues.COMBO_SELECT_MSG + '</option>' +
+                                '<option data-ng-repeat="country in countries" ' +
+                                    'value={{country.' + attrs.modelBinding + '}} >' +
+                                    '{{country.' + attrs.labelBinding + '}}</option>' +							
+                            '</select>' +
+                            '<span class="phone-field-country-code">{{countryPhoneCode}}</span>' +
                             '<input type="tel" id="{{for}}" name="{{for}}" ' +
                                 'ng-pattern="' + constantLoader.validationPattern.PHONE + '" ' +
                                 'class="form-control ' + (isAddbox ? 'phone-field-add' : 'phone-field') + '" ' +

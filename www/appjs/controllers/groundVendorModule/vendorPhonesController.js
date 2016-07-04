@@ -1,14 +1,29 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorPhonesController',
-    function(commonUtility, $rootScope, vendorBusiness, constantLoader){
+    function(commonUtility, $rootScope, vendorBusiness, constantLoader,
+    generalUtility){
 
         var vm = this;
         vm.phones = [];
         vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
+        vm.countryList = [];
         
         function initialization(){
             loadPhones();
+            loadCountries();
+        }
+        
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = response.data.result;
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
         }
         
         function loadPhones(){

@@ -93,17 +93,6 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
             commonUtility.redirectTo("vendorLogin");
         };
         
-        vm.onCountryChange = function(){
-            if(commonUtility.is3DValidKey(vm.country)){
-                var countries = commonUtility.getFilterArray(vm.countryList, {isoCode: vm.country});
-                if(commonUtility.is3DValidKey(countries) && countries.length > 0){
-                    vm.countryPhoneCode = countries[0].isdCode;
-                }
-            }else{
-                vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
-            }
-        };
-
         initialized();
     }
 );

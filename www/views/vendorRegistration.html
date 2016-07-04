@@ -33,8 +33,7 @@
             label-binding="name" model-binding="isoCode" ng-model="vm.country"
             items="vm.countryList" msg="vm.countryMsg" required
             show-validation="vendorRegForm.$submitted && 
-                vendorRegForm.txtCountry.$error.required" readOnly="false"
-            selection-changed="vm.onCountryChange();"></combobox>
+                vendorRegForm.txtCountry.$error.required" readOnly="false"></combobox>
         
         <p class="form-group">
 		<label>Address*</label>
@@ -59,9 +58,10 @@
 			class="form-control" ng-model="vm.desc">
 	</p>
         
-        <phone-textbox label="Phone" for="txtPhone" ng-model="vm.phone"
+        <phone-textbox label="Phone" for="txtPhone" ng-model="vm.phone"  country-for="comboCountry"
+            countries="vm.countryList" label-binding="name" model-binding="isdCode"
             show-validation="vendorRegForm.$submitted && (vendorRegForm.txtPhone.$error.pattern || 
-                vendorRegForm.txtPhone.$error.required)" required
+                vendorRegForm.txtPhone.$error.required || userRegForm.comboCountry.$error.required)" required
             country-phone-code="vm.countryPhoneCode">
         </phone-textbox>
 	<div style="min-height: 15px; padding:15px;"></div>
