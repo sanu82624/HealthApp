@@ -6,7 +6,6 @@ angular.module('cmaManagementApp').controller('userLoginController',
         var vm = this;
 
         vm.emailMsg = constantLoader.messages.VALID_EMAIL;
-        vm.passMsg = constantLoader.messages.VALID_PASS;
 		
         vm.onLoginClick = function(frmData){
             if(!frmData.userLoginForm.$valid){

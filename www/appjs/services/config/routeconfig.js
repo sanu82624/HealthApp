@@ -62,12 +62,12 @@ angular.module('routerConfigModule', ['ngRoute'])
                 controller: 'serviceManagementController'
             }).
             when('/groundVendorHome',{
-                templateUrl: 'views/groundVendorLanding.html',
+                templateUrl: 'views/vendorLanding.html',
                 controller: 'vendorLandingController as vm'
             }).
             when('/vendorLogin',{
-                templateUrl: 'views/groundVendorLogin.html',
-                controller: 'groundVendorLoginController as vm'
+                templateUrl: 'views/vendorLogin.html',
+                controller: 'vendorLoginController as vm'
             }).
             when('/vendorReg',{
                 templateUrl: 'views/vendorRegistration.html',

@@ -10,7 +10,6 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
         vm.validEmail = constantLoader.validationPattern.EMAIL;
         vm.validPhone = constantLoader.validationPattern.PHONE;
         vm.emailMsg = constantLoader.messages.VALID_EMAIL;
-        vm.passMsg = constantLoader.messages.VALID_PASS;
         vm.nameMsg = constantLoader.messages.VALID_NAME;
         vm.genderMsg = constantLoader.messages.REQ_GENDER;
         vm.pinMsg = constantLoader.messages.REQ_PIN;

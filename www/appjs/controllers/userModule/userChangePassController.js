@@ -5,8 +5,6 @@ angular.module('cmaManagementApp').controller('userChangePassController',
 		
         var vm = this;
 
-        vm.passMsg = constantLoader.messages.VALID_PASS;
-        
         vm.onSavePassClick = function(frmData){
             if(!frmData.userPassForm.$valid){
                 return false;

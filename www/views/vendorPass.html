@@ -1,30 +1,19 @@
 <form name="vendorPassForm" novalidate="novalidate" id="vendorPassForm">
 <div class="container">
     <div class="page-title">Password Change Form</div>
-    <p class="form-group">
-        <label>Current Password*</label>
-        <span class="error-msg-span" 
-            ng-show="vendorPassForm.$submitted && 
-            vendorPassForm.txtPass.$error.required">{{vm.passMsg}}</span>
-        <input type="password" id="txtPass" name="txtPass" 
-            ng-model="vm.pass" class="form-control" required>
-    </p>
-    <p class="form-group">
-        <label>New Password*</label>
-        <span class="error-msg-span" 
-            ng-show="vendorPassForm.$submitted && 
-            vendorPassForm.txtNewPass.$error.required">{{vm.passMsg}}</span>
-        <input type="password" id="txtNewPass" name="txtNewPass" 
-            ng-model="vm.newPass" class="form-control" required>
-    </p>
-    <p class="form-group">
-        <label>Confirm Password*</label>
-        <span class="error-msg-span" 
-            ng-show="vendorPassForm.$submitted && 
-            vendorPassForm.txtConPass.$error.required">{{vm.passMsg}}</span>
-        <input type="password" id="txtConPass" name="txtConPass" 
-            ng-model="vm.conPass" class="form-control" required>
-    </p>
+    
+    <password-textbox label="Current Password" for="txtPass" ng-model="vm.pass"
+        show-validation="vendorPassForm.$submitted && 
+            vendorPassForm.txtPass.$error.required" required></password-textbox>
+    
+    <password-textbox label="New Password" for="txtNewPass" ng-model="vm.newPass"
+        show-validation="vendorPassForm.$submitted && 
+            vendorPassForm.txtNewPass.$error.required" required></password-textbox>
+    
+    <password-textbox label="Confirm Password" for="txtConPass" ng-model="vm.conPass"
+        show-validation="vendorPassForm.$submitted && 
+            vendorPassForm.txtConPass.$error.required" required></password-textbox>
+    
     <div class="row" style="text-align: center;">
         <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
             <p>

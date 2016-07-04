@@ -1,12 +1,11 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('groundVendorLoginController',
+angular.module('cmaManagementApp').controller('vendorLoginController',
     function(constantLoader, vendorBusiness, commonUtility, $rootScope){
 		
         var vm = this;
 
         vm.emailMsg = constantLoader.messages.VALID_EMAIL;
-        vm.passMsg = constantLoader.messages.VALID_PASS;
 
         vm.onLoginClick = function(frmData){
             if(!frmData.vendorLoginForm.$valid){

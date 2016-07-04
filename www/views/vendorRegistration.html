@@ -7,14 +7,10 @@
 			vendorRegForm.txtEmail.$error.required)" required>
     </email-textbox>
     
-	<p class="form-group">
-		<label>Password*</label>
-		<span class="error-msg-span" 
-			ng-show="vendorRegForm.$submitted && 
-					vendorRegForm.txtPass.$error.required">{{vm.passMsg}}</span>
-		<input type="password" id="txtPass" name="txtPass" 
-			ng-model="vm.pass" class="form-control" required>
-	</p>
+    <password-textbox label="Password" for="txtPass" ng-model="vm.pass"
+        show-validation="vendorRegForm.$submitted && 
+            vendorRegForm.txtPass.$error.required" required></password-textbox>
+
 	<p class="form-group">
 		<label>Name*</label>
 		<span class="error-msg-span" 
