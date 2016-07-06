@@ -8,5 +8,8 @@ angular.module('cmaManagementApp')
         BLANK_STRING: "",
         COMBO_SELECT_MSG: "Please select",
         BLANK_ISD_CODE: "",
-        ISD_SEPARATOR: "-|"
+        ISD_SEPARATOR: "-|",
+        COUNTRY_ENDED_LIST: "IN,US,GB",
+        COUNTRY_SEARCH_FIELD: "isoCode",
+        COUNTRY_SORT_FIELD: "name"
   });

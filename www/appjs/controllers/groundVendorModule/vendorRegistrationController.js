@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorRegistrationController',
-    function(constantLoader, vendorBusiness, commonUtility,
+    function(constantLoader, vendorBusiness, commonUtility, serviceLoader,
     $rootScope, generalUtility){
 		
         var vm = this;
@@ -46,7 +46,10 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
         function loadCountries(){
             generalUtility.loadCountries().then(function(response){
                 if(response.data.success){
-                    vm.countryList = response.data.result;
+                    vm.countryList = commonUtility.getCustomSortedList(response.data.result, 
+                        constantLoader.defaultValues.COUNTRY_ENDED_LIST, 
+                        constantLoader.defaultValues.COUNTRY_SEARCH_FIELD,
+                        constantLoader.defaultValues.COUNTRY_SORT_FIELD);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }

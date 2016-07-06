@@ -43,6 +43,26 @@ angular.module('cmaManagementApp')
         commonUtility.getFilterArray = function(array, filterJson){
             return serviceLoader.filter("filter")(array, filterJson);
         };
+        
+        commonUtility.getCustomSortedList = function(array, endedlist, fieldToSearch, fieldToSort){
+            var endedArray = endedlist.split(",");
+            var endedItems = [];
+            for(var index=0; index<endedArray.length; index++){
+                endedItems.push(serviceLoader.filter("filter")(array,
+                    function(item){return (item[fieldToSearch] === endedArray[index]);}));
+            }
+            
+            var result = serviceLoader.filter("orderBy")(array, fieldToSort);
+            for(var index=0; index<endedArray.length; index++){
+                result = serviceLoader.filter("filter")(result, 
+                    function(item){return (item[fieldToSearch] !== endedArray[index]);});
+            }
+            
+            for(var index=endedItems.length-1; index>=0; index--){
+                result.unshift(endedItems[index][0]);
+            }
+            return result;
+        };
 	
 	return commonUtility;
   });
