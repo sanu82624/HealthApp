@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userInfoController',
-    function(constantLoader, userBusiness, commonUtility,
+    function(constantLoader, userBusiness, commonUtility, generalUtility,
     $rootScope){
 		
         var vm = this;
@@ -10,10 +10,39 @@ angular.module('cmaManagementApp').controller('userInfoController',
         vm.nameMsg = constantLoader.messages.VALID_NAME;
         vm.genderMsg = constantLoader.messages.REQ_GENDER;
         vm.pinMsg = constantLoader.messages.REQ_PIN;
+        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
+        vm.countryMsg = constantLoader.messages.REQ_COUNTRY;
         vm.userInfo = {};
+        vm.countryList = [];
+        vm.genderList = [
+            {
+                code: "M",
+                name: "Male"
+            },
+            {
+                code: "F",
+                name: "Female"
+            }
+        ];
         
         function initialized(){
+            loadCountries();
             loadUserInfo();
+        }
+        
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = commonUtility.getCustomSortedList(response.data.result, 
+                        constantLoader.defaultValues.COUNTRY_ENDED_LIST, 
+                        constantLoader.defaultValues.COUNTRY_SEARCH_FIELD,
+                        constantLoader.defaultValues.COUNTRY_SORT_FIELD);
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
         }
         
         function loadUserInfo(){

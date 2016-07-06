@@ -11,14 +11,10 @@
         show-validation="userRegForm.$submitted && 
             userRegForm.txtPass.$error.required" required></password-textbox>
     
-    <p class="form-group">
-            <label>Name*</label>
-            <span class="error-msg-span" 
-                    ng-show="userRegForm.$submitted && (userRegForm.txtName.$error.pattern || 
-                                    userRegForm.txtName.$error.required)">{{vm.nameMsg}}</span>
-            <input type="text" id="txtName" name="txtName" ng-pattern="vm.validName" 
-                    ng-model="vm.name" class="form-control" required>
-    </p>
+    <normal-textbox label="Name" for="txtName" required
+        ng-model="vm.name" show-validation="userRegForm.$submitted && 
+            userRegForm.txtName.$error.required" msg="vm.nameMsg"></normal-textbox>
+    
     <combobox label="Gender" for="txtGender" sel
         label-binding="name" model-binding="code" ng-model="vm.gender"
         items="vm.genderList" msg="vm.genderMsg" required
@@ -37,14 +33,18 @@
         show-validation="userRegForm.$submitted && 
             userRegForm.txtCountry.$error.required" readOnly="false"></combobox>
     
-    <p class="form-group">
-            <label>Address*</label>
-            <span class="error-msg-span" 
-                ng-show="userRegForm.$submitted && 
-                userRegForm.txtAddress.$error.required">{{vm.addressMsg}}</span>
-            <input type="text" ng-model="vm.address" id="txtAddress" name="txtAddress" 
-                class="form-control" required>
-    </p>
+    <normal-textbox label="State" for="txtState" required
+        ng-model="vm.state" show-validation="userRegForm.$submitted && 
+            userRegForm.txtState.$error.required" msg="vm.addressMsg"></normal-textbox>
+    
+    <normal-textbox label="City" for="txtCity" required
+        ng-model="vm.city" show-validation="userRegForm.$submitted && 
+            userRegForm.txtCity.$error.required" msg="vm.addressMsg"></normal-textbox>
+    
+    <normal-textbox label="Address" for="txtAddress" required
+        ng-model="vm.address" show-validation="userRegForm.$submitted && 
+            userRegForm.txtAddress.$error.required" msg="vm.addressMsg"></normal-textbox>
+    
     <p class="form-group">
         <label>Pin Code*</label>
         <span class="error-msg-span" 
