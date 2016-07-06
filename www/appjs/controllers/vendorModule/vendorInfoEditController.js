@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorInfoEditController',
-    function(constantLoader, vendorBusiness, commonUtility,
+    function(constantLoader, vendorBusiness, commonUtility, generalUtility,
     $rootScope){
 		
         var vm = this;
@@ -10,9 +10,28 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
         vm.validName = constantLoader.validationPattern.NAME;
         vm.nameMsg = constantLoader.messages.VALID_NAME;
         vm.pinMsg = constantLoader.messages.REQ_PIN;
+        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
+        vm.countryMsg = constantLoader.messages.REQ_COUNTRY;
+        vm.countryList = [];
         
         function initialized(){
+            loadCountries();
             loadVendorDetails();
+        }
+        
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = commonUtility.getCustomSortedList(response.data.result, 
+                        constantLoader.defaultValues.COUNTRY_ENDED_LIST, 
+                        constantLoader.defaultValues.COUNTRY_SEARCH_FIELD,
+                        constantLoader.defaultValues.COUNTRY_SORT_FIELD);
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data);
+            });
         }
         
         function loadVendorDetails(){
