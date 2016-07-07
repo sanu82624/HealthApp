@@ -4,11 +4,11 @@
     
     <normal-textbox label="Name" for="txtName" required
         ng-model="vm.userInfo.name" show-validation="userInfoForm.$submitted && 
-            userInfoForm.txtName.$error.required" msg="vm.nameMsg"></normal-textbox>
+            userInfoForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
     
     <combobox label="Gender" for="txtGender" sel
         label-binding="name" model-binding="code" ng-model="vm.userInfo.gender"
-        items="vm.genderList" msg="vm.genderMsg" required
+        items="vm.genderList" msg="REQ_GENDER" required
         show-validation="userInfoForm.$submitted && 
             userInfoForm.txtGender.$error.required" readOnly="false"></combobox>
     
@@ -20,30 +20,26 @@
     
     <combobox label="Country" for="txtCountry" sel
         label-binding="name" model-binding="isoCode" ng-model="vm.userInfo.country"
-        items="vm.countryList" msg="vm.countryMsg" required
+        items="vm.countryList" msg="REQ_COUNTRY" required
         show-validation="userInfoForm.$submitted && 
             userInfoForm.txtCountry.$error.required" readOnly="false"></combobox>
     
     <normal-textbox label="State" for="txtState" required
         ng-model="vm.userInfo.state" show-validation="userInfoForm.$submitted && 
-            userInfoForm.txtState.$error.required" msg="vm.addressMsg"></normal-textbox>
+            userInfoForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
     
     <normal-textbox label="City" for="txtCity" required
         ng-model="vm.userInfo.city" show-validation="userInfoForm.$submitted && 
-            userInfoForm.txtCity.$error.required" msg="vm.addressMsg"></normal-textbox>
+            userInfoForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
     
     <normal-textbox label="Address" for="txtAddress" required
         ng-model="vm.userInfo.address" show-validation="userInfoForm.$submitted && 
-            userInfoForm.txtAddress.$error.required" msg="vm.addressMsg"></normal-textbox>
+            userInfoForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
     
-    <p class="form-group">
-        <label>Pin Code*</label>
-        <span class="error-msg-span" 
-            ng-show="userInfoForm.$submitted && 
-            userInfoForm.txtPinCode.$error.required">{{vm.pinMsg}}</span>
-        <input type="text" id="txtPinCode" name="txtPinCode"
-            class="form-control" ng-model="vm.userInfo.pinCode" required>
-    </p>
+    <pin-textbox label="Pin Code" for="txtPinCode" required
+        ng-model="vm.userInfo.pinCode" show-validation="userInfoForm.$submitted && 
+            userInfoForm.txtPinCode.$error.required"></pin-textbox>
+    
 	<div class="row" style="text-align: center;">
 		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
 			<p>

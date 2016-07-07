@@ -1,0 +1,63 @@
+<form name="vendorLocForm" novalidate="novalidate" id="vendorLocForm">
+<div class="container">
+    <div class="page-title">New Location</div>
+    
+    <normal-textbox label="Location Name" for="txtName" required
+        ng-model="vm.name" show-validation="vendorLocForm.$submitted && 
+            vendorLocForm.txtName.$error.required" msg="vm.nameMsg"></normal-textbox>
+    
+    <combobox label="Country" for="txtCountry" sel
+        label-binding="name" model-binding="isoCode" ng-model="vm.country"
+        items="vm.countryList" msg="vm.countryMsg" required
+        show-validation="vendorLocForm.$submitted && 
+            vendorLocForm.txtCountry.$error.required" readOnly="false"></combobox>
+    
+    <normal-textbox label="State" for="txtState" required
+        ng-model="vm.state" show-validation="vendorLocForm.$submitted && 
+            vendorLocForm.txtState.$error.required" msg="vm.addressMsg"></normal-textbox>
+    
+    <normal-textbox label="City" for="txtCity" required
+        ng-model="vm.city" show-validation="vendorLocForm.$submitted && 
+            vendorLocForm.txtCity.$error.required" msg="vm.addressMsg"></normal-textbox>
+    
+    <normal-textbox label="Address" for="txtAddress" required
+        ng-model="vm.address" show-validation="vendorLocForm.$submitted && 
+            vendorLocForm.txtAddress.$error.required" msg="vm.addressMsg"></normal-textbox>
+     
+	<p class="form-group">
+		<label>Pin Code*</label>
+                <span class="error-msg-span" 
+			ng-show="vendorLocForm.$submitted && 
+                                    vendorLocForm.txtPinCode.$error.required">{{vm.pinMsg}}</span>
+		<input type="text" id="txtPinCode" name="txtPinCode" 
+                       ng-model="vm.pinCode" class="form-control" required>
+	</p>
+    
+    <normal-textbox label="Description" for="txtDesc" 
+        ng-model="vm.desc"></normal-textbox>    
+        
+    <phone-textbox label="Phone" for="txtPhone" ng-model="vm.phone"  country-for="comboCountry"
+        countries="vm.countryList" label-binding="name" model-binding="isdCode"
+        show-validation="vendorLocForm.$submitted && (vendorLocForm.txtPhone.$error.pattern || 
+            vendorLocForm.txtPhone.$error.required || vendorLocForm.comboCountry.$error.required)" required
+        country-phone-code="vm.countryPhoneCode">
+    </phone-textbox>
+	<div style="min-height: 15px; padding:15px;"></div>
+	<div class="row" style="text-align: center;">
+		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+			<p >
+				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onSaveClick(this);" type="submit">
+					<h5>Submit</h5>
+				</button>
+			</p>
+		</div>
+		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+			<p >
+				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onCancelClick();" type="button">
+					<h5>Cancel</h5>
+				</button>
+			</p>
+		</div>
+	</div>
+</div><!-- Container -->
+</form>

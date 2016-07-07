@@ -6,12 +6,6 @@ angular.module('cmaManagementApp').controller('userInfoController',
 		
         var vm = this;
 
-        vm.validName = constantLoader.validationPattern.NAME;
-        vm.nameMsg = constantLoader.messages.VALID_NAME;
-        vm.genderMsg = constantLoader.messages.REQ_GENDER;
-        vm.pinMsg = constantLoader.messages.REQ_PIN;
-        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
-        vm.countryMsg = constantLoader.messages.REQ_COUNTRY;
         vm.userInfo = {};
         vm.countryList = [];
         vm.genderList = [

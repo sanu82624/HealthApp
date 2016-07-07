@@ -14,6 +14,10 @@ angular.module('cmaManagementApp').controller('vendorLocsController',
             
         }
         
+        vm.onAddLocClick = function(){
+            commonUtility.redirectTo("vendorLocEdit");
+        };
+        
         initialized();
     });
 

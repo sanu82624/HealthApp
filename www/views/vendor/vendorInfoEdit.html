@@ -4,34 +4,29 @@
     
     <normal-textbox label="Name" for="txtName" required
         ng-model="vm.vendorInfo.name" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtName.$error.required" msg="vm.nameMsg"></normal-textbox>
+            vendorInfoForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
     
     <combobox label="Country" for="txtCountry" sel
         label-binding="name" model-binding="isoCode" ng-model="vm.vendorInfo.country"
-        items="vm.countryList" msg="vm.countryMsg" required
+        items="vm.countryList" msg="REQ_COUNTRY" required
         show-validation="vendorInfoForm.$submitted && 
             vendorInfoForm.txtCountry.$error.required" readOnly="false"></combobox>
     
     <normal-textbox label="State" for="txtState" required
         ng-model="vm.vendorInfo.state" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtState.$error.required" msg="vm.addressMsg"></normal-textbox>
+            vendorInfoForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
     
     <normal-textbox label="City" for="txtCity" required
         ng-model="vm.vendorInfo.city" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtCity.$error.required" msg="vm.addressMsg"></normal-textbox>
+            vendorInfoForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
     
     <normal-textbox label="Address" for="txtAddress" required
         ng-model="vm.vendorInfo.address" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtAddress.$error.required" msg="vm.addressMsg"></normal-textbox>
-
-	<p class="form-group">
-		<label>Pin Code*</label>
-                <span class="error-msg-span" 
-			ng-show="vendorInfoForm.$submitted && 
-                                    vendorInfoForm.txtPinCode.$error.required">{{vm.pinMsg}}</span>
-		<input type="text" id="txtPinCode" name="txtPinCode" 
-                       ng-model="vm.vendorInfo.pin" class="form-control" required>
-	</p>
+            vendorInfoForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
+    
+    <pin-textbox label="Pin Code" for="txtPinCode" required
+        ng-model="vm.vendorInfo.pin" show-validation="vendorInfoForm.$submitted && 
+            vendorInfoForm.txtPinCode.$error.required"></pin-textbox>
     
     <normal-textbox label="Description" for="txtDesc"
         ng-model="vm.vendorInfo.description"></normal-textbox>

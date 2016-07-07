@@ -13,11 +13,11 @@
     
     <normal-textbox label="Name" for="txtName" required
         ng-model="vm.name" show-validation="userRegForm.$submitted && 
-            userRegForm.txtName.$error.required" msg="vm.nameMsg"></normal-textbox>
+            userRegForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
     
     <combobox label="Gender" for="txtGender" sel
         label-binding="name" model-binding="code" ng-model="vm.gender"
-        items="vm.genderList" msg="vm.genderMsg" required
+        items="vm.genderList" msg="REQ_GENDER" required
         show-validation="userRegForm.$submitted && 
             userRegForm.txtGender.$error.required" readOnly="false"></combobox>
     
@@ -29,30 +29,25 @@
     
     <combobox label="Country" for="txtCountry" sel
         label-binding="name" model-binding="isoCode" ng-model="vm.country"
-        items="vm.countryList" msg="vm.countryMsg" required
+        items="vm.countryList" msg="REQ_COUNTRY" required
         show-validation="userRegForm.$submitted && 
             userRegForm.txtCountry.$error.required" readOnly="false"></combobox>
     
     <normal-textbox label="State" for="txtState" required
         ng-model="vm.state" show-validation="userRegForm.$submitted && 
-            userRegForm.txtState.$error.required" msg="vm.addressMsg"></normal-textbox>
+            userRegForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
     
     <normal-textbox label="City" for="txtCity" required
         ng-model="vm.city" show-validation="userRegForm.$submitted && 
-            userRegForm.txtCity.$error.required" msg="vm.addressMsg"></normal-textbox>
+            userRegForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
     
     <normal-textbox label="Address" for="txtAddress" required
         ng-model="vm.address" show-validation="userRegForm.$submitted && 
-            userRegForm.txtAddress.$error.required" msg="vm.addressMsg"></normal-textbox>
+            userRegForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
     
-    <p class="form-group">
-        <label>Pin Code*</label>
-        <span class="error-msg-span" 
-            ng-show="userRegForm.$submitted && 
-            userRegForm.txtPinCode.$error.required">{{vm.pinMsg}}</span>
-        <input type="text" id="txtPinCode" name="txtPinCode"
-            class="form-control" ng-model="vm.pinCode" required>
-    </p>
+    <pin-textbox label="Pin Code" for="txtPinCode" required
+        ng-model="vm.pinCode" show-validation="userRegForm.$submitted && 
+            userRegForm.txtPinCode.$error.required"></pin-textbox>
     
     <phone-textbox label="Phone" for="txtPhone" country-for="comboCountry" ng-model="vm.phone" 
         countries="vm.countryList" label-binding="name" model-binding="isdCode"

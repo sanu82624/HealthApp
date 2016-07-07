@@ -6,12 +6,6 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
 		
         var vm = this;
         vm.vendorInfo = {};
-
-        vm.validName = constantLoader.validationPattern.NAME;
-        vm.nameMsg = constantLoader.messages.VALID_NAME;
-        vm.pinMsg = constantLoader.messages.REQ_PIN;
-        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
-        vm.countryMsg = constantLoader.messages.REQ_COUNTRY;
         vm.countryList = [];
         
         function initialized(){

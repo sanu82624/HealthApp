@@ -12,7 +12,7 @@ angular.module('cmaManagementApp')
             modelBinding: "@",
             ngModel: '=',
             items: '=',
-            msg: "=",
+            msg: "@",
             showValidation: "=",
             readOnly: "=",
             selectionChanged: "&"
@@ -29,7 +29,7 @@ angular.module('cmaManagementApp')
                                 '*' : '') + '</label>' +
                             '<span class="error-msg-span" ' +
                                 'data-ng-show="showValidation"> ' +
-                                '{{msg}}'+
+                                '{{msg | msgShow}}'+
                             '</span>' +
                             '<select ng-model="ngModel" ng-disabled="' + isReadOnly + '" ' +
                                 'id="{{for}}" name="{{for}}" ' +
