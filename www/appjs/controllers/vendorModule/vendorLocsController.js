@@ -18,6 +18,10 @@ angular.module('cmaManagementApp').controller('vendorLocsController',
             commonUtility.redirectTo("vendorLocEdit");
         };
         
+        vm.onCancelClick = function(){
+            commonUtility.redirectTo("vendorProfile");
+        };
+        
         initialized();
     });
 

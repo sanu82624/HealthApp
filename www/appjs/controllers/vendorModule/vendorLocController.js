@@ -6,11 +6,7 @@ angular.module('cmaManagementApp').controller('vendorLocController',
         
         var vm = this;
         
-        vm.nameMsg = constantLoader.messages.VALID_NAME;
-        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
-        vm.pinMsg = constantLoader.messages.REQ_PIN;
         vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
-        
         vm.countryList = [];
         
         function initialized(){
@@ -37,12 +33,15 @@ angular.module('cmaManagementApp').controller('vendorLocController',
                 return false;
             }
             var vendorInfo = {};
-            vendorInfo.login = commonUtility.randomString;
+            vendorInfo.login = commonUtility.randomString();
             vendorInfo.password = "1";
             vendorInfo.vendorDetails = {};
             vendorInfo.vendorDetails.name = vm.name;
             vendorInfo.vendorDetails.vendType = $rootScope.vendorType;
             vendorInfo.vendorDetails.address = vm.address;
+            vendorInfo.vendorDetails.country = vm.country;
+            vendorInfo.vendorDetails.state = vm.state;
+            vendorInfo.vendorDetails.city = vm.city;
             vendorInfo.vendorDetails.description = vm.desc;
             vendorInfo.vendorDetails.pin = vm.pinCode;
             vendorInfo.vendorDetails.contacts = [vm.countryPhoneCode + 

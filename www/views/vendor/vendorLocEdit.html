@@ -4,34 +4,29 @@
     
     <normal-textbox label="Location Name" for="txtName" required
         ng-model="vm.name" show-validation="vendorLocForm.$submitted && 
-            vendorLocForm.txtName.$error.required" msg="vm.nameMsg"></normal-textbox>
+            vendorLocForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
     
     <combobox label="Country" for="txtCountry" sel
         label-binding="name" model-binding="isoCode" ng-model="vm.country"
-        items="vm.countryList" msg="vm.countryMsg" required
+        items="vm.countryList" msg="REQ_COUNTRY" required
         show-validation="vendorLocForm.$submitted && 
             vendorLocForm.txtCountry.$error.required" readOnly="false"></combobox>
     
     <normal-textbox label="State" for="txtState" required
         ng-model="vm.state" show-validation="vendorLocForm.$submitted && 
-            vendorLocForm.txtState.$error.required" msg="vm.addressMsg"></normal-textbox>
+            vendorLocForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
     
     <normal-textbox label="City" for="txtCity" required
         ng-model="vm.city" show-validation="vendorLocForm.$submitted && 
-            vendorLocForm.txtCity.$error.required" msg="vm.addressMsg"></normal-textbox>
+            vendorLocForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
     
     <normal-textbox label="Address" for="txtAddress" required
         ng-model="vm.address" show-validation="vendorLocForm.$submitted && 
-            vendorLocForm.txtAddress.$error.required" msg="vm.addressMsg"></normal-textbox>
-     
-	<p class="form-group">
-		<label>Pin Code*</label>
-                <span class="error-msg-span" 
-			ng-show="vendorLocForm.$submitted && 
-                                    vendorLocForm.txtPinCode.$error.required">{{vm.pinMsg}}</span>
-		<input type="text" id="txtPinCode" name="txtPinCode" 
-                       ng-model="vm.pinCode" class="form-control" required>
-	</p>
+            vendorLocForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
+    
+    <pin-textbox label="Pin Code" for="txtPinCode" required
+        ng-model="vm.pinCode" show-validation="vendorLocForm.$submitted && 
+            vendorLocForm.txtPinCode.$error.required"></pin-textbox>
     
     <normal-textbox label="Description" for="txtDesc" 
         ng-model="vm.desc"></normal-textbox>    
@@ -42,7 +37,7 @@
             vendorLocForm.txtPhone.$error.required || vendorLocForm.comboCountry.$error.required)" required
         country-phone-code="vm.countryPhoneCode">
     </phone-textbox>
-	<div style="min-height: 15px; padding:15px;"></div>
+	<div style="min-height: 5px; padding:5px;"></div>
 	<div class="row" style="text-align: center;">
 		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
 			<p >
