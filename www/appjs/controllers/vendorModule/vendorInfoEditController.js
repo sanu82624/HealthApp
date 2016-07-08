@@ -52,6 +52,9 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
             vendor.pin = vm.vendorInfo.pin;
             vendor.description = vm.vendorInfo.description;
             vendor.address = vm.vendorInfo.address;
+            vendor.country = vm.vendorInfo.country;
+            vendor.state = vm.vendorInfo.state;
+            vendor.city = vm.vendorInfo.city;
 			
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
                 if(response.data.success){

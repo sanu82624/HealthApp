@@ -48,7 +48,6 @@ angular.module('cmaManagementApp').controller('userInfoController',
                             vm.userInfo.age = parseInt(vm.userInfo.age);
                         }
                     }
-                    console.log(vm.userInfo);
                 }else{
                     commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("userProfile");
@@ -70,6 +69,9 @@ angular.module('cmaManagementApp').controller('userInfoController',
             user.address = vm.userInfo.address;
             user.pinCode = vm.userInfo.pinCode;
             user.gender = vm.userInfo.gender;
+            user.country = vm.userInfo.country;
+            user.state = vm.userInfo.state;
+            user.city = vm.userInfo.city;
             userBusiness.updateUserInfo(user).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){

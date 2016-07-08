@@ -102,30 +102,32 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-        <div class="cg-bg-loading"
-            cg-busy="{  promise: dalPromise,
-                        message: 'Loading',
-                        backdrop: true,
-                        minDuration: 700}"></div>
-        <div class="well well-header fixed-header" ng-controller="userLoginController">
-            <div class="row">
-                <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >
-                    
-                </div>
-                <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
-                    <span>&nbsp;</span>
-                </div>
-                <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 header-text-main">
-                    Cognitive Medical Assistant
-                </div>
-                <div class="header-guest-info">Hi, 
-                    <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
-                    <span ng-hide="IS_SIGN_IN">Guest</span>
+        <div>
+            <div class="cg-bg-loading"
+                cg-busy="{  promise: dalPromise,
+                            message: 'Loading',
+                            backdrop: true,
+                            minDuration: 700}"></div>
+            <div class="well well-header fixed-header" ng-controller="userLoginController">
+                <div class="row">
+                    <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >
+
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 header-text-main">
+                        Cognitive Medical Assistant
+                    </div>
+                    <div class="header-guest-info">Hi, 
+                        <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
+                        <span ng-hide="IS_SIGN_IN">Guest</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div style="padding-top:1px; padding-top: 110px;" ng-view></div>
+            <div style="padding-top: 110px;" ng-view></div>
+        </div>
     </div>
     
     

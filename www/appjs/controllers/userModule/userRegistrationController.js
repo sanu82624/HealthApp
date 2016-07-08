@@ -52,6 +52,9 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
                 constantLoader.defaultValues.ISD_SEPARATOR + vm.phone];
             userInfo.emailId = [vm.email];
             userInfo.password = vm.pass;
+            userInfo.country = vm.country;
+            userInfo.state = vm.state;
+            userInfo.city = vm.city;
 	
             userBusiness.registerUser(userInfo).then(function(response){
                 if(response.data.success){
