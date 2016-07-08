@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userEPhoneController',
-    function(commonUtility, $rootScope, userBusiness, constantLoader,
-    generalUtility){
+    function(commonUtility, userBusiness, constantLoader, generalUtility){
 
         var vm = this;
         vm.ePhones = [];
@@ -30,7 +29,8 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
         }
         
         function loadEPhones(){
-            userBusiness.loadUserInfo($rootScope.ID).then(function(response){
+            userBusiness.loadUserInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     if(angular.isDefined(response.data.result.emergencyPhone) &&
                         response.data.result.emergencyPhone !== null){
@@ -87,7 +87,8 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
         
         vm.onSaveClick = function(){
             var userInfo = {};
-            userInfo.clientId = $rootScope.ID;
+            userInfo.clientId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             userInfo.emergencyPhone = vm.ePhones;
             userBusiness.updateUserInfo(userInfo).then(function(response){
                 commonUtility.showAlert(response.data.statusText);

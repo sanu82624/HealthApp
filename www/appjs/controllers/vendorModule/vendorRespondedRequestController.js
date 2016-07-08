@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorRespondedRequestController',
-    function(commonUtility, vendorBusiness, $rootScope, constantLoader,
-        serviceLoader){
+    function(commonUtility, vendorBusiness, constantLoader, serviceLoader){
 		
         var vm = this;
 
@@ -25,7 +24,8 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
         }
 
         function loadRespondedRequests(){
-            vendorBusiness.getAssignedRequests($rootScope.ID).then(function(response){
+            vendorBusiness.getAssignedRequests(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 vm.requests = serviceLoader.filter('filter')(response.data.result, 
                     {status: vm.tckType});
             }, function(error){
@@ -46,7 +46,7 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(constantLoader.messages.TRY_AGAIN);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
 

@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorLocController',
-    function(constantLoader, vendorBusiness, commonUtility, generalUtility,
-    $rootScope){
+    function(constantLoader, vendorBusiness, commonUtility, generalUtility){
         
         var vm = this;
         
@@ -37,7 +36,8 @@ angular.module('cmaManagementApp').controller('vendorLocController',
             vendorInfo.password = "1";
             vendorInfo.vendorDetails = {};
             vendorInfo.vendorDetails.name = vm.name;
-            vendorInfo.vendorDetails.vendType = $rootScope.vendorType;
+            vendorInfo.vendorDetails.vendType = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.VEND_TYPE);
             vendorInfo.vendorDetails.address = vm.address;
             vendorInfo.vendorDetails.country = vm.country;
             vendorInfo.vendorDetails.state = vm.state;
@@ -47,7 +47,8 @@ angular.module('cmaManagementApp').controller('vendorLocController',
             vendorInfo.vendorDetails.contacts = [vm.countryPhoneCode + 
                 constantLoader.defaultValues.ISD_SEPARATOR + vm.phone];
             vendorInfo.vendorDetails.active = true;
-            vendorInfo.vendorDetails.parentId = $rootScope.ID;
+            vendorInfo.vendorDetails.parentId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
                 if(response.data.success){

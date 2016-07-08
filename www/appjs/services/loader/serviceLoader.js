@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp')
-    .service('serviceLoader', function ($location, $filter) {
+    .service('serviceLoader', function ($location, $filter, $rootScope, $http) {
         
         var serviceLoader = {};
         
@@ -10,9 +10,9 @@ angular.module('cmaManagementApp')
 //        var _window = null;
         var _filter = null;
 //        var _log = null;
-//        var _http = null;
+        var _http = null;
 //        var _sanitize = null;
-//        var _rootScope = null;
+        var _rootScope = null;
 //        var _route = null;
 //        var _timeout = null;
         
@@ -54,11 +54,11 @@ angular.module('cmaManagementApp')
 //            }
 //        });
 //        
-//        Object.defineProperty(serviceLoader, "http", {
-//            get: function() {
-//                return setProperty(_http, $http);
-//            }
-//        });
+        Object.defineProperty(serviceLoader, "http", {
+            get: function() {
+                return setProperty(_http, $http);
+            }
+        });
 //        
 //        Object.defineProperty(serviceLoader, "sanitize", {
 //            get: function() {
@@ -66,11 +66,11 @@ angular.module('cmaManagementApp')
 //            }
 //        });
 //
-//        Object.defineProperty(serviceLoader, "rootScope", {
-//            get: function() {
-//                return setProperty(_rootScope, $rootScope);
-//            }
-//        });
+        Object.defineProperty(serviceLoader, "rootScope", {
+            get: function() {
+                return setProperty(_rootScope, $rootScope);
+            }
+        });
 //        
 //        Object.defineProperty(serviceLoader, "route", {
 //            get: function() {

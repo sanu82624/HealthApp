@@ -1,17 +1,18 @@
 
 angular.module('cmaManagementApp')
-  .service('dataLayer', function ($http, constantLoader, $rootScope) {
+  .service('dataLayer', function (serviceLoader, constantLoader, commonUtility) {
     
     this.getAsync = function(relativeUrl){
         
         var urlString = "";
         urlString = buildUrl(relativeUrl);
-        var httpPromise = $http({
+        var httpPromise = serviceLoader.http({
                             method: 'GET', 
                             url: urlString,
                             headers: generateConfig(constantLoader.headerTypes.GENERAL)
                         });
-        $rootScope.dalPromise = httpPromise;
+        commonUtility.setRootScopeProperty(
+            constantLoader.rootScopeTypes.DAL_PROMISE, httpPromise);
         return httpPromise;
     };
     
@@ -39,8 +40,9 @@ angular.module('cmaManagementApp')
             };
         }
         
-        httpPromise = $http(requestObj);
-        $rootScope.dalPromise = httpPromise;
+        httpPromise = serviceLoader.http(requestObj);
+        commonUtility.setRootScopeProperty(
+            constantLoader.rootScopeTypes.DAL_PROMISE, httpPromise);
         return httpPromise;
     };
     
@@ -55,15 +57,16 @@ angular.module('cmaManagementApp')
                         data: angular.toJson(putData),
                         headers: generateConfig(constantLoader.headerTypes.GENERAL)
                     };
-        httpPromise = $http(requestObj);
-        $rootScope.dalPromise = httpPromise;
+        httpPromise = serviceLoader.http(requestObj);
+        commonUtility.setRootScopeProperty(
+            constantLoader.rootScopeTypes.DAL_PROMISE, httpPromise);
         return httpPromise;
     };
     
     this.deleteAsync = function(relativeUrl){
         
         var url = buildUrl(relativeUrl);
-        return $http.delete(url, generateConfig(constantLoader.headerTypes.GENERAL));
+        return serviceLoader.http.delete(url, generateConfig(constantLoader.headerTypes.GENERAL));
     };
     
     function buildUrl(relativeUrl){

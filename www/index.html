@@ -18,6 +18,7 @@
     <script src="appjs/filters/dateFormatter.js"></script>
     <script src="appjs/filters/hideChar.js"></script>
     <script src="appjs/filters/msgShow.js"></script>
+    <script src="appjs/filters/rootScopeShow.js"></script>
     <script src="appjs/controllers/monitoringGroupModule/monitoringGroupController.js"></script>
     <script src="appjs/controllers/monitoringGroupModule/monitorAllVendorController.js"></script>
     <script src="appjs/controllers/monitoringGroupModule/monitorVendorDetailsController.js"></script>
@@ -58,6 +59,7 @@
     <script src="appjs/services/constant/validationPattern.js"></script>
     <script src="appjs/services/constant/headerTypes.js"></script>
     <script src="appjs/services/constant/ticketStatusTypes.js"></script>
+    <script src="appjs/services/constant/rootScopeTypes.js"></script>
     <script src="appjs/services/loader/constantLoader.js"></script>
     <script src="appjs/services/loader/serviceLoader.js"></script>
     <script src="appjs/services/utility/commonUtility.js"></script>
@@ -93,18 +95,18 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     Hi, 
-                    <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
-                    <span ng-hide="IS_SIGN_IN">Guest</span>
+                    <span ng-show="{{'IS_SIGN_IN' | rootScopeShow}}" ng-bind="{{'NAME' | rootScopeShow}}"></span>
+                    <span ng-hide="{{'IS_SIGN_IN' | rootScopeShow}}">Guest</span>
                 </li>
                 <li>
-                    <span>0.0.3</span>
+                    <span>0.0.4</span>
                 </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
         <div>
             <div class="cg-bg-loading"
-                cg-busy="{  promise: dalPromise,
+                cg-busy="{  promise: {{'DAL_PROMISE' | rootScopeShow}},
                             message: 'Loading',
                             backdrop: true,
                             minDuration: 700}"></div>
@@ -120,8 +122,8 @@
                         Cognitive Medical Assistant
                     </div>
                     <div class="header-guest-info">Hi, 
-                        <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
-                        <span ng-hide="IS_SIGN_IN">Guest</span>
+                        <span ng-show="{{'IS_SIGN_IN' | rootScopeShow}}" ng-bind="{{'NAME' | rootScopeShow}}"></span>
+                        <span ng-hide="{{'IS_SIGN_IN' | rootScopeShow}}">Guest</span>
                     </div>
                 </div>
             </div>

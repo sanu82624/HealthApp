@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorPhonesController',
-    function(commonUtility, $rootScope, vendorBusiness, constantLoader,
-    generalUtility){
+    function(commonUtility, vendorBusiness, constantLoader, generalUtility){
 
         var vm = this;
         vm.phones = [];
@@ -30,7 +29,8 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
         }
         
         function loadPhones(){
-            vendorBusiness.loadVendorInfo($rootScope.ID).then(function(response){
+            vendorBusiness.loadVendorInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     if(angular.isDefined(response.data.result.contacts) &&
                         response.data.result.contacts !== null){
@@ -83,7 +83,8 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
         
         vm.onSaveClick = function(){
             var vendor = {};
-            vendor.vendId = $rootScope.ID;
+            vendor.vendId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             vendor.contacts = vm.phones;
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
@@ -91,7 +92,7 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

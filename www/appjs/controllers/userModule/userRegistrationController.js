@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userRegistrationController',
-    function(constantLoader, userBusiness, commonUtility, generalUtility,
-    $rootScope){
+    function(constantLoader, userBusiness, commonUtility, generalUtility){
 		
         var vm = this;
 
@@ -58,11 +57,16 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
 	
             userBusiness.registerUser(userInfo).then(function(response){
                 if(response.data.success){
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.IS_SIGN_IN, response.data.success);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.NAME, response.data.result.name);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.ID, response.data.result.clientId);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.EMAIL, vm.email);
+                
                     commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
-                    $rootScope.IS_SIGN_IN = response.data.success;
-                    $rootScope.NAME = response.data.result.name;
-                    $rootScope.ID = response.data.result.clientId;
-                    $rootScope.EMAIL = userInfo.emailId;
                     commonUtility.redirectTo("userLanding");
                 } else{
                     commonUtility.showAlert(response.data.statusText);

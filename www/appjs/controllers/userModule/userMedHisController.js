@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userMedHisController',
-    function(commonUtility, $rootScope, userBusiness, constantLoader){
+    function(commonUtility, userBusiness, constantLoader){
 
         var vm = this;
         vm.medHisRecords = [];
@@ -11,7 +11,8 @@ angular.module('cmaManagementApp').controller('userMedHisController',
         }
         
         function loadMedicalHistory(){
-            userBusiness.loadUserInfo($rootScope.ID).then(function(response){
+            userBusiness.loadUserInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     if(angular.isDefined(response.data.result.medicalHistory) &&
                         response.data.result.medicalHistory !== null){
@@ -58,7 +59,8 @@ angular.module('cmaManagementApp').controller('userMedHisController',
         
         vm.onSaveClick = function(){
             var userInfo = {};
-            userInfo.clientId = $rootScope.ID;
+            userInfo.clientId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             userInfo.medicalHistory = vm.medHisRecords;
             userBusiness.updateUserInfo(userInfo).then(function(response){
                 commonUtility.showAlert(response.data.statusText);

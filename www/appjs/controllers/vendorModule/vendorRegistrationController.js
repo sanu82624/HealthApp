@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorRegistrationController',
-    function(constantLoader, vendorBusiness, commonUtility, serviceLoader,
-    $rootScope, generalUtility){
+    function(constantLoader, vendorBusiness, commonUtility, generalUtility){
 		
         var vm = this;
 
@@ -71,11 +70,18 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
 			
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
                 if(response.data.success){
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.IS_SIGN_IN, response.data.success);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.NAME, response.data.result.name);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.ID, response.data.result.vendId);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.VEND_TYPE, response.data.result.vendType);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.EMAIL, vm.email);
+                
                     commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
-                    $rootScope.IS_SIGN_IN = response.data.success;
-                    $rootScope.NAME = response.data.result.name;
-                    $rootScope.ID = response.data.result.vendId;
-                    $rootScope.vendorType = response.data.result.vendType;
                     commonUtility.redirectTo("groundVendorHome");
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);

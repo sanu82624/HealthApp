@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorLocsController',
-    function(constantLoader, vendorBusiness, commonUtility,
-    $rootScope){
+    function(constantLoader, vendorBusiness, commonUtility){
         
         var vm = this;
         

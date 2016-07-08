@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorEmailsController',
-    function(commonUtility, $rootScope, vendorBusiness, constantLoader){
+    function(commonUtility, vendorBusiness, constantLoader){
 
         var vm = this;
         vm.emails = [];
@@ -12,7 +12,8 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
         }
         
         function loadEmails(){
-            vendorBusiness.loadVendorInfo($rootScope.ID).then(function(response){
+            vendorBusiness.loadVendorInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     if(angular.isDefined(response.data.result.email) &&
                         response.data.result.email !== null){
@@ -60,7 +61,8 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
         
         vm.onSaveClick = function(){
             var vendor = {};
-            vendor.vendId = $rootScope.ID;
+            vendor.vendId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             vendor.email = vm.emails;
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
                 commonUtility.showAlert(response.data.statusText);

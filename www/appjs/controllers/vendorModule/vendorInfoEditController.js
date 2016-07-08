@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorInfoEditController',
-    function(constantLoader, vendorBusiness, commonUtility, generalUtility,
-    $rootScope){
+    function(constantLoader, vendorBusiness, commonUtility, generalUtility){
 		
         var vm = this;
         vm.vendorInfo = {};
@@ -29,7 +28,8 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
         }
         
         function loadVendorDetails(){
-            vendorBusiness.loadVendorInfo($rootScope.ID).then(function(response){
+            vendorBusiness.loadVendorInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     vm.vendorInfo = response.data.result;
                 }else{
@@ -47,7 +47,8 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
                 return false;
             }
             var vendor = {};
-            vendor.vendId = $rootScope.ID;
+            vendor.vendId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             vendor.name = vm.vendorInfo.name;
             vendor.pin = vm.vendorInfo.pin;
             vendor.description = vm.vendorInfo.description;
@@ -58,7 +59,8 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
 			
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
                 if(response.data.success){
-                    $rootScope.NAME = vendor.name;
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.NAME, vendor.name);
                     commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("vendorProfile");
                 } else{

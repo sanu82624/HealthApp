@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userInfoController',
-    function(constantLoader, userBusiness, commonUtility, generalUtility,
-    $rootScope){
+    function(constantLoader, userBusiness, commonUtility, generalUtility){
 		
         var vm = this;
 
@@ -40,7 +39,8 @@ angular.module('cmaManagementApp').controller('userInfoController',
         }
         
         function loadUserInfo(){
-            userBusiness.loadUserInfo($rootScope.ID).then(function(response){
+            userBusiness.loadUserInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     vm.userInfo = response.data.result;
                     if(vm.userInfo !== null){
@@ -75,7 +75,8 @@ angular.module('cmaManagementApp').controller('userInfoController',
             userBusiness.updateUserInfo(user).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
-                    $rootScope.NAME = user.name;
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.NAME, user.name);
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
