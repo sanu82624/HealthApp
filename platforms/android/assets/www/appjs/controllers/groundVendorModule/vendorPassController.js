@@ -30,7 +30,7 @@ angular.module('cmaManagementApp').controller('vendorPassController',
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
 		

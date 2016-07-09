@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorEmailsController',
-    function(commonUtility, $rootScope, vendorBusiness, constantLoader){
+    function(commonUtility, vendorBusiness, constantLoader){
 
         var vm = this;
         vm.emails = [];
@@ -12,7 +12,8 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
         }
         
         function loadEmails(){
-            vendorBusiness.loadVendorInfo($rootScope.ID).then(function(response){
+            vendorBusiness.loadVendorInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     if(angular.isDefined(response.data.result.email) &&
                         response.data.result.email !== null){
@@ -33,20 +34,20 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
         };
 
         vm.onAddEmailClick = function(isNotValidEmail){
-            if(isNotValidEmail || vm.email === "" || 
+            if(isNotValidEmail || vm.email === constantLoader.defaultValues.BLANK_STRING || 
                 vm.email === null || angular.isUndefined(vm.email)){
                 commonUtility.showAlert(constantLoader.messages.VALID_EMAIL);
                 return false;
             }
             for(var index=0; index<=vm.emails.length - 1; index++){
                 if(vm.emails[index] === vm.email){
-                    vm.email = "";
+                    vm.email = constantLoader.defaultValues.BLANK_STRING;
                     commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
             vm.emails.push(vm.email);
-            vm.email = "";
+            vm.email = constantLoader.defaultValues.BLANK_STRING;
         };
 
         vm.onEmailDeleteClick = function(record){
@@ -60,7 +61,8 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
         
         vm.onSaveClick = function(){
             var vendor = {};
-            vendor.vendId = $rootScope.ID;
+            vendor.vendId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             vendor.email = vm.emails;
             vendorBusiness.updateVendorDetails(vendor).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
