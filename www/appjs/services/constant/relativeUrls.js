@@ -19,6 +19,7 @@ angular.module('cmaManagementApp')
         VENDOR_DETAILS_BY_ID: "vendor/service/vendor/",
         VENDOR_UPDATE: "vendor/service/vendor",
         VENDOR_PASS_CHANGE: "vendor/service/updatePassword",
+        VENDOR_CHILD: "vendor/service/child/",
 
         MONITOR_ALL_VENDORS: "vendor/service/vendors/",
         

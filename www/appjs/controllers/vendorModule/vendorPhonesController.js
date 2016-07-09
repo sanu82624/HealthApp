@@ -45,7 +45,7 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("vendorProfile");
             });
         };
