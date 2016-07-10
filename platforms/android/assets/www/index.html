@@ -17,19 +17,23 @@
     <script src="app.js"></script>
     <script src="appjs/filters/dateFormatter.js"></script>
     <script src="appjs/filters/hideChar.js"></script>
+    <script src="appjs/filters/msgShow.js"></script>
+    <script src="appjs/filters/rootScopeShow.js"></script>
     <script src="appjs/controllers/monitoringGroupModule/monitoringGroupController.js"></script>
     <script src="appjs/controllers/monitoringGroupModule/monitorAllVendorController.js"></script>
     <script src="appjs/controllers/monitoringGroupModule/monitorVendorDetailsController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorRequestController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/groundVendorLoginController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorRegistrationController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorProfileController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorLandingController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorInfoEditController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorPassController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorEmailsController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorPhonesController.js"></script>
-    <script src="appjs/controllers/groundVendorModule/vendorRespondedRequestController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorRequestController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorLoginController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorRegistrationController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorProfileController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorLandingController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorInfoEditController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorPassController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorEmailsController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorPhonesController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorRespondedRequestController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorLocsController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorLocController.js"></script>
     <script src="appjs/controllers/serviceManagementModule/serviceManagementController.js"></script>
     <script src="appjs/controllers/userModule/userHomeController.js"></script>
     <script src="appjs/controllers/userModule/userLoginController.js"></script>
@@ -55,6 +59,7 @@
     <script src="appjs/services/constant/validationPattern.js"></script>
     <script src="appjs/services/constant/headerTypes.js"></script>
     <script src="appjs/services/constant/ticketStatusTypes.js"></script>
+    <script src="appjs/services/constant/rootScopeTypes.js"></script>
     <script src="appjs/services/loader/constantLoader.js"></script>
     <script src="appjs/services/loader/serviceLoader.js"></script>
     <script src="appjs/services/utility/commonUtility.js"></script>
@@ -68,6 +73,11 @@
     <script src="appjs/directives/combobox.js"></script>
     <script src="appjs/directives/emailTextbox.js"></script>
     <script src="appjs/directives/phoneTextbox.js"></script>
+    <script src="appjs/directives/addTextbox.js"></script>
+    <script src="appjs/directives/passwordTextbox.js"></script>
+    <script src="appjs/directives/normalTextbox.js"></script>
+    <script src="appjs/directives/pinTextbox.js"></script>
+    <script src="appjs/directives/numberTextbox.js"></script>
    
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/angular-busy/dist/angular-busy.css" rel="stylesheet">
@@ -85,39 +95,41 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     Hi, 
-                    <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
-                    <span ng-hide="IS_SIGN_IN">Guest</span>
+                    <span ng-show="{{'IS_SIGN_IN' | rootScopeShow}}" ng-bind="{{'NAME' | rootScopeShow}}"></span>
+                    <span ng-hide="{{'IS_SIGN_IN' | rootScopeShow}}">Guest</span>
                 </li>
                 <li>
-                    <span>0.0.3</span>
+                    <span>0.0.4</span>
                 </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-        <div class="cg-bg-loading"
-            cg-busy="{  promise: dalPromise,
-                        message: 'Loading',
-                        backdrop: true,
-                        minDuration: 700}"></div>
-        <div class="well well-header fixed-header" ng-controller="userLoginController">
-            <div class="row">
-                <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >
-                    
-                </div>
-                <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
-                    <span>&nbsp;</span>
-                </div>
-                <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 header-text-main">
-                    Cognitive Medical Assistant
-                </div>
-                <div class="header-guest-info">Hi, 
-                    <span ng-show="IS_SIGN_IN" ng-bind="NAME"></span>
-                    <span ng-hide="IS_SIGN_IN">Guest</span>
+        <div>
+            <div class="cg-bg-loading"
+                cg-busy="{  promise: {{'DAL_PROMISE' | rootScopeShow}},
+                            message: 'Loading',
+                            backdrop: true,
+                            minDuration: 700}"></div>
+            <div class="well well-header fixed-header" ng-controller="userLoginController">
+                <div class="row">
+                    <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >
+
+                    </div>
+                    <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
+                        <span>&nbsp;</span>
+                    </div>
+                    <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 header-text-main">
+                        Cognitive Medical Assistant
+                    </div>
+                    <div class="header-guest-info">Hi, 
+                        <span ng-show="{{'IS_SIGN_IN' | rootScopeShow}}" ng-bind="{{'NAME' | rootScopeShow}}"></span>
+                        <span ng-hide="{{'IS_SIGN_IN' | rootScopeShow}}">Guest</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div style="padding-top:1px; padding-top: 110px;" ng-view></div>
+            <div style="padding-top: 110px;" ng-view></div>
+        </div>
     </div>
     
     

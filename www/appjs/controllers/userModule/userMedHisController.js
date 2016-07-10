@@ -23,7 +23,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("userProfile");
             });
         };
@@ -39,13 +39,13 @@ angular.module('cmaManagementApp').controller('userMedHisController',
             }
             for(var index=0; index<=vm.medHisRecords.length - 1; index++){
                 if(vm.medHisRecords[index] === vm.medHis){
-                    vm.medHis = "";
+                    vm.medHis = constantLoader.defaultValues.BLANK_STRING;
                     commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
             vm.medHisRecords.push(vm.medHis);
-            vm.medHis = "";
+            vm.medHis = constantLoader.defaultValues.BLANK_STRING;
         };
 
         vm.onMedHisDeleteClick = function(record){
@@ -68,7 +68,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

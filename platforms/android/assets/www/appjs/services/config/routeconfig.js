@@ -9,51 +9,51 @@ angular.module('routerConfigModule', ['ngRoute'])
             }).
             when('/userLanding',
             {
-                templateUrl: 'views/userlanding.html',
+                templateUrl: 'views/user/userlanding.html',
                 controller: 'userHomeController as vm'
             }).
             when('/newReq',{
-                templateUrl: 'views/userNewRequest.html',
+                templateUrl: 'views/user/userNewRequest.html',
                 controller: 'userRequestController as vm'
             }).
             when('/myReq',{
-                templateUrl: 'views/userMyRequest.html',
+                templateUrl: 'views/user/userMyRequest.html',
                 controller: 'userRequestController as vm'
             }).
             when('/reg',{
-                templateUrl: 'views/userRegistration.html',
+                templateUrl: 'views/user/userRegistration.html',
                 controller: 'userRegistrationController as vm'
             }).
             when('/login',{
-                templateUrl: 'views/userLogin.html',
+                templateUrl: 'views/user/userLogin.html',
                 controller: 'userLoginController as vm'
             }).
             when('/userProfile',{
-                templateUrl: 'views/userProfile.html',
+                templateUrl: 'views/user/userProfile.html',
                 controller: 'userProfileController as vm'
             }).
             when('/userMH',{
-                templateUrl: 'views/userMedicalHistory.html',
+                templateUrl: 'views/user/userMedicalHistory.html',
                 controller: 'userMedHisController as vm'
             }).
             when('/userAllergic',{
-                templateUrl: 'views/userAllergic.html',
+                templateUrl: 'views/user/userAllergic.html',
                 controller: 'userAllergicController as vm'
             }).
             when('/userEmail',{
-                templateUrl: 'views/userEmails.html',
+                templateUrl: 'views/user/userEmails.html',
                 controller: 'userEmailsController as vm'
             }).
             when('/userPass',{
-                templateUrl: 'views/userChangePass.html',
+                templateUrl: 'views/user/userChangePass.html',
                 controller: 'userChangePassController as vm'
             }).
             when('/userInfo',{
-                templateUrl: 'views/userInfoEdit.html',
+                templateUrl: 'views/user/userInfoEdit.html',
                 controller: 'userInfoController as vm'
             }).
             when('/userEPhone',{
-                templateUrl: 'views/userEPhone.html',
+                templateUrl: 'views/user/userEPhone.html',
                 controller: 'userEPhoneController as vm'
             }).
             when('/serviceManagementHome',
@@ -62,48 +62,60 @@ angular.module('routerConfigModule', ['ngRoute'])
                 controller: 'serviceManagementController'
             }).
             when('/groundVendorHome',{
-                templateUrl: 'views/groundVendorLanding.html',
+                templateUrl: 'views/vendor/vendorLanding.html',
                 controller: 'vendorLandingController as vm'
             }).
             when('/vendorLogin',{
-                templateUrl: 'views/groundVendorLogin.html',
-                controller: 'groundVendorLoginController as vm'
+                templateUrl: 'views/vendor/vendorLogin.html',
+                controller: 'vendorLoginController as vm'
             }).
             when('/vendorReg',{
-                templateUrl: 'views/vendorRegistration.html',
+                templateUrl: 'views/vendor/vendorRegistration.html',
                 controller: 'vendorRegistrationController as vm'
             }).
             when('/vendorAllReq',{
-                templateUrl: 'views/vendorAllRequest.html',
+                templateUrl: 'views/vendor/vendorAllRequest.html',
                 controller: 'vendorRequestController as vm'
             }).
             when('/vendorRaisedReq',{
-                templateUrl: 'views/vendorRaisedRequest.html',
+                templateUrl: 'views/vendor/vendorRaisedRequest.html',
                 controller: 'vendorRequestController as vm'
             }).
             when('/vendorRespondedReq',{
-                templateUrl: 'views/vendorRespondedRequest.html',
+                templateUrl: 'views/vendor/vendorRespondedRequest.html',
                 controller: 'vendorRespondedRequestController as vm'
             }).
             when('/vendorProfile',{
-                templateUrl: 'views/vendorProfile.html',
+                templateUrl: 'views/vendor/vendorProfile.html',
                 controller: 'vendorProfileController as vm'
             }).
             when('/vendorInfo',{
-                templateUrl: 'views/vendorInfoEdit.html',
+                templateUrl: 'views/vendor/vendorInfoEdit.html',
                 controller: 'vendorInfoEditController as vm'
             }).
             when('/vendorPass',{
-                templateUrl: 'views/vendorPass.html',
+                templateUrl: 'views/vendor/vendorPass.html',
                 controller: 'vendorPassController as vm'
             }).
             when('/vendorEmails',{
-                templateUrl: 'views/vendorEmails.html',
+                templateUrl: 'views/vendor/vendorEmails.html',
                 controller: 'vendorEmailsController as vm'
             }).
             when('/vendorPhones',{
-                templateUrl: 'views/vendorPhones.html',
+                templateUrl: 'views/vendor/vendorPhones.html',
                 controller: 'vendorPhonesController as vm'
+            }).
+            when('/vendorLocs',{
+                templateUrl: 'views/vendor/vendorLocs.html',
+                controller: 'vendorLocsController as vm'
+            }).
+            when('/vendorLocView',{
+                templateUrl: 'views/vendor/vendorLocView.html',
+                controller: 'vendorLocController as vm'
+            }).
+            when('/vendorLocEdit',{
+                templateUrl: 'views/vendor/vendorLocEdit.html',
+                controller: 'vendorLocController as vm'
             }).
             when('/monitoringGroupHome',{
                 templateUrl: 'views/monitoringGroupLanding.html',

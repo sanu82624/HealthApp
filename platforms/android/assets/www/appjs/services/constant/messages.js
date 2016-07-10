@@ -17,11 +17,14 @@ angular.module('cmaManagementApp')
     REQ_PIN: "Enter pin code!",
     REQ_COUNTRY: "Select country!",
     REQ_ADDRESS: "Enter address!",
+    REQ_STATE: "Enter state!",
+    REQ_CITY: "Enter city!",
     VALID_PHONE: "Enter valid phone!",
     REQ_SERVICE_TYPE: "Select service type!",
     PASS_MISMATCH: "New password and confirm password are mismatch!",
     ALREADY_ADDED: "You have already added!",
     TRY_AGAIN: "Try again after some time!",
     BLANK_VALUE: "Blank will not going to be added!",
-    COUNTRY_CODE: "Please select country code!"
-  });
+    COUNTRY_CODE: "Please select country code!",
+    VEND_LOC_CREATE: "Location has been created."
+});

@@ -47,7 +47,6 @@ angular.module('cmaManagementApp').controller('vendorLandingController',
                 constantLoader.rootScopeTypes.VEND_TYPE, constantLoader.defaultValues.BLANK_STRING);
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.EMAIL, constantLoader.defaultValues.BLANK_STRING);
-
             commonUtility.redirectTo("appHome");
         };
 

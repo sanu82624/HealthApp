@@ -59,7 +59,7 @@ angular.module('cmaManagementApp').controller('userRequestController',
                 constantLoader.rootScopeTypes.ID)).then(function(response){
                 vm.myRequests = response.data.result;
             }, function(error){
-                console.log(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

@@ -29,7 +29,7 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
                 vm.requests = serviceLoader.filter('filter')(response.data.result, 
                     {status: vm.tckType});
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         }
         

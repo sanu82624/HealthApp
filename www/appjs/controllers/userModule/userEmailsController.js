@@ -30,7 +30,7 @@ angular.module('cmaManagementApp').controller('userEmailsController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("userProfile");
             });
         };
@@ -79,7 +79,7 @@ angular.module('cmaManagementApp').controller('userEmailsController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

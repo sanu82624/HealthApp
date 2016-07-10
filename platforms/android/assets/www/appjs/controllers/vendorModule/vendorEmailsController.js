@@ -24,7 +24,7 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("vendorProfile");
             });
         };
@@ -70,7 +70,7 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

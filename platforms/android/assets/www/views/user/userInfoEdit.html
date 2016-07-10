@@ -1,0 +1,56 @@
+<form name="userInfoForm" novalidate="novalidate" id="userInfoForm">
+<div class="container">
+    <div class="page-title">About you</div>
+    
+    <normal-textbox label="Name" for="txtName" required
+        ng-model="vm.userInfo.name" show-validation="userInfoForm.$submitted && 
+            userInfoForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
+    
+    <combobox label="Gender" for="txtGender" sel
+        label-binding="name" model-binding="code" ng-model="vm.userInfo.gender"
+        items="vm.genderList" msg="REQ_GENDER" required
+        show-validation="userInfoForm.$submitted && 
+            userInfoForm.txtGender.$error.required" readOnly="false"></combobox>
+    
+    <number-textbox label="Age" for="txtAge" ng-model="vm.userInfo.age"></number-textbox>
+    
+    <combobox label="Country" for="txtCountry" sel
+        label-binding="name" model-binding="isoCode" ng-model="vm.userInfo.country"
+        items="vm.countryList" msg="REQ_COUNTRY" required
+        show-validation="userInfoForm.$submitted && 
+            userInfoForm.txtCountry.$error.required" readOnly="false"></combobox>
+    
+    <normal-textbox label="State" for="txtState" required
+        ng-model="vm.userInfo.state" show-validation="userInfoForm.$submitted && 
+            userInfoForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
+    
+    <normal-textbox label="City" for="txtCity" required
+        ng-model="vm.userInfo.city" show-validation="userInfoForm.$submitted && 
+            userInfoForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
+    
+    <normal-textbox label="Address" for="txtAddress" required
+        ng-model="vm.userInfo.address" show-validation="userInfoForm.$submitted && 
+            userInfoForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
+    
+    <pin-textbox label="Pin Code" for="txtPinCode" required
+        ng-model="vm.userInfo.pinCode" show-validation="userInfoForm.$submitted && 
+            userInfoForm.txtPinCode.$error.required"></pin-textbox>
+    
+	<div class="row" style="text-align: center;">
+		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+			<p>
+				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onSaveClick(this);" type="submit">
+					<h5>Submit</h5>
+				</button>
+			</p>
+		</div>
+		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+			<p>
+				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();" type="button">
+					<h5>Back</h5>
+				</button>
+			</p>
+		</div>
+	</div>
+</div><!-- Container -->
+</form>

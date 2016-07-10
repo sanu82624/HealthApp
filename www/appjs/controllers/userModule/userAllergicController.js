@@ -24,7 +24,7 @@ angular.module('cmaManagementApp').controller('userAllergicController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("userProfile");
             });
         };
@@ -69,7 +69,7 @@ angular.module('cmaManagementApp').controller('userAllergicController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

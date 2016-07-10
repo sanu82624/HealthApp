@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userHomeController',
-    function(commonUtility, $rootScope){
+    function(commonUtility, constantLoader){
 
         var vm = this;
 
@@ -18,10 +18,15 @@ angular.module('cmaManagementApp').controller('userHomeController',
         };
 
         vm.onLogoutClick = function(){
-            $rootScope.ID = "";
-            $rootScope.IS_SIGN_IN = false;
-            $rootScope.NAME = "";
-            $rootScope.EMAIL = "";
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.IS_SIGN_IN, false);
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.NAME, constantLoader.defaultValues.BLANK_STRING);
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.ID, constantLoader.defaultValues.BLANK_STRING);
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.EMAIL, constantLoader.defaultValues.BLANK_STRING);
+        
             commonUtility.redirectTo("appHome");
         };
     }

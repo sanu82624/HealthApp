@@ -1,0 +1,34 @@
+<form name="vendorPassForm" novalidate="novalidate" id="vendorPassForm">
+<div class="container">
+    <div class="page-title">Password Change Form</div>
+    
+    <password-textbox label="Current Password" for="txtPass" ng-model="vm.pass"
+        show-validation="vendorPassForm.$submitted && 
+            vendorPassForm.txtPass.$error.required" required></password-textbox>
+    
+    <password-textbox label="New Password" for="txtNewPass" ng-model="vm.newPass"
+        show-validation="vendorPassForm.$submitted && 
+            vendorPassForm.txtNewPass.$error.required" required></password-textbox>
+    
+    <password-textbox label="Confirm Password" for="txtConPass" ng-model="vm.conPass"
+        show-validation="vendorPassForm.$submitted && 
+            vendorPassForm.txtConPass.$error.required" required></password-textbox>
+    
+    <div class="row" style="text-align: center;">
+        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+            <p>
+                <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onSavePassClick(this);" type="submit">
+                    <h5>Submit</h5>
+                </button>
+            </p>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+            <p>
+                <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onCancelClick();" type="button">
+                    <h5>Cancel</h5>
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
+</form>

@@ -32,14 +32,6 @@
   word-wrap: break-word;
 }
 
-.btn{
-	background: rgb(59,103,158);  /*Old browsers */
-	background: -moz-linear-gradient(top,  rgba(59,103,158,1) 0%, rgba(32,124,202,1) 49%, rgba(32,124,202,1) 49%, rgba(43,136,217,1) 50%, rgba(125,185,232,1) 100%);  /*FF3.6-15*/ 
-	background: -webkit-linear-gradient(top,  rgba(59,103,158,1) 0%,rgba(32,124,202,1) 49%,rgba(32,124,202,1) 49%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%);  /*Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(59,103,158,1) 0%,rgba(32,124,202,1) 49%,rgba(32,124,202,1) 49%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%);  /*W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 );  /*IE6-9 */
-}
-
 .info-box{
 	background: rgb(212,228,239); /* Old browsers */
 	background: -moz-linear-gradient(left,  rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%); /* FF3.6-15 */
@@ -70,7 +62,7 @@
 }
 
 .glyphicon {
-    font-size: 20px   ;
+    font-size: 20px;
 }
 .well-header{
     text-align: center !important;
@@ -116,12 +108,19 @@
     left: 50%;
 }
 .phone-field{
-    width:85%; 
+    width:40%; 
     float:right; 
     display: inline;
 }
+.phone-field-country{
+    width:45%; 
+    display: inline;
+}
+.phone-field-country-code{
+    display: inline;
+}
 .phone-field-add{
-    width:65%; 
+    width:30%; 
     margin-left: 5px;
     display: inline;
 }
@@ -179,6 +178,10 @@
 
 .add-box{
     width:80%; 
+    display:inline;
+}
+.add-textbox-wid{
+    width:89%; 
     display:inline;
 }
 .add-btn{

@@ -24,7 +24,7 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("vendorProfile");
             });
         };
@@ -34,20 +34,20 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
         };
 
         vm.onAddEmailClick = function(isNotValidEmail){
-            if(isNotValidEmail || vm.email === "" || 
+            if(isNotValidEmail || vm.email === constantLoader.defaultValues.BLANK_STRING || 
                 vm.email === null || angular.isUndefined(vm.email)){
                 commonUtility.showAlert(constantLoader.messages.VALID_EMAIL);
                 return false;
             }
             for(var index=0; index<=vm.emails.length - 1; index++){
                 if(vm.emails[index] === vm.email){
-                    vm.email = "";
+                    vm.email = constantLoader.defaultValues.BLANK_STRING;
                     commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
             vm.emails.push(vm.email);
-            vm.email = "";
+            vm.email = constantLoader.defaultValues.BLANK_STRING;
         };
 
         vm.onEmailDeleteClick = function(record){
@@ -70,7 +70,7 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
                     commonUtility.redirectTo("vendorProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

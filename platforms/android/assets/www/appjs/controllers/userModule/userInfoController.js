@@ -1,23 +1,46 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userInfoController',
-    function(constantLoader, userBusiness, commonUtility,
-    $rootScope){
+    function(constantLoader, userBusiness, commonUtility, generalUtility){
 		
         var vm = this;
 
-        vm.validName = constantLoader.validationPattern.NAME;
-        vm.nameMsg = constantLoader.messages.VALID_NAME;
-        vm.genderMsg = constantLoader.messages.REQ_GENDER;
-        vm.pinMsg = constantLoader.messages.REQ_PIN;
         vm.userInfo = {};
+        vm.countryList = [];
+        vm.genderList = [
+            {
+                code: "M",
+                name: "Male"
+            },
+            {
+                code: "F",
+                name: "Female"
+            }
+        ];
         
         function initialized(){
+            loadCountries();
             loadUserInfo();
         }
         
+        function loadCountries(){
+            generalUtility.loadCountries().then(function(response){
+                if(response.data.success){
+                    vm.countryList = commonUtility.getCustomSortedList(response.data.result, 
+                        constantLoader.defaultValues.COUNTRY_ENDED_LIST, 
+                        constantLoader.defaultValues.COUNTRY_SEARCH_FIELD,
+                        constantLoader.defaultValues.COUNTRY_SORT_FIELD);
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data.statusText);
+            });
+        }
+        
         function loadUserInfo(){
-            userBusiness.loadUserInfo($rootScope.ID).then(function(response){
+            userBusiness.loadUserInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     vm.userInfo = response.data.result;
                     if(vm.userInfo !== null){
@@ -25,7 +48,6 @@ angular.module('cmaManagementApp').controller('userInfoController',
                             vm.userInfo.age = parseInt(vm.userInfo.age);
                         }
                     }
-                    console.log(vm.userInfo);
                 }else{
                     commonUtility.showAlert(response.data.statusText);
                     commonUtility.redirectTo("userProfile");
@@ -47,10 +69,14 @@ angular.module('cmaManagementApp').controller('userInfoController',
             user.address = vm.userInfo.address;
             user.pinCode = vm.userInfo.pinCode;
             user.gender = vm.userInfo.gender;
+            user.country = vm.userInfo.country;
+            user.state = vm.userInfo.state;
+            user.city = vm.userInfo.city;
             userBusiness.updateUserInfo(user).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
-                    $rootScope.NAME = user.name;
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.NAME, user.name);
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){

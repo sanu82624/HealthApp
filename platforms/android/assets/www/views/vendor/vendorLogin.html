@@ -8,14 +8,10 @@
                             vendorLoginForm.txtEmail.$error.required)" required>
         </email-textbox>
         
-		<p class="form-group">
-			<label>Password*</label>
-			<span class="error-msg-span" 
-				ng-show="userLoginForm.$submitted && 
-						userLoginForm.txtPass.$error.required">{{vm.passMsg}}</span>
-			<input type="password" id="txtPass" name="txtPass" 
-				ng-model="vm.pass" class="form-control" required>
-		</p>
+        <password-textbox label="Password" for="txtPass" ng-model="vm.pass"
+            show-validation="vendorLoginForm.$submitted && 
+                vendorLoginForm.txtPass.$error.required" required></password-textbox>
+        
 		<p>
 			<span>Don't have an account?</span>
 			<span style="color:blue; cursor:pointer; padding-left:5px;" ng-click="vm.onCreateAccountClick();">Create account</span>

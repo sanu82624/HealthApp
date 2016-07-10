@@ -48,6 +48,11 @@ angular.module('cmaManagementApp')
             "?email=" + email + "&oldPassword=" + currentPass +
             "&newPassword=" + newPass), null, constantLoader.headerTypes.ENCODED_CONTENT);
     };
+    
+    vendorData.loadChildren = function(vendId) {
+        return dataLayer.getAsync(commonUtility.getRelativeUrl(
+            constantLoader.relativeUrls.VENDOR_CHILD + vendId));
+    };
 	
     return vendorData;
   });

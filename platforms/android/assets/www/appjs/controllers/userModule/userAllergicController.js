@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userAllergicController',
-    function(commonUtility, $rootScope, userBusiness, constantLoader){
+    function(commonUtility, userBusiness, constantLoader){
 
         var vm = this;
         vm.allergicRecords = [];
@@ -11,7 +11,9 @@ angular.module('cmaManagementApp').controller('userAllergicController',
         }
         
         function loadAllergic(){
-            userBusiness.loadUserInfo($rootScope.ID).then(function(response){
+            userBusiness.loadUserInfo(
+                commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     if(angular.isDefined(response.data.result.alergicTo) &&
                         response.data.result.alergicTo !== null){
@@ -22,7 +24,7 @@ angular.module('cmaManagementApp').controller('userAllergicController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("userProfile");
             });
         };
@@ -31,21 +33,20 @@ angular.module('cmaManagementApp').controller('userAllergicController',
             commonUtility.redirectTo("userProfile");
         };
 
-        vm.onAddAllergyClick = function(){
-            if(vm.allergy === "" || 
-                vm.allergy === null || angular.isUndefined(vm.allergy)){
+        vm.onAddAllergyClick = function(isValid){
+            if(!commonUtility.is3DValidKey(vm.allergy)){
                 commonUtility.showAlert(constantLoader.messages.BLANK_VALUE);
                 return false;
             }
             for(var index=0; index<=vm.allergicRecords.length - 1; index++){
                 if(vm.allergicRecords[index] === vm.allergy){
-                    vm.allergy = "";
+                    vm.allergy = constantLoader.defaultValues.BLANK_STRING;
                     commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
             vm.allergicRecords.push(vm.allergy);
-            vm.allergy = "";
+            vm.allergy = constantLoader.defaultValues.BLANK_STRING;
         };
 
         vm.onAllergicDeleteClick = function(record){
@@ -59,7 +60,8 @@ angular.module('cmaManagementApp').controller('userAllergicController',
         
         vm.onSaveClick = function(){
             var userInfo = {};
-            userInfo.clientId = $rootScope.ID;
+            userInfo.clientId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             userInfo.alergicTo = vm.allergicRecords;
             userBusiness.updateUserInfo(userInfo).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
@@ -67,7 +69,7 @@ angular.module('cmaManagementApp').controller('userAllergicController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

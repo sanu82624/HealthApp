@@ -29,7 +29,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         }
         
@@ -44,7 +44,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         }
         	
@@ -87,7 +87,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
                     commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
                 }
             }, function(error){
-                commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
 		

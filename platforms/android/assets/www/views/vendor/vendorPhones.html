@@ -2,9 +2,10 @@
 <div class="container">
 	<div class="page-title">Vendor Phones</div>
 	
-        <phone-textbox for="txtPhone" ng-model="vm.phone" addbox
+        <phone-textbox for="txtPhone" ng-model="vm.phone" addbox country-for="comboCountry"
+            countries="vm.countryList" label-binding="name" model-binding="isdCode"
             show-validation="vendorPhonesForm.$submitted && (vendorPhonesForm.txtPhone.$error.pattern || 
-                vendorPhonesForm.txtPhone.$error.required)" required
+                vendorPhonesForm.txtPhone.$error.required || vendorPhonesForm.comboCountry.$error.required)" required
             country-phone-code="vm.countryPhoneCode" add-button-click="vm.onAddPhoneClick(isValid);">
         </phone-textbox>
         

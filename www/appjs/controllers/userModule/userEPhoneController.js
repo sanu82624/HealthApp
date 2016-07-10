@@ -24,7 +24,7 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         }
         
@@ -45,7 +45,7 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("userProfile");
             });
         };
@@ -66,14 +66,14 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
             }
             for(var index=0; index<=vm.ePhones.length - 1; index++){
                 if(vm.ePhones[index] === vm.phone){
-                    vm.phone = "";
+                    vm.phone = constantLoader.defaultValues.BLANK_STRING;
                     commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
             vm.ePhones.push(vm.countryPhoneCode + 
                 constantLoader.defaultValues.ISD_SEPARATOR + vm.phone);
-            vm.phone = "";
+            vm.phone = constantLoader.defaultValues.BLANK_STRING;
         };
 
         vm.onEPhoneDeleteClick = function(record){
@@ -96,7 +96,7 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

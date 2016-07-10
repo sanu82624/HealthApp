@@ -1,22 +1,11 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorRegistrationController',
-    function(constantLoader, vendorBusiness, commonUtility,
-    $rootScope, generalUtility){
+    function(constantLoader, vendorBusiness, commonUtility, generalUtility){
 		
         var vm = this;
 
-        vm.validName = constantLoader.validationPattern.NAME;
-        vm.validEmail = constantLoader.validationPattern.EMAIL;
-        vm.validPhone = constantLoader.validationPattern.PHONE;
-        vm.emailMsg = constantLoader.messages.VALID_EMAIL;
-        vm.passMsg = constantLoader.messages.VALID_PASS;
-        vm.nameMsg = constantLoader.messages.VALID_NAME;
-        vm.pinMsg = constantLoader.messages.REQ_PIN;
-        vm.serviceTypeMsg = constantLoader.messages.REQ_SERVICE_TYPE;
-        vm.addressMsg = constantLoader.messages.REQ_ADDRESS;
         vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
-        
         vm.serviceTypes = [];
         vm.countryList = [];
         
@@ -40,19 +29,22 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         }
         
         function loadCountries(){
             generalUtility.loadCountries().then(function(response){
                 if(response.data.success){
-                    vm.countryList = response.data.result;
+                    vm.countryList = commonUtility.getCustomSortedList(response.data.result, 
+                        constantLoader.defaultValues.COUNTRY_ENDED_LIST, 
+                        constantLoader.defaultValues.COUNTRY_SEARCH_FIELD,
+                        constantLoader.defaultValues.COUNTRY_SORT_FIELD);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         }
         	
@@ -69,23 +61,33 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
             vendorInfo.vendorDetails.address = vm.address;
             vendorInfo.vendorDetails.description = vm.desc;
             vendorInfo.vendorDetails.pin = vm.pinCode;
+            vendorInfo.vendorDetails.country = vm.country;
+            vendorInfo.vendorDetails.state = vm.state;
+            vendorInfo.vendorDetails.city = vm.city;
             vendorInfo.vendorDetails.contacts = [vm.countryPhoneCode + 
                 constantLoader.defaultValues.ISD_SEPARATOR + vm.phone];
             vendorInfo.vendorDetails.active = true;
 			
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
                 if(response.data.success){
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.IS_SIGN_IN, response.data.success);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.NAME, response.data.result.name);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.ID, response.data.result.vendId);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.VEND_TYPE, response.data.result.vendType);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.EMAIL, vm.email);
+                
                     commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
-                    $rootScope.IS_SIGN_IN = response.data.success;
-                    $rootScope.NAME = response.data.result.name;
-                    $rootScope.ID = response.data.result.vendId;
-                    $rootScope.vendorType = response.data.result.vendType;
                     commonUtility.redirectTo("groundVendorHome");
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
                 }
             }, function(error){
-                commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
 		
@@ -93,17 +95,6 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
             commonUtility.redirectTo("vendorLogin");
         };
         
-        vm.onCountryChange = function(){
-            if(commonUtility.is3DValidKey(vm.country)){
-                var countries = commonUtility.getFilterArray(vm.countryList, {isoCode: vm.country});
-                if(commonUtility.is3DValidKey(countries) && countries.length > 0){
-                    vm.countryPhoneCode = countries[0].isdCode;
-                }
-            }else{
-                vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
-            }
-        };
-
         initialized();
     }
 );

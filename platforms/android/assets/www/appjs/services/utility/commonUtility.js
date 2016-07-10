@@ -43,6 +43,45 @@ angular.module('cmaManagementApp')
         commonUtility.getFilterArray = function(array, filterJson){
             return serviceLoader.filter("filter")(array, filterJson);
         };
+        
+        commonUtility.getCustomSortedList = function(array, endedlist, fieldToSearch, fieldToSort){
+            var endedArray = endedlist.split(",");
+            var endedItems = [];
+            for(var index=0; index<endedArray.length; index++){
+                endedItems.push(serviceLoader.filter("filter")(array,
+                    function(item){return (item[fieldToSearch] === endedArray[index]);}));
+            }
+            
+            var result = serviceLoader.filter("orderBy")(array, fieldToSort);
+            for(var index=0; index<endedArray.length; index++){
+                result = serviceLoader.filter("filter")(result, 
+                    function(item){return (item[fieldToSearch] !== endedArray[index]);});
+            }
+            
+            for(var index=endedItems.length-1; index>=0; index--){
+                result.unshift(endedItems[index][0]);
+            }
+            return result;
+        };
+        
+        commonUtility.randomString = function() {
+            var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+            var string_length = 8;
+            var randomstring = '';
+            for (var i=0; i<string_length; i++) {
+                var rnum = Math.floor(Math.random() * chars.length);
+                randomstring += chars.substring(rnum,rnum+1);
+            }
+            return randomstring;
+        };
+        
+        commonUtility.setRootScopeProperty = function(propertyName, value){
+            serviceLoader.rootScope[propertyName] = value;
+        };
+    
+        commonUtility.getRootScopeProperty = function(propertyName){
+            return serviceLoader.rootScope[propertyName];
+        };
 	
 	return commonUtility;
   });

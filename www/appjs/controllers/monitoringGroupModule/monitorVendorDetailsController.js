@@ -1,8 +1,7 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('monitorVendorDetailsController',[
-    'commonUtility', 'vendorBusiness', '$rootScope',
-    function(commonUtility, vendorBusiness, $rootScope){
+angular.module('cmaManagementApp').controller('monitorVendorDetailsController',
+    function(commonUtility, vendorBusiness, constantLoader){
 
         var vm = this;
 
@@ -13,9 +12,10 @@ angular.module('cmaManagementApp').controller('monitorVendorDetailsController',[
         }
 		
         function loadVendor(){
-            if(angular.isDefined($rootScope.vendId) && $rootScope.vendId !== null 
-                && $rootScope.vendId !== ""){
-                vendorBusiness.getVendorDetails($rootScope.vendId).then(function(response){
+            if(commonUtility.is3DValidKey(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID))){
+                vendorBusiness.getVendorDetails(commonUtility.getRootScopeProperty(
+                    constantLoader.rootScopeTypes.ID)).then(function(response){
                     if(response.data.success){
                         vm.vendor = response.data.result;
                     }
@@ -32,5 +32,4 @@ angular.module('cmaManagementApp').controller('monitorVendorDetailsController',[
         };
 		
         initialize();
-    }
-]);
+    });

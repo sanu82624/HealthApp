@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userMedHisController',
-    function(commonUtility, $rootScope, userBusiness, constantLoader){
+    function(commonUtility, userBusiness, constantLoader){
 
         var vm = this;
         vm.medHisRecords = [];
@@ -11,7 +11,8 @@ angular.module('cmaManagementApp').controller('userMedHisController',
         }
         
         function loadMedicalHistory(){
-            userBusiness.loadUserInfo($rootScope.ID).then(function(response){
+            userBusiness.loadUserInfo(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     if(angular.isDefined(response.data.result.medicalHistory) &&
                         response.data.result.medicalHistory !== null){
@@ -22,7 +23,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
                 commonUtility.redirectTo("userProfile");
             });
         };
@@ -32,20 +33,19 @@ angular.module('cmaManagementApp').controller('userMedHisController',
         };
 
         vm.onAddMedHisClick = function(){
-            if(vm.medHis === "" || 
-                vm.medHis === null || angular.isUndefined(vm.medHis)){
+            if(!commonUtility.is3DValidKey(vm.medHis)){
                 commonUtility.showAlert(constantLoader.messages.BLANK_VALUE);
                 return false;
             }
             for(var index=0; index<=vm.medHisRecords.length - 1; index++){
                 if(vm.medHisRecords[index] === vm.medHis){
-                    vm.medHis = "";
+                    vm.medHis = constantLoader.defaultValues.BLANK_STRING;
                     commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
             vm.medHisRecords.push(vm.medHis);
-            vm.medHis = "";
+            vm.medHis = constantLoader.defaultValues.BLANK_STRING;
         };
 
         vm.onMedHisDeleteClick = function(record){
@@ -59,7 +59,8 @@ angular.module('cmaManagementApp').controller('userMedHisController',
         
         vm.onSaveClick = function(){
             var userInfo = {};
-            userInfo.clientId = $rootScope.ID;
+            userInfo.clientId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             userInfo.medicalHistory = vm.medHisRecords;
             userBusiness.updateUserInfo(userInfo).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
@@ -67,7 +68,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',
                     commonUtility.redirectTo("userProfile");
                 }
             }, function(error){
-                commonUtility.showAlert(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

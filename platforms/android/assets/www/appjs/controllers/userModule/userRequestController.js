@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userRequestController',
-    function(commonUtility, userBusiness, constantLoader, $rootScope,
-    generalUtility){
+    function(commonUtility, userBusiness, constantLoader, generalUtility){
 		
         var vm = this;
         vm.myRequests = [];
@@ -28,7 +27,7 @@ angular.module('cmaManagementApp').controller('userRequestController',
                     commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
-                
+                commonUtility.showAlert(error.data.statusText);
             });
         }
 
@@ -39,7 +38,8 @@ angular.module('cmaManagementApp').controller('userRequestController',
         vm.createNewRequest = function(serviceType){
             var request = {};
             request.requestType = serviceType;
-            request.clientId = $rootScope.ID;
+            request.clientId = commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID);
             request.channel = constantLoader.defaultValues.REQUEST_CHANNEL;
 
             userBusiness.createNewRequest(request).then(function(response){
@@ -50,15 +50,16 @@ angular.module('cmaManagementApp').controller('userRequestController',
                     commonUtility.showAlert(constantLoader.messages.CREATE_REQUEST_ERROR);
                 }
             }, function(error){
-                commonUtility.showAlert(constantLoader.messages.CREATE_REQUEST_ERROR);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
 		
         vm.onLoadMyRequests = function(){
-            userBusiness.loadMyRequests($rootScope.ID).then(function(response){
+            userBusiness.loadMyRequests(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
                 vm.myRequests = response.data.result;
             }, function(error){
-                console.log(error.data);
+                commonUtility.showAlert(error.data.statusText);
             });
         };
         

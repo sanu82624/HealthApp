@@ -24,5 +24,9 @@ angular.module('cmaManagementApp').controller('vendorProfileController',
         vm.onBackClick = function(){
             commonUtility.redirectTo("groundVendorHome");
         };
+        
+        vm.onLocClick = function(){
+            commonUtility.redirectTo("vendorLocs");
+        };
     }
 );
