@@ -1,0 +1,53 @@
+<div class="container">
+	<div class="page-title">Location Details</div>
+    <p class="form-group">
+		<label>Name: </label>
+		<span>{{vm.vendor.name}}</span>
+		<span style="color:green;" ng-show="vm.vendor.active">  - Active</span>
+		<span style="color:red;" ng-hide="vm.vendor.active">  - Inactive</span>
+	</p>
+	<p class="form-group">
+		<label>Phones: </label>
+		<span ng-repeat="contact in vm.vendor.contacts">{{contact | hideChar:"|"}}<br/></span>
+	</p>
+	<p class="form-group">
+		<label>Address: </label>
+		<span>{{vm.vendor.address}}</span>
+	</p>
+        <p class="form-group">
+		<label>State: </label>
+		<span>{{vm.vendor.state}}</span>
+	</p>
+        <p class="form-group">
+		<label>City: </label>
+		<span>{{vm.vendor.city}}</span>
+	</p>
+	<p class="form-group">
+		<label>Pin Code: </label>
+		<span>{{vm.vendor.pin}}</span>
+	</p>
+	<p class="form-group">
+		<label>Description: </label>
+		<span>{{vm.vendor.description}}</span>
+	</p>
+	<p class="form-group">
+		<label>Created Date: </label>
+		<span>{{vm.vendor.createts}}</span>
+	</p>
+	<div class="row" style="text-align: center;">
+            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+                <p >
+                    <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onEditLocClick();">
+                        <h5>Edit</h5>
+                    </button>
+                </p>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
+                <p >
+                    <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();">
+                        <h5>Back</h5>
+                    </button>
+                </p>
+            </div>
+	</div>
+</div><!-- Container -->

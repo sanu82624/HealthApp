@@ -15,7 +15,7 @@
 		<div class="info-box" ng-repeat="record in vm.ePhones">
 			<p>
 				<div class="btn-delete-row" ng-click="vm.onEPhoneDeleteClick(record);">x</div>
-				<div style="display:inline;">{{record | hideChar}}</div>
+				<div style="display:inline;">{{record | hideChar: "|"}}</div>
 			</p>
 		</div>
 	</div>

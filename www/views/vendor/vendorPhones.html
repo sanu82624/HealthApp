@@ -13,7 +13,7 @@
 		<div class="info-box" ng-repeat="phone in vm.phones">
 			<p>
 				<div class="btn-delete-row" ng-click="vm.onPhoneDeleteClick(phone);">x</div>
-				<div style="display:inline;">{{phone | hideChar}}</div>
+				<div style="display:inline;">{{phone | hideChar: "|"}}</div>
 			</p>
 		</div>
 	</div>

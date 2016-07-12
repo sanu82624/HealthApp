@@ -26,5 +26,6 @@ angular.module('cmaManagementApp')
     TRY_AGAIN: "Try again after some time!",
     BLANK_VALUE: "Blank will not going to be added!",
     COUNTRY_CODE: "Please select country code!",
-    VEND_LOC_CREATE: "Location has been created."
+    VEND_LOC_CREATE: "Location has been created.",
+    LOC_UPDATE: "Location has been updated successfully."
 });

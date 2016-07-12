@@ -18,6 +18,16 @@
                         }
                     ]
                 }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"ExitApp\"><param name=\"android-package\" value=\"cordova.custom.plugins.exitapp.ExitApp\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
             }
         }
     },
@@ -26,6 +36,9 @@
             "PACKAGE_NAME": "com.coolappz.HealthApp"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.coolappz.HealthApp"
+        },
+        "cordova.custom.plugins.exitapp": {
             "PACKAGE_NAME": "com.coolappz.HealthApp"
         }
     },
@@ -37,10 +50,18 @@
             "clobbers": [
                 "device"
             ]
+        },
+        {
+            "file": "plugins/cordova.custom.plugins.exitapp/www/ExitApp.js",
+            "id": "cordova.custom.plugins.exitapp.exitApp",
+            "merges": [
+                "navigator.app"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
-        "cordova-plugin-device": "1.1.2"
+        "cordova-plugin-device": "1.1.2",
+        "cordova.custom.plugins.exitapp": "1.0.0"
     }
 }

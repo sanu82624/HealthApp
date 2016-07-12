@@ -8,5 +8,6 @@ angular.module('cmaManagementApp')
     ID: "ID",
     VEND_TYPE: "VEND_TYPE",
     EMAIL: "EMAIL",
-    DAL_PROMISE: "DAL_PROMISE"
+    DAL_PROMISE: "DAL_PROMISE",
+    LOC_VEND_ID: "LOC_VEND_ID"
   });
