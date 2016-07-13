@@ -79,6 +79,7 @@
     <script src="appjs/directives/normalTextbox.js"></script>
     <script src="appjs/directives/pinTextbox.js"></script>
     <script src="appjs/directives/numberTextbox.js"></script>
+    <script src="appjs/directives/dashboardBox.js"></script>
    
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/angular-busy/dist/angular-busy.css" rel="stylesheet">
@@ -105,8 +106,8 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-        <div>
-            <div class="cg-bg-loading"
+        <div id="page-content-wrapper" style="margin:0px; padding:0px;">
+            <div class="container-fluid"
                 cg-busy="{  promise: {{'DAL_PROMISE' | rootScopeShow}},
                             message: 'Loading',
                             backdrop: true,
@@ -140,6 +141,7 @@
         $("#wrapper").toggleClass("toggled");
         $("#toggleMenu").toggleClass("arrow-side-opp");
     });
+    
     </script>
 </body>
 </html>
