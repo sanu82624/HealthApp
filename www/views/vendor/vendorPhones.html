@@ -1,6 +1,6 @@
 <form name="vendorPhonesForm" novalidate="novalidate" id="vendorPhonesForm">
     <div class="container">
-	<div class="page-title">Vendor Phones</div>
+	<div class="page-title">{{vm.label}} Numbers</div>
 	
         <phone-textbox for="txtPhone" ng-model="vm.phone" addbox country-for="comboCountry"
             countries="vm.countryList" label-binding="name" model-binding="isdCode"

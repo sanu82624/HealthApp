@@ -7,6 +7,7 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
         vm.phones = [];
         vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
         vm.countryList = [];
+        vm.label = constantLoader.defaultValues.PHONE_TYPE_DEFAULT;
         
         function initialization(){
             loadPhones();
@@ -45,6 +46,7 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
                             if(angular.isDefined(response.data.result.mobile) &&
                                 response.data.result.mobile !== null){
                                 vm.phones = response.data.result.mobile;
+                                vm.label = constantLoader.defaultValues.MOBILE_TYPE_DEFAULT;
                             }
                         }
                         if(vm.phones.length > 0){

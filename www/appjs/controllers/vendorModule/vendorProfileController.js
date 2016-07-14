@@ -27,8 +27,7 @@ angular.module('cmaManagementApp').controller('vendorProfileController',
         vm.onMobileClick = function(){
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.PHONE_TYPE,
-                (constantLoader.defaultValues.PHONE_TYPE_DEFAULT +
-                    constantLoader.defaultValues.REQUEST_CHANNEL));
+                constantLoader.defaultValues.MOBILE_TYPE_DEFAULT);
             commonUtility.redirectTo("vendorPhones");
         };
 

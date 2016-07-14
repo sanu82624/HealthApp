@@ -8,22 +8,14 @@
         <dashboard-box label="Allergies" icon="text-background"
             on-click="vm.onAllergicClick()"></dashboard-box>
         <dashboard-box label="Phones" icon="phone-alt"
-            on-click="vm.onEPhoneClick()"></dashboard-box>
+            on-click="vm.onPhoneClick()"></dashboard-box>
         <dashboard-box label="Mobile" icon="phone"
-            on-click=""></dashboard-box>
+            on-click="vm.onMobileClick()"></dashboard-box>
         <dashboard-box label="Emails" icon="envelope"
             on-click="vm.onEmailsClick()"></dashboard-box>
         <dashboard-box label="Password" icon="thumbs-up"
             on-click="vm.onPasswordClick()"></dashboard-box>
-    </div>
-    
-    <div class="row" style="text-align: center;">
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-            <p>
-                <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onCancelClick();">
-                    <h5>Back</h5>
-                </button>
-            </p>
-        </div>
+        <dashboard-box label="Home" icon="home" blue
+            on-click="vm.onCancelClick()"></dashboard-box>
     </div>
 </div>

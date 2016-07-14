@@ -1,35 +1,24 @@
 <form name="userEmailsForm" novalidate="novalidate" id="userEmailsForm">
-<div class="container">
+    <div class="container">
 	<div class="page-title">Other Emails</div>
-	<email-textbox for="txtEmail" ng-model="vm.email" addbox
+	
+        <email-textbox for="txtEmail" ng-model="vm.email" addbox
             add-button-click="vm.onAddEmailClick(isValid);"
             show-validation="(userEmailsForm.txtEmail.$error.pattern || 
                             userEmailsForm.txtEmail.$error.required)" required>
         </email-textbox>
+        
         <div class="list-box">
-		<div class="info-box" ng-repeat="email in vm.emails">
-			<p>
-				<div class="btn-delete-row" ng-click="vm.onEmailDeleteClick(email);">x</div>
-				<div style="display:inline;">{{email}}</div>
-			</p>
-		</div>
+            <div class="info-box" ng-repeat="email in vm.emails">
+                <p>
+                    <div class="btn-delete-row" ng-click="vm.onEmailDeleteClick(email);">x</div>
+                    <div style="display:inline;">{{email}}</div>
+                </p>
+            </div>
 	</div>
 	
-	<div class="row">
-            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onSaveClick();">
-					<h5>Submit</h5>
-				</button>
-			</p>
-		</div>
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();">
-					<h5>Back</h5>
-				</button>
-			</p>
-		</div>
-	</div>
-</div>
+        <save-back-buttons submit-label="Save" cancel-label="Back"
+            on-submit-click="vm.onSaveClick()" 
+            on-cancel-click="vm.onBackClick()"></save-back-buttons>
+    </div>
 </form>
