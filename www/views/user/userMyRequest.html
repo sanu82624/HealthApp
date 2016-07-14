@@ -1,21 +1,13 @@
 <div class="container" ng-init="vm.onLoadMyRequests();">
-	<div class="page-title">My Requests</div>
-	<div>
-		<div class="info-box" ng-repeat="request in vm.myRequests | orderBy: '-createTs'">
-			<p>
-				<span>Id: {{request.requestId.replace('SRV-REQ-ID-','')}}</span></br>
-				<span>Requested for: {{request.requestType}}</span></br>
-				<span>Status: {{request.status}}</span></br>
-			</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBacktoUserHome();">
-					<h5>Back</h5>
-				</button>
-			</p>
-		</div>
-	</div>
+    <div class="page-title">My Requests</div>
+    <div>
+        <div class="info-box" ng-repeat="request in vm.myRequests | orderBy: '-createTs'">
+            <p>
+                <span>Id: {{request.requestId.replace('SRV-REQ-ID-','')}}</span><br/>
+                <span>Requested for: {{request.requestType}}</span><br/>
+                <span>Status: {{request.status}}</span><br/>
+            </p>
+        </div>
+    </div>
+    <single-button label="Back" on-click="vm.onBacktoUserHome()"></single-button>
 </div>

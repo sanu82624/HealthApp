@@ -17,6 +17,9 @@ angular.module('cmaManagementApp').controller('userRequestController',
                 if(response.data.success){
                     if(response.data.result !== null){
                         angular.forEach(response.data.result, function(value, key) {
+                            if(key === "ASST"){
+                                value = "Med. Asst.";
+                            }
                             vm.serviceTypes.push({
                                 code: key,
                                 name: value
@@ -43,11 +46,9 @@ angular.module('cmaManagementApp').controller('userRequestController',
             request.channel = constantLoader.defaultValues.REQUEST_CHANNEL;
 
             userBusiness.createNewRequest(request).then(function(response){
+                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
-                    commonUtility.showAlert(constantLoader.messages.CREATE_REQUEST_SUCCESS);
                     commonUtility.redirectTo("userLanding");
-                } else{
-                    commonUtility.showAlert(constantLoader.messages.CREATE_REQUEST_ERROR);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
@@ -57,7 +58,11 @@ angular.module('cmaManagementApp').controller('userRequestController',
         vm.onLoadMyRequests = function(){
             userBusiness.loadMyRequests(commonUtility.getRootScopeProperty(
                 constantLoader.rootScopeTypes.ID)).then(function(response){
-                vm.myRequests = response.data.result;
+                if(response.data.success){
+                    vm.myRequests = response.data.result;
+                }else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
             });
