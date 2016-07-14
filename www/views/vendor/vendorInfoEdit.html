@@ -1,51 +1,39 @@
 <form name="vendorInfoForm" novalidate="novalidate" id="vendorInfoForm">
-<div class="container">
-    <div class="page-title">Vendor Info</div>
-    
-    <normal-textbox label="Name" for="txtName" required
-        ng-model="vm.vendorInfo.name" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
-    
-    <combobox label="Country" for="txtCountry" sel
-        label-binding="name" model-binding="isoCode" ng-model="vm.vendorInfo.country"
-        items="vm.countryList" msg="REQ_COUNTRY" required
-        show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtCountry.$error.required" readOnly="false"></combobox>
-    
-    <normal-textbox label="State" for="txtState" required
-        ng-model="vm.vendorInfo.state" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
-    
-    <normal-textbox label="City" for="txtCity" required
-        ng-model="vm.vendorInfo.city" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
-    
-    <normal-textbox label="Address" for="txtAddress" required
-        ng-model="vm.vendorInfo.address" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
-    
-    <pin-textbox label="Pin Code" for="txtPinCode" required
-        ng-model="vm.vendorInfo.pin" show-validation="vendorInfoForm.$submitted && 
-            vendorInfoForm.txtPinCode.$error.required"></pin-textbox>
-    
-    <normal-textbox label="Description" for="txtDesc"
-        ng-model="vm.vendorInfo.description"></normal-textbox>
+    <div class="container">
+        <div class="page-title">Vendor Info</div>
 
-	<div class="row" style="text-align: center;">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onSaveClick(this);" type="submit">
-					<h5>Submit</h5>
-				</button>
-			</p>
-		</div>
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onCancelClick();" type="button">
-					<h5>Cancel</h5>
-				</button>
-			</p>
-		</div>
-	</div>
-</div><!-- Container -->
+        <normal-textbox label="Name" for="txtName" required
+            ng-model="vm.vendorInfo.name" show-validation="vendorInfoForm.$submitted && 
+                vendorInfoForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
+
+        <combobox label="Country" for="txtCountry" sel
+            label-binding="name" model-binding="isoCode" ng-model="vm.vendorInfo.country"
+            items="vm.countryList" msg="REQ_COUNTRY" required
+            show-validation="vendorInfoForm.$submitted && 
+                vendorInfoForm.txtCountry.$error.required" readOnly="false"></combobox>
+
+        <normal-textbox label="State" for="txtState" required
+            ng-model="vm.vendorInfo.state" show-validation="vendorInfoForm.$submitted && 
+                vendorInfoForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
+
+        <normal-textbox label="City" for="txtCity" required
+            ng-model="vm.vendorInfo.city" show-validation="vendorInfoForm.$submitted && 
+                vendorInfoForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
+
+        <normal-textbox label="Address" for="txtAddress" required
+            ng-model="vm.vendorInfo.address" show-validation="vendorInfoForm.$submitted && 
+                vendorInfoForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
+
+        <pin-textbox label="Pin Code" for="txtPinCode" required
+            ng-model="vm.vendorInfo.pin" show-validation="vendorInfoForm.$submitted && 
+                vendorInfoForm.txtPinCode.$error.required"></pin-textbox>
+
+        <normal-textbox label="Description" for="txtDesc"
+            ng-model="vm.vendorInfo.description"></normal-textbox>
+
+        <save-back-buttons submit-label="Save" cancel-label="Back"
+            on-submit-click="vm.onSaveClick(this)" 
+            on-cancel-click="vm.onCancelClick()"></save-back-buttons>
+
+    </div>
 </form>

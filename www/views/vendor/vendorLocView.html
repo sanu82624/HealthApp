@@ -34,20 +34,9 @@
 		<label>Created Date: </label>
 		<span>{{vm.vendor.createts}}</span>
 	</p>
-	<div class="row" style="text-align: center;">
-            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-                <p >
-                    <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onEditLocClick();">
-                        <h5>Edit</h5>
-                    </button>
-                </p>
-            </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-                <p >
-                    <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();">
-                        <h5>Back</h5>
-                    </button>
-                </p>
-            </div>
-	</div>
+        
+        <save-back-buttons submit-label="Edit" cancel-label="Back"
+            on-submit-click="vm.onEditLocClick()" 
+            on-cancel-click="vm.onBackClick()"></save-back-buttons>
+	
 </div><!-- Container -->

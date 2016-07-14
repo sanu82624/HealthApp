@@ -246,9 +246,21 @@ body{
 .orange{
     color: #EC3C00;
 }
+.red{
+    color: #FF0000;
+}
+.blue{
+    color: #269abc;
+}
 
 .container-fluid{
     position: absolute;
     top: 97px;
     left: 90px;
+}
+
+.container{
+    min-height: 100% !important;
+    height: 100%;
+    width: 100%;
 }

@@ -6,7 +6,9 @@ angular.module('cmaManagementApp').controller('vendorLandingController',
         var vm = this;
 
         vm.assignedRequestCount = 0;
-        vm.respondedRequestCount = 0;
+        vm.acceptedRequestCount = 0;
+        vm.declinedRequestCount = 0;
+        vm.closedRequestCount = 0;
 
         function initialized(){
             loadRequests();
@@ -15,12 +17,20 @@ angular.module('cmaManagementApp').controller('vendorLandingController',
         function loadRequests(){
             vendorBusiness.getAssignedRequests(commonUtility.getRootScopeProperty(
                 constantLoader.rootScopeTypes.ID)).then(function(response){
-                vm.assignedRequestCount = (serviceLoader.filter('filter')(response.data.result, 
-                    {status: constantLoader.ticketStatusTypes.ASSIGNED})).length;
-                vm.respondedRequestCount = (serviceLoader.filter('filter')(response.data.result, 
-                    {status: "!" + constantLoader.ticketStatusTypes.ASSIGNED})).length;
+                if(response.data.success){
+                    vm.assignedRequestCount = (serviceLoader.filter('filter')(response.data.result, 
+                        {status: constantLoader.ticketStatusTypes.ASSIGNED})).length;
+                    vm.acceptedRequestCount = (serviceLoader.filter('filter')(response.data.result, 
+                        {status: constantLoader.ticketStatusTypes.ACCEPTED})).length;
+                    vm.declinedRequestCount = (serviceLoader.filter('filter')(response.data.result, 
+                        {status: constantLoader.ticketStatusTypes.DECLINED})).length;
+                    vm.closedRequestCount = (serviceLoader.filter('filter')(response.data.result, 
+                        {status: constantLoader.ticketStatusTypes.CLOSED})).length;
+                }else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
             }, function(error){
-                console.log(error.data.statusText);
+                commonUtility.showAlert(error.data.statusText);
             });
         }
 
@@ -32,7 +42,24 @@ angular.module('cmaManagementApp').controller('vendorLandingController',
             commonUtility.redirectTo("vendorRaisedReq");
         };
         
-        vm.onRespondedReqClick = function(){
+        vm.onAcceptedReqClick = function(){
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.TCK_STATUS, 
+                constantLoader.ticketStatusTypes.ACCEPTED);
+            commonUtility.redirectTo("vendorRespondedReq");
+        };
+        
+        vm.onDeclinedReqClick = function(){
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.TCK_STATUS, 
+                constantLoader.ticketStatusTypes.DECLINED);
+            commonUtility.redirectTo("vendorRespondedReq");
+        };
+        
+        vm.onClosedReqClick = function(){
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.TCK_STATUS, 
+                constantLoader.ticketStatusTypes.CLOSED);
             commonUtility.redirectTo("vendorRespondedReq");
         };
 		

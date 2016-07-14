@@ -1,41 +1,22 @@
 <div class="container">
-	<div class="page-title">Vendor Home</div>
-	<div class="row" style="text-align: center;">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-			<p>
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onAssignedReqClick();">
-					<span class="glyphicon glyphicon glyphicon-tasks"></span><br/>
-						<h5>Assigned<br/>Request <br/><span class="badge badge-danger">{{vm.assignedRequestCount}}</span></h5>
-
-				</button>
-			</p>
-		</div>
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-			<p>
-                            <button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onRespondedReqClick();">
-					<span class="glyphicon glyphicon glyphicon-tasks"></span><br/>
-						<h5>Responded<br/>Request <br/><span class="badge badge-danger">{{vm.respondedRequestCount}}</span></h5>
-
-				</button>
-			</p>
-		</div>
-	</div> <!-- End of Row 1 -->
-	<div class="row" style="text-align: center;">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onProfileClick();">
-					<span class="glyphicon glyphicon glyphicon-user"></span><br/>
-						<h5>Profile</h5>
-				</button>
-			</p>
-		</div>
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p>
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onLogoutClick();">
-					<span class="glyphicon glyphicon-off"></span><br/>
-						<h5>Logout</h5>
-				</button>
-			</p>
-		</div>
-	</div> <!-- End of Row 2 -->
-</div><!-- Container -->
+    <div class="page-title">Vendor Home</div>
+    <div style="display: block;text-align: center;">
+        <dashboard-box label="Assigned Req." icon="download" notify
+            on-click="vm.onAssignedReqClick()"
+            notify-number="{{vm.assignedRequestCount}}"></dashboard-box>
+        <dashboard-box label="Accepted Req." icon="check" notify
+            on-click="vm.onAcceptedReqClick()"
+            notify-number="{{vm.acceptedRequestCount}}"></dashboard-box>
+        <dashboard-box label="Declined Req." icon="share" notify
+            on-click="vm.onDeclinedReqClick()"
+            notify-number="{{vm.declinedRequestCount}}"></dashboard-box>
+        <dashboard-box label="Closed Req." icon="stop" notify
+            on-click="vm.onClosedReqClick()"
+            notify-number="{{vm.closedRequestCount}}"></dashboard-box>
+        <dashboard-box label="Profile" icon="user" 
+            on-click="vm.onProfileClick()"></dashboard-box>
+        <dashboard-box label="Logout" icon="off" red
+            on-click="vm.onLogoutClick()"></dashboard-box>
+    </div>
+    
+</div>

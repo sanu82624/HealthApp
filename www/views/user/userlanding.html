@@ -1,39 +1,13 @@
 <div class="container">
-	<div class="page-title">Home</div>
-	<div class="row" style="text-align: center;">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-			<p>
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onMyRequestClick();">
-					<span class="glyphicon glyphicon-eye-open"></span><br/>
-						<h5>My <br/>Requests</h5>
-				</button>
-			</p>
-		</div>
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-			<p>
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onNewRequestClick();">
-					<span class="glyphicon glyphicon-edit"></span><br/>
-						<h5>New <br/> Request</h5>
-				</button>
-			</p>
-		</div>
-	</div> <!-- End of Row 1 -->
-	<div class="row" style="text-align: center;">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onProfileClick();">
-					<span class="glyphicon glyphicon-user"></span><br/>
-						<h5>Profile</h5>
-				</button>
-			</p>
-		</div>
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p>
-				<button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onLogoutClick();">
-					<span class="glyphicon glyphicon-off"></span><br/>
-						<h5>Logout</h5>
-				</button>
-			</p>
-		</div>
-	</div> <!-- End of Row 2 -->
-</div><!-- Container -->
+    <div class="page-title">Home</div>
+    <div style="display: block;text-align: center;">
+        <dashboard-box label="My Requests" icon="eye-open"
+            on-click="vm.onMyRequestClick()"></dashboard-box>
+        <dashboard-box label="New Requests" icon="edit"
+            on-click="vm.onNewRequestClick()"></dashboard-box>
+        <dashboard-box label="Profile" icon="user"
+            on-click="vm.onProfileClick()"></dashboard-box>
+        <dashboard-box label="Logout" icon="off" red
+            on-click="vm.onLogoutClick()"></dashboard-box>
+    </div>
+</div>

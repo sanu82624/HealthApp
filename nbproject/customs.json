@@ -11,6 +11,14 @@
                 "showValidation": {},
                 "required": {}
             }
+        },
+        "save-back-buttons": {
+            "attributes": {
+                "cancel-label": {},
+                "submit-label": {},
+                "on-submit-click": {},
+                "on-cancel-click": {}
+            }
         }
     },
     "attributes": {
