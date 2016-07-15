@@ -131,10 +131,10 @@
             <div style="padding-top: 110px; height:100%;" ng-view></div>
         </div>
     </div>
-    <div class="container-fluid"
+    <div 
         cg-busy="{  promise: {{'DAL_PROMISE' | rootScopeShow}},
                     message: 'Loading',
-                    backdrop: true,
+                    backdrop: false,
                     minDuration: 700}"></div>
     
     <script>

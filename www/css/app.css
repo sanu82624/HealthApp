@@ -253,10 +253,13 @@ body{
     color: #269abc;
 }
 
-.container-fluid{
+.cg-busy{
     position: absolute;
     top: 97px;
-    left: 90px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1001;
 }
 
 .container{
