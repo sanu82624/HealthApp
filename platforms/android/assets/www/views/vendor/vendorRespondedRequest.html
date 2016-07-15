@@ -1,11 +1,6 @@
 <div class="container">
-    <div class="page-title">Vendor - Responded Tickets</div>
+    <div class="page-title">Vendor - {{vm.tckType}} Tickets</div>
     <div>
-        <combobox label="Ticket Status" for="txtType" 
-            label-binding="code" model-binding="code" ng-model="vm.tckType"
-            items="vm.ticketTypes" readOnly="false" 
-            selection-changed="vm.onTckTypeChange();"></combobox>
-        
         <div class="info-box" ng-repeat="request in vm.requests | orderBy: '-createTs'">
             <p>
                 <span>Id: {{request.assignmentId.replace('TICKET-','')}}</span><br/>
@@ -18,13 +13,5 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-            <p>
-                <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();">
-                    <h5>Back</h5>
-                </button>
-            </p>
-        </div>
-    </div>
+    <single-button label="Back" on-click="vm.onBackClick()"></single-button>
 </div>

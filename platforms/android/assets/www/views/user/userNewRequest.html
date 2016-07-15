@@ -1,21 +1,9 @@
 <div class="container">
     <div class="page-title">New Request</div>
-    <div class="row" style="text-align: center;">
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" ng-repeat="type in vm.serviceTypes">
-            <p>
-                <button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.createNewRequest(type.code);">
-                    <h5>{{ type.name }}</h5>
-                </button>
-            </p>
-        </div>
+    <div style="display: block;text-align: center;">
+        <dashboard-box label="{{type.name}}" icon="plus" ng-repeat="type in vm.serviceTypes"
+                on-click="vm.createNewRequest(type.code)"></dashboard-box>
     </div>
-    <div class="row">
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-            <p>
-                <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBacktoUserHome();">
-                        <h5>Back</h5>
-                </button>
-            </p>
-        </div>
-    </div>
+    
+    <single-button label="Back" on-click="vm.onBacktoUserHome()"></single-button>
 </div>

@@ -118,15 +118,15 @@ angular.module('routerConfigModule', ['ngRoute'])
                 controller: 'vendorLocController as vm'
             }).
             when('/monitoringGroupHome',{
-                templateUrl: 'views/monitoringGroupLanding.html',
+                templateUrl: 'views/monitor/monitoringGroupLanding.html',
                 controller: 'monitoringGroupController as vm'
             }).
             when('/monitorAllVendor',{
-                templateUrl: 'views/monitorAllVendor.html',
+                templateUrl: 'views/monitor/monitorAllVendor.html',
                 controller: 'monitorAllVendorController as vm'
             }).
             when('/monitorVendorDetails',{
-                templateUrl: 'views/monitorVendorDetails.html',
+                templateUrl: 'views/monitor/VendorDetails.html',
                 controller: 'monitorVendorDetailsController as vm'
             }).
             otherwise({

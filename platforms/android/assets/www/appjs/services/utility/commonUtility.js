@@ -82,6 +82,15 @@ angular.module('cmaManagementApp')
         commonUtility.getRootScopeProperty = function(propertyName){
             return serviceLoader.rootScope[propertyName];
         };
+        
+        commonUtility.getSplitArray = function(value, separator){
+            var result = [];
+            if(!commonUtility.is3DValidKey(value)){
+                return result;
+            }
+            result = value.split(separator);
+            return result;
+        };
 	
 	return commonUtility;
   });

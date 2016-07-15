@@ -1,62 +1,21 @@
 <div class="container">
     <div class="page-title">Your Profile</div>
-    <div class="row" style="text-align: center;">
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-            <p>
-                <button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onEditInfoClick();">
-                    <span class="glyphicon glyphicon-pencil"></span><br/>
-                    <h5>Edit<br/>Profile</h5>
-                </button>
-            </p>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-            <p>
-                <button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onMedHisClick();">
-                    <span class="glyphicon glyphicon-list-alt"></span><br/>
-                    <h5>Medical<br/>History</h5>
-                </button>
-            </p>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-            <p>
-                <button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onAllergicClick();">
-                    <span class="glyphicon glyphicon-text-background"></span><br/>
-                    <h5>Allergic To</h5>
-                </button>
-            </p>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-            <p>
-                <button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onEPhoneClick();">
-                    <span class="glyphicon glyphicon-heart"></span><br/>
-                    <h5>Emergency<br/>Phone Number</h5>
-                </button>
-            </p>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-            <p>
-                <button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onPasswordClick();">
-                    <span class="glyphicon glyphicon-heart"></span><br/>
-                    <h5>Change<br/>Password</h5>
-                </button>
-            </p>
-        </div>
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
-            <p>
-                <button class="btn btn-sq-lg btn-sq btn-primary" ng-click="vm.onEmailsClick();">
-                    <span class="glyphicon glyphicon-heart"></span><br/>
-                    <h5>Emails</h5>
-                </button>
-            </p>
-        </div>
-    </div>
-    <div class="row" style="text-align: center;">
-        <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-            <p>
-                <button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onCancelClick();">
-                    <h5>Back</h5>
-                </button>
-            </p>
-        </div>
+    <div style="display: block;text-align: center;">
+        <dashboard-box label="Edit Info" icon="pencil"
+            on-click="vm.onEditInfoClick()"></dashboard-box>
+        <dashboard-box label="Med. History" icon="list-alt"
+            on-click="vm.onMedHisClick()"></dashboard-box>
+        <dashboard-box label="Allergies" icon="text-background"
+            on-click="vm.onAllergicClick()"></dashboard-box>
+        <dashboard-box label="Phones" icon="phone-alt"
+            on-click="vm.onPhoneClick()"></dashboard-box>
+        <dashboard-box label="Mobile" icon="phone"
+            on-click="vm.onMobileClick()"></dashboard-box>
+        <dashboard-box label="Emails" icon="envelope"
+            on-click="vm.onEmailsClick()"></dashboard-box>
+        <dashboard-box label="Password" icon="thumbs-up"
+            on-click="vm.onPasswordClick()"></dashboard-box>
+        <dashboard-box label="Home" icon="home" blue
+            on-click="vm.onCancelClick()"></dashboard-box>
     </div>
 </div>

@@ -111,7 +111,7 @@ angular.module('routerConfigModule', ['ngRoute'])
             }).
             when('/vendorLocView',{
                 templateUrl: 'views/vendor/vendorLocView.html',
-                controller: 'vendorLocController as vm'
+                controller: 'vendorLocViewController as vm'
             }).
             when('/vendorLocEdit',{
                 templateUrl: 'views/vendor/vendorLocEdit.html',

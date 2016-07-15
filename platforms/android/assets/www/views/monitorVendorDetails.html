@@ -16,7 +16,9 @@
 	</p>
 	<p class="form-group">
 		<label>Phones: </label>
-		<span ng-repeat="contact in vm.vendor.contacts">({{$index + 1}}) {{contact}}<br/></span>
+		<span ng-repeat="contact in vm.vendor.contacts">
+                    ({{$index + 1}}) <a href="tel:+919051183457">{{contact}}</a><br/>
+                </span>
 	</p>
 	<p class="form-group">
 		<label>Address: </label>

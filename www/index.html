@@ -19,9 +19,9 @@
     <script src="appjs/filters/hideChar.js"></script>
     <script src="appjs/filters/msgShow.js"></script>
     <script src="appjs/filters/rootScopeShow.js"></script>
-    <script src="appjs/controllers/monitoringGroupModule/monitoringGroupController.js"></script>
-    <script src="appjs/controllers/monitoringGroupModule/monitorAllVendorController.js"></script>
-    <script src="appjs/controllers/monitoringGroupModule/monitorVendorDetailsController.js"></script>
+    <script src="appjs/controllers/monitorModule/monitoringGroupController.js"></script>
+    <script src="appjs/controllers/monitorModule/monitorAllVendorController.js"></script>
+    <script src="appjs/controllers/monitorModule/monitorVendorDetailsController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorRequestController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorLoginController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorRegistrationController.js"></script>
@@ -109,11 +109,7 @@
         </div>
         <!-- /#sidebar-wrapper -->
         <div id="page-content-wrapper" style="margin:0px; padding:0px; height:100%;">
-            <div class="container-fluid"
-                cg-busy="{  promise: {{'DAL_PROMISE' | rootScopeShow}},
-                            message: 'Loading',
-                            backdrop: true,
-                            minDuration: 700}"></div>
+            
             <div class="well well-header fixed-header" ng-controller="userLoginController">
                 <div class="row">
                     <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >
@@ -135,7 +131,11 @@
             <div style="padding-top: 110px; height:100%;" ng-view></div>
         </div>
     </div>
-    
+    <div class="container-fluid"
+        cg-busy="{  promise: {{'DAL_PROMISE' | rootScopeShow}},
+                    message: 'Loading',
+                    backdrop: true,
+                    minDuration: 700}"></div>
     
     <script>
     $("#toggleMenu").click(function(e) {

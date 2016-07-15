@@ -4,9 +4,10 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
     function(commonUtility, userBusiness, constantLoader, generalUtility){
 
         var vm = this;
-        vm.ePhones = [];
+        vm.phones = [];
         vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
         vm.countryList = [];
+        vm.label = constantLoader.defaultValues.PHONE_TYPE_DEFAULT;
         
         function initialized(){
             loadCountries();
@@ -32,12 +33,25 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
             userBusiness.loadUserInfo(commonUtility.getRootScopeProperty(
                 constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
-                    if(angular.isDefined(response.data.result.emergencyPhone) &&
-                        response.data.result.emergencyPhone !== null){
-                        vm.ePhones = response.data.result.emergencyPhone;
-                        if(vm.ePhones.length > 0){
-                            vm.countryPhoneCode = vm.ePhones[0].substr(0, 
-                                vm.ePhones[0].indexOf(constantLoader.defaultValues.ISD_SEPARATOR));
+                    if(commonUtility.is3DValidKey(commonUtility.getRootScopeProperty(
+                        constantLoader.rootScopeTypes.PHONE_TYPE))){
+                        if(commonUtility.getRootScopeProperty(
+                            constantLoader.rootScopeTypes.PHONE_TYPE) === 
+                            constantLoader.defaultValues.PHONE_TYPE_DEFAULT){
+                            if(angular.isDefined(response.data.result.phone) &&
+                                response.data.result.phone !== null){
+                                vm.phones = response.data.result.phone;
+                            }
+                        }else{
+                            if(angular.isDefined(response.data.result.mobile) &&
+                                response.data.result.mobile !== null){
+                                vm.phones = response.data.result.mobile;
+                                vm.label = constantLoader.defaultValues.MOBILE_TYPE_DEFAULT;
+                            }
+                        }
+                        if(vm.phones.length > 0){
+                            vm.countryPhoneCode = vm.phones[0].substr(0, 
+                                vm.phones[0].indexOf(constantLoader.defaultValues.ISD_SEPARATOR));
                         }
                     }
                 }else{
@@ -59,45 +73,57 @@ angular.module('cmaManagementApp').controller('userEPhoneController',
                 commonUtility.showAlert(constantLoader.messages.COUNTRY_CODE);
                 return;
             }
-            if(isNotValidPhone || vm.phone === "" || 
+            if(isNotValidPhone || vm.phone === constantLoader.defaultValues.BLANK_STRING || 
                 vm.phone === null || angular.isUndefined(vm.phone)){
                 commonUtility.showAlert(constantLoader.messages.VALID_PHONE);
                 return false;
             }
-            for(var index=0; index<=vm.ePhones.length - 1; index++){
-                if(vm.ePhones[index] === vm.phone){
+            for(var index=0; index<=vm.phones.length - 1; index++){
+                if(vm.phones[index] === vm.phone){
                     vm.phone = constantLoader.defaultValues.BLANK_STRING;
                     commonUtility.showAlert(constantLoader.messages.ALREADY_ADDED);
                     return false;
                 }
             }
-            vm.ePhones.push(vm.countryPhoneCode + 
+            vm.phones.push(vm.countryPhoneCode + 
                 constantLoader.defaultValues.ISD_SEPARATOR + vm.phone);
             vm.phone = constantLoader.defaultValues.BLANK_STRING;
         };
 
         vm.onEPhoneDeleteClick = function(record){
-            for(var index=0; index<=vm.ePhones.length - 1; index++){
-                if(vm.ePhones[index] === record){
-                    vm.ePhones.splice(index, 1);
+            for(var index=0; index<=vm.phones.length - 1; index++){
+                if(vm.phones[index] === record){
+                    vm.phones.splice(index, 1);
                     return;
                 }
             }
         };
         
         vm.onSaveClick = function(){
-            var userInfo = {};
-            userInfo.clientId = commonUtility.getRootScopeProperty(
-                constantLoader.rootScopeTypes.ID);
-            userInfo.emergencyPhone = vm.ePhones;
-            userBusiness.updateUserInfo(userInfo).then(function(response){
-                commonUtility.showAlert(response.data.statusText);
-                if(response.data.success){
-                    commonUtility.redirectTo("userProfile");
+            if(commonUtility.is3DValidKey(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.PHONE_TYPE))){
+                var userInfo = {};
+                userInfo.clientId = commonUtility.getRootScopeProperty(
+                    constantLoader.rootScopeTypes.ID);
+                
+                if(commonUtility.getRootScopeProperty(
+                    constantLoader.rootScopeTypes.PHONE_TYPE) === 
+                    constantLoader.defaultValues.PHONE_TYPE_DEFAULT){
+                    userInfo.phone = vm.phones;
+                }else{
+                    userInfo.mobile = vm.phones;
                 }
-            }, function(error){
-                commonUtility.showAlert(error.data.statusText);
-            });
+                userBusiness.updateUserInfo(userInfo).then(function(response){
+                    commonUtility.showAlert(response.data.statusText);
+                    if(response.data.success){
+                        commonUtility.redirectTo("userProfile");
+                    }else{
+                        commonUtility.showAlert(response.data.statusText);
+                    }
+                }, function(error){
+                    commonUtility.showAlert(error.data.statusText);
+                });
+            }
         };
         
         initialized();

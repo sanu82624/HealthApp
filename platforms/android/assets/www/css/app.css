@@ -61,12 +61,12 @@
 	border-bottom: 1px solid rgba(53,86,129, 0.3);
 }
 
-.glyphicon {
-    font-size: 20px;
-}
 .well-header{
     text-align: center !important;
-    background: url("../images/4.jpg") no-repeat;
+    background: url("../images/4.jpg");
+    -moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
     color: white;
     height: 98px;
     width: 100%;
@@ -192,4 +192,75 @@
 
 body{
   background-color:  #FFFFFF;
+  height: 100%;
+  width: 100%;
+}
+
+.glyphicon {
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
+
+.left-margin-20{
+    margin-left: 20px;
+}
+
+.box-text{
+    color: black;
+    text-align: center;
+    text-shadow: 0 1px hsla(0, 0%, 0%, 0.25);
+    margin-top: 10px;
+}
+
+.box-notification{
+    padding: 3px 6px;
+    color: white !important;
+    text-shadow: 0 1px hsla(0, 0%, 0%, 0.25);
+    background: #2D89EF !important;
+    float: right;
+    font-weight: 200;
+}
+
+.dash-div-box{
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+    display: inline-block;
+    text-decoration: none;
+    border: solid 1px #337AB7;
+    color: #121E31;
+    text-shadow: 0 1px 0px rgba(255, 255, 255, 1);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-box-shadow: 0px 0px 3px rgba(18,30,49,.75);
+    -moz-box-shadow: 0px 0px 3px rgba(18,30,49,.75);
+    box-shadow: 0px 0px 3px rgba(0,0,0,.75);
+    font-family: sans-serif;
+    font-weight: 400;
+    vertical-align: top;
+}
+.orange{
+    color: #EC3C00;
+}
+.red{
+    color: #FF0000;
+}
+.blue{
+    color: #269abc;
+}
+
+.container-fluid{
+    position: absolute;
+    top: 97px;
+    left: 90px;
+}
+
+.container{
+    min-height: 100% !important;
+    height: 100%;
+    width: 100%;
 }

@@ -34,6 +34,7 @@
     <script src="appjs/controllers/vendorModule/vendorRespondedRequestController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorLocsController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorLocController.js"></script>
+    <script src="appjs/controllers/vendorModule/vendorLocViewController.js"></script>
     <script src="appjs/controllers/serviceManagementModule/serviceManagementController.js"></script>
     <script src="appjs/controllers/userModule/userHomeController.js"></script>
     <script src="appjs/controllers/userModule/userLoginController.js"></script>
@@ -78,6 +79,9 @@
     <script src="appjs/directives/normalTextbox.js"></script>
     <script src="appjs/directives/pinTextbox.js"></script>
     <script src="appjs/directives/numberTextbox.js"></script>
+    <script src="appjs/directives/dashboardBox.js"></script>
+    <script src="appjs/directives/saveBackButtons.js"></script>
+    <script src="appjs/directives/singleButton.js"></script>
    
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/angular-busy/dist/angular-busy.css" rel="stylesheet">
@@ -104,8 +108,8 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-        <div>
-            <div class="cg-bg-loading"
+        <div id="page-content-wrapper" style="margin:0px; padding:0px; height:100%;">
+            <div class="container-fluid"
                 cg-busy="{  promise: {{'DAL_PROMISE' | rootScopeShow}},
                             message: 'Loading',
                             backdrop: true,
@@ -128,7 +132,7 @@
                 </div>
             </div>
 
-            <div style="padding-top: 110px;" ng-view></div>
+            <div style="padding-top: 110px; height:100%;" ng-view></div>
         </div>
     </div>
     
@@ -139,6 +143,7 @@
         $("#wrapper").toggleClass("toggled");
         $("#toggleMenu").toggleClass("arrow-side-opp");
     });
+    
     </script>
 </body>
 </html>

@@ -6,37 +6,33 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
         var vm = this;
 
         vm.requests = [];
-        vm.ticketTypes = [];
-        vm.tckType = "";
+        vm.tckType = constantLoader.defaultValues.BLANK_STRING;
 
         function initialized(){
-            loadTicketTypes();
-            loadRespondedRequests();
-        }
-        
-        function loadTicketTypes(){
-            vm.ticketTypes = [
-                {code: constantLoader.ticketStatusTypes.ACCEPTED},
-                {code: constantLoader.ticketStatusTypes.DECLINED},
-                {code: constantLoader.ticketStatusTypes.CLOSED}
-            ];
-            vm.tckType = constantLoader.ticketStatusTypes.ACCEPTED;
+            loadRequests();
         }
 
-        function loadRespondedRequests(){
-            vendorBusiness.getAssignedRequests(commonUtility.getRootScopeProperty(
-                constantLoader.rootScopeTypes.ID)).then(function(response){
-                vm.requests = serviceLoader.filter('filter')(response.data.result, 
-                    {status: vm.tckType});
-            }, function(error){
-                commonUtility.showAlert(error.data.statusText);
-            });
+        function loadRequests(){
+            if(commonUtility.is3DValidKey(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.TCK_STATUS))){
+                vm.tckType = commonUtility.getRootScopeProperty(
+                    constantLoader.rootScopeTypes.TCK_STATUS);
+            
+                vendorBusiness.getAssignedRequests(commonUtility.getRootScopeProperty(
+                    constantLoader.rootScopeTypes.ID)).then(function(response){
+                    if(response.data.success){
+                        vm.requests = serviceLoader.filter('filter')(response.data.result, 
+                            {status: vm.tckType});
+                    }else{
+                        commonUtility.showAlert(response.data.statusText);
+                    }
+                }, function(error){
+                    commonUtility.showAlert(error.data.statusText);
+                });
+            }
+            
         }
-        
-        vm.onTckTypeChange = function(){
-            loadRespondedRequests();
-        };
-        
+
         vm.onTicketStatusClick = function(assignmentId, vendId){
             vendorBusiness.updateTicketStatusByVendor(constantLoader.ticketStatusTypes.CLOSED, 
                 assignmentId, vendId).then(function(response){

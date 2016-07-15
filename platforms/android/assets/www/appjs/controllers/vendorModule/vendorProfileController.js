@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorProfileController',
-    function(commonUtility){
+    function(commonUtility, constantLoader){
 		
         var vm = this;
 
@@ -18,6 +18,16 @@ angular.module('cmaManagementApp').controller('vendorProfileController',
         };
 
         vm.onPhoneClick = function(){
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.PHONE_TYPE,
+                constantLoader.defaultValues.PHONE_TYPE_DEFAULT);
+            commonUtility.redirectTo("vendorPhones");
+        };
+        
+        vm.onMobileClick = function(){
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.PHONE_TYPE,
+                constantLoader.defaultValues.MOBILE_TYPE_DEFAULT);
             commonUtility.redirectTo("vendorPhones");
         };
 

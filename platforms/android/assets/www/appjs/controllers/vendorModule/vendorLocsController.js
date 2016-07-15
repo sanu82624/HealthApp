@@ -31,8 +31,10 @@ angular.module('cmaManagementApp').controller('vendorLocsController',
             commonUtility.redirectTo("vendorProfile");
         };
         
-        vm.onVendorDetailsClick = function(vendId){
-            
+        vm.onVendorDetailsClick = function(locVendId){
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.LOC_VEND_ID, locVendId);
+            commonUtility.redirectTo("vendorLocView");
         };
         
         initialized();
