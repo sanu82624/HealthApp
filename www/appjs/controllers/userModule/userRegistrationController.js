@@ -7,16 +7,7 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
 
         vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
         vm.countryList = [];
-        vm.genderList = [
-            {
-                code: "M",
-                name: "Male"
-            },
-            {
-                code: "F",
-                name: "Female"
-            }
-        ];
+        vm.genderList = commonUtility.getJsonFromString(constantLoader.defaultValues.GENDER);
         
         function initialized(){
             loadCountries();

@@ -91,6 +91,10 @@ angular.module('cmaManagementApp')
             result = value.split(separator);
             return result;
         };
+        
+        commonUtility.getJsonFromString = function(value){
+            return window.JSON.parse(value);
+        };
 	
 	return commonUtility;
   });

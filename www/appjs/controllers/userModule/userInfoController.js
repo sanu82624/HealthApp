@@ -7,16 +7,7 @@ angular.module('cmaManagementApp').controller('userInfoController',
 
         vm.userInfo = {};
         vm.countryList = [];
-        vm.genderList = [
-            {
-                code: "M",
-                name: "Male"
-            },
-            {
-                code: "F",
-                name: "Female"
-            }
-        ];
+        vm.genderList = commonUtility.getJsonFromString(constantLoader.defaultValues.GENDER);
         
         function initialized(){
             loadCountries();
