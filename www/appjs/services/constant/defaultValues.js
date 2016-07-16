@@ -13,5 +13,6 @@ angular.module('cmaManagementApp')
         COUNTRY_SEARCH_FIELD: "isoCode",
         COUNTRY_SORT_FIELD: "name",
         PHONE_TYPE_DEFAULT: "Phone",
-        MOBILE_TYPE_DEFAULT: "Mobile"
+        MOBILE_TYPE_DEFAULT: "Mobile",
+        RELOGIN_AGAIN: "\nRelogin again."
   });

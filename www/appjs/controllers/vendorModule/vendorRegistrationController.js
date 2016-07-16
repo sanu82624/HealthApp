@@ -82,7 +82,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
                         constantLoader.rootScopeTypes.EMAIL, vm.email);
                 
                     commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
-                    commonUtility.redirectTo("groundVendorHome");
+                    commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_HOME);
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
                 }
@@ -92,7 +92,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
         };
 		
         vm.onCancelClick = function(){
-            commonUtility.redirectTo("vendorLogin");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOGIN);
         };
         
         initialized();

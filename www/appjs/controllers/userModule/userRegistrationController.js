@@ -67,7 +67,7 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
                         constantLoader.rootScopeTypes.EMAIL, vm.email);
                 
                     commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
-                    commonUtility.redirectTo("userLanding");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }
@@ -77,7 +77,7 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
         };
 		
         vm.onCancelClick = function(){
-            commonUtility.redirectTo("login");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_LOGIN);
         };
         
         initialized();

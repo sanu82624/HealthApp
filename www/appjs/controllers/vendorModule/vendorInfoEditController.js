@@ -34,11 +34,11 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
                     vm.vendorInfo = response.data.result;
                 }else{
                     commonUtility.showAlert(response.data.statusText);
-                    commonUtility.redirectTo("vendorProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
-                commonUtility.redirectTo("vendorProfile");
+                commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
             });
         }
         
@@ -62,7 +62,7 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.NAME, vendor.name);
                     commonUtility.showAlert(response.data.statusText);
-                    commonUtility.redirectTo("vendorProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }
@@ -72,7 +72,7 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
         };
 		
         vm.onCancelClick = function(){
-            commonUtility.redirectTo("vendorProfile");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
         };
 
         initialized();

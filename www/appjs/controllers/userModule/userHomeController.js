@@ -26,15 +26,15 @@ angular.module('cmaManagementApp').controller('userHomeController',
         }
 
         vm.onNewRequestClick = function(){
-            commonUtility.redirectTo("newReq");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_NEW_REQ);
         };
 
         vm.onMyRequestClick = function(){
-            commonUtility.redirectTo("myReq");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_MY_REQ);
         };
 
         vm.onProfileClick = function(){
-            commonUtility.redirectTo("userProfile");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
         };
 
         vm.onLogoutClick = function(){
@@ -47,7 +47,7 @@ angular.module('cmaManagementApp').controller('userHomeController',
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.EMAIL, constantLoader.defaultValues.BLANK_STRING);
         
-            commonUtility.redirectTo("appHome");
+            commonUtility.redirectTo(constantLoader.routeTypes.APP_HOME);
         };
         
         initialized();

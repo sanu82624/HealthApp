@@ -35,7 +35,7 @@ angular.module('cmaManagementApp').controller('userRequestController',
         }
 
         vm.onBacktoUserHome = function(){
-            commonUtility.redirectTo("userLanding");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
         };
 		
         vm.createNewRequest = function(serviceType){
@@ -48,7 +48,7 @@ angular.module('cmaManagementApp').controller('userRequestController',
             userBusiness.createNewRequest(request).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
-                    commonUtility.redirectTo("userLanding");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);

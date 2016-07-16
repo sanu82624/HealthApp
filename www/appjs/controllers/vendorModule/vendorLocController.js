@@ -82,7 +82,7 @@ angular.module('cmaManagementApp').controller('vendorLocController',
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
                 if(response.data.success){
                     commonUtility.showAlert(constantLoader.messages.VEND_LOC_CREATE);
-                    commonUtility.redirectTo("vendorLocs");
+                    commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOC);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }
@@ -108,7 +108,7 @@ angular.module('cmaManagementApp').controller('vendorLocController',
             vendorBusiness.updateVendorDetails(vendorInfo).then(function(response){
                 if(response.data.success){
                     commonUtility.showAlert(constantLoader.messages.LOC_UPDATE);
-                    commonUtility.redirectTo("vendorLocs");
+                    commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOC);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }
@@ -130,7 +130,7 @@ angular.module('cmaManagementApp').controller('vendorLocController',
         };
         
         vm.onCancelClick = function(){
-            commonUtility.redirectTo("vendorLocs");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOC);
         };
         
         initialized();

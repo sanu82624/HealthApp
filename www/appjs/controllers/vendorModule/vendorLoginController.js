@@ -21,7 +21,7 @@ angular.module('cmaManagementApp').controller('vendorLoginController',
                         constantLoader.rootScopeTypes.VEND_TYPE, response.data.result.vendType);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.EMAIL, vm.email);
-                    commonUtility.redirectTo("groundVendorHome");
+                    commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_HOME);
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_LOGIN_WRONG);
                 }
@@ -31,7 +31,7 @@ angular.module('cmaManagementApp').controller('vendorLoginController',
         };
 		
         vm.onCreateAccountClick = function(){
-            commonUtility.redirectTo("vendorReg");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_REG);
         };
     }
 );

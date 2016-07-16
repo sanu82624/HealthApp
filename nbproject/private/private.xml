@@ -3,8 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/H:/X1/HealthApp/www/views/user/userNewRequest.html</file>
-            <file>file:/H:/X1/HealthApp/www/views/user/userMyRequest.html</file>
+            <file>file:/H:/X1/HealthApp/www/appjs/services/constant/routeTypes.js</file>
+            <file>file:/H:/X1/HealthApp/www/appjs/controllers/vendorModule/vendorLandingController.js</file>
         </group>
     </open-files>
 </project-private>
