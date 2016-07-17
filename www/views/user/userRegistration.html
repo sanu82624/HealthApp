@@ -26,7 +26,7 @@
 
         <combobox label="Country" for="txtCountry" sel icon="pie"
             label-binding="name" model-binding="isoCode" ng-model="vm.country"
-            items="vm.countryList" msg="REQ_COUNTRY" required
+            items="vm.countryList" msg="REQ_COUNTRY" required focuses="IN,US,GB"
             show-validation="userRegForm.$submitted && 
                 userRegForm.txtCountry.$error.required" readOnly="false"></combobox>
 

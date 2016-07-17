@@ -324,7 +324,7 @@ body{
 .cg-busy{
     position: absolute;
     top: 97px;
-    left: 0px;
+    left: 220px;
     right: 0px;
     bottom: 0px;
     z-index: 1001;

@@ -41,7 +41,8 @@ angular.module('cmaManagementApp')
                                 (isSelect ?
                                 ('<option value="">' + constantLoader.defaultValues.COMBO_SELECT_MSG + '</option>') : '') +
                                 '<option data-ng-repeat="item in items" ' +
-                                    'value={{item.' + attrs.modelBinding + '}} >{{item.' + attrs.labelBinding + '}}</option>' +							
+                                    'value={{item.' + attrs.modelBinding + 
+                                    '}} >{{item.' + attrs.labelBinding + '}}</option>' +
                             '</select>' +
                         '</div>';
         
