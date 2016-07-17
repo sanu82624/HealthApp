@@ -15,7 +15,8 @@ angular.module('cmaManagementApp')
             msg: "@",
             showValidation: "=",
             readOnly: "=",
-            selectionChanged: "&"
+            selectionChanged: "&",
+            icon: "@"
         },
         template: function(element, attrs){
             
@@ -23,8 +24,10 @@ angular.module('cmaManagementApp')
             var required = attrs.hasOwnProperty('required') ? "required='required'" : 
                 constantLoader.defaultValues.BLANK_STRING;
             var isSelect = attrs.hasOwnProperty('sel');
+            var iconCss = attrs.hasOwnProperty('icon') ? ("ui-control-look-" + attrs.icon) : "";
+            
             var html =  '<div class="form-group">' +
-                            '<label>{{label}} ' + 
+                            '<label class="ui-control-label">{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
                                 '*' : '') + '</label>' +
                             '<span class="error-msg-span" ' +
@@ -33,7 +36,8 @@ angular.module('cmaManagementApp')
                             '</span>' +
                             '<select ng-model="ngModel" ng-disabled="' + isReadOnly + '" ' +
                                 'id="{{for}}" name="{{for}}" ' +
-                                'class="form-control" ' + required + ' >' +
+                                'class="form-control ui-control-look ' + iconCss + '" ' 
+                                + required + ' >' +
                                 (isSelect ?
                                 ('<option value="">' + constantLoader.defaultValues.COMBO_SELECT_MSG + '</option>') : '') +
                                 '<option data-ng-repeat="item in items" ' +

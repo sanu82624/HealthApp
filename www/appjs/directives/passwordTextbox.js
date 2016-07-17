@@ -17,7 +17,7 @@ angular.module('cmaManagementApp')
                 constantLoader.defaultValues.BLANK_STRING;
             
             var html =  '<div class="form-group">' +
-                            '<label>{{label}} ' + 
+                            '<label class="ui-control-label">{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
                                 '*' : '') + '</label>' +
                             '<span class="error-msg-span" ' +
@@ -25,7 +25,10 @@ angular.module('cmaManagementApp')
                                 constantLoader.messages.VALID_PASS +
                             '</span>' +
                             '<input type="password" id="{{for}}" name="{{for}}" ' +
-                                'ng-model="ngModel" class="form-control" ' + required + '/>' +
+                                'ng-model="ngModel" placeholder="' + 
+                                constantLoader.controlSuggestions.PASS + '" ' + 
+                                'class="form-control ui-control-look ui-control-look-pass" ' 
+                                + required + '/>' +
                         '</div>';
             return html;
         }

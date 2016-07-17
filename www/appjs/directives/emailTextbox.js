@@ -20,15 +20,17 @@ angular.module('cmaManagementApp')
             var isAddbox = attrs.hasOwnProperty('addbox');
         
             var html =  '<div class="form-group">' +
-                            ((!isAddbox)? ('<label>{{label}} ' + 
+                            ((!isAddbox)? ('<label class="ui-control-label">{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
                                 '*' : '') + '</label>' +
                             '<span class="error-msg-span" ' +
                                 'data-ng-show="showValidation"> ' +
                                 constantLoader.messages.VALID_EMAIL +
                             '</span>') : '') +
-                            '<input id="{{for}}" class="form-control' + (isAddbox ? ' add-box' : '') + '" ' +
-                                'type="email" ' + 
+                            '<input id="{{for}}" class="form-control ui-control-look ui-control-look-email' + 
+                                (isAddbox ? ' add-box' : '') + '" ' +
+                                'type="email" placeholder="' + 
+                                constantLoader.controlSuggestions.EMAIL + '" ' + 
                                 'name="{{for}}" ng-pattern="' + constantLoader.validationPattern.EMAIL + 
                                 '" ng-model="ngModel" ' + required + ' />' +
                             (isAddbox? 

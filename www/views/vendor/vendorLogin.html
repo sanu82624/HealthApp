@@ -1,26 +1,20 @@
 <form name="vendorLoginForm" novalidate="novalidate" id="vendorLoginForm">
-<div class="container">
     <div class="container">
-        <div class="page-title">Access with your account</div>
-        
-        <email-textbox label="Email" for="txtEmail" ng-model="vm.email"
-            show-validation="vendorLoginForm.$submitted && (vendorLoginForm.txtEmail.$error.pattern || 
-                            vendorLoginForm.txtEmail.$error.required)" required>
-        </email-textbox>
-        
-        <password-textbox label="Password" for="txtPass" ng-model="vm.pass"
-            show-validation="vendorLoginForm.$submitted && 
-                vendorLoginForm.txtPass.$error.required" required></password-textbox>
-        
-		<p>
-			<span>Don't have an account?</span>
-			<span style="color:blue; cursor:pointer; padding-left:5px;" ng-click="vm.onCreateAccountClick();">Create account</span>
-		</p>
-		<p >
-			<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onLoginClick(this);" type="submit">
-				<h5>Login</h5>
-			</button>
-		</p>
-	</div>
-</div>
+        <div class="container">
+            <div class="page-title">Access with your account</div>
+
+            <email-textbox label="Email" for="txtEmail" ng-model="vm.email"
+                show-validation="vendorLoginForm.$submitted && (vendorLoginForm.txtEmail.$error.pattern || 
+                                vendorLoginForm.txtEmail.$error.required)" required>
+            </email-textbox>
+
+            <password-textbox label="Password" for="txtPass" ng-model="vm.pass"
+                show-validation="vendorLoginForm.$submitted && 
+                    vendorLoginForm.txtPass.$error.required" required></password-textbox>
+
+            <save-back-buttons submit-label="Sign In" cancel-label="Sign Up"
+                on-submit-click="vm.onLoginClick(this)" login
+                on-cancel-click="vm.onCreateAccountClick()"></save-back-buttons>
+        </div>
+    </div>
 </form>

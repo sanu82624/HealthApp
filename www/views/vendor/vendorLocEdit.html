@@ -6,25 +6,25 @@
             Location
         </div>
 
-        <normal-textbox label="Location Name" for="txtName" required
+        <normal-textbox label="Location Name" for="txtName" required icon="user" suggestion="LOC_NAME"
             ng-model="vm.vendor.name" show-validation="vendorLocForm.$submitted && 
                 vendorLocForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
 
-        <combobox label="Country" for="txtCountry" sel
+        <combobox label="Country" for="txtCountry" sel icon="pie"
             label-binding="name" model-binding="isoCode" ng-model="vm.vendor.country"
             items="vm.countryList" msg="REQ_COUNTRY" required
             show-validation="vendorLocForm.$submitted && 
                 vendorLocForm.txtCountry.$error.required" readOnly="false"></combobox>
 
-        <normal-textbox label="State" for="txtState" required
+        <normal-textbox label="State" for="txtState" required icon="state" suggestion="STATE"
             ng-model="vm.vendor.state" show-validation="vendorLocForm.$submitted && 
                 vendorLocForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
 
-        <normal-textbox label="City" for="txtCity" required
+        <normal-textbox label="City" for="txtCity" required icon="sqr" suggestion="CITY"
             ng-model="vm.vendor.city" show-validation="vendorLocForm.$submitted && 
                 vendorLocForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
 
-        <normal-textbox label="Address" for="txtAddress" required
+        <normal-textbox label="Address" for="txtAddress" required icon="address" suggestion="ADDRESS"
             ng-model="vm.vendor.address" show-validation="vendorLocForm.$submitted && 
                 vendorLocForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
 
@@ -32,7 +32,7 @@
             ng-model="vm.vendor.pin" show-validation="vendorLocForm.$submitted && 
                 vendorLocForm.txtPinCode.$error.required"></pin-textbox>
 
-        <normal-textbox label="Description" for="txtDesc" 
+        <normal-textbox label="Description" for="txtDesc" icon="datasheet" suggestion="DESC"
             ng-model="vm.vendor.description"></normal-textbox>    
 
         <phone-textbox label="Phone" for="txtPhone" ng-model="vm.vendor.phone"  country-for="comboCountry"

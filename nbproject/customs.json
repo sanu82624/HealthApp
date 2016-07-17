@@ -17,7 +17,8 @@
                 "cancel-label": {},
                 "submit-label": {},
                 "on-submit-click": {},
-                "on-cancel-click": {}
+                "on-cancel-click": {},
+                "login": {}
             }
         }
     },
