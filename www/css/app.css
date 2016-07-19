@@ -339,3 +339,40 @@ body{
 .div-gap-8{
     padding-bottom: 10px;
 }
+
+.show-alert-outer-div{
+    position: absolute; 
+    top: 104px; 
+    width: 100%; 
+    height: 80%;
+    margin: auto 0px; 
+    padding: 15px; 
+    margin-left: 0px; 
+    z-index: 1001;
+}
+.show-alert-div{
+    box-shadow: 10px 10px 5px grey;
+}
+.show-alert-success{
+    background-color: #4CAF50; 
+    border: solid 1px #3D8B40;
+    color: #FFFFFF;
+}
+.show-alert-info{
+    
+}
+.show-alert-warning{
+    
+}
+.show-alert-danger{
+    background-color: #F67975; 
+    border: solid 1px #AD5855;
+    color: #590000;
+}
+.fade.ng-hide{
+    transition: 1.5s linear all;
+    opacity: 0;
+}
+.fade {
+    opacity: 1;
+}

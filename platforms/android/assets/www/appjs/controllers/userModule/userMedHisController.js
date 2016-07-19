@@ -20,16 +20,16 @@ angular.module('cmaManagementApp').controller('userMedHisController',
                     }
                 }else{
                     commonUtility.showAlert(response.data.statusText);
-                    commonUtility.redirectTo("userProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
-                commonUtility.redirectTo("userProfile");
+                commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
             });
         };
 
         vm.onBackClick = function(){
-            commonUtility.redirectTo("userProfile");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
         };
 
         vm.onAddMedHisClick = function(){
@@ -65,7 +65,7 @@ angular.module('cmaManagementApp').controller('userMedHisController',
             userBusiness.updateUserInfo(userInfo).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
-                    commonUtility.redirectTo("userProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);

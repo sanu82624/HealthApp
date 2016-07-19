@@ -27,16 +27,16 @@ angular.module('cmaManagementApp').controller('userEmailsController',
                     }
                 }else{
                     commonUtility.showAlert(response.data.statusText);
-                    commonUtility.redirectTo("userProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
-                commonUtility.redirectTo("userProfile");
+                commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
             });
         };
 
         vm.onBackClick = function(){
-            commonUtility.redirectTo("userProfile");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
         };
 
         vm.onAddEmailClick = function(isNotValidEmail){
@@ -76,7 +76,7 @@ angular.module('cmaManagementApp').controller('userEmailsController',
             userBusiness.updateUserInfo(userInfo).then(function(response){
                 commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
-                    commonUtility.redirectTo("userProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);

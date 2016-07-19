@@ -18,7 +18,8 @@ angular.module('cmaManagementApp').controller('vendorPassController',
             vendorBusiness.changeVendorPassword(commonUtility.getRootScopeProperty(
                 constantLoader.rootScopeTypes.EMAIL), vm.pass, vm.newPass).then(function(response){
                 if(response.data.success){
-                    commonUtility.showAlert(response.data.statusText + "\nRelogin again.");
+                    commonUtility.showAlert(response.data.statusText + 
+                        constantLoader.defaultValues.RELOGIN_AGAIN);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.IS_SIGN_IN, false);
                     commonUtility.setRootScopeProperty(
@@ -29,7 +30,7 @@ angular.module('cmaManagementApp').controller('vendorPassController',
                         constantLoader.rootScopeTypes.VEND_TYPE, constantLoader.defaultValues.BLANK_STRING);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.EMAIL, constantLoader.defaultValues.BLANK_STRING);
-                    commonUtility.redirectTo("appHome");
+                    commonUtility.redirectTo(constantLoader.routeTypes.APP_HOME);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }
@@ -39,7 +40,7 @@ angular.module('cmaManagementApp').controller('vendorPassController',
         };
 		
         vm.onCancelClick = function(){
-            commonUtility.redirectTo("vendorProfile");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
         };
     }
 );

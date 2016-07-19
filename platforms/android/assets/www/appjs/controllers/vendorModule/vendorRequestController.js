@@ -39,7 +39,7 @@ angular.module('cmaManagementApp').controller('vendorRequestController',
         };
 
         vm.onBackClick = function(){
-            commonUtility.redirectTo("groundVendorHome");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_HOME);
         };
 
         initialized();

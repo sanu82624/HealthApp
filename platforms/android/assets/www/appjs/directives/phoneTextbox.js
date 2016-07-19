@@ -25,7 +25,7 @@ angular.module('cmaManagementApp')
             var isAddbox = attrs.hasOwnProperty('addbox');
             
             var html =  '<div class="form-group">' +
-                            ((!isAddbox)? ('<label>{{label}} ' + 
+                            ((!isAddbox)? ('<label class="ui-control-label">{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
                                 '*' : '') + '</label>' +
                             '<span class="error-msg-span" ' +
@@ -34,7 +34,7 @@ angular.module('cmaManagementApp')
                             '</span><br/>') : '') +
                             '<select ng-model="countryPhoneCode" ' +
                                 'id="{{countryFor}}" name="{{countryFor}}" ' +
-                                'class="form-control phone-field-country" ' + required + ' >' +
+                                'class="form-control ui-control-look ui-control-look-pie phone-field-country" ' + required + ' >' +
                                 '<option value="' + constantLoader.defaultValues.BLANK_ISD_CODE + 
                                     '">' + constantLoader.defaultValues.COMBO_SELECT_MSG + '</option>' +
                                 '<option data-ng-repeat="country in countries" ' +
@@ -44,7 +44,9 @@ angular.module('cmaManagementApp')
                             '<span class="phone-field-country-code">{{countryPhoneCode}}</span>' +
                             '<input type="tel" id="{{for}}" name="{{for}}" ' +
                                 'ng-pattern="' + constantLoader.validationPattern.PHONE + '" ' +
-                                'class="form-control ' + (isAddbox ? 'phone-field-add' : 'phone-field') + '" ' +
+                                'placeholder="' + constantLoader.controlSuggestions.PHONE + '" ' +
+                                'class="form-control ui-control-look ui-control-look-phone ' + 
+                                (isAddbox ? 'phone-field-add' : 'phone-field') + '" ' +
                                 'ng-model="ngModel" maxlength="10" ' + required + ' />' +
                             (isAddbox? 
                             ('<button class="btn btn-link btn-xs add-btn" ' +

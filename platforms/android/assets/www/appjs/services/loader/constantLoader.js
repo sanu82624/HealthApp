@@ -2,7 +2,8 @@
 
 angular.module('cmaManagementApp')
     .factory('constantLoader', function (defaultValues, headerTypes, messages,
-        relativeUrls, ticketStatusTypes, validationPattern, rootScopeTypes) {
+        relativeUrls, ticketStatusTypes, validationPattern, rootScopeTypes,
+        routeTypes, controlSuggestions) {
           
         var constantLoader = {};
   
@@ -14,6 +15,8 @@ angular.module('cmaManagementApp')
         constantLoader.ticketStatusTypes = ticketStatusTypes;
         constantLoader.validationPattern = validationPattern;
         constantLoader.rootScopeTypes = rootScopeTypes;
+        constantLoader.routeTypes = routeTypes;
+        constantLoader.controlSuggestions = controlSuggestions;
           
         return constantLoader;
     });

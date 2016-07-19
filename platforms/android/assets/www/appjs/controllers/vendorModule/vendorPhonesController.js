@@ -56,16 +56,16 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
                     }
                 }else{
                     commonUtility.showAlert(response.data.statusText);
-                    commonUtility.redirectTo("vendorProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
-                commonUtility.redirectTo("vendorProfile");
+                commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
             });
         };
 
         vm.onBackClick = function(){
-            commonUtility.redirectTo("vendorProfile");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
         };
 
         vm.onAddPhoneClick = function(isNotValidPhone){
@@ -111,7 +111,7 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
                 vendorBusiness.updateVendorDetails(vendor).then(function(response){
                     commonUtility.showAlert(response.data.statusText);
                     if(response.data.success){
-                        commonUtility.redirectTo("vendorProfile");
+                        commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
                     }
                 }, function(error){
                     commonUtility.showAlert(error.data.statusText);

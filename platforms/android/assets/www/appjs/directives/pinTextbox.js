@@ -18,15 +18,16 @@ angular.module('cmaManagementApp')
                 constantLoader.defaultValues.BLANK_STRING;
             
             var html =  '<div class="form-group">' +
-                            '<label>{{label}} ' + 
+                            '<label class="ui-control-label">{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
                                 '*' : '') + '</label>' +
                             '<span class="error-msg-span" ' +
                                 'data-ng-show="showValidation"> ' +
                                 constantLoader.messages.REQ_PIN +
                             '</span>' +
-                            '<input type="tel" id="{{for}}" name="{{for}}" ' +
-                                'class="form-control" ' +
+                            '<input type="tel" id="{{for}}" name="{{for}}" placeholder="' + 
+                                constantLoader.controlSuggestions.PIN + '" ' + 
+                                'class="form-control ui-control-look ui-control-look-view" ' +
                                 'ng-model="ngModel" ' + required + ' />' +
                         '</div>';
             return html;

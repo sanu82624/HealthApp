@@ -20,7 +20,8 @@ angular.module('cmaManagementApp').controller('userAllergicController',
                         vm.allergicRecords = response.data.result.alergicTo;
                     }
                 }else{
-                    commonUtility.showAlert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
                 }
             }, function(error){
@@ -64,7 +65,8 @@ angular.module('cmaManagementApp').controller('userAllergicController',
                 constantLoader.rootScopeTypes.ID);
             userInfo.alergicTo = vm.allergicRecords;
             userBusiness.updateUserInfo(userInfo).then(function(response){
-                commonUtility.showAlert(response.data.statusText);
+                commonUtility.showAlert(response.data.statusText,
+                    constantLoader.alertTypes.SUCCESS);
                 if(response.data.success){
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
                 }

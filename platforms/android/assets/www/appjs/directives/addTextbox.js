@@ -9,13 +9,19 @@ angular.module('cmaManagementApp')
         scope: {
             for: "@",
             ngModel: '=',
-            addButtonClick: "&"
+            addButtonClick: "&",
+            icon: "@",
+            suggestion: "@"
         },
-        template: function(){
+        template: function(element, attrs){
+            
+            var iconCss = attrs.hasOwnProperty('icon') ? 
+                (" ui-control-look ui-control-look-" + attrs.icon) : "";
             
             var html =  '<div class="form-group">' +
                             '<input type="text" id="{{for}}" name="{{for}}" ng-model="ngModel" ' +
-                                'class="form-control add-textbox-wid">' +
+                                'placeholder="{{suggestion | sugShow}}" ' +
+                                'class="form-control' + iconCss + ' add-textbox-wid">' +
                             '<button class="btn btn-link btn-xs add-btn" ' +
                                 'ng-click="onAddClick();">' +
                                     'Add' +

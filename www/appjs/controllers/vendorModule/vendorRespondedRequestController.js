@@ -37,7 +37,8 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
             vendorBusiness.updateTicketStatusByVendor(constantLoader.ticketStatusTypes.CLOSED, 
                 assignmentId, vendId).then(function(response){
                 if(response.data.success){
-                    commonUtility.showAlert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText,
+                        constantLoader.alertTypes.SUCCESS);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }

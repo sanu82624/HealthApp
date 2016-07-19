@@ -20,7 +20,8 @@
                 "on-cancel-click": {},
                 "login": {}
             }
-        }
+        },
+        "show-alert": {}
     },
     "attributes": {
         "cg-busy": {

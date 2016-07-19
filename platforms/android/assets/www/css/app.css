@@ -176,6 +176,74 @@
     font-style: italic;
 }
 
+.ui-control-look{
+    background: #FFFFFF;
+    -moz-border-radius-topleft: 30px;
+    -webkit-border-top-left-radius: 30px;
+    border-top-left-radius: 30px;
+    -moz-border-radius-bottomleft: 30px;
+    -webkit-border-bottom-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border: 1px solid #C2CCD9;
+    outline:0; 
+    padding-left: 30px;
+}
+.ui-control-look-email{
+    background: url(../images/email.png) no-repeat 8px 8px; 
+}
+.ui-control-look-pass{
+    background: url(../images/pass.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-user{
+    background: url(../images/user.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-state{
+    background: url(../images/state.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-address{
+    background: url(../images/address.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-gender{
+    background: url(../images/gender.png) no-repeat 8px 8px; 
+}
+.ui-control-look-cal{
+    background: url(../images/cal.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-view{
+    background: url(../images/viewer.png) no-repeat 8px 8px; 
+}
+.ui-control-look-sqr{
+    background: url(../images/sqr.GIF) no-repeat 8px 8px; 
+}
+.ui-control-look-pie{
+    background: url(../images/pie.GIF) no-repeat 8px 8px; 
+}
+.ui-control-look-phone{
+    background: url(../images/phone.png) no-repeat 8px 8px; 
+}
+.ui-control-look-log{
+    background: url(../images/log.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-flame{
+    background: url(../images/flame.png) no-repeat 8px 8px; 
+}
+.ui-control-look-template{
+    background: url(../images/template.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-datasheet{
+    background: url(../images/datasheet.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-prod{
+    background: url(../images/prod.gif) no-repeat 8px 8px; 
+}
+
+.ui-control-label{
+    font-weight: normal;
+    font-family: cursive;
+    margin-bottom: 0px;
+    margin-left: 13px;
+}
+
 .add-box{
     width:80%; 
     display:inline;
@@ -253,14 +321,21 @@ body{
     color: #269abc;
 }
 
-.container-fluid{
+.cg-busy{
     position: absolute;
     top: 97px;
-    left: 90px;
+    left: 220px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1001;
 }
 
 .container{
     min-height: 100% !important;
     height: 100%;
     width: 100%;
+}
+
+.div-gap-8{
+    padding-bottom: 10px;
 }

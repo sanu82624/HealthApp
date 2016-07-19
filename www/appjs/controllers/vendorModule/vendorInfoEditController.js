@@ -61,7 +61,8 @@ angular.module('cmaManagementApp').controller('vendorInfoEditController',
                 if(response.data.success){
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.NAME, vendor.name);
-                    commonUtility.showAlert(response.data.statusText);
+                    commonUtility.showAlert(response.data.statusText,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
                 } else{
                     commonUtility.showAlert(response.data.statusText);

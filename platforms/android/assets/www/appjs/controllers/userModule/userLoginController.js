@@ -22,7 +22,7 @@ angular.module('cmaManagementApp').controller('userLoginController',
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.EMAIL, vm.email);
                 
-                    commonUtility.redirectTo("userLanding");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_LOGIN_WRONG);
                 }
@@ -32,7 +32,7 @@ angular.module('cmaManagementApp').controller('userLoginController',
         };
 		
         vm.onCreateAccountClick = function(){
-            commonUtility.redirectTo("reg");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_REG);
         };
     }
 );

@@ -7,16 +7,7 @@ angular.module('cmaManagementApp').controller('userInfoController',
 
         vm.userInfo = {};
         vm.countryList = [];
-        vm.genderList = [
-            {
-                code: "M",
-                name: "Male"
-            },
-            {
-                code: "F",
-                name: "Female"
-            }
-        ];
+        vm.genderList = commonUtility.getJsonFromString(constantLoader.defaultValues.GENDER);
         
         function initialized(){
             loadCountries();
@@ -50,10 +41,10 @@ angular.module('cmaManagementApp').controller('userInfoController',
                     }
                 }else{
                     commonUtility.showAlert(response.data.statusText);
-                    commonUtility.redirectTo("userProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
                 }
             }, function(error){
-                commonUtility.redirectTo("userProfile");
+                commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
             });
         }
 
@@ -77,15 +68,15 @@ angular.module('cmaManagementApp').controller('userInfoController',
                 if(response.data.success){
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.NAME, user.name);
-                    commonUtility.redirectTo("userProfile");
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
                 }
             }, function(error){
-                commonUtility.redirectTo("userProfile");
+                commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
             });
         };
 		
         vm.onBackClick = function(){
-            commonUtility.redirectTo("userProfile");
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
         };
         
         initialized();

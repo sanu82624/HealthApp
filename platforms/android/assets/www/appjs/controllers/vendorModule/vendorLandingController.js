@@ -35,32 +35,32 @@ angular.module('cmaManagementApp').controller('vendorLandingController',
         }
 
         vm.onBacktoVendorHome = function(){
-            commonUtility.redirectTo("groundVendorHome");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_HOME);
         };
 
         vm.onAssignedReqClick = function(){
-            commonUtility.redirectTo("vendorRaisedReq");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RAISED_REQ);
         };
         
         vm.onAcceptedReqClick = function(){
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.TCK_STATUS, 
                 constantLoader.ticketStatusTypes.ACCEPTED);
-            commonUtility.redirectTo("vendorRespondedReq");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RESPONDED_REQ);
         };
         
         vm.onDeclinedReqClick = function(){
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.TCK_STATUS, 
                 constantLoader.ticketStatusTypes.DECLINED);
-            commonUtility.redirectTo("vendorRespondedReq");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RESPONDED_REQ);
         };
         
         vm.onClosedReqClick = function(){
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.TCK_STATUS, 
                 constantLoader.ticketStatusTypes.CLOSED);
-            commonUtility.redirectTo("vendorRespondedReq");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RESPONDED_REQ);
         };
 		
         vm.onLogoutClick = function(){
@@ -74,11 +74,11 @@ angular.module('cmaManagementApp').controller('vendorLandingController',
                 constantLoader.rootScopeTypes.VEND_TYPE, constantLoader.defaultValues.BLANK_STRING);
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.EMAIL, constantLoader.defaultValues.BLANK_STRING);
-            commonUtility.redirectTo("appHome");
+            commonUtility.redirectTo(constantLoader.routeTypes.APP_HOME);
         };
 
         vm.onProfileClick = function(){
-            commonUtility.redirectTo("vendorProfile");
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
         };
 
         initialized();
