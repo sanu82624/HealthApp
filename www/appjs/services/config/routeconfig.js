@@ -126,7 +126,7 @@ angular.module('routerConfigModule', ['ngRoute'])
                 controller: 'monitorAllVendorController as vm'
             }).
             when('/monitorVendorDetails',{
-                templateUrl: 'views/monitor/VendorDetails.html',
+                templateUrl: 'views/monitor/monitorVendorDetails.html',
                 controller: 'monitorVendorDetailsController as vm'
             }).
             otherwise({
