@@ -9,9 +9,26 @@ angular.module('cmaManagementApp')
             serviceLoader.location.url("/" + route);
 	};
         
-        commonUtility.showAlert = function(message){
-            window.alert(message);
+        commonUtility.showAlert = function(message, alertType){
+            if(!commonUtility.is3DValidKey(alertType)){
+                alertType = constantLoader.alertTypes.Danger;
+            }
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.IS_SHOW_ALERT, false);
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.ALERT_TYPE, alertType);
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.ALERT_MSG, message);
+        
+            serviceLoader.timeout(function () {
+                commonUtility.closeAlert();
+            }, 3000);
 	};
+        
+        commonUtility.closeAlert = function(){
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.IS_SHOW_ALERT, true);
+        };
         
         commonUtility.is3DValidKey = function(value){
             return (angular.isDefined(value) && value !== 

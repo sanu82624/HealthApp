@@ -63,9 +63,12 @@ angular.module('cmaManagementApp').controller('userMedHisController',
                 constantLoader.rootScopeTypes.ID);
             userInfo.medicalHistory = vm.medHisRecords;
             userBusiness.updateUserInfo(userInfo).then(function(response){
-                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
+                    commonUtility.showAlert(response.data.statusText,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
+                }else{
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);

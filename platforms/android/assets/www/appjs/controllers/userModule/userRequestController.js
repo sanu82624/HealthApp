@@ -46,9 +46,12 @@ angular.module('cmaManagementApp').controller('userRequestController',
             request.channel = constantLoader.defaultValues.REQUEST_CHANNEL;
 
             userBusiness.createNewRequest(request).then(function(response){
-                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
+                    commonUtility.showAlert(response.data.statusText,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+                }else{
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);

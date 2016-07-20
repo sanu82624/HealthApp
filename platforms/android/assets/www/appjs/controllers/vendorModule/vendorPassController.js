@@ -18,8 +18,9 @@ angular.module('cmaManagementApp').controller('vendorPassController',
             vendorBusiness.changeVendorPassword(commonUtility.getRootScopeProperty(
                 constantLoader.rootScopeTypes.EMAIL), vm.pass, vm.newPass).then(function(response){
                 if(response.data.success){
-                    commonUtility.showAlert(response.data.statusText + 
-                        constantLoader.defaultValues.RELOGIN_AGAIN);
+                    commonUtility.showAlert((response.data.statusText + 
+                        constantLoader.defaultValues.RELOGIN_AGAIN),
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.IS_SIGN_IN, false);
                     commonUtility.setRootScopeProperty(

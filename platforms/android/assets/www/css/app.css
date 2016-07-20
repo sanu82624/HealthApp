@@ -291,8 +291,8 @@ body{
 }
 
 .dash-div-box{
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     margin: 5px;
     display: inline-block;
     text-decoration: none;
@@ -338,4 +338,82 @@ body{
 
 .div-gap-8{
     padding-bottom: 10px;
+}
+
+.show-alert-outer-div{
+    position: absolute; 
+    top: 104px; 
+    width: 100%; 
+    height: 80%;
+    margin: auto 0px; 
+    padding: 15px; 
+    margin-left: 0px; 
+    z-index: 1001;
+}
+.show-alert-div{
+    box-shadow: 10px 10px 5px grey;
+}
+.show-alert-success{
+    background-color: #4CAF50; 
+    border: solid 1px #3D8B40;
+    color: #FFFFFF;
+}
+.show-alert-info{
+    
+}
+.show-alert-warning{
+    
+}
+.show-alert-danger{
+    background-color: #F67975; 
+    border: solid 1px #AD5855;
+    color: #590000;
+}
+.fade.ng-hide{
+    transition: 1.5s linear all;
+    opacity: 0;
+}
+.fade {
+    opacity: 1;
+}
+
+.view-details-item-div{
+    width: 100%; 
+    display: block; 
+    border-color: #adadad; 
+    border-style:dashed; 
+    border-width: 1px 0px;
+    padding-bottom: 2px; 
+    padding-top: 3px; 
+    margin-top: 3px; 
+    margin-bottom: 3px;
+}
+.view-details-item-label{
+    color: #7C736E; 
+    font-family: Lucida Grande,Trebuchet MS,serif,sans-serif; 
+    font-size: 0.9em;
+    font-weight: 600; 
+    display: inline-block; 
+    width: 30%; 
+    clear: right;
+    vertical-align: top;
+}
+.view-details-item-span{
+    color: #021A3C; 
+    display: inline-block; 
+    width: 66%;
+}
+.view-details-item-img{
+    margin-top: -4px;
+}
+
+.background-green{
+    background-color: green;
+}
+.background-red{
+    background-color: red;
+}
+.badge{
+    margin-left: 6px;
+    margin-top: -1px;
 }

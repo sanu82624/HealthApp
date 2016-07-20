@@ -109,9 +109,12 @@ angular.module('cmaManagementApp').controller('vendorPhonesController',
                     vendor.mobile = vm.phones;
                 }
                 vendorBusiness.updateVendorDetails(vendor).then(function(response){
-                    commonUtility.showAlert(response.data.statusText);
                     if(response.data.success){
+                        commonUtility.showAlert(response.data.statusText,
+                            constantLoader.alertTypes.SUCCESS);
                         commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_PROFILE);
+                    }else{
+                        commonUtility.showAlert(response.data.statusText);
                     }
                 }, function(error){
                     commonUtility.showAlert(error.data.statusText);

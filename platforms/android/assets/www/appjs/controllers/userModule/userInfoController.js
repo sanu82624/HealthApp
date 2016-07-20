@@ -64,11 +64,14 @@ angular.module('cmaManagementApp').controller('userInfoController',
             user.state = vm.userInfo.state;
             user.city = vm.userInfo.city;
             userBusiness.updateUserInfo(user).then(function(response){
-                commonUtility.showAlert(response.data.statusText);
                 if(response.data.success){
+                    commonUtility.showAlert(response.data.statusText,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.NAME, user.name);
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);
+                }else{
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
                 commonUtility.redirectTo(constantLoader.routeTypes.USER_PROFILE);

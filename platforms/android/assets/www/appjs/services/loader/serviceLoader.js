@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('cmaManagementApp')
-    .service('serviceLoader', function ($location, $filter, $rootScope, $http) {
+    .service('serviceLoader', function ($location, $filter, $rootScope, $http,
+        $timeout) {
         
         var serviceLoader = {};
         
@@ -14,7 +15,7 @@ angular.module('cmaManagementApp')
 //        var _sanitize = null;
         var _rootScope = null;
 //        var _route = null;
-//        var _timeout = null;
+        var _timeout = null;
         
         function setProperty(instance, service){
             if(instance === null){
@@ -78,11 +79,11 @@ angular.module('cmaManagementApp')
 //            }
 //        });
 //        
-//        Object.defineProperty(serviceLoader, "timeout", {
-//            get: function() {
-//                return setProperty(_timeout, $timeout);
-//            }
-//        });
+        Object.defineProperty(serviceLoader, "timeout", {
+            get: function() {
+                return setProperty(_timeout, $timeout);
+            }
+        });
         
         return serviceLoader;
     });

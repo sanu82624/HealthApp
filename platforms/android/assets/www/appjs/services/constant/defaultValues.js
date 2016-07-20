@@ -15,5 +15,9 @@ angular.module('cmaManagementApp')
         PHONE_TYPE_DEFAULT: "Phone",
         MOBILE_TYPE_DEFAULT: "Mobile",
         RELOGIN_AGAIN: "\nRelogin again.",
-        GENDER: "[{\"code\": \"M\",\"name\": \"Male\"},{\"code\": \"F\",\"name\": \"Female\"}]"
+        GENDER: "[{\"code\": \"M\",\"name\": \"Male\"},{\"code\": \"F\",\"name\": \"Female\"}]",
+        ACTIVE: "Active",
+        INACTIVE: "Inactive",
+        BADGE_COLOR_ACTIVE: "green",
+        BADGE_COLOR_INACTIVE: "red"
   });

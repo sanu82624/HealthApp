@@ -7,8 +7,8 @@ angular.module('cmaManagementApp').controller('appHomeController',
 
         vm.onServiceManagementClick = function(){
 //            commonUtility.redirectTo("serviceManagementHome");
-            commonUtility.showAlert(navigator.app);
-            navigator.app.exitApp();
+//            commonUtility.showAlert(navigator.app);
+//            navigator.app.exitApp();
         };
 
         vm.onOnGroundVendorClick = function(){
@@ -26,4 +26,5 @@ angular.module('cmaManagementApp').controller('appHomeController',
         vm.onUserRegistrationClick = function(){
             commonUtility.redirectTo("reg");
         };
+        
 });
