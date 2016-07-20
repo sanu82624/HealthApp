@@ -51,8 +51,9 @@ angular.module('cmaManagementApp')
             }
             var values = value.split(".");
             if(values.length > 6){
-                dateValue = values[2] + "-" + values[1] +  "-" + values[0] + " " +
-                    values[3] + ":" + values[4] + ":" + values[5];
+                dateValue = moment((values[2] + "-" + values[1] +  "-" + values[0] +  " " +
+                    values[3] + ":" + values[4]), 
+                    "YYYY-MM-DD HH:mm").format(constantLoader.defaultValues.SHOW_DATE_FORMAT);
             }
             return dateValue;
         };

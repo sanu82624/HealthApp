@@ -397,11 +397,13 @@ body{
     width: 30%; 
     clear: right;
     vertical-align: top;
+    margin-top: 2px;
 }
 .view-details-item-span{
     color: #021A3C; 
     display: inline-block; 
     width: 66%;
+    font-family: Lucida Grande,Trebuchet MS,serif,sans-serif;
 }
 .view-details-item-img{
     margin-top: -4px;

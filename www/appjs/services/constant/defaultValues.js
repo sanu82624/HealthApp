@@ -19,5 +19,6 @@ angular.module('cmaManagementApp')
         ACTIVE: "Active",
         INACTIVE: "Inactive",
         BADGE_COLOR_ACTIVE: "green",
-        BADGE_COLOR_INACTIVE: "red"
+        BADGE_COLOR_INACTIVE: "red",
+        SHOW_DATE_FORMAT: "DD-MMM-YYYY hh:mm A"
   });
