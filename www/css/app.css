@@ -376,3 +376,44 @@ body{
 .fade {
     opacity: 1;
 }
+
+.view-details-item-div{
+    width: 100%; 
+    display: block; 
+    border-color: #adadad; 
+    border-style:dashed; 
+    border-width: 1px 0px;
+    padding-bottom: 2px; 
+    padding-top: 3px; 
+    margin-top: 3px; 
+    margin-bottom: 3px;
+}
+.view-details-item-label{
+    color: #7C736E; 
+    font-family: Lucida Grande,Trebuchet MS,serif,sans-serif; 
+    font-size: 0.9em;
+    font-weight: 600; 
+    display: inline-block; 
+    width: 30%; 
+    clear: right;
+    vertical-align: top;
+}
+.view-details-item-span{
+    color: #021A3C; 
+    display: inline-block; 
+    width: 66%;
+}
+.view-details-item-img{
+    margin-top: -4px;
+}
+
+.background-green{
+    background-color: green;
+}
+.background-red{
+    background-color: red;
+}
+.badge{
+    margin-left: 6px;
+    margin-top: -1px;
+}
