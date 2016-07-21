@@ -66,6 +66,7 @@
     <script src="appjs/services/constant/routeTypes.js"></script>
     <script src="appjs/services/constant/controlSuggestions.js"></script>
     <script src="appjs/services/constant/alertTypes.js"></script>
+    <script src="appjs/services/constant/userTypes.js"></script>
     <script src="appjs/services/loader/constantLoader.js"></script>
     <script src="appjs/services/loader/serviceLoader.js"></script>
     <script src="appjs/services/utility/commonUtility.js"></script>
@@ -132,6 +133,9 @@
                         </div>
                         <div class="header-guest-info">Hi, 
                             <span ng-show="{{'IS_SIGN_IN' | rootScopeShow}}" ng-bind="{{'NAME' | rootScopeShow}}"></span>
+                            <span ng-show="{{'IS_USER_TYPE_SHOW' | rootScopeShow}}" > (</span>
+                            <span ng-show="{{'IS_USER_TYPE_SHOW' | rootScopeShow}}" ng-bind="{{'VEND_TYPE' | rootScopeShow}}"></span>
+                            <span ng-show="{{'IS_USER_TYPE_SHOW' | rootScopeShow}}" >)</span>
                             <span ng-hide="{{'IS_SIGN_IN' | rootScopeShow}}">Guest</span>
                         </div>
                     </div>

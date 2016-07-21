@@ -101,6 +101,19 @@ angular.module('cmaManagementApp')
             return serviceLoader.rootScope[propertyName];
         };
         
+        commonUtility.deleteAllRootScopeProperty = function(){
+            for (var prop in serviceLoader.rootScope) {
+                if (prop.substring(0,1) !== "$" && prop !== 
+                    constantLoader.rootScopeTypes.IS_SHOW_ALERT){
+                    if (prop.substring(0,3) !== "IS_"){
+                        commonUtility.setRootScopeProperty(prop, false);
+                    }else{
+                        delete serviceLoader.rootScope[prop];
+                    }
+                }
+            }
+        };
+        
         commonUtility.getSplitArray = function(value, separator){
             var result = [];
             if(!commonUtility.is3DValidKey(value)){
