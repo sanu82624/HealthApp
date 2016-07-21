@@ -81,7 +81,8 @@ angular.module('cmaManagementApp').controller('vendorLocController',
             
             vendorBusiness.registerVendor(vendorInfo).then(function(response){
                 if(response.data.success){
-                    commonUtility.showAlert(constantLoader.messages.VEND_LOC_CREATE);
+                    commonUtility.showAlert(constantLoader.messages.VEND_LOC_CREATE,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOC);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
@@ -107,7 +108,8 @@ angular.module('cmaManagementApp').controller('vendorLocController',
             
             vendorBusiness.updateVendorDetails(vendorInfo).then(function(response){
                 if(response.data.success){
-                    commonUtility.showAlert(constantLoader.messages.LOC_UPDATE);
+                    commonUtility.showAlert(constantLoader.messages.LOC_UPDATE,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOC);
                 } else{
                     commonUtility.showAlert(response.data.statusText);

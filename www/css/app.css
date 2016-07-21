@@ -419,3 +419,28 @@ body{
     margin-left: 6px;
     margin-top: -1px;
 }
+
+.list-alter-row{
+    background-color: #ECEEEF;
+    max-height: 60px;
+}
+.list-group-item-heading{
+    font-weight: bold;
+}
+.left-margin-20{
+    margin-left: 20px;
+}
+.list-group-div-text-block{
+    width: 85%; 
+    height:100%; 
+    clear: right; 
+    display: inline-block;
+}
+.list-group-div-btn-block{
+    width: 12%; 
+    height:100%; 
+    clear: left; 
+    float: right; 
+    padding-top: 4px;
+    display: inline-block;
+}
