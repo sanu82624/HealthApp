@@ -21,7 +21,13 @@
                 "login": {}
             }
         },
-        "show-alert": {}
+        "show-alert": {},
+        "single-line-list": {
+            "attributes": {
+                "on-delete-click": {},
+                "items": {}
+            }
+        }
     },
     "attributes": {
         "cg-busy": {

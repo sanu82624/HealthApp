@@ -7,19 +7,12 @@
             show-validation="userEPhoneForm.$submitted && (userEPhoneForm.txtPhone.$error.pattern || 
                 userEPhoneForm.txtPhone.$error.required || userEPhoneForm.comboCountry.$error.required)"  
             country-phone-code="vm.countryPhoneCode" required
-            add-button-click="vm.onAddEPhoneClick(isValid);"
-            countries="vm.countryList">
+            add-button-click="vm.onAddEPhoneClick(isValid);">
         </phone-textbox>
         
-        <div class="list-box">
-            <div class="info-box" ng-repeat="record in vm.phones">
-                <p>
-                    <div class="btn-delete-row" ng-click="vm.onEPhoneDeleteClick(record);">x</div>
-                    <div style="display:inline;">{{record | hideChar: "|"}}</div>
-                </p>
-            </div>
-	</div>
-	
+        <single-line-list items="vm.phones" 
+            on-delete-click="vm.onEPhoneDeleteClick(item)"></single-line-list>
+        
         <save-back-buttons submit-label="Save" cancel-label="Back"
             on-submit-click="vm.onSaveClick()" 
             on-cancel-click="vm.onBackClick()"></save-back-buttons>
