@@ -454,3 +454,18 @@ body{
 .list-group-single{
     padding: 0px;
 }
+
+.pass-strgth-pbar{
+    height: 2px !important;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+.progress-bar-warning, .progress-bar, .progress-bar-success{
+    height: 2px !important;
+}
+.progress{
+    height: 4px;
+    margin-bottom: 0px;
+    width: 95%;
+    margin-left: 15px;
+}
