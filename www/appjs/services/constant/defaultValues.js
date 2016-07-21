@@ -20,5 +20,8 @@ angular.module('cmaManagementApp')
         INACTIVE: "Inactive",
         BADGE_COLOR_ACTIVE: "green",
         BADGE_COLOR_INACTIVE: "red",
-        SHOW_DATE_FORMAT: "DD-MMM-YYYY hh:mm A"
+        SHOW_DATE_FORMAT: "DD-MMM-YYYY hh:mm A",
+        ALERT_OFF_IN_SEC: 2,
+        REQ_STATUSES: "[{\"code\": \"ERROR\", \"color\": \"danger\"}," +
+                       "{\"code\": \"WIP\", \"color\": \"success\"}]"
   });

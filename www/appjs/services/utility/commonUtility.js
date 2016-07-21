@@ -22,7 +22,7 @@ angular.module('cmaManagementApp')
         
             serviceLoader.timeout(function () {
                 commonUtility.closeAlert();
-            }, 3000);
+            }, (constantLoader.defaultValues.ALERT_OFF_IN_SEC * 1000));
 	};
         
         commonUtility.closeAlert = function(){

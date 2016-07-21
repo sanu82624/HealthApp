@@ -1,13 +1,22 @@
 <div class="container" ng-init="vm.onLoadMyRequests();">
     <div class="page-title">My Requests</div>
-    <div>
-        <div class="info-box" ng-repeat="request in vm.myRequests | orderBy: '-createTs'">
-            <p>
-                <span>Id: {{request.requestId.replace('SRV-REQ-ID-','')}}</span><br/>
-                <span>Requested for: {{request.requestType}}</span><br/>
-                <span>Status: {{request.status}}</span><br/>
-            </p>
+    
+    <div class="list-group">
+        <div ng-repeat="request in vm.myRequests | orderBy: '-createTs'" 
+            class="list-group-item {{((($index%2)>0)? '':'list-alter-row')}}">
+            <div class="list-group-div-text-block">
+                <h5 class="list-group-item-heading">{{request.requestType}}
+                    <span class="label label-{{request.statusColor}}">{{request.status}}</span>
+                </h5>
+                <h6 class="list-group-item-text">
+                    <span>Created on: <strong>{{request.createTs | dateFormatter}}</strong></span>
+                </h6>
+            </div>
+            <div class="list-group-div-btn-block" ng-click="">
+                <img class="" alt="" src="images/r_arrow.png"/>
+            </div>
         </div>
     </div>
+    
     <single-button label="Back" on-click="vm.onBacktoUserHome()"></single-button>
 </div>
