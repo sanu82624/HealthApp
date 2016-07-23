@@ -75,7 +75,7 @@ angular.module('cmaManagementApp').controller('vendorLocController',
             vendorInfo.vendorDetails.pin = vm.vendor.pin;
             vendorInfo.vendorDetails.contacts = [vm.countryPhoneCode + 
                 constantLoader.defaultValues.ISD_SEPARATOR + vm.vendor.phone];
-            vendorInfo.vendorDetails.active = true;
+            vendorInfo.vendorDetails.active = vm.vendor.active;
             vendorInfo.vendorDetails.parentId = commonUtility.getRootScopeProperty(
                 constantLoader.rootScopeTypes.ID);
             
@@ -103,6 +103,7 @@ angular.module('cmaManagementApp').controller('vendorLocController',
             vendorInfo.country = vm.vendor.country;
             vendorInfo.state = vm.vendor.state;
             vendorInfo.city = vm.vendor.city;
+            vendorInfo.active = vm.vendor.active;
             vendorInfo.contacts = [vm.countryPhoneCode + 
                 constantLoader.defaultValues.ISD_SEPARATOR + vm.vendor.phone];
             

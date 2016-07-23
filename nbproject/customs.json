@@ -12,6 +12,11 @@
                 "required": {}
             }
         },
+        "true-false-radio": {
+            "attributes": {
+                "ng-model": {}
+            }
+        },
         "save-back-buttons": {
             "attributes": {
                 "cancel-label": {},

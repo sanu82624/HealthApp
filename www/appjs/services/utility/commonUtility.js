@@ -101,6 +101,10 @@ angular.module('cmaManagementApp')
             return serviceLoader.rootScope[propertyName];
         };
         
+        commonUtility.deleteRootScopeProperty = function(propertyName){
+            delete serviceLoader.rootScope[propertyName];
+        };
+        
         commonUtility.deleteAllRootScopeProperty = function(){
             for (var prop in serviceLoader.rootScope) {
                 if (prop.substring(0,1) !== "$" && prop !== 
@@ -108,7 +112,7 @@ angular.module('cmaManagementApp')
                     if (prop.substring(0,3) !== "IS_"){
                         commonUtility.setRootScopeProperty(prop, false);
                     }else{
-                        delete serviceLoader.rootScope[prop];
+                        commonUtility.deleteRootScopeProperty(prop);
                     }
                 }
             }

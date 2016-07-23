@@ -41,6 +41,8 @@
                 vendorLocForm.txtPhone.$error.required || vendorLocForm.comboCountry.$error.required)" required
             country-phone-code="vm.countryPhoneCode">
         </phone-textbox>
+        
+        <true-false-radio ng-model="vm.vendor.active"></true-false-radio>
 
         <save-back-buttons submit-label="Save" cancel-label="Back"
             on-submit-click="vm.onSaveClick(this)" 
