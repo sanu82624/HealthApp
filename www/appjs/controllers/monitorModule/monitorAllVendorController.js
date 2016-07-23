@@ -38,6 +38,45 @@ angular.module('cmaManagementApp').controller('monitorAllVendorController',
             monitorBusiness.getVendors(vm.type).then(function(response){
                 if(response.data.success){
                     vm.vendors = response.data.result;
+                    var vendLocs = [];
+                    var isAlterRow = false;
+                    for(var index=(vm.vendors.length - 1); index>=0; index--){
+                        if(commonUtility.is3DValidKey(vm.vendors[index].parentId)
+                            && vm.type === constantLoader.defaultValues.VEND_TYPE_WITH_LOCATION){
+                            vendLocs.push(vm.vendors[index]);
+                            vm.vendors.splice(index, 1);
+                        }else{
+                            if(vm.vendors[index].active){
+                                vm.vendors[index].active = 
+                                    constantLoader.defaultValues.ACTIVE;
+                                vm.vendors[index].badgeColor = 
+                                    constantLoader.defaultValues.BADGE_COLOR_ACTIVE;
+                            }else{
+                                vm.vendors[index].active = 
+                                    constantLoader.defaultValues.INACTIVE;
+                                vm.vendors[index].badgeColor = 
+                                    constantLoader.defaultValues.BADGE_COLOR_INACTIVE;
+                            }
+                            if(vm.vendors[index].contacts.length > 0){
+                                vm.vendors[index].phone = vm.vendors[index].contacts[0];
+                            }
+                            vm.vendors[index].itemColor = isAlterRow ? "" : "list-alter-row";
+                            isAlterRow = !isAlterRow;
+                            if(vm.type === constantLoader.defaultValues.VEND_TYPE_WITH_LOCATION){
+                                vm.vendors[index].locationCount = 0;
+                            }
+                        }
+                    }
+                    for(var indx=0; indx<vendLocs.length; indx++){
+                        for(var count=0; count<vm.vendors.length; count++){
+                            if(vendLocs[indx].parentId === vm.vendors[count].vendId){
+                                vm.vendors[count].locationCount = vm.vendors[count].locationCount + 1;
+                                break;
+                            }
+                        }
+                    }
+                }else{
+                    commonUtility.showAlert(response.data.statusText);
                 }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);

@@ -23,5 +23,6 @@ angular.module('cmaManagementApp')
         SHOW_DATE_FORMAT: "DD-MMM-YYYY hh:mm A",
         ALERT_OFF_IN_SEC: 2,
         REQ_STATUSES: "[{\"code\": \"ERROR\", \"color\": \"danger\"}," +
-                       "{\"code\": \"WIP\", \"color\": \"success\"}]"
+                       "{\"code\": \"WIP\", \"color\": \"success\"}]",
+        VEND_TYPE_WITH_LOCATION: "AMB"
   });
