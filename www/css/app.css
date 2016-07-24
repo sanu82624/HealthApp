@@ -400,6 +400,11 @@ body{
 }
 .view-details-item-img{
     margin-top: -4px;
+    cursor: pointer;
+}
+.list-view-items{
+    display:block;
+    line-height: 25px;
 }
 
 .background-green{
