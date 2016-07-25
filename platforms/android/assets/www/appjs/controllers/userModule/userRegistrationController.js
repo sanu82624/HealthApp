@@ -56,6 +56,10 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
                         constantLoader.rootScopeTypes.ID, response.data.result.clientId);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.EMAIL, vm.email);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.USER_TYPE, constantLoader.userTypes.CLIENT);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.IS_USER_TYPE_SHOW, false);
                 
                     commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);

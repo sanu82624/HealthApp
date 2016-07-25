@@ -14,5 +14,7 @@ angular.module('cmaManagementApp')
     PHONE_TYPE: "PHONE_TYPE",
     IS_SHOW_ALERT: "IS_SHOW_ALERT",
     ALERT_TYPE: "ALERT_TYPE",
-    ALERT_MSG: "ALERT_MSG"
+    ALERT_MSG: "ALERT_MSG",
+    USER_TYPE: "USER_TYPE",
+    IS_USER_TYPE_SHOW: "IS_USER_TYPE_SHOW"
   });

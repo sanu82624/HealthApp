@@ -9,14 +9,8 @@
             country-phone-code="vm.countryPhoneCode" add-button-click="vm.onAddPhoneClick(isValid);">
         </phone-textbox>
         
-        <div class="list-box">
-		<div class="info-box" ng-repeat="phone in vm.phones">
-			<p>
-				<div class="btn-delete-row" ng-click="vm.onPhoneDeleteClick(phone);">x</div>
-				<div style="display:inline;">{{phone | hideChar: "|"}}</div>
-			</p>
-		</div>
-	</div>
+        <single-line-list items="vm.phones" 
+            on-delete-click="vm.onPhoneDeleteClick(item)"></single-line-list>
         
         <save-back-buttons submit-label="Save" cancel-label="Back"
             on-submit-click="vm.onSaveClick()" 

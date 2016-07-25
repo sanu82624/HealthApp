@@ -15,7 +15,8 @@ angular.module('cmaManagementApp')
         template: function(element, attrs){
             var required = attrs.hasOwnProperty('required') ? "required='required'" : 
                 constantLoader.defaultValues.BLANK_STRING;
-            
+            var isStrength = attrs.hasOwnProperty('strength');
+        
             var html =  '<div class="form-group">' +
                             '<label class="ui-control-label">{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
@@ -29,6 +30,10 @@ angular.module('cmaManagementApp')
                                 constantLoader.controlSuggestions.PASS + '" ' + 
                                 'class="form-control ui-control-look ui-control-look-pass" ' 
                                 + required + '/>' +
+                            (isStrength ?
+                            ('<div ng-password-strength="ngModel" strength="strngth" ' +
+                                'calculation-mode="formula" inner-class="progress-bar" ' +
+                                'inner-class-prefix="pass-strgth-pbar progress-bar-"></div>') : '') +
                         '</div>';
             return html;
         }

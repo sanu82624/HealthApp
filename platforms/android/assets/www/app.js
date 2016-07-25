@@ -6,5 +6,6 @@ angular.module('cmaManagementApp', [
     'routerConfigModule',
     'ngAnimate',
     'ngResource',
-    'cgBusy'
+    'cgBusy',
+    'ngPasswordStrength'
 ]);

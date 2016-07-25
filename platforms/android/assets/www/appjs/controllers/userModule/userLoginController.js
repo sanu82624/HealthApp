@@ -21,6 +21,10 @@ angular.module('cmaManagementApp').controller('userLoginController',
                         constantLoader.rootScopeTypes.ID, response.data.result.clientId);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.EMAIL, vm.email);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.USER_TYPE, constantLoader.userTypes.CLIENT);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.IS_USER_TYPE_SHOW, false);
                 
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
                 } else{

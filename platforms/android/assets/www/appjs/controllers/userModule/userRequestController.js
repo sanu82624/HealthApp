@@ -63,6 +63,20 @@ angular.module('cmaManagementApp').controller('userRequestController',
                 constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     vm.myRequests = response.data.result;
+                    for(var index=0; index<vm.myRequests.length; index++){
+                        var item = commonUtility.getFilterArray(vm.serviceTypes, 
+                            {code: vm.myRequests[index].requestType});
+                        if(item.length > 0){
+                            vm.myRequests[index].requestType = item[0].name;
+                        }
+                        
+                        var status = commonUtility.getFilterArray(
+                            commonUtility.getJsonFromString(constantLoader.defaultValues.REQ_STATUSES),
+                            {code: vm.myRequests[index].status});
+                        if(status.length > 0){
+                            vm.myRequests[index].statusColor = status[0].color;
+                        }
+                    }
                 }else{
                     commonUtility.showAlert(response.data.statusText);
                 }

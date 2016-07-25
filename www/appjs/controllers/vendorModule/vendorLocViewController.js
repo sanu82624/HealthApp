@@ -35,9 +35,8 @@ angular.module('cmaManagementApp').controller('vendorLocViewController',
         };
         
         vm.onBackClick = function(){
-            commonUtility.setRootScopeProperty(
-                constantLoader.rootScopeTypes.LOC_VEND_ID, 
-                constantLoader.defaultValues.BLANK_STRING);
+            commonUtility.deleteRootScopeProperty(
+                constantLoader.rootScopeTypes.LOC_VEND_ID);
             commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOC);
         };
         

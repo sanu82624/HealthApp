@@ -88,13 +88,13 @@ angular.module('cmaManagementApp').controller('monitorAllVendorController',
         };
 		
         vm.onBackClick = function(){
-            commonUtility.redirectTo("monitoringGroupHome");
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_HOME);
         };
 		
         vm.onVendorDetailsClick = function(vendId){
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.ID, vendId);
-            commonUtility.redirectTo("monitorVendorDetails");
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_VENDOR_DETAILS);
         };
 
         initialize();

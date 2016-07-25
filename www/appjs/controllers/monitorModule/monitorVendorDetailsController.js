@@ -79,7 +79,9 @@ angular.module('cmaManagementApp').controller('monitorVendorDetailsController',
         };
         
         vm.onLocationClick = function(id){
-            
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.LOC_VEND_ID, id);
+            commonUtility.redirectTo("monitorVendorLoc");
         };
 		
         initialize();

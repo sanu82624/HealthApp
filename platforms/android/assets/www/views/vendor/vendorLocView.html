@@ -7,6 +7,8 @@
     <view-phone label="Phones" items="vm.vendor.contacts"></view-phone>
 
     <view-item label="Address" model="{{vm.vendor.address}}"></view-item>
+    
+    <view-item label="Country" model="{{vm.vendor.country}}"></view-item>
 
     <view-item label="State" model="{{vm.vendor.state}}"></view-item>
 
@@ -16,7 +18,7 @@
 
     <view-item label="Description" model="{{vm.vendor.description}}"></view-item>
 
-    <view-item label="Created Date" model="{{vm.vendor.createts}}"></view-item>
+    <view-item label="Created Date" model="{{vm.vendor.createts | dateFormatter}}"></view-item>
 
     <save-back-buttons submit-label="Edit" cancel-label="Back"
         on-submit-click="vm.onEditLocClick()" 

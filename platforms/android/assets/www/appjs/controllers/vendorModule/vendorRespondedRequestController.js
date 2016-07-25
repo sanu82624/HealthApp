@@ -23,6 +23,7 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
                     if(response.data.success){
                         vm.requests = serviceLoader.filter('filter')(response.data.result, 
                             {status: vm.tckType});
+                        console.log(vm.requests);
                     }else{
                         commonUtility.showAlert(response.data.statusText);
                     }

@@ -22,7 +22,7 @@ angular.module('cmaManagementApp')
         
             serviceLoader.timeout(function () {
                 commonUtility.closeAlert();
-            }, 3000);
+            }, (constantLoader.defaultValues.ALERT_OFF_IN_SEC * 1000));
 	};
         
         commonUtility.closeAlert = function(){
@@ -51,8 +51,9 @@ angular.module('cmaManagementApp')
             }
             var values = value.split(".");
             if(values.length > 6){
-                dateValue = values[2] + "-" + values[1] +  "-" + values[0] + " " +
-                    values[3] + ":" + values[4] + ":" + values[5];
+                dateValue = moment((values[2] + "-" + values[1] +  "-" + values[0] +  " " +
+                    values[3] + ":" + values[4]), 
+                    "YYYY-MM-DD HH:mm").format(constantLoader.defaultValues.SHOW_DATE_FORMAT);
             }
             return dateValue;
         };
@@ -98,6 +99,23 @@ angular.module('cmaManagementApp')
     
         commonUtility.getRootScopeProperty = function(propertyName){
             return serviceLoader.rootScope[propertyName];
+        };
+        
+        commonUtility.deleteRootScopeProperty = function(propertyName){
+            delete serviceLoader.rootScope[propertyName];
+        };
+        
+        commonUtility.deleteAllRootScopeProperty = function(){
+            for (var prop in serviceLoader.rootScope) {
+                if (prop.substring(0,1) !== "$" && prop !== 
+                    constantLoader.rootScopeTypes.IS_SHOW_ALERT){
+                    if (prop.substring(0,3) !== "IS_"){
+                        commonUtility.setRootScopeProperty(prop, false);
+                    }else{
+                        commonUtility.deleteRootScopeProperty(prop);
+                    }
+                }
+            }
         };
         
         commonUtility.getSplitArray = function(value, separator){

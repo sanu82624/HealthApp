@@ -21,6 +21,10 @@ angular.module('cmaManagementApp').controller('vendorLoginController',
                         constantLoader.rootScopeTypes.VEND_TYPE, response.data.result.vendType);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.EMAIL, vm.email);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.USER_TYPE, constantLoader.userTypes.VENDOR);
+                    commonUtility.setRootScopeProperty(
+                        constantLoader.rootScopeTypes.IS_USER_TYPE_SHOW, true);
                     commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_HOME);
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_LOGIN_WRONG);

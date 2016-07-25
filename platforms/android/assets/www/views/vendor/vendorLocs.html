@@ -4,12 +4,26 @@
         <span class="info-msg">
             Total Location: {{vm.childVendors.length}}
         </span>
-        <div class="info-box" ng-repeat="vendor in vm.childVendors">
-            <p style="cursor:pointer;" ng-click="vm.onVendorDetailsClick(vendor.vendId);">
-                <span>Name: {{vendor.name}}</span><br/>
-                <span>Pin: {{vendor.pin}}</span><br/>
-                <span>Active: {{vendor.active}}</span><br/>
-            </p>
+        <div class="list-group">
+            <div ng-repeat="vendor in vm.childVendors" class="list-group-item {{vendor.itemColor}}">
+                <div class="list-group-div-text-block">
+                    <h5 class="list-group-item-heading">{{vendor.name}}
+                        <span class="badge background-{{vendor.badgeColor}}">{{vendor.active}}</span>
+                    </h5>
+                    <h6 class="list-group-item-text">
+                        <span>Pin: <strong>{{vendor.pin}}</strong></span>
+                        <span class="left-margin-20">
+                            Phone: <strong>{{vendor.phone | hideChar:"|"}}</strong>
+                            <a href="tel:{{vendor.phone | hideChar:'|'}}">
+                                <img class="view-details-item-img" alt="" src="images/call.png"/>
+                            </a>
+                        </span>
+                    </h6>
+                </div>
+                <div class="list-group-div-btn-block" ng-click="vm.onVendorDetailsClick(vendor.vendId)">
+                    <img class="" alt="" src="images/r_arrow.png"/>
+                </div>
+            </div>
         </div>
     </div>
     

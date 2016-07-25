@@ -13,6 +13,7 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
 
     <script src="app.js"></script>
     <script src="appjs/filters/dateFormatter.js"></script>
@@ -65,6 +66,7 @@
     <script src="appjs/services/constant/routeTypes.js"></script>
     <script src="appjs/services/constant/controlSuggestions.js"></script>
     <script src="appjs/services/constant/alertTypes.js"></script>
+    <script src="appjs/services/constant/userTypes.js"></script>
     <script src="appjs/services/loader/constantLoader.js"></script>
     <script src="appjs/services/loader/serviceLoader.js"></script>
     <script src="appjs/services/utility/commonUtility.js"></script>
@@ -89,6 +91,10 @@
     <script src="appjs/directives/showAlert.js"></script>
     <script src="appjs/directives/viewItem.js"></script>
     <script src="appjs/directives/viewPhone.js"></script>
+    <script src="appjs/directives/singleLineList.js"></script>
+    <script src="appjs/directives/trueFalseRadio.js"></script>
+    <script src="appjs/directives/viewEmail.js"></script>
+    <script src="appjs/directives/viewLocs.js"></script>
    
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/angular-busy/dist/angular-busy.css" rel="stylesheet">
@@ -98,6 +104,8 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular-busy/dist/angular-busy.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/ng-password-strength/dist/scripts/ng-password-strength.js"></script>
 </head>
 <body>
     <div>
@@ -107,7 +115,7 @@
             <div id="sidebar-wrapper" draggable="true">
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
-                        0.0.6
+                        0.0.7
                     </li>
                     <li>
 
@@ -130,6 +138,9 @@
                         </div>
                         <div class="header-guest-info">Hi, 
                             <span ng-show="{{'IS_SIGN_IN' | rootScopeShow}}" ng-bind="{{'NAME' | rootScopeShow}}"></span>
+                            <span ng-show="{{'IS_USER_TYPE_SHOW' | rootScopeShow}}" > (</span>
+                            <span ng-show="{{'IS_USER_TYPE_SHOW' | rootScopeShow}}" ng-bind="{{'VEND_TYPE' | rootScopeShow}}"></span>
+                            <span ng-show="{{'IS_USER_TYPE_SHOW' | rootScopeShow}}" >)</span>
                             <span ng-hide="{{'IS_SIGN_IN' | rootScopeShow}}">Guest</span>
                         </div>
                     </div>

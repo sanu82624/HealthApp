@@ -1,4 +1,3 @@
-<form name="vendorRegForm" novalidate="novalidate" id="vendorRegForm">
 <div class="container">
     <div class="page-title">All Vendors</div>
     
@@ -7,25 +6,34 @@
         items="vm.serviceTypes" readOnly="false" 
         selection-changed="vm.onServiceTypeChange();"></combobox>
     
-	<div style="margin-top: -15px;">
-            <span class="info-msg">
-                Total Vendor: {{vm.vendors.length}}
-            </span>
-		<div class="info-box" ng-repeat="vendor in vm.vendors">
-			<p style="cursor:pointer;" ng-click="vm.onVendorDetailsClick(vendor.vendId);">
-				<span>Name: {{vendor.name}}</span><br/>
-				<span>Active: {{vendor.active}}</span><br/>
-			</p>
-		</div>
-	</div>
-	<div class="row" style="text-align: center;">
-		<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6" >
-			<p >
-				<button class="btn btn-sq-lg btn-rec-sm btn-primary" ng-click="vm.onBackClick();" type="button">
-					<h5>Back</h5>
-				</button>
-			</p>
-		</div>
-	</div>
-</div><!-- Container -->
-</form>
+    <div style="margin-top: -15px;">
+        <span class="info-msg">
+            Total Vendor: {{vm.vendors.length}}
+        </span>
+
+        <div class="list-group">
+            <div ng-repeat="vendor in vm.vendors" class="list-group-item {{vendor.itemColor}}">
+                <div class="list-group-div-text-block">
+                    <h5 class="list-group-item-heading">{{vendor.name}}
+                        <span ng-if="vendor.locationCount>0" class="label label-primary">{{vendor.locationCount}}</span>
+                        <span class="badge background-{{vendor.badgeColor}}">{{vendor.active}}</span>
+                    </h5>
+                    <h6 class="list-group-item-text">
+                        <span>Pin: <strong>{{vendor.pin}}</strong></span>
+                        <span class="left-margin-20">
+                            Phone: <strong>{{vendor.phone | hideChar:"|"}}</strong>
+                            <a href="tel:{{vendor.phone | hideChar:'|'}}">
+                                <img class="view-details-item-img" alt="" src="images/call.png"/>
+                            </a>
+                        </span>
+                    </h6>
+                </div>
+                <div class="list-group-div-btn-block" ng-click="vm.onVendorDetailsClick(vendor.vendId)">
+                    <img class="" alt="" src="images/r_arrow.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <single-button label="Back" on-click="vm.onBackClick()"></single-button>
+</div>
