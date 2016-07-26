@@ -27,6 +27,28 @@
     <view-locs label="Locations" items="vm.vendor.locations" ng-if="vm.vendor.locations.length>0"
         loc-click="vm.onLocationClick(id)"></view-locs>
     
+    <div class="view-details-item-div">
+        <label class="view-details-item-label">Tickets: </label>
+        <span class="view-details-item-span">
+            <span class="list-view-items">
+                Assigned Tickets: 
+                <span class="label label-info">{{vm.vendor.assignedReqCount}}</span>
+            </span>
+            <span class="list-view-items">
+                Accepted Tickets: 
+                <span class="label label-primary">{{vm.vendor.acceptedReqCount}}</span>
+            </span>
+            <span class="list-view-items">
+                Declined Tickets: 
+                <span class="label label-warning">{{vm.vendor.declinedReqCount}}</span>
+            </span>
+            <span class="list-view-items">
+                Closed Tickets: 
+                <span class="label label-success">{{vm.vendor.closedReqCount}}</span>
+            </span>
+        </span>
+    </div>
+    
     <single-button label="Back" on-click="vm.onDetailsBackClick()"></single-button>
 	
 </div>

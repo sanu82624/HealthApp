@@ -22,6 +22,7 @@ angular.module('cmaManagementApp')
         VENDOR_CHILD: "vendor/service/child/",
 
         MONITOR_ALL_VENDORS: "vendor/service/vendors/",
+        MONITOR_ALL_REQUESTS: "vendor/service/requests/assigned/all/",
         
         SERVICE_TYPE: "refdata/service/serviceTypes",
         COUNTRY: "refdata/service/countryList"

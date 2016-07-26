@@ -8,13 +8,13 @@
     
     <div style="margin-top: -15px;">
         <span class="info-msg">
-            Total Vendor: {{vm.vendors.length}}
+            Total Request: {{vm.vendors.length}}
         </span>
 
         <div class="list-group">
-            <div ng-repeat="vendor in vm.vendors" class="list-group-item {{vendor.itemColor}}">
+            <div ng-repeat="request in vm.requests" class="list-group-item {{vendor.itemColor}}">
                 <div class="list-group-div-text-block">
-                    <h5 class="list-group-item-heading">{{vendor.name}}
+                    <h5 class="list-group-item-heading">{{request.name}}
                         <span ng-if="vendor.locationCount>0" class="label label-primary">+{{vendor.locationCount}}</span>
                         <span class="badge background-{{vendor.badgeColor}}">{{vendor.active}}</span>
                     </h5>

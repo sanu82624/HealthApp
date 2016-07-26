@@ -34,5 +34,6 @@ angular.module('cmaManagementApp')
     
     MONITOR_HOME: "monitoringGroupHome",
     MONITOR_ALL_VENDOR: "monitorAllVendor",
-    MONITOR_VENDOR_DETAILS: "monitorVendorDetails"
+    MONITOR_VENDOR_DETAILS: "monitorVendorDetails",
+    MONITOR_VENDOR_LOC: "monitorVendorLoc"
   });

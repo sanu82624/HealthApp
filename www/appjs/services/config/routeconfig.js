@@ -133,6 +133,10 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/monitor/monitorLocView.html',
                 controller: 'monitorLocController as vm'
             }).
+            when('/monitorAllRequest',{
+                templateUrl: 'views/monitor/monitorAllRequest.html',
+                controller: 'monitorAllRequestController as vm'
+            }).
             otherwise({
                 redirectTo : '/appHome'
             });

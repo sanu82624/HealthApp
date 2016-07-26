@@ -17,7 +17,7 @@ angular.module('cmaManagementApp').controller('vendorRequestController',
                 vm.requests = serviceLoader.filter('filter')(response.data.result, 
                     {status: constantLoader.ticketStatusTypes.ASSIGNED});
             }, function(error){
-
+                commonUtility.showAlert(error.data.statusText);
             });
         }
         
