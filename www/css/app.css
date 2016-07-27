@@ -267,6 +267,10 @@ body{
     margin-left: 20px;
 }
 
+.min-height-25{
+    min-height: 25px;
+}
+
 .box-text{
     color: black;
     text-align: center;
@@ -430,6 +434,9 @@ body{
 }
 .list-group-item-heading{
     font-weight: bold;
+}
+.row-height-100{
+    max-height: 100px;
 }
 .left-margin-20{
     margin-left: 20px;

@@ -53,6 +53,11 @@ angular.module('cmaManagementApp')
         return dataLayer.getAsync(commonUtility.getRelativeUrl(
             constantLoader.relativeUrls.VENDOR_CHILD + vendId));
     };
+    
+    vendorData.loadAssignmentDetailsById = function(assnId) {
+        return dataLayer.getAsync(commonUtility.getRelativeUrl(
+            constantLoader.relativeUrls.VENDOR_ASSN + assnId));
+    };
 	
     return vendorData;
   });

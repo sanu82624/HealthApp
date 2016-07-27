@@ -33,6 +33,12 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
             }
             
         }
+        
+        vm.onTicketDetailsClick = function(assignmentId){
+            commonUtility.setRootScopeProperty(constantLoader.rootScopeTypes.ASSN_ID,
+                assignmentId);
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_ASSN_DTLS);
+        };
 
         vm.onTicketStatusClick = function(assignmentId, vendId){
             vendorBusiness.updateTicketStatusByVendor(constantLoader.ticketStatusTypes.CLOSED, 

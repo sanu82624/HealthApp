@@ -16,5 +16,6 @@ angular.module('cmaManagementApp')
     ALERT_TYPE: "ALERT_TYPE",
     ALERT_MSG: "ALERT_MSG",
     USER_TYPE: "USER_TYPE",
-    IS_USER_TYPE_SHOW: "IS_USER_TYPE_SHOW"
+    IS_USER_TYPE_SHOW: "IS_USER_TYPE_SHOW",
+    ASSN_ID: "ASSN_ID"
   });
