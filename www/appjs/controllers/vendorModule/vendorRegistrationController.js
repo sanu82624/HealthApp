@@ -85,7 +85,8 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.IS_USER_TYPE_SHOW, true);
                 
-                    commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_HOME);
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_REG_FAIL);
