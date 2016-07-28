@@ -9,7 +9,8 @@ angular.module('cmaManagementApp')
             label: "@",
             model: "@",
             badge: "@",
-            color: "@"
+            color: "@",
+            labelCss: "@"
         },
         template: function(element, attrs){
             
@@ -17,12 +18,15 @@ angular.module('cmaManagementApp')
                 ("background-{{color}}") : "";
             var badgeHtml = attrs.hasOwnProperty('badge') ? 
                 ('<span class="badge ' + badgeBgColor + '">{{badge}}</span>') : '';
+            var labelItem = attrs.hasOwnProperty('labelCss') ?
+                '<span class="label label-{{labelCss}}">{{model}}</span>' : '';
             
             var html =  '<div class="view-details-item-div">' +
                             '<label class="view-details-item-label">{{label}}: </label>' +
-                            '<span class="view-details-item-span">' +
+                            ((labelItem === '')?
+                            ('<span class="view-details-item-span">' +
                                 '{{model}}' + badgeHtml +
-                            '</span>' +
+                            '</span>') : labelItem) +
                         '</div>';
             return html;
         }

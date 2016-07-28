@@ -23,7 +23,8 @@
                 "submit-label": {},
                 "on-submit-click": {},
                 "on-cancel-click": {},
-                "login": {}
+                "login": {},
+                "red-left": {}
             }
         },
         "show-alert": {},

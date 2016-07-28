@@ -5,7 +5,8 @@
     
     <view-item label="Updated" model="{{vm.assignment.assgnInfo.updatedTs | dateFormatter}}"></view-item>
     
-    <view-item label="Status" model="{{vm.assignment.assgnInfo.status}}"></view-item>
+    <view-item label="Status" label-css="{{vm.assignment.statusTheme}}" 
+        model="{{vm.assignment.assgnInfo.status}}"></view-item>
     
     <div class="min-height-25"></div>
     <div class="page-title">Client Details</div>
@@ -27,7 +28,7 @@
     <view-item label="Pin Code" model="{{vm.assignment.clientDetails.pinCode}}"></view-item>
 
     <save-back-buttons submit-label="CLOSE TCK" cancel-label="Back"
-        on-submit-click="vm.onCloseTicketClick()" 
+        on-submit-click="vm.onCloseTicketClick(vm.assignment.assgnInfo.vendorId)" red-left
         on-cancel-click="vm.onBackClick()"></save-back-buttons>
 	
 </div>

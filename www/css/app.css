@@ -481,3 +481,8 @@ body{
     width: 95%;
     margin-left: 15px;
 }
+
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+    max-width: 75%;
+    width: 250px;
+}

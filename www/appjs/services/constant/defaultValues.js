@@ -24,5 +24,12 @@ angular.module('cmaManagementApp')
         ALERT_OFF_IN_SEC: 2,
         REQ_STATUSES: "[{\"code\": \"ERROR\", \"color\": \"danger\"}," +
                        "{\"code\": \"WIP\", \"color\": \"success\"}]",
-        VEND_TYPE_WITH_LOCATION: "AMB"
+        VEND_TYPE_WITH_LOCATION: "AMB",
+        CLOSED_TICKET_CONFIRM_MSG: "Are you sure to close this ticket?",
+        CONFIRM_MODAL_POSITIVE_BTN_TEXT: "Yes",
+        CONFIRM_MODAL_NEGITIVE_BTN_TEXT: "No",
+        TCK_STATUSES: "[{\"code\": \"ASSIGNED\", \"color\": \"info\"}," +
+                        "{\"code\": \"ACCEPTED\", \"color\": \"primary\"}," +
+                        "{\"code\": \"DECLINED\", \"color\": \"danger\"}," +
+                        "{\"code\": \"CLOSED\", \"color\": \"success\"}]"
   });

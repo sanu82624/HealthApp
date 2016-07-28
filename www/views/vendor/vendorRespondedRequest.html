@@ -6,7 +6,7 @@
             class="list-group-item {{((($index%2)>0)? '':'list-alter-row')}} row-height-100">
             <div class="list-group-div-text-block">
                 <h5 class="list-group-item-heading">
-                    <span class="label label-primary">{{request.status}}</span>
+                    <span class="label label-{{request.statusTheme}}">{{request.status}}</span>
                 </h5>
                 <h6 class="list-group-item-text">
                     <span>Created on: <strong>{{request.createTs | dateFormatter}}</strong></span>

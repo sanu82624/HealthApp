@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Cognitive Medical Assistant - Management App</title>
-
+    
+    <!--bower js files-->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -14,7 +15,20 @@
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-busy/dist/angular-busy.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/ng-password-strength/dist/scripts/ng-password-strength.js"></script>
+    <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+    
+    <!--bower css files-->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/angular-busy/dist/angular-busy.css" rel="stylesheet">
+    <link href="bower_components/ng-dialog/css/ngDialog.css" rel="stylesheet">
+    <link href="bower_components/ng-dialog/css/ngDialog-theme-default.css" rel="stylesheet">
 
+    <!--app js files-->
     <script src="app.js"></script>
     <script src="appjs/filters/dateFormatter.js"></script>
     <script src="appjs/filters/hideChar.js"></script>
@@ -51,7 +65,6 @@
     <script src="appjs/controllers/userModule/userEPhoneController.js"></script>
     <script src="appjs/controllers/appHomeController.js"></script>
     <script src="appjs/services/config/routeconfig.js"></script>
-    <script src="appjs/services/utility/commonUtility.js"></script>
     <script src="appjs/controllers/userModule/userRequestController.js"></script>
     <script src="appjs/controllers/userModule/userRegistrationController.js"></script>
     <script src="appjs/controllers/userModule/userProfileController.js"></script>
@@ -72,8 +85,9 @@
     <script src="appjs/services/constant/userTypes.js"></script>
     <script src="appjs/services/loader/constantLoader.js"></script>
     <script src="appjs/services/loader/serviceLoader.js"></script>
-    <script src="appjs/services/utility/commonUtility.js"></script>
     <script src="appjs/services/utility/generalUtility.js"></script>
+    <script src="appjs/services/utility/commonUtility.js"></script>
+    <script src="appjs/services/utility/modalUtility.js"></script>
     <script src="appjs/services/data/userData.js"></script>
     <script src="appjs/services/data/vendorData.js"></script>
     <script src="appjs/services/data/monitorData.js"></script>
@@ -98,17 +112,11 @@
     <script src="appjs/directives/trueFalseRadio.js"></script>
     <script src="appjs/directives/viewEmail.js"></script>
     <script src="appjs/directives/viewLocs.js"></script>
-   
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/angular-busy/dist/angular-busy.css" rel="stylesheet">
+    
+    <!--app css files-->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
-   
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular-busy/dist/angular-busy.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/ng-password-strength/dist/scripts/ng-password-strength.js"></script>
+    
 </head>
 <body>
     <div>
