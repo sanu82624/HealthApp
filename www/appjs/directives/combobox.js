@@ -25,12 +25,13 @@ angular.module('cmaManagementApp')
                 constantLoader.defaultValues.BLANK_STRING;
             var isSelect = attrs.hasOwnProperty('sel');
             var iconCss = attrs.hasOwnProperty('icon') ? ("ui-control-look-" + attrs.icon) : "";
+            var isLabelShow = attrs.hasOwnProperty('label');
             
             var html =  '<div class="form-group">' +
-                            '<label class="ui-control-label">{{label}} ' + 
+                            '<label class="ui-control-label" ng-show="' + isLabelShow + '">{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
                                 '*' : '') + '</label>' +
-                            '<span class="error-msg-span" ' +
+                            '<span class="error-msg-span" ng-show="' + isLabelShow + '" ' +
                                 'data-ng-show="showValidation"> ' +
                                 '{{msg | msgShow}}'+
                             '</span>' +

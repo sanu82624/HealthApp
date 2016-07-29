@@ -1,15 +1,14 @@
 <div class="container">
-    <div class="page-title">All Vendors</div>
+    <div class="page-title">All Vendors ({{vm.vendors.length}})</div>
     
-    <combobox label="Service Type" for="txtType" 
+    <combobox for="txtType" items="vm.serviceTypes" readOnly="false" 
         label-binding="name" model-binding="code" ng-model="vm.type"
-        items="vm.serviceTypes" readOnly="false" 
         selection-changed="vm.onServiceTypeChange();"></combobox>
     
-    <div style="margin-top: -15px;">
-        <span class="info-msg">
-            Total Vendor: {{vm.vendors.length}}
-        </span>
+    <div style="margin-top: 10px;">
+        <div class="info-msg" style="">
+            
+        </div>
 
         <div class="list-group">
             <div ng-repeat="vendor in vm.vendors" class="list-group-item {{vendor.itemColor}}">
