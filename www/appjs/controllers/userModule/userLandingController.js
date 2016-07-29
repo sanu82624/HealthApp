@@ -31,7 +31,8 @@ angular.module('cmaManagementApp').controller('userLandingController',
         
         function getInProcFilteredRequests(requests){
             return requests.status === constantLoader.requestStatusTypes.WIP
-                || requests.status === constantLoader.requestStatusTypes.DECLINED;
+                || requests.status === constantLoader.requestStatusTypes.DECLINED
+                || requests.status === constantLoader.requestStatusTypes.ACCEPTED;
         }
 
         vm.onNewRequestClick = function(){

@@ -7,5 +7,6 @@ angular.module('cmaManagementApp')
     ERROR: "ERROR",
     DECLINED: "DECLINED",
     CLOSED: "CLOSED",
+    ACCEPTED: "ACCEPTED",
     NONE: "NONE"
   });

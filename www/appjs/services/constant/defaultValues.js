@@ -25,6 +25,7 @@ angular.module('cmaManagementApp')
         REQ_STATUSES:   "[{\"code\": \"ERROR\", \"color\": \"danger\"}," +
                         "{\"code\": \"DECLINED\", \"color\": \"warning\"}," +
                         "{\"code\": \"CLOSED\", \"color\": \"success\"}," +
+                        "{\"code\": \"ACCEPTED\", \"color\": \"info\"}," +
                         "{\"code\": \"WIP\", \"color\": \"primary\"}]",
         VEND_TYPE_WITH_LOCATION: "AMB",
         CLOSED_TICKET_CONFIRM_MSG: "<p>Are you sure to <strong>#status#</strong> this ticket?<p>",
