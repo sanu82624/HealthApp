@@ -17,7 +17,7 @@ angular.module('cmaManagementApp').controller('vendorRespondedRequestController'
                 constantLoader.rootScopeTypes.TCK_STATUS))){
                 vm.tckType = commonUtility.getRootScopeProperty(
                     constantLoader.rootScopeTypes.TCK_STATUS);
-            
+                
                 vendorBusiness.getAssignedRequests(commonUtility.getRootScopeProperty(
                     constantLoader.rootScopeTypes.ID)).then(function(response){
                     if(response.data.success){

@@ -3,7 +3,8 @@
     
     <view-item label="Created" model="{{vm.assignment.assgnInfo.createTs | dateFormatter}}"></view-item>
     
-    <view-item label="Updated" model="{{vm.assignment.assgnInfo.updatedTs | dateFormatter}}"></view-item>
+    <view-item ng-if="!vm.isAssigned" label="Updated" 
+        model="{{vm.assignment.assgnInfo.updatedTs | dateFormatter}}"></view-item>
     
     <view-item label="Status" label-css="{{vm.assignment.statusTheme}}" 
         model="{{vm.assignment.assgnInfo.status}}"></view-item>
@@ -28,7 +29,16 @@
     <view-item label="Pin Code" model="{{vm.assignment.clientDetails.pinCode}}"></view-item>
 
     <save-back-buttons submit-label="CLOSE TCK" cancel-label="Back"
-        on-submit-click="vm.onCloseTicketClick(vm.assignment.assgnInfo.vendorId)" red-left
-        on-cancel-click="vm.onBackClick()"></save-back-buttons>
-	
+        on-submit-click="vm.onUpdateTicketClick(vm.assignment.assgnInfo.vendorId, 2)" red-left
+        on-cancel-click="vm.onBackClick()"
+        ng-if="vm.isAccepted"></save-back-buttons>
+    
+    <save-back-buttons submit-label="ACCEPT" cancel-label="Back" green-left
+        middle-label="DECLINE" 
+        on-middle-click="vm.onUpdateTicketClick(vm.assignment.assgnInfo.vendorId, 1)"
+        on-submit-click="vm.onUpdateTicketClick(vm.assignment.assgnInfo.vendorId, 0)" 
+        on-cancel-click="vm.onBackClick()"
+        ng-if="vm.isAssigned"></save-back-buttons>
+    
+    <single-button label="Back" on-click="vm.onBackClick()" ng-if="vm.isClosed"></single-button>
 </div>

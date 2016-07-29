@@ -16,6 +16,14 @@ angular.module('cmaManagementApp').controller('vendorRequestController',
                 constantLoader.rootScopeTypes.ID)).then(function(response){
                 vm.requests = serviceLoader.filter('filter')(response.data.result, 
                     {status: constantLoader.ticketStatusTypes.ASSIGNED});
+                for(var index=0; index<vm.requests.length; index++){
+                    var statusCss = commonUtility.getFilterArray(
+                        commonUtility.getJsonFromString(constantLoader.defaultValues.TCK_STATUSES),
+                        {"code": vm.requests[index].status});
+                    if(statusCss.length > 0){
+                        vm.requests[index].statusTheme = statusCss[0].color;
+                    }
+                }
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
             });
@@ -37,6 +45,12 @@ angular.module('cmaManagementApp').controller('vendorRequestController',
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
             });
+        };
+        
+        vm.onTicketDetailsClick = function(assignmentId){
+            commonUtility.setRootScopeProperty(constantLoader.rootScopeTypes.ASSN_ID,
+                assignmentId);
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_ASSN_DTLS);
         };
 
         vm.onBackClick = function(){

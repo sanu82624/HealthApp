@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="page-title">Vendor - {{vm.tckType}} Tickets</div>
+    <div class="page-title">Vendor - {{vm.tckType}} Tickets - ({{vm.requests.length}})</div>
     
     <div class="list-group">
         <div ng-repeat="request in vm.requests | orderBy: '-createTs'" 

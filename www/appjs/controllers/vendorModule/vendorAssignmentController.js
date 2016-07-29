@@ -5,6 +5,9 @@ angular.module('cmaManagementApp').controller('vendorAssignmentController',
         
         var vm = this;
         vm.assignment = {};
+        vm.isAssigned = false;
+        vm.isAccepted = false;
+        vm.isClosed = false;
         
         function initialized(){
             loadAssignmentDetails();
@@ -22,6 +25,14 @@ angular.module('cmaManagementApp').controller('vendorAssignmentController',
                     if(statusCss.length > 0){
                         vm.assignment.statusTheme = statusCss[0].color;
                     }
+                    vm.isAssigned = vm.assignment.assgnInfo.status === 
+                        constantLoader.ticketStatusTypes.ASSIGNED;
+                    vm.isAccepted = vm.assignment.assgnInfo.status ===
+                        constantLoader.ticketStatusTypes.ACCEPTED;
+                    vm.isClosed = ((vm.assignment.assgnInfo.status === 
+                        constantLoader.ticketStatusTypes.CLOSED) ||
+                        vm.assignment.assgnInfo.status ===
+                        constantLoader.ticketStatusTypes.DECLINED);
                 }else{
                     commonUtility.showAlert(response.data.statusText);
                 }
@@ -30,35 +41,48 @@ angular.module('cmaManagementApp').controller('vendorAssignmentController',
             });
         }
         
-        vm.onCloseTicketClick = function(vendId){
-            modalUtility.showConfirm(constantLoader.defaultValues.CLOSED_TICKET_CONFIRM_MSG, 
+        function updateTicketStatus(vendId, status){
+            vendorBusiness.updateTicketStatusByVendor(
+                status, commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ASSN_ID), vendId).then(function(response){
+                if(response.data.success){
+                    commonUtility.showAlert(response.data.statusText,
+                        constantLoader.alertTypes.SUCCESS);
+                    if(vm.isAssigned){
+                        commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RAISED_REQ);
+                    }else{
+                        commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RESPONDED_REQ);
+                    }
+                } else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data.statusText);
+            });
+        }
+        
+        vm.onUpdateTicketClick = function(vendId, status){
+            status = (status === 0) ? constantLoader.ticketStatusTypes.ACCEPTED :
+                ((status === 1) ? constantLoader.ticketStatusTypes.DECLINED :
+                constantLoader.ticketStatusTypes.CLOSED);
+            modalUtility.showConfirm(constantLoader.defaultValues.CLOSED_TICKET_CONFIRM_MSG.replace(
+                "#status#", status), 
                 constantLoader.defaultValues.CONFIRM_MODAL_POSITIVE_BTN_TEXT, 
                 constantLoader.defaultValues.CONFIRM_MODAL_NEGITIVE_BTN_TEXT).then(function(response){
                 if(response > 0){
-                    vendorBusiness.updateTicketStatusByVendor(
-                        constantLoader.ticketStatusTypes.CLOSED, 
-                        commonUtility.getRootScopeProperty(
-                        constantLoader.rootScopeTypes.ASSN_ID), vendId).then(function(response){
-                        if(response.data.success){
-                            commonUtility.showAlert(response.data.statusText,
-                                constantLoader.alertTypes.SUCCESS);
-                            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RESPONDED_REQ);
-                        } else{
-                            commonUtility.showAlert(response.data.statusText);
-                        }
-                    }, function(error){
-                        commonUtility.showAlert(error.data.statusText);
-                    });
+                    updateTicketStatus(vendId, status);
                 }
-            }, function(){
-                commonUtility.showAlert(constantLoader.messages.TICKET_NOT_CLOSED);
             });
         };
         
         vm.onBackClick = function(){
             commonUtility.deleteRootScopeProperty(
                 constantLoader.rootScopeTypes.ASSN_ID);
-            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RESPONDED_REQ);
+            if(vm.isAssigned){
+                commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RAISED_REQ);
+            }else{
+                commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_RESPONDED_REQ);
+            }
         };
         
         initialized();

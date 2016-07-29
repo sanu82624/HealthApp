@@ -20,10 +20,14 @@
         "save-back-buttons": {
             "attributes": {
                 "cancel-label": {},
+                "green-left": {},
                 "submit-label": {},
+                "middle-label": {},
+                "on-middle-click": {},
                 "on-submit-click": {},
                 "on-cancel-click": {},
                 "login": {},
+                "ng-if": {},
                 "red-left": {}
             }
         },
