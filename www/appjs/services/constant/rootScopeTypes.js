@@ -11,6 +11,7 @@ angular.module('cmaManagementApp')
     DAL_PROMISE: "DAL_PROMISE",
     LOC_VEND_ID: "LOC_VEND_ID",
     TCK_STATUS: "TCK_STATUS",
+    REQ_STATUS: "REQ_STATUS",
     PHONE_TYPE: "PHONE_TYPE",
     IS_SHOW_ALERT: "IS_SHOW_ALERT",
     ALERT_TYPE: "ALERT_TYPE",

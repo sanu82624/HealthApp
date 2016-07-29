@@ -9,8 +9,8 @@ angular.module('routerConfigModule', ['ngRoute'])
             }).
             when('/userLanding',
             {
-                templateUrl: 'views/user/userlanding.html',
-                controller: 'userHomeController as vm'
+                templateUrl: 'views/user/userLanding.html',
+                controller: 'userLandingController as vm'
             }).
             when('/newReq',{
                 templateUrl: 'views/user/userNewRequest.html',
