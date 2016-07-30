@@ -33,6 +33,7 @@ angular.module('cmaManagementApp')
     VENDOR_RESPONDED_REQ: "vendorRespondedReq",
     VENDOR_ASSN_DTLS: "vendorAssignment",
     
+    MONITOR_LOGIN: "monitorLogin",
     MONITOR_HOME: "monitoringGroupHome",
     MONITOR_ALL_VENDOR: "monitorAllVendor",
     MONITOR_VENDOR_DETAILS: "monitorVendorDetails",

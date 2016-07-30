@@ -1,0 +1,21 @@
+<form name="monitorLoginForm" novalidate="novalidate" id="monitorLoginForm">
+    <div class="container">
+        <div class="container">
+            <div class="page-title">Login Form</div>
+
+            <email-textbox label="Email" for="txtEmail" ng-model="vm.email"
+                show-validation="monitorLoginForm.$submitted && 
+                    (monitorLoginForm.txtEmail.$error.pattern || 
+                    monitorLoginForm.txtEmail.$error.required)" required>
+            </email-textbox>
+
+            <password-textbox label="Password" for="txtPass" ng-model="vm.pass"
+                show-validation="monitorLoginForm.$submitted && 
+                    monitorLoginForm.txtPass.$error.required" required></password-textbox>
+
+            <save-back-buttons submit-label="Sign In" cancel-label="Sign Up"
+                on-submit-click="vm.onLoginClick(this)" login
+                on-cancel-click="vm.onCreateAccountClick()"></save-back-buttons>
+        </div>
+    </div>
+</form>

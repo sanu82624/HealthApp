@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('appHomeController',
-    function(commonUtility){
+    function(commonUtility, constantLoader){
 
         var vm = this;
 
@@ -11,20 +11,15 @@ angular.module('cmaManagementApp').controller('appHomeController',
 //            navigator.app.exitApp();
         };
 
-        vm.onOnGroundVendorClick = function(){
-            commonUtility.redirectTo("vendorLogin");
+        vm.onVendorClick = function(){
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOGIN);
         };
 
-        vm.onMonitoringGrpClick = function(){
-            commonUtility.redirectTo("monitoringGroupHome");
+        vm.onMonitorClick = function(){
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_LOGIN);
         };
 
-        vm.onUserManagementClick = function(){
-            commonUtility.redirectTo("login");
+        vm.onUserClick = function(){
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_LOGIN);
         };
-
-        vm.onUserRegistrationClick = function(){
-            commonUtility.redirectTo("reg");
-        };
-        
 });
