@@ -1,17 +1,22 @@
 <div class="container">
-    <div class="page-title">All Vendors ({{vm.vendors.length}})</div>
+    <div class="page-title">
+        <span>All Vendors ({{filteredItems.length}})</span>
+        <div class="header-filter info-msg" ng-click="vm.onFilterClick();" 
+            ng-class="vm.filterImageClass">Filter</div>
+    </div>
     
-    <combobox for="txtType" items="vm.serviceTypes" readOnly="false" 
+    <combobox for="txtType" items="vm.serviceTypes" readOnly="false" icon="prod"
         label-binding="name" model-binding="code" ng-model="vm.type"
         selection-changed="vm.onServiceTypeChange();"></combobox>
     
-    <div style="margin-top: 10px;">
-        <div class="info-msg" style="">
-            
-        </div>
-
+    <div class="filter-content-div show-hide-ani" ng-show="vm.isFilterShow">
+        <normal-textbox for="txtSerch" icon="search" suggestion="SEARCH_BOX"
+            ng-model="vm.searchText"></normal-textbox>
+    </div>
+    
+    <div style="margin-top: 0px;">
         <div class="list-group">
-            <div ng-repeat="vendor in vm.vendors" class="list-group-item {{vendor.itemColor}}">
+            <div ng-repeat="vendor in vm.vendors | filter: vm.searchText as filteredItems" class="list-group-item {{vendor.itemColor}}">
                 <div class="list-group-div-text-block">
                     <h5 class="list-group-item-heading">{{vendor.name}}
                         <span ng-if="vendor.locationCount>0" class="label label-primary">+{{vendor.locationCount}}</span>

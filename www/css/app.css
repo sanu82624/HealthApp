@@ -229,6 +229,9 @@
 .ui-control-look-prod{
     background: url(../images/prod.gif) no-repeat 8px 8px; 
 }
+.ui-control-look-search{
+    background: url(../images/search.gif) no-repeat 8px 8px; 
+}
 
 .ui-control-label{
     font-weight: normal;
@@ -485,4 +488,29 @@ body{
 .ngdialog.ngdialog-theme-default .ngdialog-content{
     max-width: 75%;
     width: 250px;
+}
+
+.header-filter{
+    width: 50px; 
+    height:20px; 
+    display: inline-block; 
+    float: right; 
+    text-transform: none;
+    background: url(../images/du_arrow.jpg) no-repeat 33px 2px;
+}
+.header-filter-img-down{
+    background: url(../images/dd_arrow.jpg) no-repeat 33px 2px;
+}
+
+.filter-content-div{
+    width: 100%;
+    height: 40px;
+}
+
+.show-hide-ani{
+    transition: all linear 0.5s;
+}
+
+.show-hide-ani.ng-hide {
+  height: 0;
 }
