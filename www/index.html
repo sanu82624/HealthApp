@@ -69,6 +69,9 @@
     <script src="appjs/controllers/userModule/userRequestController.js"></script>
     <script src="appjs/controllers/userModule/userRegistrationController.js"></script>
     <script src="appjs/controllers/userModule/userProfileController.js"></script>
+    <script src="appjs/controllers/common/aboutUsController.js"></script>
+    <script src="appjs/controllers/common/contactUsController.js"></script>
+    <script src="appjs/controllers/common/howWorkController.js"></script>
     <script src="appjs/services/config/dataLayer.js"></script>
     <script src="appjs/services/config/appconfig.js"></script>
     <script src="appjs/services/config/apprun.js"></script>
@@ -122,31 +125,26 @@
 </head>
 <body>
     <div>
-        <show-alert></show-alert>
-        <div id="wrapper">
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper" draggable="true">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        0.0.7
-                    </li>
-                    <li>
-
-                    </li>
+        <div ng-controller="appHomeController as vm">
+            <div ng-show="vm.isMenuShow" class="shadow-div"></div>
+            <div class="side-menu show-hide-side-menu" ng-show="vm.isMenuShow">
+                <div class="menu-header">
+                    <div class="arrow-side-opp" ng-click="vm.onMenuClick();"></div>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item menu-item menu-item-about" ng-click="vm.onAboutClick()">About Us</li>
+                    <li class="list-group-item menu-item menu-item-contact" ng-click="vm.onContactClick()">Contact Us</li>
+                    <li class="list-group-item menu-item menu-item-work" ng-click="vm.onWorkClick()">How it works</li>
+                    <li class="list-group-item menu-item menu-item-home">Exit App</li>
                 </ul>
             </div>
-            <!-- /#sidebar-wrapper -->
             <div id="page-content-wrapper" style="margin:0px; padding:0px; height:100%;">
 
-                <div class="well well-header fixed-header" ng-controller="userLoginController">
+                <div class="well well-header fixed-header">
                     <div class="row">
-                        <div id="toggleMenu" class="col-lg-2 col-sm-2 col-xs-2 col-md-2 arrow-side" >
-
+                        <div class="arrow-side" ng-click="vm.onMenuClick();">
                         </div>
-                        <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1">
-                            <span>&nbsp;</span>
-                        </div>
-                        <div class="col-lg-8 col-sm-8 col-xs-8 col-md-8 header-text-main">
+                        <div class="header-text-main">
                             Cognitive Medical Assistant
                         </div>
                         <div class="header-guest-info">Hi, 
@@ -169,13 +167,6 @@
                     backdrop: true,
                     minDuration: 700}"></div>
     
-    <script>
-    $("#toggleMenu").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-        $("#toggleMenu").toggleClass("arrow-side-opp");
-    });
-    
-    </script>
+
 </body>
 </html>

@@ -145,6 +145,18 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/monitor/monitorAllRequest.html',
                 controller: 'monitorAllRequestController as vm'
             }).
+            when('/about',{
+                templateUrl: 'views/common/aboutUs.html',
+                controller: 'aboutUsController as vm'
+            }).
+            when('/contact',{
+                templateUrl: 'views/common/contactUs.html',
+                controller: 'contactUsController as vm'
+            }).
+            when('/work',{
+                templateUrl: 'views/common/howWork.html',
+                controller: 'howWorkController as vm'
+            }).
             otherwise({
                 redirectTo : '/appHome'
             });
