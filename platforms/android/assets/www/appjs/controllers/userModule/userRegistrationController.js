@@ -61,7 +61,8 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.IS_USER_TYPE_SHOW, false);
                 
-                    commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS);
+                    commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS,
+                        constantLoader.alertTypes.SUCCESS);
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
                 } else{
                     commonUtility.showAlert(response.data.statusText);

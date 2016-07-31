@@ -5,9 +5,12 @@ angular.module('cmaManagementApp')
     var monitorBusiness = {};
     
     monitorBusiness.getVendors = function(serviceType) {
-        
         return monitorData.getVendors(serviceType);
     };
-	
-	return monitorBusiness;
+    
+    monitorBusiness.getRequests = function(serviceType) {
+        return monitorData.getRequests(serviceType);
+    };
+    
+    return monitorBusiness;
   });

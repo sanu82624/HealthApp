@@ -15,5 +15,6 @@ angular.module('cmaManagementApp')
     MH: "Enter medical history",
     ALLERGY: "Enter allergy",
     DESC: "Enter description",
-    LOC_NAME: "Enter location name"
+    LOC_NAME: "Enter location name",
+    SEARCH_BOX: "Enter content for filter"
 });

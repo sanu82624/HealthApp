@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="page-title">Location Details</div>
+    
+    <view-item label="Name" model="{{vm.vendor.name}}" 
+        badge="{{vm.vendor.badge}}" color="{{vm.vendor.badgeColor}}"></view-item>
+    
+    <view-phone label="Phones" items="vm.vendor.contacts"></view-phone>
+
+    <view-item label="Address" model="{{vm.vendor.address}}"></view-item>
+    
+    <view-item label="Country" model="{{vm.vendor.country}}"></view-item>
+
+    <view-item label="State" model="{{vm.vendor.state}}"></view-item>
+
+    <view-item label="City" model="{{vm.vendor.city}}"></view-item>
+
+    <view-item label="Pin Code" model="{{vm.vendor.pin}}"></view-item>
+
+    <view-item label="Description" model="{{vm.vendor.description}}"></view-item>
+
+    <view-item label="Created Date" model="{{vm.vendor.createts | dateFormatter}}"></view-item>
+
+    <single-button label="Back" on-click="vm.onBackClick()"></single-button>
+    
+</div>

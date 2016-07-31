@@ -8,6 +8,9 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
+    <feature name="Home">
+        <param name="android-package" value="org.apache.cordova.home.Home" />
+    </feature>
     <feature name="ExitApp">
         <param name="android-package" value="cordova.custom.plugins.exitapp.ExitApp" />
     </feature>

@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userRequestController',
-    function(commonUtility, userBusiness, constantLoader, generalUtility){
+    function(commonUtility, userBusiness, constantLoader, generalUtility,
+    serviceLoader){
 		
         var vm = this;
         vm.myRequests = [];
-
         vm.serviceTypes = [];
+        vm.pageTitle = "";
         
         function initialized(){
             loadServiceTypes();
@@ -32,6 +33,12 @@ angular.module('cmaManagementApp').controller('userRequestController',
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
             });
+        }
+        
+        function getInProcFilteredRequests(requests){
+            return requests.status === constantLoader.requestStatusTypes.WIP
+                || requests.status === constantLoader.requestStatusTypes.DECLINED
+                || requests.status === constantLoader.requestStatusTypes.ACCEPTED;
         }
 
         vm.onBacktoUserHome = function(){
@@ -62,7 +69,22 @@ angular.module('cmaManagementApp').controller('userRequestController',
             userBusiness.loadMyRequests(commonUtility.getRootScopeProperty(
                 constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
-                    vm.myRequests = response.data.result;
+                    
+                    var statusCode = commonUtility.getRootScopeProperty(
+                        constantLoader.rootScopeTypes.REQ_STATUS);
+                    if(statusCode === constantLoader.requestStatusTypes.NONE){
+                        vm.myRequests = response.data.result;
+                        vm.pageTitle = "All";
+                    }else if(statusCode === constantLoader.requestStatusTypes.WIP){
+                        vm.myRequests = (serviceLoader.filter('filter')(response.data.result, 
+                            getInProcFilteredRequests));
+                        vm.pageTitle = "In Proc";
+                    }else{
+                        vm.myRequests = (serviceLoader.filter('filter')(response.data.result, 
+                            {status: statusCode}));
+                        vm.pageTitle = "Closed";
+                    }
+                    
                     for(var index=0; index<vm.myRequests.length; index++){
                         var item = commonUtility.getFilterArray(vm.serviceTypes, 
                             {code: vm.myRequests[index].requestType});

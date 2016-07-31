@@ -6,8 +6,10 @@ angular.module('cmaManagementApp').controller('monitorAllVendorController',
         var vm = this;
 
         vm.serviceTypes = [];
-        vm.vendors = {};
+        vm.vendors = [];
         vm.type = constantLoader.defaultValues.BLANK_STRING;
+        vm.filterImageClass = constantLoader.defaultValues.BLANK_STRING;
+        vm.isFilterShow = false;
 
         function initialize(){
             loadServiceTypes();
@@ -83,18 +85,26 @@ angular.module('cmaManagementApp').controller('monitorAllVendorController',
             });
         }
         
+        vm.onFilterClick = function(){
+            vm.filterImageClass = (vm.filterImageClass === 
+                constantLoader.defaultValues.BLANK_STRING) ?
+                "header-filter-img-down" : constantLoader.defaultValues.BLANK_STRING;
+            vm.isFilterShow = !(vm.filterImageClass === 
+                constantLoader.defaultValues.BLANK_STRING);
+        };
+        
         vm.onServiceTypeChange = function(){
             loadVendors();
         };
 		
         vm.onBackClick = function(){
-            commonUtility.redirectTo("monitoringGroupHome");
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_HOME);
         };
 		
         vm.onVendorDetailsClick = function(vendId){
             commonUtility.setRootScopeProperty(
                 constantLoader.rootScopeTypes.ID, vendId);
-            commonUtility.redirectTo("monitorVendorDetails");
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_VENDOR_DETAILS);
         };
 
         initialize();

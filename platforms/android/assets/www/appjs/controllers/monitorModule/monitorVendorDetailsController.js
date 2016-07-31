@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('monitorVendorDetailsController',
-    function(commonUtility, vendorBusiness, constantLoader, generalUtility){
+    function(commonUtility, vendorBusiness, constantLoader, generalUtility,
+        serviceLoader){
 
         var vm = this;
 
@@ -50,6 +51,7 @@ angular.module('cmaManagementApp').controller('monitorVendorDetailsController',
                             vm.vendor.vendType = types[0].name;
                         }
                         loadLocations();
+                        loadTickets();
                     }else{
                         commonUtility.showAlert(response.data.statusText);
                     }
@@ -73,13 +75,35 @@ angular.module('cmaManagementApp').controller('monitorVendorDetailsController',
                 commonUtility.showAlert(error.data.statusText);
             });
         }
+        
+        function loadTickets(){
+            vendorBusiness.getAssignedRequests(commonUtility.getRootScopeProperty(
+                constantLoader.rootScopeTypes.ID)).then(function(response){
+                if(response.data.success){
+                    vm.vendor.assignedReqCount = (serviceLoader.filter('filter')(response.data.result, 
+                        {status: constantLoader.ticketStatusTypes.ASSIGNED})).length;
+                    vm.vendor.acceptedReqCount = (serviceLoader.filter('filter')(response.data.result, 
+                        {status: constantLoader.ticketStatusTypes.ACCEPTED})).length;
+                    vm.vendor.declinedReqCount = (serviceLoader.filter('filter')(response.data.result, 
+                        {status: constantLoader.ticketStatusTypes.DECLINED})).length;
+                    vm.vendor.closedReqCount = (serviceLoader.filter('filter')(response.data.result, 
+                        {status: constantLoader.ticketStatusTypes.CLOSED})).length;
+                }else{
+                    commonUtility.showAlert(response.data.statusText);
+                }
+            }, function(error){
+                commonUtility.showAlert(error.data.statusText);
+            });
+        }
 		
         vm.onDetailsBackClick = function(){
-            commonUtility.redirectTo("monitorAllVendor");
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_ALL_VENDOR);
         };
         
         vm.onLocationClick = function(id){
-            
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.LOC_VEND_ID, id);
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_VENDOR_LOC);
         };
 		
         initialize();

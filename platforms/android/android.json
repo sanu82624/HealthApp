@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Home\"><param name=\"android-package\" value=\"org.apache.cordova.home.Home\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -40,6 +44,9 @@
         },
         "cordova.custom.plugins.exitapp": {
             "PACKAGE_NAME": "com.coolappz.HealthApp"
+        },
+        "org.apache.cordova.home": {
+            "PACKAGE_NAME": "com.coolappz.HealthApp"
         }
     },
     "dependent_plugins": {},
@@ -57,11 +64,19 @@
             "merges": [
                 "navigator.app"
             ]
+        },
+        {
+            "file": "plugins/org.apache.cordova.home/www/home.js",
+            "id": "org.apache.cordova.home.home",
+            "merges": [
+                "navigator.home"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-device": "1.1.2",
-        "cordova.custom.plugins.exitapp": "1.0.0"
+        "cordova.custom.plugins.exitapp": "1.0.0",
+        "org.apache.cordova.home": "0.2.6"
     }
 }

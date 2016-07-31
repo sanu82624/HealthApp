@@ -1,15 +1,23 @@
 <div class="container">
-    <div class="page-title">Vendor - {{vm.tckType}} Tickets</div>
-    <div>
-        <div class="info-box" ng-repeat="request in vm.requests | orderBy: '-createTs'">
-            <p>
-                <span>Id: {{request.assignmentId.replace('TICKET-','')}}</span><br/>
-                <span>Created On: {{request.createTs | dateFormatter}}</span><br/>
-                <span>Status: {{request.status}}</span><br/>
-            </p>
-            <div class="ticket-action" ng-if="request.status === vm.ticketTypes[0].code">
-                <div class="accept-vend" 
-                    ng-click="vm.onTicketStatusClick(request.assignmentId, request.vendorId);">Close</div>
+    <div class="page-title">Vendor - {{vm.tckType}} Tickets - ({{vm.requests.length}})</div>
+    
+    <div class="list-group">
+        <div ng-repeat="request in vm.requests | orderBy: '-createTs'" 
+            class="list-group-item {{((($index%2)>0)? '':'list-alter-row')}} row-height-100">
+            <div class="list-group-div-text-block">
+                <h5 class="list-group-item-heading">
+                    <span class="label label-{{request.statusTheme}}">{{request.status}}</span>
+                </h5>
+                <h6 class="list-group-item-text">
+                    <span>Created on: <strong>{{request.createTs | dateFormatter}}</strong></span>
+                </h6>
+                <h6 class="list-group-item-text">
+                    <span>Updated on: <strong>{{request.updatedTs | dateFormatter}}</strong></span>
+                </h6>
+            </div>
+            <div class="list-group-div-btn-block" 
+                ng-click="vm.onTicketDetailsClick(request.assignmentId)">
+                <img class="" alt="" src="images/r_arrow.png"/>
             </div>
         </div>
     </div>

@@ -1,17 +1,16 @@
 'use strict';
 
-angular.module('cmaManagementApp').controller('monitoringGroupController',[
-    'commonUtility',
-    function(commonUtility){
+angular.module('cmaManagementApp').controller('monitoringGroupController',
+    function(commonUtility, constantLoader){
 	
         var vm = this;
 
         vm.onHomeClick = function(){
-            commonUtility.redirectTo("appHome");
+            commonUtility.redirectTo(constantLoader.routeTypes.APP_HOME);
         };
 
         vm.onVendorClick = function(){
-            commonUtility.redirectTo("monitorAllVendor");
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_ALL_VENDOR);
         };
     }
-]);
+);

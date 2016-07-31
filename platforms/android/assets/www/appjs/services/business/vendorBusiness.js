@@ -39,6 +39,10 @@ angular.module('cmaManagementApp')
     vendorBusiness.loadChildren = function(vendId) {
         return vendorData.loadChildren(vendId);
     };
+    
+    vendorBusiness.loadAssignmentDetailsById = function(assnId) {
+        return vendorData.loadAssignmentDetailsById(assnId);
+    };
 	
     return vendorBusiness;
   });

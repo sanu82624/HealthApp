@@ -1,30 +1,56 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('appHomeController',
-    function(commonUtility){
+    function(commonUtility, constantLoader){
 
         var vm = this;
+        vm.menuImageClass = constantLoader.defaultValues.BLANK_STRING;
+        vm.isMenuShow = false;
 
         vm.onServiceManagementClick = function(){
 //            commonUtility.redirectTo("serviceManagementHome");
-//            commonUtility.showAlert(navigator.app);
+//            console.log(navigator);
 //            navigator.app.exitApp();
+//            window.close();
+            navigator.home.home(function(){
+                
+            }, function(){
+                
+            });
         };
 
-        vm.onOnGroundVendorClick = function(){
-            commonUtility.redirectTo("vendorLogin");
+        vm.onVendorClick = function(){
+            commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_LOGIN);
         };
 
-        vm.onMonitoringGrpClick = function(){
-            commonUtility.redirectTo("monitoringGroupHome");
+        vm.onMonitorClick = function(){
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_LOGIN);
         };
 
-        vm.onUserManagementClick = function(){
-            commonUtility.redirectTo("login");
-        };
-
-        vm.onUserRegistrationClick = function(){
-            commonUtility.redirectTo("reg");
+        vm.onUserClick = function(){
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_LOGIN);
         };
         
+        vm.onMenuClick = function(){
+            vm.menuImageClass = (vm.menuImageClass === 
+                constantLoader.defaultValues.BLANK_STRING) ?
+                "arrow-side-opp" : constantLoader.defaultValues.BLANK_STRING;
+            vm.isMenuShow = !(vm.menuImageClass === 
+                constantLoader.defaultValues.BLANK_STRING);
+        };
+        
+        vm.onAboutClick = function(){
+            vm.onMenuClick();
+            commonUtility.redirectTo(constantLoader.routeTypes.COMMON_ABOUT);
+        };
+        
+        vm.onContactClick = function(){
+            vm.onMenuClick();
+            commonUtility.redirectTo(constantLoader.routeTypes.COMMON_CONTACT);
+        };
+        
+        vm.onWorkClick = function(){
+            vm.onMenuClick();
+            commonUtility.redirectTo(constantLoader.routeTypes.COMMON_WORK);
+        };
 });

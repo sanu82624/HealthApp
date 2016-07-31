@@ -71,16 +71,7 @@
     height: 98px;
     width: 100%;
 }
-.arrow-side{
-    width:20px; 
-    height:40px;
-    background: url("../images/arrow.png") no-repeat;
-}
-.arrow-side-opp{
-    width:20px; 
-    height:40px;
-    background: url("../images/arrow_opp.png") no-repeat;
-}
+
 .header-guest-info{
     float:right; 
     font-size: 0.7em; 
@@ -91,9 +82,9 @@
     font-weight: bold; 
     font-family: verdana; 
     font-size: 1.1em; 
-    width: 80%; 
-    margin-top: 8px; 
-    padding-left: 105px;
+    width: 60%; 
+    margin-top: 9px;
+    margin-left: 125px;
     text-transform: capitalize; 
     text-shadow: 2px 2px 2px #CCCCCC;
 }
@@ -229,6 +220,9 @@
 .ui-control-look-prod{
     background: url(../images/prod.gif) no-repeat 8px 8px; 
 }
+.ui-control-look-search{
+    background: url(../images/search.gif) no-repeat 8px 8px; 
+}
 
 .ui-control-label{
     font-weight: normal;
@@ -265,6 +259,10 @@ body{
 
 .left-margin-20{
     margin-left: 20px;
+}
+
+.min-height-25{
+    min-height: 25px;
 }
 
 .box-text{
@@ -431,6 +429,9 @@ body{
 .list-group-item-heading{
     font-weight: bold;
 }
+.row-height-100{
+    max-height: 100px;
+}
 .left-margin-20{
     margin-left: 20px;
 }
@@ -473,4 +474,102 @@ body{
     margin-bottom: 0px;
     width: 95%;
     margin-left: 15px;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+    max-width: 75%;
+    width: 250px;
+}
+
+.header-filter{
+    width: 50px; 
+    height:20px; 
+    display: inline-block; 
+    float: right; 
+    text-transform: none;
+    background: url(../images/du_arrow.jpg) no-repeat 33px 2px;
+}
+.header-filter-img-down{
+    background: url(../images/dd_arrow.jpg) no-repeat 33px 2px;
+}
+
+.filter-content-div{
+    width: 100%;
+    height: 40px;
+}
+.show-hide-ani{
+    transition: all linear 0.5s;
+}
+.show-hide-ani.ng-hide {
+    height: 0;
+}
+
+.side-menu{
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #343538;
+    z-index: 400;
+    opacity: 0.5em;
+}
+.show-hide-side-menu{
+    transition: all linear 0.3s;
+}
+.show-hide-side-menu.ng-hide {
+    width: 0;
+}
+.arrow-side{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width:25px; 
+    height:70px;
+    background: url("../images/arrow.png") no-repeat 3px 15px;
+    z-index:400;
+}
+.arrow-side-opp{
+    width:25px; 
+    height:100%;
+    background: url("../images/arrow_opp.png") no-repeat 5px 18px;
+    float: right;
+}
+.menu-header{
+    width: 100%; 
+    height:90px; 
+    display: block;
+    border-bottom: solid 1px #E1E1E1;
+}
+
+.shadow-div{
+    width:100%; 
+    height:100%; 
+    position: absolute; 
+    top:0px; 
+    left:0px; 
+    z-index: 300;
+    background-color: navy;
+    opacity: 0.1;
+}
+
+.menu-item{
+    color: #FFFFFF;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: solid 1px #E1E1E1;
+    min-height: 30px;
+    padding-left: 40px;
+}
+.menu-item-contact{
+    background: url("../images/contact.png") no-repeat 8px 8px;
+}
+.menu-item-about{
+    background: url("../images/about.png") no-repeat 8px 8px;
+}
+.menu-item-work{
+    background: url("../images/work.png") no-repeat 8px 8px;
+}
+.menu-item-home{
+    background: url("../images/home.png") no-repeat 8px 8px;
 }

@@ -9,9 +9,10 @@ angular.module('cmaManagementApp').controller('appHomeController',
 
         vm.onServiceManagementClick = function(){
 //            commonUtility.redirectTo("serviceManagementHome");
-//            commonUtility.showAlert(navigator.app);
+//            console.log(navigator);
 //            navigator.app.exitApp();
-            window.close();
+//            window.close();
+
         };
 
         vm.onVendorClick = function(){

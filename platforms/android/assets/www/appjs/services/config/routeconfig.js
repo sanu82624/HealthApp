@@ -9,8 +9,8 @@ angular.module('routerConfigModule', ['ngRoute'])
             }).
             when('/userLanding',
             {
-                templateUrl: 'views/user/userlanding.html',
-                controller: 'userHomeController as vm'
+                templateUrl: 'views/user/userLanding.html',
+                controller: 'userLandingController as vm'
             }).
             when('/newReq',{
                 templateUrl: 'views/user/userNewRequest.html',
@@ -117,6 +117,14 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/vendor/vendorLocEdit.html',
                 controller: 'vendorLocController as vm'
             }).
+            when('/vendorAssignment',{
+                templateUrl: 'views/vendor/vendorAssignment.html',
+                controller: 'vendorAssignmentController as vm'
+            }).
+            when('/monitorLogin',{
+                templateUrl: 'views/monitor/monitorLogin.html',
+                controller: 'monitorLoginController as vm'
+            }).
             when('/monitoringGroupHome',{
                 templateUrl: 'views/monitor/monitoringGroupLanding.html',
                 controller: 'monitoringGroupController as vm'
@@ -128,6 +136,26 @@ angular.module('routerConfigModule', ['ngRoute'])
             when('/monitorVendorDetails',{
                 templateUrl: 'views/monitor/monitorVendorDetails.html',
                 controller: 'monitorVendorDetailsController as vm'
+            }).
+            when('/monitorVendorLoc',{
+                templateUrl: 'views/monitor/monitorLocView.html',
+                controller: 'monitorLocController as vm'
+            }).
+            when('/monitorAllRequest',{
+                templateUrl: 'views/monitor/monitorAllRequest.html',
+                controller: 'monitorAllRequestController as vm'
+            }).
+            when('/about',{
+                templateUrl: 'views/common/aboutUs.html',
+                controller: 'aboutUsController as vm'
+            }).
+            when('/contact',{
+                templateUrl: 'views/common/contactUs.html',
+                controller: 'contactUsController as vm'
+            }).
+            when('/work',{
+                templateUrl: 'views/common/howWork.html',
+                controller: 'howWorkController as vm'
             }).
             otherwise({
                 redirectTo : '/appHome'

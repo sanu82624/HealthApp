@@ -7,5 +7,6 @@ angular.module('cmaManagementApp', [
     'ngAnimate',
     'ngResource',
     'cgBusy',
-    'ngPasswordStrength'
+    'ngPasswordStrength',
+    'ngDialog'
 ]);

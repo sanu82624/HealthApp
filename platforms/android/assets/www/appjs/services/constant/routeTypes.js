@@ -30,5 +30,16 @@ angular.module('cmaManagementApp')
     VENDOR_LOC_EDIT: "vendorLocEdit",
     VENDOR_LOC_VIEW: "vendorLocView",
     VENDOR_RAISED_REQ: "vendorRaisedReq",
-    VENDOR_RESPONDED_REQ: "vendorRespondedReq"
+    VENDOR_RESPONDED_REQ: "vendorRespondedReq",
+    VENDOR_ASSN_DTLS: "vendorAssignment",
+    
+    MONITOR_LOGIN: "monitorLogin",
+    MONITOR_HOME: "monitoringGroupHome",
+    MONITOR_ALL_VENDOR: "monitorAllVendor",
+    MONITOR_VENDOR_DETAILS: "monitorVendorDetails",
+    MONITOR_VENDOR_LOC: "monitorVendorLoc",
+    
+    COMMON_ABOUT: "about",
+    COMMON_CONTACT: "contact",
+    COMMON_WORK: "work"
   });

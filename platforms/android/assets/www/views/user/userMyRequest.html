@@ -1,5 +1,5 @@
 <div class="container" ng-init="vm.onLoadMyRequests();">
-    <div class="page-title">My Requests</div>
+    <div class="page-title">{{vm.pageTitle}} Requests</div>
     
     <div class="list-group">
         <div ng-repeat="request in vm.myRequests | orderBy: '-createTs'" 

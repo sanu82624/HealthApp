@@ -20,9 +20,10 @@ angular.module('cmaManagementApp')
             var required = attrs.hasOwnProperty('required') ? "required='required'" : 
                 constantLoader.defaultValues.BLANK_STRING;
             var iconCss = attrs.hasOwnProperty('icon') ? ("ui-control-look-" + attrs.icon) : "";
+            var isLabelShow = attrs.hasOwnProperty('label');
         
             var html =  '<div class="form-group">' +
-                            '<label class="ui-control-label">{{label}} ' + 
+                            '<label class="ui-control-label" ng-show="' + isLabelShow + '">{{label}} ' + 
                                 ((required !== constantLoader.defaultValues.BLANK_STRING)?
                                 '*' : '') + '</label>' +
                             '<span class="error-msg-span" ' +

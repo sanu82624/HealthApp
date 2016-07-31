@@ -22,7 +22,17 @@ angular.module('cmaManagementApp')
         BADGE_COLOR_INACTIVE: "red",
         SHOW_DATE_FORMAT: "DD-MMM-YYYY hh:mm A",
         ALERT_OFF_IN_SEC: 2,
-        REQ_STATUSES: "[{\"code\": \"ERROR\", \"color\": \"danger\"}," +
-                       "{\"code\": \"WIP\", \"color\": \"success\"}]",
-        VEND_TYPE_WITH_LOCATION: "AMB"
+        REQ_STATUSES:   "[{\"code\": \"ERROR\", \"color\": \"danger\"}," +
+                        "{\"code\": \"DECLINED\", \"color\": \"warning\"}," +
+                        "{\"code\": \"CLOSED\", \"color\": \"success\"}," +
+                        "{\"code\": \"ACCEPTED\", \"color\": \"info\"}," +
+                        "{\"code\": \"WIP\", \"color\": \"primary\"}]",
+        VEND_TYPE_WITH_LOCATION: "AMB",
+        CLOSED_TICKET_CONFIRM_MSG: "<p>Are you sure to <strong>#status#</strong> this ticket?<p>",
+        CONFIRM_MODAL_POSITIVE_BTN_TEXT: "Yes",
+        CONFIRM_MODAL_NEGITIVE_BTN_TEXT: "No",
+        TCK_STATUSES: "[{\"code\": \"ASSIGNED\", \"color\": \"info\"}," +
+                        "{\"code\": \"ACCEPTED\", \"color\": \"primary\"}," +
+                        "{\"code\": \"DECLINED\", \"color\": \"danger\"}," +
+                        "{\"code\": \"CLOSED\", \"color\": \"success\"}]"
   });

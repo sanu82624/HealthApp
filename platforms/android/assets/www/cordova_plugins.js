@@ -13,6 +13,13 @@ module.exports = [
         "merges": [
             "navigator.app"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.home/www/home.js",
+        "id": "org.apache.cordova.home.home",
+        "merges": [
+            "navigator.home"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -20,7 +27,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-device": "1.1.2",
-    "cordova.custom.plugins.exitapp": "1.0.0"
+    "cordova.custom.plugins.exitapp": "1.0.0",
+    "org.apache.cordova.home": "0.2.6"
 };
 // BOTTOM OF METADATA
 });

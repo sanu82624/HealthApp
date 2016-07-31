@@ -15,6 +15,9 @@
         },
         "cordova.custom.plugins.exitapp": {
             "PACKAGE_NAME": "com.coolappz.HealthApp"
+        },
+        "org.apache.cordova.home": {
+            "PACKAGE_NAME": "com.coolappz.HealthApp"
         }
     },
     "dependent_plugins": {}

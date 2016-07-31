@@ -5,9 +5,12 @@ angular.module('cmaManagementApp')
     var monitorData = {};
     
     monitorData.getVendors = function(serviceType) {
-        
         return dataLayer.getAsync(constantLoader.relativeUrls.MONITOR_ALL_VENDORS + serviceType);
     };
-	
-	return monitorData;
+    
+    monitorData.getRequests = function(serviceType) {
+        return dataLayer.getAsync(constantLoader.relativeUrls.MONITOR_ALL_REQUESTS + serviceType);
+    };
+    
+    return monitorData;
   });
