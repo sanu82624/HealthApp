@@ -540,6 +540,7 @@ body{
     height:90px; 
     display: block;
     border-bottom: solid 1px #E1E1E1;
+    background: url("../images/head1.png") no-repeat 5px 2px;
 }
 
 .shadow-div{
@@ -572,4 +573,8 @@ body{
 }
 .menu-item-home{
     background: url("../images/home.png") no-repeat 8px 8px;
+}
+
+.italic{
+    font-style: italic;
 }
