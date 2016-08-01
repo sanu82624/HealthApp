@@ -1,12 +1,37 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('userLoginController',
-    function(constantLoader, userBusiness, commonUtility){
+    function(constantLoader, userBusiness, commonUtility, localStorages){
 		
         var vm = this;
-
+        vm.isRemember = false;
         vm.emailMsg = constantLoader.messages.VALID_EMAIL;
-		
+        
+        function initialized(){
+            loadRememberedStorage();
+        }
+        
+        function loadRememberedStorage(){
+            if(commonUtility.is3DValidKey(
+                localStorages.get(constantLoader.storageTypes.CLIENT_UID)) &&
+                commonUtility.is3DValidKey(
+                localStorages.get(constantLoader.storageTypes.CLIENT_PASS))){
+                vm.email = localStorages.get(constantLoader.storageTypes.CLIENT_UID);
+                vm.pass = localStorages.get(constantLoader.storageTypes.CLIENT_PASS);
+                vm.isRemember = true;
+            }
+        }
+        
+        function setRememberedStorage(){
+            if(vm.isRemember){
+                localStorages.set(constantLoader.storageTypes.CLIENT_UID, vm.email);
+                localStorages.set(constantLoader.storageTypes.CLIENT_PASS, vm.pass);
+            }else{
+                localStorages.remove(constantLoader.storageTypes.CLIENT_UID);
+                localStorages.remove(constantLoader.storageTypes.CLIENT_PASS);
+            }
+        }
+        
         vm.onLoginClick = function(frmData){
             if(!frmData.userLoginForm.$valid){
                 return false;
@@ -26,6 +51,7 @@ angular.module('cmaManagementApp').controller('userLoginController',
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.IS_USER_TYPE_SHOW, false);
                 
+                    setRememberedStorage();
                     commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_LOGIN_WRONG);
@@ -38,5 +64,7 @@ angular.module('cmaManagementApp').controller('userLoginController',
         vm.onCreateAccountClick = function(){
             commonUtility.redirectTo(constantLoader.routeTypes.USER_REG);
         };
+        
+        initialized();
     }
 );

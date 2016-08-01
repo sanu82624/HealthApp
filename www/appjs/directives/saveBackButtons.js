@@ -19,7 +19,7 @@ angular.module('cmaManagementApp')
             var submitButtonTheme = attrs.hasOwnProperty('redLeft') ? "btn-danger" : "btn-primary";
             submitButtonTheme = attrs.hasOwnProperty('greenLeft') ? "btn-success" : submitButtonTheme;
             
-            var html =  '<div class="btn-group btn-group-justified div-gap-8">' +
+            var html =  '<div class="btn-group btn-group-justified div-gap-8 action-btn-space">' +
                             '<div class="btn-group">' +
                                 '<button type="submit" ng-click="onClickSubmit()" ' +
                                     'class="btn ' + submitButtonTheme + '">{{submitLabel}}</button>' +

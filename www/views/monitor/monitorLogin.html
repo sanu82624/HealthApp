@@ -12,7 +12,9 @@
             <password-textbox label="Password" for="txtPass" ng-model="vm.pass"
                 show-validation="monitorLoginForm.$submitted && 
                     monitorLoginForm.txtPass.$error.required" required></password-textbox>
-
+            
+            <remember-box ng-model="vm.isRemember" for="chkRemember"></remember-box>
+            
             <save-back-buttons submit-label="Sign In" cancel-label="Sign Up"
                 on-submit-click="vm.onLoginClick(this)" login
                 on-cancel-click="vm.onCreateAccountClick()"></save-back-buttons>

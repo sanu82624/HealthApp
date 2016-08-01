@@ -321,14 +321,15 @@ body{
     z-index: 1001;
 }
 
+.action-btn-space{
+    padding-top: 5px;
+    padding-bottom: 12px;
+}
+
 .container{
     min-height: 100% !important;
     height: 100%;
     width: 100%;
-}
-
-.div-gap-8{
-    padding-bottom: 10px;
 }
 
 .show-alert-outer-div{
