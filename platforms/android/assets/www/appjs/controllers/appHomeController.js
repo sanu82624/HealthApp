@@ -12,11 +12,7 @@ angular.module('cmaManagementApp').controller('appHomeController',
 //            console.log(navigator);
 //            navigator.app.exitApp();
 //            window.close();
-            navigator.home.home(function(){
-                
-            }, function(){
-                
-            });
+
         };
 
         vm.onVendorClick = function(){
