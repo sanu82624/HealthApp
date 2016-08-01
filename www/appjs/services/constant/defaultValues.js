@@ -34,5 +34,6 @@ angular.module('cmaManagementApp')
         TCK_STATUSES: "[{\"code\": \"ASSIGNED\", \"color\": \"info\"}," +
                         "{\"code\": \"ACCEPTED\", \"color\": \"primary\"}," +
                         "{\"code\": \"DECLINED\", \"color\": \"danger\"}," +
-                        "{\"code\": \"CLOSED\", \"color\": \"success\"}]"
+                        "{\"code\": \"CLOSED\", \"color\": \"success\"}]",
+        REMEMBER_TEXT: "Remember me"
   });

@@ -1,10 +1,31 @@
 'use strict';
 
 angular.module('cmaManagementApp').controller('vendorLoginController',
-    function(constantLoader, vendorBusiness, commonUtility){
+    function(constantLoader, vendorBusiness, commonUtility, localStorages){
 		
         var vm = this;
-
+        vm.isRemember = false;
+        
+        function initialized(){
+            loadRememberedStorage();
+        }
+        
+        function loadRememberedStorage(){
+            if(commonUtility.is3DValidKey(localStorages.get("VENDOR_UID")) &&
+                commonUtility.is3DValidKey(localStorages.get("VENDOR_PASS"))){
+                vm.email = localStorages.get("VENDOR_UID");
+                vm.pass = localStorages.get("VENDOR_PASS");
+                vm.isRemember = true;
+            }
+        }
+        
+        function setRememberedStorage(){
+            if(vm.isRemember){
+                localStorages.set("VENDOR_UID", vm.email);
+                localStorages.set("VENDOR_PASS", vm.pass);
+            }
+        }
+        
         vm.onLoginClick = function(frmData){
             if(!frmData.vendorLoginForm.$valid){
                 return false;
@@ -25,6 +46,8 @@ angular.module('cmaManagementApp').controller('vendorLoginController',
                         constantLoader.rootScopeTypes.USER_TYPE, constantLoader.userTypes.VENDOR);
                     commonUtility.setRootScopeProperty(
                         constantLoader.rootScopeTypes.IS_USER_TYPE_SHOW, true);
+                
+                    setRememberedStorage();
                     commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_HOME);
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_LOGIN_WRONG);
@@ -37,5 +60,7 @@ angular.module('cmaManagementApp').controller('vendorLoginController',
         vm.onCreateAccountClick = function(){
             commonUtility.redirectTo(constantLoader.routeTypes.VENDOR_REG);
         };
+        
+        initialized();
     }
 );

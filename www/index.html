@@ -99,6 +99,7 @@
     <script src="appjs/services/business/userBusiness.js"></script>
     <script src="appjs/services/business/vendorBusiness.js"></script>
     <script src="appjs/services/business/monitorBusiness.js"></script>
+    <script src="appjs/services/storage/localStorages.js"></script>
     <script src="appjs/directives/combobox.js"></script>
     <script src="appjs/directives/emailTextbox.js"></script>
     <script src="appjs/directives/phoneTextbox.js"></script>
@@ -117,9 +118,9 @@
     <script src="appjs/directives/trueFalseRadio.js"></script>
     <script src="appjs/directives/viewEmail.js"></script>
     <script src="appjs/directives/viewLocs.js"></script>
+    <script src="appjs/directives/rememberBox.js"></script>
     
     <!--app css files-->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
     
 </head>
@@ -165,7 +166,7 @@
     <div 
         cg-busy="{  promise: {{'DAL_PROMISE' | rootScopeShow}},
                     message: 'Loading',
-                    backdrop: true,
+                    backdrop: false,
                     minDuration: 700}"></div>
     
 </body>

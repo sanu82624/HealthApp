@@ -7,7 +7,7 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
         vm.emails = [];
         vm.validEmail = constantLoader.validationPattern.EMAIL;
         
-        function initialization(){
+        function initialized(){
             loadEmails();
         }
         
@@ -77,6 +77,6 @@ angular.module('cmaManagementApp').controller('vendorEmailsController',
             });
         };
         
-        initialization();
+        initialized();
     }
 );
