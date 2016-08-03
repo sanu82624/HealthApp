@@ -41,6 +41,7 @@
     <script src="appjs/controllers/monitorModule/monitorLocController.js"></script>
     <script src="appjs/controllers/monitorModule/monitorAllRequestController.js"></script>
     <script src="appjs/controllers/monitorModule/monitorLoginController.js"></script>
+    <script src="appjs/controllers/monitorModule/monitorRegistrationController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorRequestController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorLoginController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorRegistrationController.js"></script>
@@ -127,6 +128,7 @@
 </head>
 <body>
     <div>
+        <show-alert></show-alert>
         <div ng-controller="appHomeController as vm">
             <div ng-show="vm.isMenuShow" class="shadow-div" ng-click="vm.onMenuClick();"></div>
             <div class="side-menu show-hide-side-menu" ng-show="vm.isMenuShow">

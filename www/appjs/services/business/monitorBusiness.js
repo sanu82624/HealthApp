@@ -12,5 +12,13 @@ angular.module('cmaManagementApp')
         return monitorData.getRequests(serviceType);
     };
     
+    monitorBusiness.createNewMonitor = function(monitorInfo) {
+        return monitorData.createNewMonitor(monitorInfo);
+    };
+    
+    monitorBusiness.validateMonitorUser = function(email, pass) {
+        return monitorData.validateMonitorUser(email, pass);
+    };
+    
     return monitorBusiness;
   });

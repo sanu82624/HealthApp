@@ -24,6 +24,8 @@ angular.module('cmaManagementApp')
 
         MONITOR_ALL_VENDORS: "vendor/service/vendors/",
         MONITOR_ALL_REQUESTS: "vendor/service/requests/assigned/all/",
+        MONITOR_REG: "monitorgrp/service/monitorgrp/register",
+        MONITOR_LOGIN: "monitorgrp/service/monitorgrp/validate",
         
         SERVICE_TYPE: "refdata/service/serviceTypes",
         COUNTRY: "refdata/service/countryList"

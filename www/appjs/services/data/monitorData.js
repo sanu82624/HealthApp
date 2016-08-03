@@ -1,6 +1,6 @@
 
 angular.module('cmaManagementApp')
-  .factory('monitorData', function (dataLayer, constantLoader) {
+  .factory('monitorData', function (dataLayer, constantLoader, commonUtility) {
     
     var monitorData = {};
     
@@ -10,6 +10,19 @@ angular.module('cmaManagementApp')
     
     monitorData.getRequests = function(serviceType) {
         return dataLayer.getAsync(constantLoader.relativeUrls.MONITOR_ALL_REQUESTS + serviceType);
+    };
+    
+    monitorData.createNewMonitor = function(monitorInfo) {
+        return dataLayer.postAsync(
+            commonUtility.getRelativeUrl(
+            constantLoader.relativeUrls.MONITOR_REG), monitorInfo);
+    };
+    
+    monitorData.validateMonitorUser = function(email, pass) {
+        return dataLayer.postAsync(commonUtility.getRelativeUrl(
+            constantLoader.relativeUrls.MONITOR_LOGIN + 
+            "?email="+email+"&password="+pass), null, 
+            constantLoader.headerTypes.CONTENT_ONLY);
     };
     
     return monitorData;
