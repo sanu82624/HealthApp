@@ -8,6 +8,10 @@ angular.module('cmaManagementApp')
         return monitorData.getVendors(serviceType);
     };
     
+    monitorBusiness.getClients = function() {
+        return monitorData.getClients();
+    };
+    
     monitorBusiness.getRequests = function(serviceType) {
         return monitorData.getRequests(serviceType);
     };

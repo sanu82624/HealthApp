@@ -39,6 +39,7 @@ angular.module('cmaManagementApp')
     MONITOR_ALL_VENDOR: "monitorAllVendor",
     MONITOR_VENDOR_DETAILS: "monitorVendorDetails",
     MONITOR_VENDOR_LOC: "monitorVendorLoc",
+    MONITOR_ALL_CLIENT: "monitorAllClient",
     
     COMMON_ABOUT: "about",
     COMMON_CONTACT: "contact",
