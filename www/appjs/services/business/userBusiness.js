@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cmaManagementApp')
-  .factory('userBusiness', function (userData) {
+  .factory('userBusiness', function (userData, constantLoader) {
     
     var userBusiness = {};
     
@@ -31,6 +31,12 @@ angular.module('cmaManagementApp')
     
     userBusiness.updateUserInfo = function(userInfo) {
         return userData.updateUserInfo(userInfo);
+    };
+    
+    userBusiness.getInProcFilteredRequests = function(requests){
+        return requests.status === constantLoader.requestStatusTypes.WIP
+            || requests.status === constantLoader.requestStatusTypes.DECLINED
+            || requests.status === constantLoader.requestStatusTypes.ACCEPTED;
     };
 
     return userBusiness;
