@@ -1,0 +1,53 @@
+<form name="monitorRegForm" novalidate="novalidate" id="monitorRegForm">
+    <div class="container">
+        <div class="page-title">Monitor User Registration</div>
+
+        <email-textbox label="Email/Login Id" for="txtEmail" ng-model="vm.email"
+            show-validation="monitorRegForm.$submitted && 
+                            (monitorRegForm.txtEmail.$error.pattern || 
+                            monitorRegForm.txtEmail.$error.required)" required>
+        </email-textbox>
+
+        <password-textbox label="Password" for="txtPass" ng-model="vm.pass" strength
+            show-validation="monitorRegForm.$submitted && 
+                monitorRegForm.txtPass.$error.required" required></password-textbox>
+
+        <normal-textbox label="Name" for="txtName" required icon="user" suggestion="NAME"
+            ng-model="vm.name" show-validation="monitorRegForm.$submitted && 
+                monitorRegForm.txtName.$error.required" msg="VALID_NAME"></normal-textbox>
+
+        <combobox label="Country" for="txtCountry" sel icon="pie"
+            label-binding="name" model-binding="isoCode" ng-model="vm.country"
+            items="vm.countryList" msg="REQ_COUNTRY" required focuses="IN,US,GB"
+            show-validation="monitorRegForm.$submitted && 
+                monitorRegForm.txtCountry.$error.required" readOnly="false"></combobox>
+
+        <normal-textbox label="State" for="txtState" required icon="state" suggestion="STATE"
+            ng-model="vm.state" show-validation="monitorRegForm.$submitted && 
+                monitorRegForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
+
+        <normal-textbox label="City" for="txtCity" required icon="sqr" suggestion="CITY"
+            ng-model="vm.city" show-validation="monitorRegForm.$submitted && 
+                monitorRegForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
+
+        <normal-textbox label="Address" for="txtAddress" required icon="address" suggestion="ADDRESS"
+            ng-model="vm.address" show-validation="monitorRegForm.$submitted && 
+                monitorRegForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
+
+        <pin-textbox label="Pin Code" for="txtPinCode" required
+            ng-model="vm.pinCode" show-validation="monitorRegForm.$submitted && 
+                monitorRegForm.txtPinCode.$error.required"></pin-textbox>
+
+        <phone-textbox label="Phone" for="txtPhone" country-for="comboCountry" ng-model="vm.phone" 
+            countries="vm.countryList" label-binding="name" model-binding="isdCode"
+            show-validation="monitorRegForm.$submitted && (monitorRegForm.txtPhone.$error.pattern || 
+                monitorRegForm.txtPhone.$error.required || monitorRegForm.comboCountry.$error.required)" required
+            country-phone-code="vm.countryPhoneCode">
+        </phone-textbox>
+
+        <save-back-buttons submit-label="Submit" cancel-label="Cancel"
+            on-submit-click="vm.onSaveClick(this)" 
+            on-cancel-click="vm.onCancelClick()"></save-back-buttons>
+
+    </div>
+</form>

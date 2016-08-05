@@ -17,7 +17,7 @@ angular.module('cmaManagementApp').controller('userLandingController',
                 constantLoader.rootScopeTypes.ID)).then(function(response){
                 if(response.data.success){
                     vm.inProcReqCount = (serviceLoader.filter('filter')(response.data.result, 
-                        getInProcFilteredRequests)).length;
+                        userBusiness.getInProcFilteredRequests)).length;
                     vm.closedReqCount = (serviceLoader.filter('filter')(response.data.result, 
                         {status: constantLoader.requestStatusTypes.CLOSED})).length;
                     vm.requestCount = response.data.result.length;
@@ -27,12 +27,6 @@ angular.module('cmaManagementApp').controller('userLandingController',
             }, function(error){
                 commonUtility.showAlert(error.data.statusText);
             });
-        }
-        
-        function getInProcFilteredRequests(requests){
-            return requests.status === constantLoader.requestStatusTypes.WIP
-                || requests.status === constantLoader.requestStatusTypes.DECLINED
-                || requests.status === constantLoader.requestStatusTypes.ACCEPTED;
         }
 
         vm.onNewRequestClick = function(){

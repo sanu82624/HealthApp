@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="page-title">Client Details</div>
+    
+    <view-item label="Name" model="{{vm.client.name}}"></view-item>
+    
+    <view-email label="Emails" items="vm.client.emailId"></view-email>
+    
+    <view-phone label="Phones" items="vm.client.phone"></view-phone>
+    
+    <view-phone label="Mobiles" items="vm.client.mobile"></view-phone>
+    
+    <view-item label="Gender" model="{{vm.client.gender}}"></view-item>
+    
+    <view-item label="Age" model="{{vm.client.age}}"></view-item>
+        
+    <view-item label="Address" model="{{vm.client.address}}"></view-item>
+    
+    <view-item label="Country" model="{{vm.client.country}}"></view-item>
+    
+    <view-item label="State" model="{{vm.client.state}}"></view-item>
+
+    <view-item label="City" model="{{vm.client.city}}"></view-item>
+
+    <view-item label="Pin Code" model="{{vm.client.pinCode}}"></view-item>
+    
+    <view-item label="Created Date" model="{{vm.client.createTs | dateFormatter}}"></view-item>
+    
+    <view-items label="Allergies" items="vm.client.alergicTo"></view-items>
+    
+    <view-items label="Med. History" items="vm.client.medicalHistory"></view-items>
+    
+    <div class="view-details-item-div">
+        <label class="view-details-item-label">Requests: </label>
+        <span class="view-details-item-span">
+            <span class="list-view-items">
+                Total Request: 
+                <span class="label label-info">{{vm.totalReqCount}}</span>
+            </span>
+            <span class="list-view-items">
+                In Proc Request: 
+                <span class="label label-primary">{{vm.inProcReqCount}}</span>
+            </span>
+            <span class="list-view-items">
+                Closed Request: 
+                <span class="label label-warning">{{vm.closedReqCount}}</span>
+            </span>
+        </span>
+    </div>
+    
+    <single-button label="Back" on-click="vm.onBackClick()"></single-button>
+	
+</div>

@@ -11,18 +11,23 @@ angular.module('cmaManagementApp').controller('vendorLoginController',
         }
         
         function loadRememberedStorage(){
-            if(commonUtility.is3DValidKey(localStorages.get("VENDOR_UID")) &&
-                commonUtility.is3DValidKey(localStorages.get("VENDOR_PASS"))){
-                vm.email = localStorages.get("VENDOR_UID");
-                vm.pass = localStorages.get("VENDOR_PASS");
+            if(commonUtility.is3DValidKey(
+                localStorages.get(constantLoader.storageTypes.VENDOR_UID)) &&
+                commonUtility.is3DValidKey(
+                localStorages.get(constantLoader.storageTypes.VENDOR_PASS))){
+                vm.email = localStorages.get(constantLoader.storageTypes.VENDOR_UID);
+                vm.pass = localStorages.get(constantLoader.storageTypes.VENDOR_PASS);
                 vm.isRemember = true;
             }
         }
         
         function setRememberedStorage(){
             if(vm.isRemember){
-                localStorages.set("VENDOR_UID", vm.email);
-                localStorages.set("VENDOR_PASS", vm.pass);
+                localStorages.set(constantLoader.storageTypes.VENDOR_UID, vm.email);
+                localStorages.set(constantLoader.storageTypes.VENDOR_PASS, vm.pass);
+            }else{
+                localStorages.remove(constantLoader.storageTypes.VENDOR_UID);
+                localStorages.remove(constantLoader.storageTypes.VENDOR_PASS);
             }
         }
         

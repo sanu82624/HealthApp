@@ -12,5 +12,9 @@ angular.module('cmaManagementApp').controller('monitoringGroupController',
         vm.onVendorClick = function(){
             commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_ALL_VENDOR);
         };
+        
+        vm.onClientClick = function(){
+            commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_ALL_CLIENT);
+        };
     }
 );

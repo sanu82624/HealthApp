@@ -145,6 +145,18 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/monitor/monitorAllRequest.html',
                 controller: 'monitorAllRequestController as vm'
             }).
+            when('/monitorReg',{
+                templateUrl: 'views/monitor/monitorRegistration.html',
+                controller: 'monitorRegistrationController as vm'
+            }).
+            when('/monitorAllClient',{
+                templateUrl: 'views/monitor/monitorAllClient.html',
+                controller: 'monitorAllClientController as vm'
+            }).
+            when('/monitorClientDetails',{
+                templateUrl: 'views/monitor/monitorClientDetails.html',
+                controller: 'monitorClientDetailsController as vm'
+            }).
             when('/about',{
                 templateUrl: 'views/common/aboutUs.html',
                 controller: 'aboutUsController as vm'

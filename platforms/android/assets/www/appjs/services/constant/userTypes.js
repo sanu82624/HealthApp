@@ -4,5 +4,6 @@ angular.module('cmaManagementApp')
   .constant('userTypes', {
       
     CLIENT: "CLIENT",
-    VENDOR: "VENDOR"
+    VENDOR: "VENDOR",
+    MONITOR: "MONITOR"
   });

@@ -103,7 +103,7 @@ angular.module('cmaManagementApp').controller('monitorAllVendorController',
 		
         vm.onVendorDetailsClick = function(vendId){
             commonUtility.setRootScopeProperty(
-                constantLoader.rootScopeTypes.ID, vendId);
+                constantLoader.rootScopeTypes.ASSOCIATE_ID, vendId);
             commonUtility.redirectTo(constantLoader.routeTypes.MONITOR_VENDOR_DETAILS);
         };
 

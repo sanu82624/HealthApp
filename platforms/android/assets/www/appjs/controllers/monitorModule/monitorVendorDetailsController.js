@@ -35,9 +35,9 @@ angular.module('cmaManagementApp').controller('monitorVendorDetailsController',
 		
         function loadVendor(){
             if(commonUtility.is3DValidKey(commonUtility.getRootScopeProperty(
-                constantLoader.rootScopeTypes.ID))){
+                constantLoader.rootScopeTypes.ASSOCIATE_ID))){
                 vendorBusiness.getVendorDetails(commonUtility.getRootScopeProperty(
-                    constantLoader.rootScopeTypes.ID)).then(function(response){
+                    constantLoader.rootScopeTypes.ASSOCIATE_ID)).then(function(response){
                     if(response.data.success){
                         vm.vendor = response.data.result;
                         vm.vendor.badge = vm.vendor.active ? 
@@ -65,7 +65,7 @@ angular.module('cmaManagementApp').controller('monitorVendorDetailsController',
         
         function loadLocations(){
             vendorBusiness.loadChildren(commonUtility.getRootScopeProperty(
-                constantLoader.rootScopeTypes.ID)).then(function(response){
+                constantLoader.rootScopeTypes.ASSOCIATE_ID)).then(function(response){
                 if(response.data.success){
                     vm.vendor.locations = response.data.result;
                 }else{
@@ -78,7 +78,7 @@ angular.module('cmaManagementApp').controller('monitorVendorDetailsController',
         
         function loadTickets(){
             vendorBusiness.getAssignedRequests(commonUtility.getRootScopeProperty(
-                constantLoader.rootScopeTypes.ID)).then(function(response){
+                constantLoader.rootScopeTypes.ASSOCIATE_ID)).then(function(response){
                 if(response.data.success){
                     vm.vendor.assignedReqCount = (serviceLoader.filter('filter')(response.data.result, 
                         {status: constantLoader.ticketStatusTypes.ASSIGNED})).length;
