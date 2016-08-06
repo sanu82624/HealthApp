@@ -172,6 +172,15 @@
     outline:0; 
     padding-left: 30px;
 }
+.ui-control-look-small{
+    width: 48%;
+    display: inline-block;
+}
+.ui-control-look-smaller{
+    width: 40%;
+    display: inline-block;
+    margin-left: 15px;
+}
 .ui-control-look-email{
     background: url(../images/email.png) no-repeat 8px 8px; 
 }
@@ -222,6 +231,9 @@
 }
 .ui-control-look-search{
     background: url(../images/search.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-time{
+    background: url(../images/timing.gif) no-repeat 8px 8px; 
 }
 
 .ui-control-label{

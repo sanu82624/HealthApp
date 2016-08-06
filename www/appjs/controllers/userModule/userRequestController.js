@@ -46,23 +46,9 @@ angular.module('cmaManagementApp').controller('userRequestController',
         };
 		
         vm.createNewRequest = function(serviceType){
-            var request = {};
-            request.requestType = serviceType;
-            request.clientId = commonUtility.getRootScopeProperty(
-                constantLoader.rootScopeTypes.ID);
-            request.channel = constantLoader.defaultValues.REQUEST_CHANNEL;
-
-            userBusiness.createNewRequest(request).then(function(response){
-                if(response.data.success){
-                    commonUtility.showAlert(response.data.statusText,
-                        constantLoader.alertTypes.SUCCESS);
-                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
-                }else{
-                    commonUtility.showAlert(response.data.statusText);
-                }
-            }, function(error){
-                commonUtility.showAlert(error.data.statusText);
-            });
+            commonUtility.setRootScopeProperty(
+                constantLoader.rootScopeTypes.REQ_TYPE, serviceType);
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_NEW_REQ_DETAILS);
         };
 		
         vm.onLoadMyRequests = function(){

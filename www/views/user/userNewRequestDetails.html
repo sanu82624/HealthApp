@@ -1,0 +1,31 @@
+<form name="userReqDetailsForm" novalidate="novalidate" id="userReqDetailsForm">
+    <div class="container">
+        <div class="page-title">Request For: {{vm.reqFor}}</div>
+        
+        <date-time-textbox label="Action Date & Time" for="dateAction" required
+            ng-model-d="vm.actionDate" show-validation="userReqDetailsForm.$submitted && 
+                userReqDetailsForm.dateAction.$error.required" 
+            msg="REQ_ACTION_DATE" ng-model-h="vm.actionTime"></date-time-textbox>
+        
+        <normal-textbox label="State" for="txtState" required icon="state" suggestion="STATE"
+            ng-model="vm.userInfo.state" show-validation="userReqDetailsForm.$submitted && 
+                userReqDetailsForm.txtState.$error.required" msg="REQ_STATE"></normal-textbox>
+
+        <normal-textbox label="City" for="txtCity" required icon="sqr" suggestion="CITY"
+            ng-model="vm.userInfo.city" show-validation="userReqDetailsForm.$submitted && 
+                userReqDetailsForm.txtCity.$error.required" msg="REQ_CITY"></normal-textbox>
+
+        <normal-textbox label="Address" for="txtAddress" required icon="address" suggestion="ADDRESS"
+            ng-model="vm.userInfo.address" show-validation="userReqDetailsForm.$submitted && 
+                userReqDetailsForm.txtAddress.$error.required" msg="REQ_ADDRESS"></normal-textbox>
+
+        <pin-textbox label="Pin Code" for="txtPinCode" required
+            ng-model="vm.userInfo.pinCode" show-validation="userReqDetailsForm.$submitted && 
+                userReqDetailsForm.txtPinCode.$error.required"></pin-textbox>
+
+        <save-back-buttons submit-label="Submit" cancel-label="Cancel"
+            on-submit-click="vm.onSubmitClick(this)" 
+            on-cancel-click="vm.onCancelClick()"></save-back-buttons>
+
+    </div>
+</form>

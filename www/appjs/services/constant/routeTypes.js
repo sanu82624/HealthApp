@@ -17,6 +17,7 @@ angular.module('cmaManagementApp')
     USER_PHONE: "userEPhone",
     USER_PASS: "userPass",
     USER_INFO: "userInfo",
+    USER_NEW_REQ_DETAILS: "newReqDet",
     
     VENDOR_LOGIN: "vendorLogin",
     VENDOR_HOME: "groundVendorHome",

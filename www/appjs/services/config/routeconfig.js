@@ -16,6 +16,10 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/user/userNewRequest.html',
                 controller: 'userRequestController as vm'
             }).
+            when('/newReqDet',{
+                templateUrl: 'views/user/userNewRequestDetails.html',
+                controller: 'userNewReqDetailsController as vm'
+            }).
             when('/myReq',{
                 templateUrl: 'views/user/userMyRequest.html',
                 controller: 'userRequestController as vm'
