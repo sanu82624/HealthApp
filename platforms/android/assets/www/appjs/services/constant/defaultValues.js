@@ -35,5 +35,19 @@ angular.module('cmaManagementApp')
                         "{\"code\": \"ACCEPTED\", \"color\": \"primary\"}," +
                         "{\"code\": \"DECLINED\", \"color\": \"danger\"}," +
                         "{\"code\": \"CLOSED\", \"color\": \"success\"}]",
-        REMEMBER_TEXT: "Remember me"
+        REMEMBER_TEXT: "Remember me",
+        DOC_TYPES: ["Audiologist", "Allergist", "Andrologists", "Anesthesiologist",
+                    "Cardiologist", "Cardiovascular Surgeon", "Clinical Neurophysiologist",
+                    "Dentist", "Dermatologist", "Endocrinologist", "Epidemiologists",
+                    "ENT Specialist", "Gastroenterologist", "Gynecologist",
+                    "General Psychiatrist", "General Practitioners", "Hematologists‎",
+                    "Hygienists‎", "Immunologist", "Infectious Disease Specialist",
+                    "Internal Medicine Specialists", "Internists", "Medical Geneticist",
+                    "Microbiologist", "Neonatologist", "Nephrologists", "Neurologist",
+                    "Neurosurgeons", "Oncologist", "Ophthalmologist", "Orthopedic Surgeon",
+                    "Orthopedist", "Primatologist", "Pale pathologist", "Parasitologist",
+                    "Pathologists", "Pediatrician", "Plastic Surgeon", "Physiologists",
+                    "Physiatrist", "Podiatrists", "Psychiatrists", "Pulmonologist",
+                    "Radiologists", "Reproductive Endocrinologist", "Rheumatologist",
+                    "Thoracic Oncologist", "Urologist"]
   });

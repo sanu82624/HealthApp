@@ -16,7 +16,8 @@ angular.module('cmaManagementApp')
             showValidation: "=",
             readOnly: "=",
             selectionChanged: "&",
-            icon: "@"
+            icon: "@",
+            specials: "@"
         },
         template: function(element, attrs){
             
@@ -26,6 +27,10 @@ angular.module('cmaManagementApp')
             var isSelect = attrs.hasOwnProperty('sel');
             var iconCss = attrs.hasOwnProperty('icon') ? ("ui-control-look-" + attrs.icon) : "";
             var isLabelShow = attrs.hasOwnProperty('label');
+            var modelItem = attrs.hasOwnProperty('modelBinding') ? 
+                ("item." + attrs.modelBinding) : "item";
+            var labelItem = attrs.hasOwnProperty('labelBinding') ? 
+                ("item." + attrs.labelBinding) : "item";
             
             var html =  '<div class="form-group">' +
                             '<div ng-show="' + isLabelShow + '">' +
@@ -42,10 +47,11 @@ angular.module('cmaManagementApp')
                                 'class="form-control ui-control-look ' + iconCss + '" ' 
                                 + required + ' >' +
                                 (isSelect ?
-                                ('<option value="">' + constantLoader.defaultValues.COMBO_SELECT_MSG + '</option>') : '') +
+                                ('<option value="" class="combo-please-select-text">' + 
+                                    constantLoader.defaultValues.COMBO_SELECT_MSG + '</option>') : '') +
                                 '<option data-ng-repeat="item in items" ' +
-                                    'value={{item.' + attrs.modelBinding + 
-                                    '}} >{{item.' + attrs.labelBinding + '}}</option>' +
+                                    'value={{' + modelItem + 
+                                    '}} >{{' + labelItem + '}}</option>' +
                             '</select>' +
                         '</div>';
         

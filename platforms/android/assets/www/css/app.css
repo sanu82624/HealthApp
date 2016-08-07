@@ -172,6 +172,15 @@
     outline:0; 
     padding-left: 30px;
 }
+.ui-control-look-small{
+    width: 48%;
+    display: inline-block;
+}
+.ui-control-look-smaller{
+    width: 40%;
+    display: inline-block;
+    margin-left: 15px;
+}
 .ui-control-look-email{
     background: url(../images/email.png) no-repeat 8px 8px; 
 }
@@ -222,6 +231,9 @@
 }
 .ui-control-look-search{
     background: url(../images/search.gif) no-repeat 8px 8px; 
+}
+.ui-control-look-time{
+    background: url(../images/timing.gif) no-repeat 8px 8px; 
 }
 
 .ui-control-label{
@@ -279,6 +291,43 @@ body{
     background: #2D89EF !important;
     float: right;
     font-weight: 200;
+}
+
+.dash-div-box-big-pic{
+    width:100px; 
+    height:120px;
+    margin: 5px 3px;
+    text-align: center; 
+    padding-top: 100px;
+    display: inline-block;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-box-shadow: 0px 0px 3px rgba(18,30,49,.75);
+    -moz-box-shadow: 0px 0px 3px rgba(18,30,49,.75);
+    box-shadow: 0px 0px 3px rgba(0,0,0,.75);
+    font-family: sans-serif;
+    text-shadow: 0 1px hsla(0, 0%, 0%, 0.25);
+}
+.dash-div-box-big-pic-doc{
+    background: url(../images/doc.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-amb{
+    background: url(../images/amb.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-med{
+    background: url(../images/med.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-pat{
+    background: url(../images/pat.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-hos{
+    background: url(../images/hos.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-cln{
+    background: url(../images/cln.png) no-repeat center 3px;
 }
 
 .dash-div-box{
@@ -666,3 +715,35 @@ body{
 .checkbox-success input[type="checkbox"]:checked + label::after {
   color: #fff; }
 /*checkbox - end*/
+
+/*ng-view animation - start*/
+.slideup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+.slideup.ng-enter,
+.slideup.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slideup.ng-enter {
+    top: 100%;
+}
+.slideup.ng-enter-active {
+    top: 0;
+}
+.slideup.ng-leave {
+    top: 0;
+}
+.slideup.ng-leave-active {
+    top: -100%;
+}
+/*ng-view animation - end*/
+
+.combo-please-select-text{
+    font-style: italic; 
+    color: blue;
+}

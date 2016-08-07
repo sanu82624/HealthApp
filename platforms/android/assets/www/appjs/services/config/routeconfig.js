@@ -16,6 +16,10 @@ angular.module('routerConfigModule', ['ngRoute'])
                 templateUrl: 'views/user/userNewRequest.html',
                 controller: 'userRequestController as vm'
             }).
+            when('/newReqDet',{
+                templateUrl: 'views/user/userNewRequestDetails.html',
+                controller: 'userNewReqDetailsController as vm'
+            }).
             when('/myReq',{
                 templateUrl: 'views/user/userMyRequest.html',
                 controller: 'userRequestController as vm'
@@ -55,11 +59,6 @@ angular.module('routerConfigModule', ['ngRoute'])
             when('/userEPhone',{
                 templateUrl: 'views/user/userEPhone.html',
                 controller: 'userEPhoneController as vm'
-            }).
-            when('/serviceManagementHome',
-            {
-                templateUrl: 'views/serviceManagementLanding.html',
-                controller: 'serviceManagementController'
             }).
             when('/groundVendorHome',{
                 templateUrl: 'views/vendor/vendorLanding.html',

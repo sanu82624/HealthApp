@@ -58,7 +58,6 @@
     <script src="appjs/controllers/vendorModule/vendorLocController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorLocViewController.js"></script>
     <script src="appjs/controllers/vendorModule/vendorAssignmentController.js"></script>
-    <script src="appjs/controllers/serviceManagementModule/serviceManagementController.js"></script>
     <script src="appjs/controllers/userModule/userLoginController.js"></script>
     <script src="appjs/controllers/userModule/userChangePassController.js"></script>
     <script src="appjs/controllers/userModule/userInfoController.js"></script>
@@ -67,6 +66,7 @@
     <script src="appjs/controllers/userModule/userEmailsController.js"></script>
     <script src="appjs/controllers/userModule/userEPhoneController.js"></script>
     <script src="appjs/controllers/userModule/userLandingController.js"></script>
+    <script src="appjs/controllers/userModule/userNewReqDetailsController.js"></script>
     <script src="appjs/controllers/appHomeController.js"></script>
     <script src="appjs/services/config/routeconfig.js"></script>
     <script src="appjs/controllers/userModule/userRequestController.js"></script>
@@ -124,6 +124,8 @@
     <script src="appjs/directives/viewLocs.js"></script>
     <script src="appjs/directives/rememberBox.js"></script>
     <script src="appjs/directives/viewItems.js"></script>
+    <script src="appjs/directives/dateTimeTextbox.js"></script>
+    <script src="appjs/directives/dashboardPicBox.js"></script>
     
     <!--app css files-->
     <link href="css/app.css" rel="stylesheet">
@@ -144,7 +146,7 @@
                     <li class="list-group-item menu-item menu-item-contact" ng-click="vm.onContactClick()">Contact Us</li>
                     <li class="list-group-item menu-item menu-item-work" ng-click="vm.onWorkClick()">How it works</li>
                     <li class="list-group-item menu-item menu-item-home" ng-hide="true">Exit App</li>
-                    <li class="list-group-item menu-item italic">Version - 0.0.9</li>
+                    <li class="list-group-item menu-item italic">Version - 0.0.10</li>
                 </ul>
             </div>
             <div id="page-content-wrapper" style="margin:0px; padding:0px; height:100%;">
@@ -166,7 +168,7 @@
                     </div>
                 </div>
 
-                <div style="padding-top: 110px; height:100%;" ng-view></div>
+                <div style="padding-top: 110px; height:100%;" class="slideup" ng-view></div>
             </div>
         </div>
     </div>
