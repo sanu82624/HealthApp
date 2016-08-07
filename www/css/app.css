@@ -293,6 +293,43 @@ body{
     font-weight: 200;
 }
 
+.dash-div-box-big-pic{
+    width:100px; 
+    height:120px;
+    margin: 5px 3px;
+    text-align: center; 
+    padding-top: 100px;
+    display: inline-block;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-box-shadow: 0px 0px 3px rgba(18,30,49,.75);
+    -moz-box-shadow: 0px 0px 3px rgba(18,30,49,.75);
+    box-shadow: 0px 0px 3px rgba(0,0,0,.75);
+    font-family: sans-serif;
+    text-shadow: 0 1px hsla(0, 0%, 0%, 0.25);
+}
+.dash-div-box-big-pic-doc{
+    background: url(../images/doc.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-amb{
+    background: url(../images/amb.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-med{
+    background: url(../images/med.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-pat{
+    background: url(../images/pat.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-hos{
+    background: url(../images/hos.png) no-repeat center 3px;
+}
+.dash-div-box-big-pic-cln{
+    background: url(../images/cln.png) no-repeat center 3px;
+}
+
 .dash-div-box{
     height: 90px;
     width: 90px;

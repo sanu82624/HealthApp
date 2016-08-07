@@ -1,9 +1,19 @@
 <div class="container">
     <div class="page-title">New Request</div>
+
     <div style="display: block;text-align: center;">
-        <dashboard-box label="{{type.name}}" icon="plus" ng-repeat="type in vm.serviceTypes"
-                on-click="vm.createNewRequest(type.code)"></dashboard-box>
+        <dashboard-pic-box label="Ambulance" icon="amb" 
+            on-click="vm.createNewRequest('AMB')"></dashboard-pic-box>
+        <dashboard-pic-box label="Doctor" icon="doc" 
+            on-click="vm.createNewRequest('DOC')"></dashboard-pic-box>
+        <dashboard-pic-box label="Medicine" icon="med" 
+            on-click="vm.createNewRequest('MED')"></dashboard-pic-box>
+        <dashboard-pic-box label="Pathology" icon="pat" 
+            on-click="vm.createNewRequest('PAT')"></dashboard-pic-box>
+        <dashboard-pic-box label="Hospital" icon="hos" 
+            on-click="vm.createNewRequest('HOS')"></dashboard-pic-box>
+        <dashboard-pic-box label="Clinic" icon="cln" 
+            on-click="vm.createNewRequest('CLN')"></dashboard-pic-box>
     </div>
-    
     <single-button label="Back" on-click="vm.onBacktoUserHome()"></single-button>
 </div>
