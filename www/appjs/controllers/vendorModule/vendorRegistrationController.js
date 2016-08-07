@@ -8,6 +8,7 @@ angular.module('cmaManagementApp').controller('vendorRegistrationController',
         vm.countryPhoneCode = constantLoader.defaultValues.BLANK_ISD_CODE;
         vm.serviceTypes = [];
         vm.countryList = [];
+        vm.docTypes = constantLoader.defaultValues.DOC_TYPES;
         
         function initialized(){
             loadServiceTypes();

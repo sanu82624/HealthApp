@@ -20,7 +20,13 @@
             items="vm.serviceTypes" msg="REQ_SERVICE_TYPE" required
             show-validation="vendorRegForm.$submitted && 
                 vendorRegForm.txtType.$error.required" readOnly="false"></combobox>
-
+        
+        <combobox label="Doctor Speciality" for="docType" sel icon="prod"
+            ng-model="vm.docType" readOnly="false" ng-show="vm.type === 'DOC'"
+            items="vm.docTypes" msg="REQ_SERVICE_TYPE" required
+            show-validation="vendorRegForm.$submitted && (vm.type === 'DOC') &&
+                vendorRegForm.docType.$error.required" ></combobox>
+        
         <combobox label="Country" for="txtCountry" sel icon="pie"
             label-binding="name" model-binding="isoCode" ng-model="vm.country"
             items="vm.countryList" msg="REQ_COUNTRY" required

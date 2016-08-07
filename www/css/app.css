@@ -705,3 +705,8 @@ body{
     top: -100%;
 }
 /*ng-view animation - end*/
+
+.combo-please-select-text{
+    font-style: italic; 
+    color: blue;
+}
