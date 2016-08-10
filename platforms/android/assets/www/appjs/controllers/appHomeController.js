@@ -16,10 +16,18 @@ angular.module('cmaManagementApp').controller('appHomeController',
         }
 
         vm.onServiceManagementClick = function(){
-//            commonUtility.redirectTo("serviceManagementHome");
-//            console.log(navigator);
-//            navigator.app.exitApp();
-//            window.close();
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i)) {
+                // IOS DEVICE
+                history.go(-1);
+            } else if (userAgent.match(/Android/i)) {
+                // ANDROID DEVICE
+                commonUtility.showAlert(navigator.app);
+                navigator.app.backHistory();
+            } else {
+                // EVERY OTHER DEVICE
+                history.go(-1);
+            }
 
         };
 

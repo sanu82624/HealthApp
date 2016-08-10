@@ -42,7 +42,7 @@ angular.module('cmaManagementApp').controller('userRequestController',
         }
 
         vm.onBacktoUserHome = function(){
-            commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_LAND);
         };
 		
         vm.createNewRequest = function(serviceType){

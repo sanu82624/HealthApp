@@ -6,7 +6,7 @@ angular.module('cmaManagementApp').controller('userProfileController',
         var vm = this;
 
         vm.onCancelClick = function(){
-            commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_LAND);
         };
 
         vm.onMedHisClick = function(){

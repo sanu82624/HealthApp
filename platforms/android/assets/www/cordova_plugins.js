@@ -20,6 +20,21 @@ module.exports = [
         "merges": [
             "navigator.home"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/network.js",
+        "id": "cordova-plugin-network-information.network",
+        "clobbers": [
+            "navigator.connection",
+            "navigator.network.connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+        "id": "cordova-plugin-network-information.Connection",
+        "clobbers": [
+            "Connection"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -28,7 +43,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-device": "1.1.2",
     "cordova.custom.plugins.exitapp": "1.0.0",
-    "org.apache.cordova.home": "0.2.6"
+    "org.apache.cordova.home": "0.2.6",
+    "cordova-plugin-network-information": "1.2.2-dev"
 };
 // BOTTOM OF METADATA
 });

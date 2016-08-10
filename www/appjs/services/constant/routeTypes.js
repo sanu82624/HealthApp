@@ -8,7 +8,7 @@ angular.module('cmaManagementApp')
     USER_PROFILE: "userProfile",
     USER_NEW_REQ: "newReq",
     USER_MY_REQ: "myReq",
-    USER_LANDING: "userLanding",
+    USER_LAND: "userLand",
     USER_LOGIN: "login",
     USER_REG: "reg",
     USER_MH: "userMH",

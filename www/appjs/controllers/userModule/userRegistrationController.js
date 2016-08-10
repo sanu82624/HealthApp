@@ -63,7 +63,7 @@ angular.module('cmaManagementApp').controller('userRegistrationController',
                 
                     commonUtility.showAlert(constantLoader.messages.USER_REG_SUCCESS,
                         constantLoader.alertTypes.SUCCESS);
-                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LAND);
                 } else{
                     commonUtility.showAlert(response.data.statusText);
                 }

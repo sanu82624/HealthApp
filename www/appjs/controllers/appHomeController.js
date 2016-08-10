@@ -16,11 +16,7 @@ angular.module('cmaManagementApp').controller('appHomeController',
         }
 
         vm.onServiceManagementClick = function(){
-//            commonUtility.redirectTo("serviceManagementHome");
-//            console.log(navigator);
-//            navigator.app.exitApp();
-//            window.close();
-
+            
         };
 
         vm.onVendorClick = function(){

@@ -21,10 +21,10 @@ angular.module('cmaManagementApp').controller('userNewReqDetailsController',
                     vm.userInfo = response.data.result;
                 }else{
                     commonUtility.showAlert(response.data.statusText);
-                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LAND);
                 }
             }, function(error){
-                commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+                commonUtility.redirectTo(constantLoader.routeTypes.USER_LAND);
             });
         }
 
@@ -45,7 +45,7 @@ angular.module('cmaManagementApp').controller('userNewReqDetailsController',
                     commonUtility.showAlert(response.data.statusText,
                         constantLoader.alertTypes.SUCCESS);
                     commonUtility.deleteRootScopeProperty(constantLoader.rootScopeTypes.REQ_TYPE);
-                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LAND);
                 }else{
                     commonUtility.showAlert(response.data.statusText);
                 }
@@ -56,7 +56,7 @@ angular.module('cmaManagementApp').controller('userNewReqDetailsController',
 		
         vm.onCancelClick = function(){
             commonUtility.deleteRootScopeProperty(constantLoader.rootScopeTypes.REQ_TYPE);
-            commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+            commonUtility.redirectTo(constantLoader.routeTypes.USER_LAND);
         };
         
         initialized();

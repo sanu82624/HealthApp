@@ -486,7 +486,7 @@ body{
     margin-left: 20px;
 }
 .list-group-div-text-block, .list-group-div-text-block-single{
-    width: 85%; 
+    width: 92%; 
     height:100%; 
     clear: right; 
     display: inline-block;
@@ -497,7 +497,7 @@ body{
     height: 1px;
 }
 .list-group-div-btn-block, .list-group-div-btn-block-single{
-    width: 12%; 
+    width: 7%; 
     height:100%; 
     clear: left; 
     float: right; 

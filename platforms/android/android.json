@@ -19,6 +19,10 @@
                         {
                             "xml": "<feature name=\"Home\"><param name=\"android-package\" value=\"org.apache.cordova.home.Home\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -28,6 +32,16 @@
                     "/*": [
                         {
                             "xml": "<feature name=\"ExitApp\"><param name=\"android-package\" value=\"cordova.custom.plugins.exitapp.ExitApp\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         }
                     ]
@@ -46,6 +60,9 @@
             "PACKAGE_NAME": "com.coolappz.HealthApp"
         },
         "org.apache.cordova.home": {
+            "PACKAGE_NAME": "com.coolappz.HealthApp"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.coolappz.HealthApp"
         }
     },
@@ -71,12 +88,28 @@
             "merges": [
                 "navigator.home"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-network-information/www/network.js",
+            "id": "cordova-plugin-network-information.network",
+            "clobbers": [
+                "navigator.connection",
+                "navigator.network.connection"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+            "id": "cordova-plugin-network-information.Connection",
+            "clobbers": [
+                "Connection"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-device": "1.1.2",
         "cordova.custom.plugins.exitapp": "1.0.0",
-        "org.apache.cordova.home": "0.2.6"
+        "org.apache.cordova.home": "0.2.6",
+        "cordova-plugin-network-information": "1.2.2-dev"
     }
 }

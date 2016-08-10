@@ -52,7 +52,7 @@ angular.module('cmaManagementApp').controller('userLoginController',
                         constantLoader.rootScopeTypes.IS_USER_TYPE_SHOW, false);
                 
                     setRememberedStorage();
-                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LANDING);
+                    commonUtility.redirectTo(constantLoader.routeTypes.USER_LAND);
                 } else{
                     commonUtility.showAlert(constantLoader.messages.USER_LOGIN_WRONG);
                 }

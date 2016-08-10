@@ -18,6 +18,9 @@
         },
         "org.apache.cordova.home": {
             "PACKAGE_NAME": "com.coolappz.HealthApp"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.coolappz.HealthApp"
         }
     },
     "dependent_plugins": {}
