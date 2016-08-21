@@ -5,5 +5,6 @@ angular.module('cmaManagementApp')
       
     CLIENT: "CLIENT",
     VENDOR: "VENDOR",
-    MONITOR: "MONITOR"
+    MONITOR: "MONITOR",
+    ORCH: "ORCH"
   });

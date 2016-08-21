@@ -43,6 +43,9 @@ angular.module('cmaManagementApp')
     MONITOR_ALL_CLIENT: "monitorAllClient",
     MONITOR_CLIENT_DETAILS: "monitorClientDetails",
     
+    ORCH_LOGIN: "orchLogin",
+    ORCH_REG: "orchReg",
+    
     COMMON_ABOUT: "about",
     COMMON_CONTACT: "contact",
     COMMON_WORK: "work"

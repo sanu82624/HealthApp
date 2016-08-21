@@ -1,0 +1,22 @@
+<form name="orchLoginForm" novalidate="novalidate" id="orchLoginForm">
+    <div class="container">
+        <div class="container">
+            <div class="page-title">Login into Orchestration account</div>
+
+            <email-textbox label="Email" for="txtEmail" ng-model="vm.email"
+                show-validation="orchLoginForm.$submitted && (orchLoginForm.txtEmail.$error.pattern || 
+                                orchLoginForm.txtEmail.$error.required)" required>
+            </email-textbox>
+
+            <password-textbox label="Password" for="txtPass" ng-model="vm.pass"
+                show-validation="orchLoginForm.$submitted && 
+                    orchLoginForm.txtPass.$error.required" required></password-textbox>
+            
+            <remember-box ng-model="vm.isRemember" for="chkRemember"></remember-box>
+            
+            <save-back-buttons submit-label="Sign In" cancel-label="Sign Up"
+                on-submit-click="vm.onLoginClick(this)" login
+                on-cancel-click="vm.onCreateAccountClick()"></save-back-buttons>
+        </div>
+    </div>
+</form>

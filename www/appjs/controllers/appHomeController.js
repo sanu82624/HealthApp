@@ -16,7 +16,7 @@ angular.module('cmaManagementApp').controller('appHomeController',
         }
 
         vm.onServiceManagementClick = function(){
-            
+            commonUtility.redirectTo(constantLoader.routeTypes.ORCH_LOGIN);
         };
 
         vm.onVendorClick = function(){
